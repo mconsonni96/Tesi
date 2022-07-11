@@ -6,10 +6,7 @@
 \origin unavailable
 \textclass article
 \begin_preamble
-1. Documento > Impostazioni > Codifica > Altro: Default di lingua (no inputenc)
 
-2. Documento > Impostazioni > Preambolo di Latex 
-Copia questo:
 %------------------------------------------------------------------------------
 %	REQUIRED PACKAGES AND  CONFIGURATIONS
 %------------------------------------------------------------------------------
@@ -63,7 +60,7 @@ Copia questo:
 \usepackage{lipsum} % Insert dummy text
 \usepackage{tcolorbox} % Create coloured boxes (e.g. the one for the key-words)
 
-\input{Configuration_files/config}
+\input{../Configuration_files/config}
 \end_preamble
 \use_default_options true
 \maintain_unincluded_children false

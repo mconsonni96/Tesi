@@ -61,6 +61,7 @@
 \usepackage{tcolorbox} % Create coloured boxes (e.g. the one for the key-words)
 
 \input{../Configuration_files/config}
+\makeatletter
 \end_preamble
 \use_default_options true
 \maintain_unincluded_children false
