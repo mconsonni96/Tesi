@@ -62,7 +62,6 @@
 \usepackage{tcolorbox} % Create coloured boxes (e.g. the one for the key-words)
 
 \input{Configuration_files/config}
-\makeatletter
 \end_preamble
 \options 11pt,a4paper,utf8
 \use_default_options true
@@ -142,7 +141,7 @@
 
 \begin_layout Standard
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -303,7 +302,7 @@ keywords}{Time-Tagging Module (TTM), Time-to-Digital Converter (TDC), IP-Core,
 
 \begin_layout Standard
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
