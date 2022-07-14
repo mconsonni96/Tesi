@@ -7,6 +7,7 @@
 \textclass article
 \begin_preamble
 
+
 %------------------------------------------------------------------------------
 %	REQUIRED PACKAGES AND  CONFIGURATIONS
 %------------------------------------------------------------------------------
@@ -60,8 +61,94 @@
 \usepackage{lipsum} % Insert dummy text
 \usepackage{tcolorbox} % Create coloured boxes (e.g. the one for the key-words)
 
-\input{../Configuration_files/config}
+% Configuration package
+\usepackage[bottom=2.0cm,top=2.0cm,left=2.0cm,right=2.0cm]{geometry}
+\raggedbottom 
+
+% Create color blue (-> manuale grafica coordinata:  https://www.polimi.it/fileadmin/user_upload/il_Politecnico/grafica-coordinata/2015_05_11_46xy_manuale_grafica_coordinata.pdf)
+\definecolor{blue}{cmyk}{0.4,0.1,0,0.4}
+%\definecolor{shadecolor}{cmyk}{0.4,0.1,0,0.4}
+\usepackage{xcolor}
+\colorlet{shadecolor}{blue!60}
+% Custom theorem environments
+\declaretheoremstyle[
+  headfont=\color{blue}\normalfont\bfseries,
+  bodyfont=\color{black}\normalfont\itshape,
+]{colored}
+
+\captionsetup[figure]{labelfont={color=blue}} % Set colour of the captions
+\captionsetup[table]{labelfont={color=blue}} % Set colour of the captions
+\captionsetup[algorithm]{labelfont={color=blue}} % Set colour of the captions
+
+\theoremstyle{colored}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}{Proposition}[section]
+
+% Enhances the features of the standard "table" and "tabular" environments.
+\newcommand\T{\rule{0pt}{2.6ex}}
+\newcommand\B{\rule[-1.2ex]{0pt}{0pt}}
+
+% Algorithm description
+\newcounter{algsubstate}
+\renewcommand{\thealgsubstate}{\alph{algsubstate}}
+\newenvironment{algsubstates}{
+    \setcounter{algsubstate}{0}%
+    \renewcommand{\STATE}{%
+    \stepcounter{algsubstate}%
+    \Statex {\small\thealgsubstate:}\space}
+    }{}
+    
+% Custom theorem environment
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+% Custom itemize environment
+\setlist[itemize,1]{label=$\bullet$}
+\setlist[itemize,2]{label=$\circ$}
+\setlist[itemize,3]{label=$-$}
+\setlist{nosep}
+
+% Create command for background pic
+\newcommand\BackgroundPic{% Adding background picture
+	\put(237,365){
+	    \parbox[b][\paperheight]{\paperwidth}{%
+	    \vfill
+		\centering
+		\transparent{0.4}
+		\includegraphics[width=0.44\paperwidth]{raggiera_polimi}%
+		\vfill}
+		}
+}
+
+% Set indentation
+\setlength\parindent{0pt}
+
+% Custom title commands
+\titleformat{\section}
+{\color{blue}\normalfont\Large\bfseries}
+{\color{blue}\thesection.}{1em}{}
+\titlespacing*{\section}
+{0pt}{3.3ex}{3.3ex}
+
+\titleformat{\subsection}
+{\color{blue}\normalfont\large\bfseries}
+{\color{blue}\thesubsection.}{1em}{}
+\titlespacing*{\subsection}
+{0pt}{3.3ex}{3.3ex}
+
+% Custom headers and footers
+\pagestyle{fancy}
+\fancyhf{}
+      
+\fancyfoot{}
+\fancyfoot[C]{\thepage} % page
+\renewcommand{\headrulewidth}{0mm} % headrule width
+\renewcommand{\footrulewidth}{0mm} % footrule width
+
+%%
 \makeatletter
+%%
 \end_preamble
 \use_default_options true
 \maintain_unincluded_children false
@@ -135,12 +222,8 @@
 
 \begin_body
 
-\begin_layout Section
-Introduction
-\end_layout
-
-\begin_layout Standard
-
+\begin_layout Section*
+Acknowledgements
 \end_layout
 
 \end_body

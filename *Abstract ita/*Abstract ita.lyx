@@ -7,6 +7,7 @@
 \textclass article
 \begin_preamble
 
+
 %------------------------------------------------------------------------------
 %	REQUIRED PACKAGES AND  CONFIGURATIONS
 %------------------------------------------------------------------------------
@@ -60,8 +61,7 @@
 \usepackage{lipsum} % Insert dummy text
 \usepackage{tcolorbox} % Create coloured boxes (e.g. the one for the key-words)
 
-\input{../Configuration_files/config}
-\makeatletter
+\input{Configuration_files/config}
 \end_preamble
 \use_default_options true
 \maintain_unincluded_children false
@@ -135,12 +135,8 @@
 
 \begin_body
 
-\begin_layout Section
-Introduction
-\end_layout
-
-\begin_layout Standard
-
+\begin_layout Section*
+Abstract in lingua italiana
 \end_layout
 
 \end_body
