@@ -346,7 +346,7 @@ height "0.4pt"
 
 \begin_layout Standard
 \begin_inset Box Frameless
-position "t"
+position "c"
 hor_pos "c"
 has_inner_box 1
 inner_pos "t"
@@ -364,15 +364,19 @@ backgroundcolor "none"
 status open
 
 \begin_layout Plain Layout
-\begin_inset space \enskip{}
+\begin_inset VSpace defskip
 \end_inset
 
 
 \end_layout
 
 \begin_layout Plain Layout
+\begin_inset space \enskip{}
+\end_inset
+
+
 \begin_inset Box Frameless
-position "t"
+position "c"
 hor_pos "c"
 has_inner_box 1
 inner_pos "c"
@@ -488,10 +492,10 @@ Academic Year:
 
 
 \begin_inset Box Frameless
-position "t"
+position "c"
 hor_pos "c"
 has_inner_box 1
-inner_pos "t"
+inner_pos "c"
 use_parbox 0
 use_makebox 0
 width "74col%"
