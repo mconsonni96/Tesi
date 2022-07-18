@@ -40,6 +40,7 @@
 % PACKAGES FOR ALGORITHMS (PSEUDO-CODE)
 \usepackage{algorithm}
 \usepackage{algorithmic}
+%\usepackage{algpseudocode}
 
 % PACKAGES FOR REFERENCES & BIBLIOGRAPHY
 %\usepackage[colorlinks=true,linkcolor=black,anchorcolor=black,citecolor=black,filecolor=black,menucolor=black,runcolor=black,urlcolor=black]{hyperref} % Adds clickable links at references
@@ -66,9 +67,10 @@
 
 % Create color blue (-> manuale grafica coordinata:  https://www.polimi.it/fileadmin/user_upload/il_Politecnico/grafica-coordinata/2015_05_11_46xy_manuale_grafica_coordinata.pdf)
 \definecolor{blue}{cmyk}{0.4,0.1,0,0.4}
-%\definecolor{shadecolor}{cmyk}{0.4,0.1,0,0.4}
+\definecolor{shadecolor}{cmyk}{0.4,0.1,0,0.4}
 \usepackage{xcolor}
 \colorlet{shadecolor}{blue!60}
+\colorlet{cyan}{blue!40}
 % Custom theorem environments
 \declaretheoremstyle[
   headfont=\color{blue}\normalfont\bfseries,
@@ -154,9 +156,6 @@
 \renewcommand{\footrulewidth}{0mm} % footrule width
 
 
-\usepackage{anyfontsize}
-
-\usepackage{bold-extra}
 %\usepackage{fix-cm}
 %\usepackage{cm-super}
 %%
@@ -169,11 +168,11 @@
 \language_package default
 \inputencoding utf8
 \fontencoding global
-\font_roman "cmr" "default"
+\font_roman "palatino" "Latin Modern Roman Caps"
 \font_sans "cmss" "default"
 \font_typewriter "cmtt" "default"
 \font_math "auto" "auto"
-\font_default_family rmdefault
+\font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
@@ -246,7 +245,7 @@
 
 \begin_layout Standard
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -255,6 +254,16 @@ status open
 AddToShipoutPicture*{
 \backslash
 BackgroundPic}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+DO NOT TOUCH! this inset generates the background image
 \end_layout
 
 \end_inset
@@ -286,8 +295,7 @@ BackgroundPic}
 
 \begin_layout Standard
 
-\series bold
-\size larger
+\size largest
 \color blue
 Title
 \end_layout
@@ -696,6 +704,13 @@ filename "A.AppendixA/Appendix A.lyx"
 \end_layout
 
 \begin_layout Standard
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand input
 filename "*Abstract ita/*Abstract ita.lyx"
@@ -746,6 +761,23 @@ Parole chiave:
 \begin_inset CommandInset include
 LatexCommand input
 filename "*Acknowledgements/*Acknowledgements.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "*Guide/guide_to_lyx_for_polimi_thesis.lyx"
 
 \end_inset
 

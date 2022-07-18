@@ -1,13 +1,31 @@
 %% LyX 2.3.6.1 created this file.  For more info, see http://www.lyx.org/.
 %% Do not edit unless you really know what you are doing.
-\documentclass[11pt,english,11pt,a4paper,utf8]{article}
-\usepackage{lmodern}
-\renewcommand{\familydefault}{\rmdefault}
+\documentclass[11pt,a4paper,english]{article}
+\usepackage{mathpazo}
+\renewcommand{\sfdefault}{cmss}
+\renewcommand{\ttdefault}{cmtt}
 \usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
 \usepackage{xcolor}
+\definecolor{shadecolor}{rgb}{1, 0, 0}
+\usepackage{babel}
+\usepackage{float}
+\usepackage{framed}
+\usepackage{url}
 \usepackage{graphicx}
+\usepackage[unicode=true,pdfusetitle,
+ bookmarks=true,bookmarksnumbered=false,bookmarksopen=false,
+ breaklinks=false,pdfborder={0 0 0},pdfborderstyle={},backref=page,colorlinks=false]
+ {hyperref}
 
 \makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+\special{papersize=\the\paperwidth,\the\paperheight}
+
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
 
 
@@ -18,9 +36,8 @@
 \usepackage{titlesec}
 \usepackage{color}
 % PACKAGES FOR LANGUAGE AND FONT
-\usepackage[utf8]{inputenc}
-\usepackage[english]{babel}
-\usepackage[T1]{fontenc} % Font encoding
+%\usepackage[utf8]{inputenc}
+%\usepackage[english]{babel}
 
 % PACKAGES FOR IMAGES
 \usepackage{graphicx}
@@ -46,10 +63,10 @@
 \usepackage{algorithmic}
 
 % PACKAGES FOR REFERENCES & BIBLIOGRAPHY
-\usepackage[colorlinks=true,linkcolor=black,anchorcolor=black,citecolor=black,filecolor=black,menucolor=black,runcolor=black,urlcolor=black]{hyperref} % Adds clickable links at references
+%\usepackage[colorlinks=true,linkcolor=black,anchorcolor=black,citecolor=black,filecolor=black,menucolor=black,runcolor=black,urlcolor=black]{hyperref} % Adds clickable links at references
 \usepackage{cleveref}
 \usepackage[square, numbers, sort&compress]{natbib} % Square brackets, citing references with numbers, citations sorted by appearance in the text and compressed
-\bibliographystyle{plain} % You may use a different style adapted to your field
+%\bibliographystyle{plain} % You may use a different style adapted to your field
 
 % PACKAGES FOR THE APPENDIX
 \usepackage{appendix}
@@ -70,7 +87,10 @@
 
 % Create color blue (-> manuale grafica coordinata:  https://www.polimi.it/fileadmin/user_upload/il_Politecnico/grafica-coordinata/2015_05_11_46xy_manuale_grafica_coordinata.pdf)
 \definecolor{blue}{cmyk}{0.4,0.1,0,0.4}
-
+%\definecolor{shadecolor}{cmyk}{0.4,0.1,0,0.4}
+\usepackage{xcolor}
+\colorlet{shadecolor}{blue!60}
+\colorlet{cyan}{blue!40}
 % Custom theorem environments
 \declaretheoremstyle[
   headfont=\color{blue}\normalfont\bfseries,
@@ -138,6 +158,14 @@
 \titlespacing*{\subsection}
 {0pt}{3.3ex}{3.3ex}
 
+
+\titleformat{\subsubsection}
+{\color{blue}\normalfont\large\bfseries}
+{\color{blue}\thesubsubsection.}{1em}{}
+\titlespacing*{\subsubsection}
+{0pt}{3.3ex}{3.3ex}
+
+
 % Custom headers and footers
 \pagestyle{fancy}
 \fancyhf{}
@@ -147,54 +175,50 @@
 \renewcommand{\headrulewidth}{0mm} % headrule width
 \renewcommand{\footrulewidth}{0mm} % footrule width
 
+
+\usepackage{anyfontsize}
+
+\usepackage{bold-extra}
+%\usepackage{fix-cm}
+%\usepackage{cm-super}
 %%
-\makeatletter
+%\makeatletter
 %%
 
 \makeatother
 
-\usepackage{babel}
 \begin{document}
-%\newcommand{\advisor}{Prof. Nicola Lusardi} 
-% IF AND ONLY IF you need to modify the co-supervisors you also have to modify the file Configuration_files/title_page.tex (ONLY where it is marked) 
-%\newcommand{\firstcoadvisor}{Name Surname} 
-% insert if any otherwise comment 
-%\newcommand{\secondcoadvisor}{Name Surname} 
-% -> academic year 
-%\newcommand{\YEAR}{2021-2022}
-%
-%\renewcommand{\abstract}{Insert Abstract here}
-% 
-\newcommand{\keywords}{Time-Tagging Module (TTM), Time-to-Digital Converter (TDC), IP-Core, Field-Programmable Gate Array (FPGA), USB 3.0}
-
 \AddToShipoutPicture*{\BackgroundPic}
 
 \hspace{-0.6cm}\includegraphics[width=0.6\textwidth]{Images/logo_polimi_ing_indinf}
 
 \vspace{-1mm}
 
-\textbf{\textcolor{blue}{\Large{}Title}}{\Large\par}
+\textcolor{blue}{\LARGE{}Title}{\LARGE\par}
 
 \vspace{0.5cm}
 
-\textbf{\textsc{\textcolor{blue}{\footnotesize{}Tesi di Laurea Magistrale
-in}}}{\footnotesize\par}
+\textbf{\textsc{\textcolor{blue}{\small{}Tesi di Laurea Magistrale
+in }}}{\small\par}
 
-\textbf{\textsc{\textcolor{blue}{\footnotesize{}Electronics Engineering
-- Ingegneria Elettronica}}}{\footnotesize\par}
+\textbf{\textsc{\textcolor{blue}{\small{}Electronics Engineering -
+Ingegneria Elettronica}}}{\small\par}
 
 \vspace{0.3cm}
 
-\textbf{\large{}Chiara Muscari Tomajoli, 10560224}{\large\par}
+\textbf{\large{}Nome Cognome, codice persona}{\large\par}
 
 \vspace{11pt}
 
 \rule{1\columnwidth}{0.4pt}
 
-\noindent\begin{minipage}[t]{1\columnwidth}%
+\noindent\begin{minipage}[c][1\totalheight][t]{1\columnwidth}%
+\medskip{}
+
 \enskip{}%
-\begin{minipage}[t]{0.24\textwidth}%
-\begin{minipage}[t]{0.9\textwidth}%
+\begin{minipage}[c]{0.24\textwidth}%
+\begin{center}
+\begin{minipage}[t][1\totalheight][c]{0.9\textwidth}%
 \textbf{\scriptsize{}Advisor:}{\scriptsize\par}
 
 {\scriptsize{}Prof. Nicola Lusardi}{\scriptsize\par}
@@ -212,53 +236,141 @@ in}}}{\footnotesize\par}
 \textbf{\scriptsize{}Academic Year:}{\scriptsize\par}
 
 {\scriptsize{}2021-2022 }{\scriptsize\par}%
-\end{minipage}%
+\end{minipage}
+\par\end{center}%
 \end{minipage}\enskip{}\enskip{}%
-\begin{minipage}[t]{0.74\columnwidth}%
-\textbf{\textcolor{blue}{\footnotesize{}Advisor: }}\textcolor{black}{\footnotesize{}Here
+\begin{minipage}[c]{0.74\columnwidth}%
+\textbf{\textcolor{blue}{\footnotesize{}Abstract: }}\textcolor{black}{\footnotesize{}Here
 goes the Abstract in English of your thesis (in article format) followed
 by a list of keywords. The Abstract is a concise summary of the content
 of the thesis (single page of text) and a guide to the most important
 contributions included in your thesis. The Abstract is the very last
 thing you write. It should be a self-contained text and should be
-clear to someone who hasn\textquoteright t (yet) read the whole manuscript.
-The Abstract should contain the answers to the main research questions
-that have been addressed in your thesis. It needs to summarize the
-motivations and the adopted approach as well as the findings of your
-work and their relevance and impact. The Abstract is the part appearing
-in the record of your thesis inside POLITesi, the Digital Archive
-of PhD and Master Theses (Laurea Magistrale) of Politecnico di Milano.
+clear to someone who hasn’t (yet) read the whole manuscript. The Abstract
+should contain the answers to the main research questions that have
+been addressed in your thesis. It needs to summarize the motivations
+and the adopted approach as well as the findings of your work and
+their relevance and impact. The Abstract is the part appearing in
+the record of your thesis inside POLITesi, the Digital Archive of
+PhD and Master Theses (Laurea Magistrale) of Politecnico di Milano.
 The Abstract will be followed by a list of four to six keywords. Keywords
 are a tool to help indexers and search engines to find relevant documents.
 To be relevant and effective, keywords must be chosen carefully. They
 should represent the content of your work and be specific to your
-field or sub-field. Keywords may be a single word or two to four words. }%
+field or sub-field. Keywords may be a single word or two to four words.}{\footnotesize\par}
+
+\textcolor{black}{\footnotesize{}some citations to check bibliography
+\cite{AXI_ref_guide}}{\footnotesize\par}%
 \end{minipage}%
 \end{minipage}
 
 \vspace{15pt}
 
-\begin{tcolorbox}[arc=0pt, boxrule=0pt, colback=blue!60, width=\textwidth, colupper=white]     
-	\textbf{Key-words:} \keywords 
-\end{tcolorbox}
-
-\noindent\colorbox{blue}{\begin{minipage}[t]{1\textwidth}%
-\textcolor{white}{\enskip{}An enhanced box with a color gradient}%
-\end{minipage}}
-
-\noindent\colorbox{cyan}{\begin{minipage}[t]{1\textwidth}%
-\textcolor{white}{\enskip{}An enhanced box with a color gradient}%
-\end{minipage}}
+\noindent\begin{minipage}[t]{1\columnwidth}%
+\begin{shaded}%
+\textcolor{white}{\enskip{}}\textbf{\textcolor{white}{Key-words:}}\textcolor{white}{{}
+insert keword list }\end{shaded}%
+\end{minipage}
 
 \vspace{12pt}
 
-\include{1.Introduction/1.Introduction}
+\input{1.Introduction/1.Introduction.tex}
 
-\include{2.State-of-the-Art/2.State-of-the-Art}
+\input{2.State-of-the-Art/2.State-of-the-Art.tex}
 
-\include{3.Main-Work/3.Main-Work}
+\input{3.Main-Work/3.Main-Work.tex}
 
-\include{4.Measures/4.Measures}
+\input{4.Measures/4.Measures.tex}
 
-\include{5.Conclusions/5.Conclusions}
+\input{5.Conclusions/5.Conclusions.tex}
+
+\bibliographystyle{plain}
+\bibliography{bibtex}
+
+\input{\string"A.AppendixA/Appendix A.tex\string"}
+
+\clearpage{}
+
+\input{\string"*Abstract ita/*Abstract ita.tex\string"}
+
+\noindent\begin{minipage}[t]{1\columnwidth}%
+\begin{shaded}%
+\textcolor{white}{\enskip{}}\textbf{\textcolor{white}{Parole chiave:}}\textcolor{white}{{}
+inserisci lista di parole chiave}\end{shaded}%
+\end{minipage}
+
+\input{*Acknowledgements/*Acknowledgements.tex}
+
+\clearpage{}
+
+\section*{Guide to Lyx colors}
+
+This guide addresses the problem of how to get in $LtX$ the same
+graphics effects present in the Polimi Thesis template, which can
+be found here \url{https://it.overleaf.com/latex/templates/article-format-thesis-scuola-di-ingegneria-industriale-e-dellinformazione-politecnico-di-milano/vtqgsrqwzdmy}
+
+\subsection{Tables}
+
+Very fancy tables can be created, but \LaTeX code must be embedded
+to add background colors, moreover, to embed mathemathical formulas
+and greek letters, also latex code must be embedded
+
+\noindent\colorbox{red}{\begin{minipage}[t]{1\columnwidth}%
+\textcolor{white}{Pay attention: here the floatboxes are forces to
+a fixed position, tick on ``use default placement'' in float settings
+if u copy/paste this tables}%
+\end{minipage}}
+
+\begin{table}
+\begin{centering}
+\begin{tabular}{|c|c|c|c|}
+\hline 
+\rowcolor{blue!40} & \textbf{column1} & \textbf{column2} & \textbf{column3\T\B}\tabularnewline
+\hline 
+\hline 
+\textbf{row1} & 1 & 2 & 3\tabularnewline
+\hline 
+\textbf{row2} & $\alpha$ & $\beta$ & $\mathrm{\gamma}$\tabularnewline
+\hline 
+\textbf{row3} & alpha & beta & gamma\tabularnewline
+\hline 
+\end{tabular}\caption{}
+\par\end{centering}
+\end{table}
+
+\begin{center}
+\begin{table}[H]
+\centering{}%
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline 
+ \rowcolor{blue!40} & \textbf{column1} & \textbf{column2} & \textbf{column3} & \textbf{column4} & \textbf{column5\T\B}\tabularnewline
+\hline 
+\hline 
+\textbf{Row1} & 1 & 2 & 3 & 4 & 5\textbf{\T\B}\tabularnewline
+\textbf{Row2} & $\alpha$ & $\alpha$ & $\alpha$ & $\alpha$ & $\alpha$\textbf{\T\B}\tabularnewline
+\textbf{Row3} & alpha & alpha & alpha & alpha & alpha\textbf{\T\B}\tabularnewline
+\hline 
+\end{tabular}\caption{Tables with Highlighted columns}
+\end{table}
+\par\end{center}
+
+\subsection{Algorithms}
+
+\begin{algorithm}[H] 
+\label{alg:example} 
+\caption{Name of the Algorithm} \label{alg:var} \label{protocol1} 
+\begin{algorithmic}[1] 
+\STATE Initial instructions 
+\FOR{$for-condition$} 
+\STATE{Some instructions} 
+\IF{$if-condition$} 
+\STATE{Some other instructions} 
+\ENDIF 
+\ENDFOR 
+\WHILE{$while-condition$} 
+\STATE{Some further instructions} 
+\ENDWHILE 
+\STATE Final instructions 
+\end{algorithmic} 
+\end{algorithm} 
 \end{document}

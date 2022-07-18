@@ -17,7 +17,6 @@
 % PACKAGES FOR LANGUAGE AND FONT
 %\usepackage[utf8]{inputenc}
 %\usepackage[english]{babel}
-\usepackage[T1]{fontenc} % Font encoding
 
 % PACKAGES FOR IMAGES
 \usepackage{graphicx}
@@ -41,9 +40,10 @@
 % PACKAGES FOR ALGORITHMS (PSEUDO-CODE)
 \usepackage{algorithm}
 \usepackage{algorithmic}
+%\usepackage{algpseudocode}
 
 % PACKAGES FOR REFERENCES & BIBLIOGRAPHY
-\usepackage[colorlinks=true,linkcolor=black,anchorcolor=black,citecolor=black,filecolor=black,menucolor=black,runcolor=black,urlcolor=black]{hyperref} % Adds clickable links at references
+%\usepackage[colorlinks=true,linkcolor=black,anchorcolor=black,citecolor=black,filecolor=black,menucolor=black,runcolor=black,urlcolor=black]{hyperref} % Adds clickable links at references
 \usepackage{cleveref}
 \usepackage[square, numbers, sort&compress]{natbib} % Square brackets, citing references with numbers, citations sorted by appearance in the text and compressed
 %\bibliographystyle{plain} % You may use a different style adapted to your field
@@ -67,9 +67,10 @@
 
 % Create color blue (-> manuale grafica coordinata:  https://www.polimi.it/fileadmin/user_upload/il_Politecnico/grafica-coordinata/2015_05_11_46xy_manuale_grafica_coordinata.pdf)
 \definecolor{blue}{cmyk}{0.4,0.1,0,0.4}
-%\definecolor{shadecolor}{cmyk}{0.4,0.1,0,0.4}
+\definecolor{shadecolor}{cmyk}{0.4,0.1,0,0.4}
 \usepackage{xcolor}
 \colorlet{shadecolor}{blue!60}
+\colorlet{cyan}{blue!40}
 % Custom theorem environments
 \declaretheoremstyle[
   headfont=\color{blue}\normalfont\bfseries,
@@ -155,28 +156,23 @@
 \renewcommand{\footrulewidth}{0mm} % footrule width
 
 
-\usepackage{anyfontsize}
-
-\usepackage{bold-extra}
-\usepackage{lmodern}
 %\usepackage{fix-cm}
 %\usepackage{cm-super}
 %%
 %\makeatletter
 %%
 \end_preamble
-\options 11pt,a4paper
 \use_default_options true
 \maintain_unincluded_children false
 \language english
 \language_package default
-\inputencoding auto
+\inputencoding utf8
 \fontencoding global
-\font_roman "cmr" "default"
+\font_roman "palatino" "Latin Modern Roman Caps"
 \font_sans "cmss" "default"
 \font_typewriter "cmtt" "default"
 \font_math "auto" "auto"
-\font_default_family rmdefault
+\font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
@@ -191,8 +187,17 @@
 \index_command default
 \paperfontsize 11
 \spacing single
-\use_hyperref false
-\papersize default
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks false
+\pdf_backref page
+\pdf_pdfusetitle true
+\papersize a4paper
 \use_geometry false
 \use_package amsmath 1
 \use_package amssymb 1
@@ -240,7 +245,7 @@
 
 \begin_layout Standard
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -249,6 +254,16 @@ status open
 AddToShipoutPicture*{
 \backslash
 BackgroundPic}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+DO NOT TOUCH! this inset generates the background image
 \end_layout
 
 \end_inset
@@ -280,8 +295,7 @@ BackgroundPic}
 
 \begin_layout Standard
 
-\series bold
-\size larger
+\size largest
 \color blue
 Title
 \end_layout
@@ -346,7 +360,7 @@ height "0.4pt"
 
 \begin_layout Standard
 \begin_inset Box Frameless
-position "t"
+position "c"
 hor_pos "c"
 has_inner_box 1
 inner_pos "t"
@@ -364,15 +378,19 @@ backgroundcolor "none"
 status open
 
 \begin_layout Plain Layout
-\begin_inset space \enskip{}
+\begin_inset VSpace defskip
 \end_inset
 
 
 \end_layout
 
 \begin_layout Plain Layout
+\begin_inset space \enskip{}
+\end_inset
+
+
 \begin_inset Box Frameless
-position "t"
+position "c"
 hor_pos "c"
 has_inner_box 1
 inner_pos "c"
@@ -488,10 +506,10 @@ Academic Year:
 
 
 \begin_inset Box Frameless
-position "t"
+position "c"
 hor_pos "c"
 has_inner_box 1
-inner_pos "t"
+inner_pos "c"
 use_parbox 0
 use_makebox 0
 width "74col%"
@@ -686,6 +704,13 @@ filename "A.AppendixA/Appendix A.lyx"
 \end_layout
 
 \begin_layout Standard
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand input
 filename "*Abstract ita/*Abstract ita.lyx"
@@ -736,6 +761,23 @@ Parole chiave:
 \begin_inset CommandInset include
 LatexCommand input
 filename "*Acknowledgements/*Acknowledgements.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+\begin_inset CommandInset include
+LatexCommand input
+filename "*Guide/guide_to_lyx_for_polimi_thesis.lyx"
 
 \end_inset
 
