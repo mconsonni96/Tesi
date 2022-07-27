@@ -154,13 +154,6 @@
 \fancyfoot[C]{\thepage} % page
 \renewcommand{\headrulewidth}{0mm} % headrule width
 \renewcommand{\footrulewidth}{0mm} % footrule width
-
-
-%\usepackage{fix-cm}
-%\usepackage{cm-super}
-%%
-%\makeatletter
-%%
 \end_preamble
 \use_default_options true
 \maintain_unincluded_children false
@@ -299,6 +292,46 @@ use default placement
 
 \end_layout
 
+\begin_layout Standard
+In this template it is very important to not change the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+LaTeX
+\end_layout
+
+\end_inset
+
+ preamble if you don't know exactly what you are doing.
+ Here I am showing the things you should know.
+\end_layout
+
+\begin_layout Itemize
+As there is no way to define a new color natively in LyX, the color blue
+ has been replaced with the 
+\color blue
+BluePoli
+\color inherit
+ used in the Polimi Template (normal color blue is no longer usable, which
+ is not a big deal)
+\end_layout
+
+\begin_layout Itemize
+The background color of tables, which is a mix of 
+\color blue
+BluePoli 
+\color black
+and white, as been called 
+\color cyan
+cyan 
+\color inherit
+(normal color cyan is no longer usable, which is, again, not a big deal)
+\end_layout
+
 \begin_layout Subsection
 Figures
 \end_layout
@@ -322,7 +355,7 @@ The best way to render figures I found is using vector graphics formats,
 \begin_inset Formula $.pdf$
 \end_inset
 
-, but the results should be the same
+, but should be the same.
 \end_layout
 
 \begin_layout Standard
@@ -407,6 +440,14 @@ horizontal fill
 \end_inset
 
  between the two subfloats.
+\end_layout
+
+\begin_layout Standard
+Of course you can also put three of them in a line, using horizontal fills,
+ or you can put them in any confiuguration you want.
+ The basic idea is that every float, will be moved by LyX as a block, so
+ we can put as many figures as we want in a single float, and LyX will keep
+ them together.
 \end_layout
 
 \begin_layout Standard
@@ -506,6 +547,93 @@ Two figures side by side each with a caption
 
 \end_layout
 
+\begin_layout Standard
+If you so desire, you can add a small figure and some text next to it, by
+ using the Minipage environment, which will make you save space, as the
+ article format thesis gives you only 30 pages.
+ It is also useful to explain a figure in more than a line, as long captions
+ are rendered quite badly.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/matteo/Documents/Progetti_Tesi/template-tesi/Images/logo_polimi_scritta2.pdf
+	width 35text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Box Frameless
+position "b"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "60col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+Here there is the text next to the image, and it alignment with respect
+ to the image can be edited using the settings of the minimpage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Tables
 \end_layout
@@ -556,7 +684,7 @@ status open
 
 
 \backslash
-rowcolor{blue!40}
+rowcolor{cyan}
 \end_layout
 
 \end_inset
@@ -796,7 +924,7 @@ status open
 
  
 \backslash
-rowcolor{blue!40}
+rowcolor{cyan}
 \end_layout
 
 \end_inset

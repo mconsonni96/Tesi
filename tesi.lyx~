@@ -774,7 +774,7 @@ filename "*Acknowledgements/*Acknowledgements.lyx"
 
 \end_layout
 
-\begin_layout Section*
+\begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand input
 filename "*Guide/guide_to_lyx_for_polimi_thesis.lyx"

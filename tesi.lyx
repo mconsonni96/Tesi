@@ -154,13 +154,6 @@
 \fancyfoot[C]{\thepage} % page
 \renewcommand{\headrulewidth}{0mm} % headrule width
 \renewcommand{\footrulewidth}{0mm} % footrule width
-
-
-%\usepackage{fix-cm}
-%\usepackage{cm-super}
-%%
-%\makeatletter
-%%
 \end_preamble
 \use_default_options true
 \maintain_unincluded_children false
