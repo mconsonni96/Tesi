@@ -332,6 +332,20 @@ cyan
 (normal color cyan is no longer usable, which is, again, not a big deal)
 \end_layout
 
+\begin_layout Itemize
+Do not move the directory 
+\family typewriter
+/images 
+\family default
+or the command 
+\family typewriter
+
+\backslash
+graphicspath{{Images/}}
+\family default
+ in the Preamble will not find the images needed for the frontpage
+\end_layout
+
 \begin_layout Subsection
 Figures
 \end_layout
