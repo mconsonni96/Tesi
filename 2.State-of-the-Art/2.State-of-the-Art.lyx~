@@ -140,9 +140,9 @@ State of the Art
 \end_layout
 
 \begin_layout Standard
-The state-of-the-art version of the Time-To-Digital Converter has been implement
-ed on Xilinx 7-Series (28 nm) FPGA, and it is a Delay-Line based Time-To-Digital
- Converter.
+The Time-To-Digital Converter implemented at the Digital Electronics Laboratory
+ (DigiLAB) at Politecnico di Milano, has been implemented on Xilinx 7-Series
+ (28 nm) FPGA, and it is a Delay-Line based Time-To-Digital Converter.
  This particular type of architecture has a Tapped-Delay Line (TDL) as its
  core part, which consists of a sequence of buffers (also called 'bins'
  or 'taps') connected in series, where the output of each bin is also connected
@@ -511,7 +511,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/swu.png
-	width 100text%
+	width 60text%
 
 \end_inset
 
@@ -550,7 +550,15 @@ Nutt-Interpolation
 As we mentioned before, some TDC architectures typically suffer from a trade-off
  between resolution (LSB) and Full-Scale Range (FSR).
  In order to resolve this issue, a technique called Nutt-Interpolation is
- exploited.
+ exploited 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Nutt1968DigitalTI"
+literal "false"
+
+\end_inset
+
+.
  This technique composes the time measurement by a Coarse part and a Fine
  one, the former being characterized by high FSR and low resolution, and
  the latter being at low FSR and high resolution.

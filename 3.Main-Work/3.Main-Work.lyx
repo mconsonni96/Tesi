@@ -139,5 +139,134 @@
 Main Work
 \end_layout
 
+\begin_layout Standard
+The main goal of this thesis work has been to push even more the Time-to-Digital
+ Converter performances, obtaining a drag-and-drop, tunable IP-Core, compatible
+ also with Xilinx Ultrascale (20 nm) and Ultrascale+ (16 nm) technology
+ nodes.
+ The migration to a new technology, characterized by an improvement in the
+ scaling with respect to 7-Series, has allowed to push even more the frequency
+ of the clock involved in the measurements, thus giving a system with a
+ faster conversion time, a lower dead-time and, a better resolution.
+ The scaling has a beneficial effect also on the ultra-bins, which are lighter
+ than the 7-Series counterpart, thus leading also to a better single-shot
+ precision in the time measurements.
+ 
+\end_layout
+
+\begin_layout Standard
+Let's now briefly see the blocks composing the TDC core in its older version,
+ to then describe in detail each one of them and highlight the improvements
+ given by this thesis work.
+\end_layout
+
+\begin_layout Subsection
+Main blocks of the TDC
+\end_layout
+
+\begin_layout Standard
+The old version Time-To-Digital Converter implemented at the Digital Electronics
+ Laboratory (DigiLAB) at Politecnico di Milano, has been implemented on
+ Xilinx 7-Series (28 nm) Artix-7 FPGA, and it is a Tapped Delay-Line based
+ Time-To-Digital Converter.
+ The processing chain starts with the Virtual Tapped Delay-Line (V-TDL),
+ which provides a thermometric code in output, representing the Fine part
+ of the timestamp; then, a module called Iper Decoder converts the thermometric
+ code in a binary one, giving the final Fine measure; after that, a Coarse
+ Extension Core (CEC) module attaches the Fine part to the Coarse one (calculate
+d by a Coarse Counter internal to the CEC or external to it), and also performs
+ a Cross-Domain Clock (CDC) change, i.e.
+ the system goes from a faster clock to a slower one, in order to have a
+ processing on the following blocks that respects all the timing constraints
+ of system; the next block is called Magic Calibrator, and it performs a
+ bin-by-bin calibration in order to correct the already-mentioned process,
+ voltage and temperature (PVT) variations of the TDL's taps; in the end,
+ an Overflow Counter module solves the overflow problem given by the Coarse
+ Counter, thanks to the possibility of counting overflows, thus extending
+ even more the FSR.
+ We can see a schematic of the TDC core in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Schematic-of-the"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../2.State-of-the-Art/images/oldtdc.png
+	width 75text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Schematic of the structure of the state-of-the-art version of the TDC.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Schematic-of-the"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+All the blocks just mentioned are connected inside a hierarchical IP-Core,
+ which represents a single channel of the TDC.
+ The concept of channel is the following one: a single channel has the task
+ of receiving one single physical event (i.e.
+ START signal) and measuring its timestamp when the STOP signal (i.e.
+ the rising-edge of the following clock cycle) occurs.
+ Since we are usually interested in the relative time-distance between physical
+ events, the TDC will be characterized by more than one channel, where each
+ one of them will measure the corresponding timestamp with respect to a
+ common absolute time reference (typically the power-on instant of the device);
+ then, a final module called Histogrammer, external to the main TDC core
+ and therefore not described in detail in this thesis, will perform a repeated
+ set of measurements of the time difference between two of those channels,
+ and it will thus provide a Gaussian distribution characterized by a mean
+ value and a certain standard deviation.
+ As we said in the FoM chapter, this standard deviation will be the index
+ of the single-shot precision of the TDC.
+ 
+\end_layout
+
+\begin_layout Subsection
+Virtual Tapped Delay-Line (V-TDL)
+\end_layout
+
+\begin_layout Standard
+This module is in charge of performing the Fine measurement of the timestamp,
+ as said before.
+ Let's see more in details how it is structured.
+ Being on the Xilinx 7-Series (X7S) technology node, the chain of buffers
+ has been implemented by means of the CARRY4 primitive by Xilinx.
+ 
+\end_layout
+
 \end_body
 \end_document

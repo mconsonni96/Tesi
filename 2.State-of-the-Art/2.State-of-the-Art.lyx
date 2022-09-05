@@ -140,9 +140,8 @@ State of the Art
 \end_layout
 
 \begin_layout Standard
-The state-of-the-art version of the Time-To-Digital Converter has been implement
-ed on Xilinx 7-Series (28 nm) FPGA, and it is a Delay-Line based Time-To-Digital
- Converter.
+Since the Time-to-Digital Converter employed in our laboratory is a Delay-Line
+ based one, let's describe this architecture in detail.
  This particular type of architecture has a Tapped-Delay Line (TDL) as its
  core part, which consists of a sequence of buffers (also called 'bins'
  or 'taps') connected in series, where the output of each bin is also connected
@@ -511,7 +510,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/swu.png
-	width 100text%
+	width 60text%
 
 \end_inset
 

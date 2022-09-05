@@ -214,9 +214,20 @@ s called Time Interval Meters (TIMs), with the task of measuring really
  
 \end_layout
 
+\begin_layout Subsection
+Applications
+\end_layout
+
 \begin_layout Standard
-Some examples of applications requiring these kind of instruments and performanc
-es are: Time-of-Flight Positron Emission Tomography (PET-TOF) 
+The applications requiring these kind of instruments and performances span
+ into very differents fields of the scientific research, from the biomedical
+ to the nuclear one.
+ Since countless applications belong to these areas, we will describe the
+ most relevant ones, used every day.
+\end_layout
+
+\begin_layout Itemize
+Time-of-Flight Positron Emission Tomography (PET-TOF) 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "7581850"
@@ -224,16 +235,79 @@ literal "false"
 
 \end_inset
 
-, where we have to measure the time elapsed by the two charges hitting the
- two detectors in opposite directions; Time-Resolved Spectroscopy 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "6674612"
-literal "false"
+: it is a 3D technique used for medical imaging to detect the presence of
+ tumors in the human body.
+ A substance called radiotracer, characterized by capability to release
+ a great number of positrons, is bound to a molecule which has the peculiarity
+ to travel towards the region where the tumor is located.
+ Once there, the positrons are emitted by the radioactive decay of the radiotrac
+er, and collide with electrons.
+ When there is collision between a positron and an electron, characterized
+ by same electrical charge with opposite sign, the so-called annihilation
+ process occurs, which results in two 511 keV gamma photons travelling on
+ the same line but with opposite directions.
+ These two gamma photons arrive with a certain delay to the ring of detectors
+ surrounding the patient, and thanks to the TIM is possible to measure this
+ delay between the START event (the first gamma photon arriving to the detector)
+ and the STOP event (the second photon detected) (see Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:PET-TOF-working-principle."
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
- and Laser Rangefinders 
+).
+ From the time measure it is then possible to retrieve the spatial information
+ describing the position of the tumor.
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/pet.png
+	width 30text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+PET-TOF working principle.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:PET-TOF-working-principle."
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Laser Rangefinding: and Laser Rangefinders 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "4907333"
@@ -242,12 +316,33 @@ literal "false"
 \end_inset
 
  .
- In all these cases, the typical setup to measure the time distance 
+ 
+\end_layout
+
+\begin_layout Itemize
+Time-Resolved Spectroscopy: Time-Resolved Spectroscopy 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "6674612"
+literal "false"
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Subsection
+Typical measurement setup
+\end_layout
+
+\begin_layout Standard
+In all these applications just presented, the typical setup to measure the
+ time distance 
 \begin_inset Formula $\varDelta T$
 \end_inset
 
- between two physical events, can be represented by the block diagram reported
- in Figure 
+ between the two physical events, can be represented by the block diagram
+ reported in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Measurement-Setup-employing"
@@ -339,9 +434,9 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-In this thesis work, i present a Time-to-Digital Converter (TDC), an instrument
- which converts the measured time interval in a digital binary code, thus
- representing the time elapsed between the START and the STOP event.
+In this thesis work, i will present a Time-to-Digital Converter (TDC), an
+ instrument which converts the measured time interval in a digital binary
+ code, representing the time elapsed between the START and the STOP event.
  The TDC can be implemented both in an Application Specific Integrated Circuit
  (ASIC) 
 \begin_inset CommandInset citation
@@ -360,14 +455,14 @@ literal "false"
 \end_inset
 
 .
- Being the FPGA approach characterized by reconfigurability, fast prototyping,
- and low time-to-market, it is the most suitable choice in the scientific
- research world.
- The system i present has been implemented fully on FPGA as a tunable Intellectu
-al Property Core (IP-Core).
- The powerful IP-Core approach has been preferred due to its possibilities
- of fast prototyping, easy portability and tunability of the IP-Core on
- different FPGA devices.
+ Despite the ASIC is much more power efficient, the FPGA approach is the
+ most suitable choice in the scientific research world, being characterized
+ by high reconfigurability, fast prototyping, low non-recurring engineering
+ (NRE) costs, and low time-to-market.
+ The system has been implemented fully on FPGA as a tunable Intellectual
+ Property Core (IP-Core).
+ The IP-Core approach has been preferred due to its features of fast prototyping
+, easy tunability and portability on different FPGA devices.
  The concept of 
 \begin_inset Quotes eld
 \end_inset
@@ -456,6 +551,10 @@ Temperature Sensitivity: it describes how much the accuracy of the measurement
 
 C, but usually, compensation techniques are required in order to reach high
  robustness against these variations.
+\end_layout
+
+\begin_layout Subsection
+State of the Art
 \end_layout
 
 \end_body
