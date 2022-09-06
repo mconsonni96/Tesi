@@ -307,7 +307,7 @@ name "fig:PET-TOF-working-principle."
 \end_layout
 
 \begin_layout Itemize
-Laser Rangefinding: and Laser Rangefinders 
+Laser Rangefinding 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "4907333"
@@ -315,12 +315,98 @@ literal "false"
 
 \end_inset
 
- .
- 
+: it is a technique using a laser beam to determine the distance to an object,
+ thanks to an instrument called laser rangefinder, also known as laser telemeter.
+ The measured quantity, in this case, is the time distance between the instant
+ at which the laser pulse is sent towards the object, and the instant at
+ which it is detected by the photodiode (located in the same position of
+ the sender) after being reflected by the target (see Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Laser-Rangefinder-working"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+ Once the time information 
+\begin_inset Formula $\varDelta T$
+\end_inset
+
+ is obtained, and by knowing the propagation velocity 
+\begin_inset Formula $v$
+\end_inset
+
+ of the laser, it is possible to retrieve the distance 
+\begin_inset Formula $L$
+\end_inset
+
+ at which the object is located with respect to the user, thanks to the
+ following equation:
+\begin_inset Formula 
+\begin{equation}
+2\cdot L=v\cdot\varDelta T\label{eq:laser1}
+\end{equation}
+
+\end_inset
+
+and, therefore:
+\begin_inset Formula 
+\begin{equation}
+L=\frac{v\cdot\varDelta T}{2}\label{eq:laser2}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/laser.png
+	width 50text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Laser Rangefinder working principle.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Laser-Rangefinder-working"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
-Time-Resolved Spectroscopy: Time-Resolved Spectroscopy 
+Time-Resolved Spectroscopy 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "6674612"
@@ -328,7 +414,78 @@ literal "false"
 
 \end_inset
 
+: it is the study, in physics and physical chemistry, of dynamic processes
+ in materials or chemical compounds by means of spectroscopic techniques.
+ The technique can be applied to any process that leads to a change in the
+ properties of a material, but usually, fluorescence processes are studied.
+ The common method is called Time Correlated Single Photon Counting (TCSPC),
+ which achieves a resolution in the order of picoseconds, and consists in
+ the excitation of the material thanks to the illumination by a pulsed laser;
+ this causes a process called 'fluorescence', that is a repetitive emission
+ of single photons which are then registered by a detector.
+ In this way, the photon arrivals per time can be represented in a histogram,
+ whose bins represent the time decay (
+\begin_inset Formula $T_{DECAY}$
+\end_inset
+
+), and therefore the time decay profile of that material is obtained.
+ The START signal is the excitation laser pulse, while the STOP signals
+ are the photons emitted by fluorescence.
+ The working principle is represented also in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Time-Resolved-Spectroscopy-worki"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
  
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/spectroscopy.png
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Time-Resolved Spectroscopy working principle employing Time Correlated Single
+ Photon Counting (TCSPC).
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Time-Resolved-Spectroscopy-worki"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
