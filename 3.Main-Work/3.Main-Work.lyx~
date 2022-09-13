@@ -364,7 +364,15 @@ This module is in charge of performing the Fine measurement of the timestamp,
  as said before.
  Let's see more in details how it is structured.
  Being on the Xilinx 7-Series (X7S) technology node, the chain of buffers
- has been implemented by means of the CARRY4 primitive by Xilinx.
+ has been implemented by means of the CARRY4 primitive by Xilinx 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "XlinxUG474"
+literal "false"
+
+\end_inset
+
+.
  The structure of the CARRY4 primitive is reported in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -452,6 +460,7 @@ noprefix "false"
 \end_inset
 
 .
+ The STOP signal is a clock at 400 MHz frequency.
 \end_layout
 
 \begin_layout Standard
@@ -893,7 +902,19 @@ noprefix "false"
 \shape italic
 DEBUG_MODE
 \shape default
- = TRUE.
+ = TRUE and with 
+\shape italic
+MIN_VALID_TAP_POS
+\shape default
+ = 0, 
+\shape italic
+MAX_VALID_TAP_POS
+\shape default
+ = 4,
+\shape italic
+ STEP_VALID_TAP_POS
+\shape default
+ = 2.
  Since, if we use the SuperWU sub-interpolation algorithm, there are more
  TDLs in parallel, we must also select one single TDL among them in which
  this valid selection process is carried out.
@@ -960,6 +981,376 @@ name "fig:Valid-selection-in"
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In the end, there is the possibility just to simulate the TDL rather than
+ implementing it, thanks to the generic 
+\shape italic
+SIM_VS_IMP
+\shape default
+.
+ Indeed, if
+\shape italic
+ SIM_VS_IMP = 
+\shape default
+
+\begin_inset Quotes eld
+\end_inset
+
+SIM
+\begin_inset Quotes erd
+\end_inset
+
+, the TDL is not physically implemented with the CARRY4 primitive, but a
+ fictitious buffers-chain is created just for a test-bench scope.
+ The simulated delays of the fictitious buffers are imported from 
+\shape italic
+FILE_PATH_NAME_O_DELAY
+\shape default
+ and 
+\shape italic
+FILE_PATH_NAME_CO_DELAY,
+\shape default
+ that are two .txt files containing their estimated delays (of the O taps
+ and of the CO taps respectively).
+\end_layout
+
+\begin_layout Subsubsection
+New Version
+\end_layout
+
+\begin_layout Standard
+In this thesis work, the portability of the Virtual Tapped Delay-Line has
+ been improved, making it compatible also with 20-nm Xilinx Ultrascale (XUS)
+ and 16-nm Ultrascale+ technology nodes.
+ These are more scaled technologies with respect to 28-nm Xilinx 7-Series
+ (X7S), leading to a lower power consumption and better performances such
+ as an increased measure rate, a better resolution, lower ultra-bins and,
+ as a consequence, a better single-shot precision for the TDC.
+ Thanks to the generic 
+\shape italic
+XUS_VS_X7S 
+\shape default
+in the IP-Core GUI
+\shape italic
+, 
+\shape default
+the technology node of the TDL that will be placed on the FPGA's fabric,
+ can be chosen by the user in the instantiation stage, improving even more
+ the portability of this structure on different systems.
+ We already talked about the TDL structure for Xilinx 7-Series technology;
+ let's now focus on the Ultrascale/Ultrascale+ version.
+ 
+\end_layout
+
+\begin_layout Paragraph
+Major differences between 7-Series and Ultrascale
+\end_layout
+
+\begin_layout Standard
+The new version of the TDC has been fully implemented and tested on a Kintex
+ Ultrascale FPGA, which has up to 40% lower power consumption with respect
+ to the previous generation.
+ Let's briefly describe the other major differences between the two technologies
+, other than the power consumption.
+ The other main differences are structure-related, thus involving Configural
+ Logic Blocks (CLBs) and slices 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "XlinxUG474"
+literal "false"
+
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "XILINX_ULTRASCALE"
+literal "false"
+
+\end_inset
+
+.
+ The CLBs are the main resources to implement general-purpose combinatorial
+ and sequential circuits in FPGA, while the slices are the internal parts
+ of the CLBs.
+ The slices and their CLBs are arranged in columns throughout the device,
+ and they can easily connect to each other in order to create larger functions.
+ Both 7-Series and Ultrascale CLBs provide:
+\end_layout
+
+\begin_layout Itemize
+Real 6-input look-up table (LUT) technology;
+\end_layout
+
+\begin_layout Itemize
+Dual 5-input LUT (LUT5) option;
+\end_layout
+
+\begin_layout Itemize
+Distributed Memory and Shift Register Logic capability;
+\end_layout
+
+\begin_layout Itemize
+Wide multiplexers (MUXes) for efficient utilization;
+\end_layout
+
+\begin_layout Itemize
+Dedicated high-speed carry logic for arithmetic functions;
+\end_layout
+
+\begin_layout Standard
+The Ultrascale CLB has also dedicated storage elements that can be configured
+ as flip-flops (FFs) or latches with flexible control signals.
+\end_layout
+
+\begin_layout Standard
+The main structural difference between 7-Series and Ultrascale is internal
+ to the CLB, thus residing on the Slices.
+ The main differences inside a single CLB are reported in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:CLB-differences-between"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Differences in a single CLB between Xilinx 7-Series and Xilinx Ultrascale
+ technology nodes.
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:CLB-differences-between"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Features
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+X7S
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+XUS
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Number of slices
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Number of 6-input LUTs in a single slice
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Number of FFs in a single slice
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+16
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As we can see, in Xilinx Ultrascale technology, two independent slices are
+ now combined in a single, bigger slice, in order to have a better efficiency
+ in the routing on the FPGA's fabric.
+ The carry logic, in particular, is extended from 4 bits to 8 bits, achieving
+ better routing and faster arithmetic functions.
+ One single 8-bit carry chain is contained in a CLB.
+ This is the reason why Xilinx Ultrascale uses the CARRY8 primitive to perform
+ arithmetic functions, rather than the CARRY4 of the previous generation.
+ The structure of the CARRY8 primitive is reported in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:CARRY8-primitive-structure."
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/carry_8.png
+	width 40text%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename images/carry8.png
+	width 60text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+CARRY8 primitive structure.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:CARRY8-primitive-structure."
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Plain Layout
 
 \end_layout
@@ -967,6 +1358,329 @@ name "fig:Valid-selection-in"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+We can see that the CARRY8 primitive can be configured either as a single
+ 8-bit carry chain or as two independent 4-bit carry chains.
+ The former option has been adopted in this thesis work.
+\end_layout
+
+\begin_layout Paragraph
+XUS-TDL structure
+\end_layout
+
+\begin_layout Standard
+In analogy with the X7S version of the TDL, we can see that here a single
+ CARRY8 implements 8 buffers (taps) of the Tapped Delay-Line, and as before,
+ more carry chains are cascaded connecting the last carry-out (CO(7)) of
+ the previous primitive with the carry-in (CI) of the following one.
+ The output of the buffers can be taken either from the sum output (O) or
+ from the carry output (CO) by choosing the value of the generic 
+\shape italic
+TYPE_TDL
+\shape default
+ from the IP-Core's GUI, as before.
+ The structure of the TDL is reported in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:CARRY8-based-Tapped-Delay-Line"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/carry8_tdl.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+CARRY8-based Tapped Delay-Line structure.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:CARRY8-based-Tapped-Delay-Line"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Concerning the sampling process, with the decimation of the flip-flops along
+ the chain and the initial offset, all has been mantained as before.
+ Also the valid mechanism, to choose the clock period in which the snapshot
+ of the TDL is carried out, is the same as in the older version.
+ Same with the possibility to just simulate the TDL with the delays of the
+ fictitious buffers.
+\end_layout
+
+\begin_layout Standard
+The other major change to the Virtual Tapped Delay-Line introduced in this
+ thesis work, is the possibility to instantiate also Digital Signal Processor
+ (DSP)-based TDLs, in parallel to the carry-based ones.
+ This is possible thanks to the two new generics 
+\shape italic
+NUMBER_OF_CARRY_CHAINS
+\shape default
+ and 
+\shape italic
+NUMBER_OF_DSP_CHAINS
+\shape default
+ introduced in substitution of the old 
+\shape italic
+NUMBER_OF_TDL
+\shape default
+.
+ The SuperWU sub-interpolation algorithm now creates a Virtual Tapped Delay-Line
+ made by 
+\shape italic
+NUMBER_OF_CARRY_CHAINS
+\shape default
++
+\shape italic
+NUMBER_OF_DSP_CHAINS
+\shape default
+ TDLs in parallel, where each one is 
+\shape italic
+NUM_TAP_PRE_TDL
+\shape default
++
+\shape italic
+NUM_TAP_TDL
+\shape default
+ long.
+ This adds even more versatility to the IP-Core, indeed, it allows to implement
+ a V-TDL either made only by carry-based TDLs (if 
+\shape italic
+NUMBER_OF_DSP_CHAINS
+\shape default
+=0), or by only DSP-based TDLs (if 
+\shape italic
+NUMBER_OF_CARRY_CHAINS
+\shape default
+=0), or by a combination of them (if 
+\shape italic
+NUMBER_OF_CARRY_CHAINS
+\shape default
+
+\begin_inset Formula $\neq$
+\end_inset
+
+0, 
+\shape italic
+NUMBER_OF_DSP_CHAINS
+\shape default
+
+\begin_inset Formula $\neq$
+\end_inset
+
+0).
+ We will see later what is the utility of a DSP-based TDL, and why the sub-inter
+polation that combines both types of TDL is the most powerful one.
+ But before, let's present the Xilinx Digital Signal Processor (DSP).
+\end_layout
+
+\begin_layout Paragraph
+Xilinx Digital Signal Processor (DSP)
+\end_layout
+
+\begin_layout Standard
+FPGAs are suitable for digital signal processing (DSP) applications because
+ they can implement custom, fully parallel algorithms.
+ The main operation performed by DSPs is MAC (Multiply and Accumulate),
+ which consists in the calculation of the product between two numbers, and
+ its addition in the accumulator.
+ In hardware it is implemented as a multiplier followed by an adder and
+ a register, but its implementation on FPGA employs a lot of resources,
+ and has a low processing speed.
+ For this reason, Xilinx decided to place dedicated DSP blocks on the FPGA
+ fabric.
+\end_layout
+
+\begin_layout Standard
+Xilinx 7-Series technology uses the DSP48E1 slice as DSP block 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "XILINX_7_SERIES"
+literal "false"
+
+\end_inset
+
+, while Xilinx Ultrascale/Ultrascale+ uses the DSP48E2 slice 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "XUS_DSP"
+literal "false"
+
+\end_inset
+
+.
+ Since there are minor differences between the two DSP's technologies, and
+ they are not a relevant topic of this thesis, from now on we will refer
+ just to the DSP48E2 to describe both.
+ The DSP48E2 slice consists of a 27-bit pre-adder, a 27 x 18 multiplier
+ and, a flexible 48-bit Arithmetic Logic Unit (ALU) that serves as a post-adder/
+subtracter, accumulator, or logic unit (see Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:DSP48E2-structure."
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/DSP48E2.png
+	width 90text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+DSP48E2 structure.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:DSP48E2-structure."
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We can see from Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:DSP48E2-structure."
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ that there are four direct inputs (A, B, C, D) and a 48-bit wide direct
+ output (P), which is the result of the operation performed by the ALU.
+ An input carry and an output one are also present, along with an output
+ port for pattern detection and the output of a XOR gate.
+ Furthermore, 5 input (ACIN, BCIN, PCIN, CARRYCASCIN, MULTSIGNIN) and output
+ ports (ACOUT, BCOUT, PCOUT, CARRYCASCOUT, MULTSIGNOUT), with the function
+ of cascading more DSP slices, are present.
+ All the remaining inputs are control signals:
+\end_layout
+
+\begin_layout Itemize
+ALUMODE: it controls the operation to be performed by the ALU, which is
+ either a sum, a subtraction, or a logic operation.
+\end_layout
+
+\begin_layout Itemize
+CARRYINSEL: it decides whether the direct carry-in or the cascade one is
+ fed to the ALU.
+\end_layout
+
+\begin_layout Itemize
+OPMODE: it contains fields for W, X, Y, and Z multiplexer selects.
+ So, basically, this signal decides which input signals are fed to the ALU,
+ making them nothing but the factors of the operation decided by ALUMODE.
+\end_layout
+
+\begin_layout Itemize
+INMODE: it controls the functionality of the pre-adder.
+\end_layout
+
+\begin_layout Standard
+These control signals require a specific bit-mask to perform all the different
+ functionalities, as can be seen in the data-sheet (User Guide) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "XUS_DSP"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Finally, it is worth saying that the DSP48E2 has three different working
+ modes.
+ Indeed, thanks to the Single-Instruction-Multiple-Data (SIMD) mode, the
+ 48-bit ALU (the first, default, working mode) also supports dual 24-bit
+ (the second working mode) or quad 12-bit (the third working mode) arithmetic
+ operations.
+ Based on the experimental results that will be shown later, the dual 24-bit
+ SIMD mode has been used in this thesis work, thus having a single 48-bit
+ ALU that works as two, independent, 24-bit ALUs in parallel.
+ 
+\end_layout
+
+\begin_layout Paragraph
+DSP-based TDL
 \end_layout
 
 \end_body
