@@ -1470,17 +1470,17 @@ NUMBER_OF_TDL
 \shape italic
 NUMBER_OF_CARRY_CHAINS
 \shape default
-+
+ +
 \shape italic
-NUMBER_OF_DSP_CHAINS
+ NUMBER_OF_DSP_CHAINS
 \shape default
  TDLs in parallel, where each one is 
 \shape italic
 NUM_TAP_PRE_TDL
 \shape default
-+
+ +
 \shape italic
-NUM_TAP_TDL
+ NUM_TAP_TDL
 \shape default
  long.
  This adds even more versatility to the IP-Core, indeed, it allows to implement
@@ -1681,6 +1681,195 @@ Finally, it is worth saying that the DSP48E2 has three different working
 
 \begin_layout Paragraph
 DSP-based TDL
+\end_layout
+
+\begin_layout Standard
+The propagation mechanism of the asynchronous input signal (i.e.
+ START signal) along the DSP's output bits, representing the taps of the
+ TDL, is based on the subtraction operation performed by the ALU.
+ Let's see more in detail the ports and the control signals involved.
+ The dual A and B register, along with the pre-adder and the multiplier,
+ are not involved in this implementation, thus they are bypassed by all
+ the signals, and the D input and the INMODE control is not used.
+ The ALUMODE signal is set such that the ALU performs the following operation:
+\begin_inset Formula 
+\begin{equation}
+P=Z-(W+X+Y+CIN)\label{eq:alu}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where CIN is selected by CARRYINSEL to be the direct CARRYIN signal, imposed
+ equal to zero; and Z, W, X, Y are the input signals, multiplexed by OPMODE.
+ The selection is such that:
+\end_layout
+
+\begin_layout Itemize
+Z feeds the C input signal to the ALU;
+\end_layout
+
+\begin_layout Itemize
+W feeds a vector of zeroes to the ALU;
+\end_layout
+
+\begin_layout Itemize
+X feeds the concatenated A and B input signals (A:B) to the ALU; 
+\end_layout
+
+\begin_layout Itemize
+Y feeds a vector of zeroes to the ALU;
+\end_layout
+
+\begin_layout Standard
+The A:B vector is the one containing the asynchronous input signal (AsyncInput)
+ the TDC has to measure, while to the C port is assigned a vector of zeroes.
+\end_layout
+
+\begin_layout Standard
+The ALU, P, C, A:B and the vectors of zeroes are all 48-bit wide, but, since
+ in this work the DSP is used in dual 24-bit SIMD mode, in reality is like
+ having a single DSP slice containing two independent DSPs working in parallel,
+ where each one of them has the ALU, P, C, A:B and the vectors of zeroes
+ 24-bit wide.
+\end_layout
+
+\begin_layout Standard
+To form a long DSP-based TDL, more DSP slices have to be cascaded, and this
+ is done by connecting the ACOUT and BCOUT ports of the previous slice to
+ ACIN and BCIN of the following one.
+ Therefore, the AsyncInput is connected to the direct A and B input ports
+ just on the first DSP block and, on the following ones, it just propagates
+ in the cascade inputs ACIN and ACOUT, and the direct A and B inputs are
+ not used anymore.
+ Since A is 30-bit wide and B is 18-bit wide, the AsyncInput signal must
+ be linked both to bit 0 of B and to bit 6 of A, in order to have our signal
+ of interest on the least-significant bit of each 24-bit half of the A:B
+ vector.
+ In this way, in both the two 24-bit ALUs, the decimal value of the factor
+ coming from the X multiplexer is equal to 0 when AsyncInput = 0, and it
+ switches to 1 as soon as AsyncInput transitions form 0 to 1.
+ This data assignment is better clarified in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:AsyncInput-connection-to"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename images/asyncinput.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+AsyncInput connection to A and B ports of the DSP slice.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:AsyncInput-connection-to"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Finally, at the P output, the internal register of the DSP48E2 is used to
+ sample the TDL; therefore, external flip-flops are not required, as it
+ was in the carry-based TDL.
+ We can see in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Internal-operation-of"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ all the internal resources and signals involved in the setup of the DSP
+ slice.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/internal_dsp.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Internal operation of the DSP48E2 block.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Internal-operation-of"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body
