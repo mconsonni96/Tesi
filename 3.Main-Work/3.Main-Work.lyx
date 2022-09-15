@@ -441,14 +441,48 @@ We can see that the CARRY4 primitive has 4-bit output, which can be chosen
  the XOR output, representing the result of the sum).
  In the context of the TDL structure described in the previous chapter,
  the four stages composing the CARRY4 primitive are nothing but 4 buffers
- (taps) of the TDL, cascaded thanks to the carry-out (CO) connection; the
- 4-bit output represents instead the 4 outputs of the buffers which are
- then connected to the D-input of as many flip-flops.
+ (taps) of the TDL, cascaded thanks to the carry-out (CO) connection; our
+ asynchronous input event (START signal) is connected to the carry-input
+ port (CI), and the select line (S) controlling the multiplexer of each
+ stage is such that it propagates the CI signal along all the four stages.
+ In this way, as soon as the asynchronous input switches from 0 to 1, a
+ propagation of 
+\begin_inset Quotes eld
+\end_inset
+
+ones
+\begin_inset Quotes erd
+\end_inset
+
+ takes place along the carry-chain, thus causing 0
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+1 transitions on each CO output (or a 1
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+0 transition on each O output, which is nothing but the inverted and delayed
+ CO output) with different propagation delays.
+ The 4-bit output represents the 4 outputs of the buffers which are then
+ connected to the D-input of as many flip-flops.
  This means that, according to the number of taps required to compose the
  TDL, a certain number of CARRY4 primitives will be cascaded by connecting
  the output carry of the fourth stage (i.e.
  CO(3)) of the previous primitive to the carry-input port (CI) of the following
  primitive.
+ The STOP signal is a clock at 400 MHz frequency and, as it occurs, a thermometr
+ic code is generated at the output of the flip-flops chain, representing
+ a snapshot of the TDL state, i.e.
+ the number of buffers hit by the propagation of 
+\begin_inset Quotes eld
+\end_inset
+
+ones
+\begin_inset Quotes erd
+\end_inset
+
+ up to that moment.
  We can see this structure in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -460,7 +494,7 @@ noprefix "false"
 \end_inset
 
 .
- The STOP signal is a clock at 400 MHz frequency.
+ 
 \end_layout
 
 \begin_layout Standard
