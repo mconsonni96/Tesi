@@ -458,7 +458,12 @@ ones
 \begin_inset Formula $\rightarrow$
 \end_inset
 
-1 transitions on each CO output, with different propagation delays.
+1 transitions on each CO output (or a 1
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+0 transition on each O output, which is nothing but the inverted and delayed
+ CO output) with different propagation delays.
  The 4-bit output represents the 4 outputs of the buffers which are then
  connected to the D-input of as many flip-flops.
  This means that, according to the number of taps required to compose the
@@ -468,7 +473,8 @@ ones
  primitive.
  The STOP signal is a clock at 400 MHz frequency and, as it occurs, a thermometr
 ic code is generated at the output of the flip-flops chain, representing
- a snapshot of the number of buffers crossed by the 
+ a snapshot of the TDL state, i.e.
+ the number of buffers hit by the propagation of 
 \begin_inset Quotes eld
 \end_inset
 
@@ -476,7 +482,7 @@ ones
 \begin_inset Quotes erd
 \end_inset
 
--propagation up to that moment.
+ up to that moment.
  We can see this structure in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1760,9 +1766,9 @@ The A:B vector is the one containing the asynchronous input signal (AsyncInput)
 \begin_layout Standard
 The ALU, P, C, A:B and the vectors of zeroes are all 48-bit wide, but, since
  in this work the DSP is used in dual 24-bit SIMD mode, in reality is like
- having a single DSP slice containing two independent DSPs working in parallel,
- where each one of them has the ALU, P, C, A:B and the vectors of zeroes
- 24-bit wide.
+ having a single DSP slice containing two independent ALUs working in parallel,
+ where each one of them has 24-bit wide P, C, A:B signals, and 24-bit wide
+ vectors of zeroes.
 \end_layout
 
 \begin_layout Standard
@@ -1774,9 +1780,9 @@ To form a long DSP-based TDL, more DSP slices have to be cascaded, and this
  in the cascade inputs ACIN and ACOUT, and the direct A and B inputs are
  not used anymore.
  Since A is 30-bit wide and B is 18-bit wide, the AsyncInput signal must
- be linked both to bit 0 of B and to bit 6 of A, in order to have our signal
- of interest on the least-significant bit of each 24-bit half of the A:B
- vector.
+ be linked both to bit 0 of B and to bit 6 of A, in order to have the logical
+ value of our signal of interest on the least-significant bit of each 24-bit
+ half of the A:B vector.
  In this way, in both the two 24-bit ALUs, the decimal value of the factor
  coming from the X multiplexer is equal to 0 when AsyncInput = 0, and it
  switches to 1 as soon as AsyncInput makes a transition form 0 to 1.
@@ -1898,6 +1904,165 @@ name "fig:Internal-operation-of"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+By taking Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:alu"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, and substituting the values assigned to all the signals in the instantiation
+ stage of the DSP48E2, we obtain the following equation:
+\begin_inset Formula 
+\begin{equation}
+P=0-(0+AsyncInput+0+0)\label{eq:mid-formula}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+which leads to the simple subtraction:
+\begin_inset Formula 
+\begin{equation}
+P=0-AsyncInput\label{eq:sub-formula}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Therefore, until AsyncInput stays at 0, P is a 24-bit wide vector of zeroes;
+ then, as soon as AsyncInput transits from 0 to 1, an underflow takes place,
+ and there is a propagation of 
+\begin_inset Quotes eld
+\end_inset
+
+1
+\begin_inset Quotes erd
+\end_inset
+
+ from the least-significant bit to the most-significant bit of the P result.
+ This behavior is the same as in the carry-based TDL: the bits of the P
+ output are the taps of the TDL, and the underflow-carry takes a certain
+ propagation delay to cross each one of them.
+ 
+\end_layout
+
+\begin_layout Standard
+The DSP-based TDL relies on the same Valid mechanism of the carry-based
+ counterpart, and the clock period selected by the valid assertion is the
+ STOP signal that takes a snapshot of the state of the TDL.
+ Since a single DSP48E2 is used in dual 24-bit mode, two thermometric codes
+ are generated in parallel, as final output.
+ We can better see the propagation mechanism in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Propagation-mechanism-along"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/dsp-propagation.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Propagation mechanism along the DSP-based TDL.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Propagation-mechanism-along"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Advantages and drawbacks of the DSP-based TDL
+\end_layout
+
+\begin_layout Standard
+One great advantage of this type of Tapped Delay-Line (TDL) is that the
+ taps (bins) of the DSP slice are characterized by a tiny propagation delay,
+ in the order of very few picoseconds (ps), thus allowing a very fast propagatio
+n of the input signal along the chain.
+ However, the cascade path from one DSP slice to another introduces a huge
+ propagation delay and therefore the presence of a very high ultra-bin in
+ the chain.
+ The recurring presence of ultra-bins along the DSP-based TDL is the main
+ drawback of this architecture, since, as explained earlier, it worsens
+ the single-shot precision of the Time-to-Digital Converter (TDC).
+ 
+\end_layout
+
+\begin_layout Standard
+The main reason which led to use DSPs as main blocks to create a TDL is
+ that, exploiting this type of resource makes possible to build a more compact
+ structure because it avoids long carry chains hindering the routing across
+ different regions of the FPGA, also leading to relax the hardware utilization.
+ Indeed, the sampling of the Tapped Delay-Line is made by the P-register
+ integrated in the DSP itself, thus not requiring to use the flip-flops
+ (FFs) present in the FPGA fabric, as it was in the carry-based approach.
+ 
+\end_layout
+
+\begin_layout Standard
+As we will see later, when the obtained experimental results will be shown,
+ the combination of the carry-based TDL and the DSP-based TDL creates an
+ 
+\begin_inset Quotes eld
+\end_inset
+
+hybrid
+\begin_inset Quotes erd
+\end_inset
+
+ Virtual Tapped Delay-Line (V-TDL) which, thanks to the SuperWU sub-interpolatio
+n algorithm, allows to exploit the best features of both the two architectures,
+ and to achieve an overall better single-shot precision with respect to
+ the fully carry-based approach.
 \end_layout
 
 \end_body
