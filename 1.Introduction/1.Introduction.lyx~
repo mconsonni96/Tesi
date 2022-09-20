@@ -493,7 +493,7 @@ Typical measurement setup
 \end_layout
 
 \begin_layout Standard
-In all these applications just presented, the typical setup to measure the
+In all the applications just presented, the typical setup to measure the
  time distance 
 \begin_inset Formula $\varDelta T$
 \end_inset
@@ -518,7 +518,7 @@ noprefix "false"
 \begin_inset Formula $\varDelta T$
 \end_inset
 
-, giving as output a digital code.
+, giving a digital code in output.
 \end_layout
 
 \begin_layout Standard
@@ -567,72 +567,10 @@ name "fig:Measurement-Setup-employing"
 \end_layout
 
 \begin_layout Standard
-The TIM is an electronic circuit, and can be analog, digital, or mixed-signal.
- Considering the mixed-signal approach, the Time-to-Amplitude Converter
- (TAC) is the main device used in research, and it converts a time interval
- into a voltage level 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "2Nicola"
-literal "false"
-
-\end_inset
-
-.
- Precisely, its working principle consists in building a voltage ramp that
- starts synchronously with the START event and it stops when the STOP event
- occurs.
- In this way, the obtained ramp has as final value a voltage level, which
- is proportional to the measured time interval.
- However, the trade-off between resolution and Full-Scale Range (FSR) given
- by this device represents a significant drawback, and for this reason a
- fully-digital approach is usually preferred.
- A fully-digital TIM is called Time-to-Digital Converter (TDC).
-\end_layout
-
-\begin_layout Standard
-In this thesis work, i will present a Time-to-Digital Converter (TDC), an
- instrument which converts the measured time interval in a digital binary
+In this thesis work, a fully-digital Time-Interval-Meter, called Time-to-Digital
+ Converter (TDC), will be presented.
+ This instrument converts the measured time interval into a digital binary
  code, representing the time elapsed between the START and the STOP event.
- The TDC can be implemented both in an Application Specific Integrated Circuit
- (ASIC) 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "123198"
-literal "false"
-
-\end_inset
-
- and in a Field Programmable Gate Array (FPGA) 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "9452098"
-literal "false"
-
-\end_inset
-
-.
- Despite the ASIC is much more power efficient, the FPGA approach is the
- most suitable choice in the scientific research world, being characterized
- by high reconfigurability, fast prototyping, low non-recurring engineering
- (NRE) costs, and low time-to-market.
- The system has been implemented fully on FPGA as a tunable Intellectual
- Property Core (IP-Core).
- The IP-Core approach has been preferred due to its features of fast prototyping
-, easy tunability and portability on different FPGA devices.
- The concept of 
-\begin_inset Quotes eld
-\end_inset
-
-tunability
-\begin_inset Quotes erd
-\end_inset
-
- comes from the fact that all the TDC's parameters such as FSR, resolution,
- and number of channels can be set by the user in the instantiation stage.
- The main goal of this thesis is to obtain a better time resolution, precision
- and accuracy with respect to the state-of-the-art version of this device.
- 
 \end_layout
 
 \begin_layout Subsection
@@ -640,7 +578,8 @@ Figures Of Merit (FOMs)
 \end_layout
 
 \begin_layout Standard
-Let's see which are the main FOMs characterizing the TDC's performances:
+Let's see which are the main Figures Of Merit (FOMs) characterizing the
+ TDC's performances:
 \end_layout
 
 \begin_layout Itemize
@@ -711,7 +650,285 @@ C, but usually, compensation techniques are required in order to reach high
 \end_layout
 
 \begin_layout Subsection
+FPGA vs.
+ ASIC
+\end_layout
+
+\begin_layout Standard
+The TDC can be implemented both in an Application Specific Integrated Circuit
+ (ASIC) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "123198"
+literal "false"
+
+\end_inset
+
+ and in a Field Programmable Gate Array (FPGA) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "9452098"
+literal "false"
+
+\end_inset
+
+.
+ Despite the ASIC is much more power efficient, the FPGA approach is the
+ most suitable choice in the scientific research world, being characterized
+ by high reconfigurability, fast prototyping, low non-recurring engineering
+ (NRE) costs, and low time-to-market.
+ 
+\end_layout
+
+\begin_layout Subsection
 State of the Art
+\end_layout
+
+\begin_layout Standard
+In the current scientific research world, different types of Time-Interval-Meter
+ are employed.
+ The TIM is an electronic circuit, and can be analog, digital, or mixed-signal.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Time-to-Amplitude Converter (TAC)
+\end_layout
+
+\begin_layout Standard
+Considering the mixed-signal approach, the Time-to-Amplitude Converter (TAC)
+ is the main device used in research, and it converts a time interval into
+ a voltage level 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "2Nicola"
+literal "false"
+
+\end_inset
+
+.
+ Precisely, its working principle consists in building a voltage ramp that
+ starts synchronously with the START event and it stops when the STOP event
+ occurs.
+ In this way, the obtained ramp has as final value a voltage level, which
+ is proportional to the measured time interval.
+ However, the trade-off between resolution and Full-Scale Range (FSR) given
+ by this device represents a significant drawback, and for this reason a
+ fully-digital approach is usually preferred.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Shift–Clock Fast–Counter TDC, SCFC-TDC
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+...
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Delay-Line TDC
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+intro
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Tapped Delay-Line TDC, TDL-TDC
+\end_layout
+
+\begin_layout Standard
+The Tapped Delay-Line (TDL) consists of a sequence of buffers (also called
+ 'bins' or 'taps') connected in series, where the output of each bin is
+ connected to the D input of a D flip-flop.
+ In this way, the time elapsed from the START event to the STOP one, can
+ be obtained by simply counting the number of bins crossed by the former,
+ when the latter occurs 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Nicola55"
+literal "false"
+
+\end_inset
+
+.
+ More precisely, the operation of the TDL is the following: at first, all
+ the buffers of the chain are kept to '0' logical value; then, when our
+ first asynchronous event of interest occurs, i.e.
+ our START signal, it propagates along the series of buffers (each one having
+ its own propagation delay 
+\begin_inset Formula $\varDelta t_{p}$
+\end_inset
+
+), asserting them to '1' as soon as they are crossed in the propagation
+ process; in the end, the STOP signal, which is nothing but the rising edge
+ of the sampling clock, stores in the flip-flops the actual values of the
+ buffers in the chain, thus taking a picture of the propagation situation
+ of our signal.
+ Therefore, a thermometric code at the output of the chain of flip-flops
+ is obtained, and it represents the number of bins crossed by the propagating
+ START signal and, thus, knowing the delay of each buffer, the time elapsed
+ from the START to the STOP signal.
+ In Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Tapped-Delay-Line-structure."
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ is reported the structure of the Tapped-Delay Line and the propagation
+ of the START signal till the third bin, thus obtaining that thermometric
+ code.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../2.State-of-the-Art/images/tdl.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Tapped Delay-Line structure and propagation mechanism.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Tapped-Delay-Line-structure."
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The resolution (LSB) of this architecture depends on the number of buffers
+ (
+\begin_inset Formula $N_{B})$
+\end_inset
+
+ and on the clock period (
+\begin_inset Formula $T_{CLK})$
+\end_inset
+
+, as shown in the following equation:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+LSB=\frac{T_{CLK}}{N_{B}}\label{eq:TDL resolution}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The FSR is given instead by 
+\begin_inset Formula $T_{CLK}$
+\end_inset
+
+ itself.
+\end_layout
+
+\begin_layout Paragraph
+Vernier Delay-Line TDC, VDL-TDC
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+...
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Thesis Goal
+\end_layout
+
+\begin_layout Standard
+The main goal of this thesis work has been to implement a Tapped Delay-Line
+ Time-to-Digital Converter (TDL-TDC) characterized by a better time resolution,
+ a better precision, and a better accuracy with respect to the state-of-the-art
+ version of this device.
+ The system has been implemented at the Digital Electronics Laboratory (DigiLAB)
+ at Politecnico di Milano, fully on FPGA as a tunable, plug-and-play, Intellectu
+al Property Core (IP-Core).
+ The IP-Core is a package containing the firmware of all the blocks composing
+ the TDC, and it is characterized by high portability since 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+DA QUI.
+\end_layout
+
+\end_inset
+
+approach has been preferred due to its advantages of easy tunability and
+ portability on different FPGA devices.
+ The concept of 
+\begin_inset Quotes eld
+\end_inset
+
+tunability
+\begin_inset Quotes erd
+\end_inset
+
+ comes from the fact that all the TDC's parameters such as FSR, resolution,
+ and number of channels can be set by the user in the instantiation stage.
+ 
 \end_layout
 
 \end_body

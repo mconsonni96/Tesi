@@ -471,9 +471,9 @@ ones
  the output carry of the fourth stage (i.e.
  CO(3)) of the previous primitive to the carry-input port (CI) of the following
  primitive.
- The STOP signal is a clock at 400 MHz frequency and, as it occurs, a thermometr
-ic code is generated at the output of the flip-flops chain, representing
- a snapshot of the TDL state, i.e.
+ The STOP signal is a clock at 400 MHz frequency and, as soon as it occurs,
+ a thermometric code is generated at the output of the flip-flops chain,
+ representing a snapshot of the TDL state, i.e.
  the number of buffers hit by the propagation of 
 \begin_inset Quotes eld
 \end_inset
@@ -2017,6 +2017,85 @@ name "fig:Propagation-mechanism-along"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+The generic 
+\shape italic
+NUMBER_OF_DSP_CHAINS 
+\shape default
+decides how many 
+\begin_inset Quotes eld
+\end_inset
+
+active
+\begin_inset Quotes erd
+\end_inset
+
+ ALUs are performing the subtraction operation in parallel.
+ For example, if 
+\shape italic
+NUMBER_OF_DSP_CHAINS
+\shape default
+ = 1 or 
+\shape italic
+NUMBER_OF_DSP_CHAINS
+\shape default
+ = 2, in both cases the TDL is composed by a single DSP-chain.
+ But, keeping in mind that each DSP48E2 is used in dual 24-bit SIMD mode,
+ the difference is that: in the second case, both the 24-bit ALUs perform
+ the operation, and two thermometric codes are generated in output; instead,
+ in the first case, just one of the two ALUs is involved in the operation,
+ and one single thermometric code is produced.
+ Since, in both cases, the same amount of DSP resources is exploited and
+ since, thanks to the sub-interpolation, having two thermometric codes is
+ more beneficial than having just a single one, choosing an even number
+ for 
+\shape italic
+NUMBER_OF_DSP_CHAINS 
+\shape default
+is always the more convenient choice
+\shape italic
+.
+\end_layout
+
+\begin_layout Standard
+Moreover, the generic 
+\shape italic
+XUS_VS_X7S 
+\shape default
+allows
+\shape italic
+ 
+\shape default
+to choose the technology node also for the DSP slice, as it is for the carry
+ primitive.
+ If 
+\shape italic
+XUS_VS_X7S = 
+\shape default
+
+\begin_inset Quotes eld
+\end_inset
+
+X7S
+\begin_inset Quotes erd
+\end_inset
+
+, only DSP48E1 primitives are instantiated; if instead 
+\shape italic
+XUS_VS_X7S = 
+\shape default
+
+\begin_inset Quotes eld
+\end_inset
+
+XUS
+\begin_inset Quotes erd
+\end_inset
+
+, only DSP48E2 primitives are implemented.
+ 
 \end_layout
 
 \begin_layout Paragraph

@@ -471,9 +471,9 @@ ones
  the output carry of the fourth stage (i.e.
  CO(3)) of the previous primitive to the carry-input port (CI) of the following
  primitive.
- The STOP signal is a clock at 400 MHz frequency and, as it occurs, a thermometr
-ic code is generated at the output of the flip-flops chain, representing
- a snapshot of the TDL state, i.e.
+ The STOP signal is a clock at 400 MHz frequency and, as soon as it occurs,
+ a thermometric code is generated at the output of the flip-flops chain,
+ representing a snapshot of the TDL state, i.e.
  the number of buffers hit by the propagation of 
 \begin_inset Quotes eld
 \end_inset
@@ -1477,9 +1477,12 @@ name "fig:CARRY8-based-Tapped-Delay-Line"
 Concerning the sampling process, with the decimation of the flip-flops along
  the chain and the initial offset, all has been mantained as before.
  Also the valid mechanism, to choose the clock period in which the snapshot
- of the TDL is carried out, is the same as in the older version.
- Same with the possibility to just simulate the TDL with the delays of the
- fictitious buffers.
+ of the TDL is carried out, is the same as in the older version; the clock
+ sampling the TDL has instead been pushed to 500 MHz, thanks to the possibilitie
+s given by the better scaling of the UltraScale technological node with
+ respect to 7-Series, thus improving the measure rate and the dead-time
+ of the TDC.
+ 
 \end_layout
 
 \begin_layout Standard

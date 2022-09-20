@@ -136,149 +136,16 @@
 \begin_body
 
 \begin_layout Section
-State of the Art
+Techniques (?)
 \end_layout
 
 \begin_layout Standard
-Since the Time-to-Digital Converter employed in our laboratory is a Delay-Line
- based one, let's describe this architecture in detail.
- This particular type of architecture has a Tapped-Delay Line (TDL) as its
- core part, which consists of a sequence of buffers (also called 'bins'
- or 'taps') connected in series, where the output of each bin is also connected
- to the D input of a D flip-flop.
- In this way, the time elapsed from the START event to the STOP one, can
- be obtained by simply counting the number of bins crossed by the former,
- when the latter occurs 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Nicola55"
-literal "false"
-
-\end_inset
-
-.
- More precisely, the operation of the TDL is the following: at first, all
- the buffers of the chain are kept to '0' logical value; then, when our
- first asynchronous event of interest occurs, i.e.
- our START signal, it propagates along the series of buffers (each one having
- its own propagation delay 
-\begin_inset Formula $\varDelta t_{p}$
-\end_inset
-
-), asserting them to '1' as soon as they are crossed in the propagation
- process; in the end, the STOP signal, which is nothing but the rising edge
- of the sampling Clock (running at 400 MHz), stores in the flip-flops the
- actual values of the buffers in the chain, thus taking a picture of the
- propagation situation of our signal.
- Therefore, a thermometric code at the output of the chain of flip-flops
- is obtained, and it represents the number of bins crossed by the propagating
- START signal and, thus, knowing the delay of each buffer, the time elapsed
- from the START to the STOP signal.
- In Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Tapped-Delay-Line-structure."
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- is reported the structure of the Tapped-Delay Line and the propagation
- of the START signal till the third bin, thus obtaining that thermometric
- code.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename images/tdl.png
-	width 100text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Tapped-Delay Line structure and propagation mechanism.
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Tapped-Delay-Line-structure."
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Since each buffer is affected by process, voltage and temperature (PVT)
- variations, a periodic bin-by-bin calibration process is required, which
- assigns the correct, precise, propagation delay to each bin 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "8885152"
-literal "false"
-
-\end_inset
-
-.
- We will describe it in detail later.
-\end_layout
-
-\begin_layout Standard
-The resolution (LSB) of this architecture depends on the number of buffers
- (
-\begin_inset Formula $N_{B})$
-\end_inset
-
- and on the clock period (
-\begin_inset Formula $T_{CLK})$
-\end_inset
-
-, as shown in the following equation:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-LSB=\frac{T_{CLK}}{N_{B}}\label{eq:TDL resolution}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-The FSR is given instead by 
-\begin_inset Formula $T_{CLK}$
-\end_inset
-
- itself.
+Since the Time-to-Digital Converter employed in our laboratory consists
+ of a Tapped Delay-Line architecture, let's describe the techniques used
+ to implement it on the FPGA fabric.
+ These techniques have the scope to improve as much as possible the Figures
+ Of Merit (FOMs) already mentioned, and break the trade-off from which the
+ TDL-TDC suffers from.
 \end_layout
 
 \begin_layout Subsection
@@ -288,7 +155,7 @@ Sub-Interpolation
 \begin_layout Standard
 The Sub-Interpolation is a technique used to reduce the quantization error
  of the TDC, thus improving its resolution.
- It exploits redundancy in the measurements in order to to that 
+ It exploits redundancy in the measurements in order to do that 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Sub"
@@ -297,9 +164,10 @@ literal "false"
 \end_inset
 
 .
- Our state-of-the-art TDL-TDC exploits spatial redundancy, i.e.
+ The TDL-TDC implemented in our laboratory exploits spatial redundancy,
+ i.e.
  the Super Wave Union (SuperWU) sub-interpolation algorithm, characterized
- by the use of more physical TDLs in parallel.
+ by the use of more physical TDLs, placed in parallel.
  If we have 
 \begin_inset Formula $N$
 \end_inset
@@ -720,6 +588,122 @@ FSR=(2^{BIT\_COARSE}-1)\cdot T_{CLK}\label{eq:nutt_FSR}
 The LSB is instead still given by the TDL itself and by the Sub-Interpolation,
  thus leaving it untouched with respect to the new FSR.
  Therefore, Nutt-Interpolation is able to break the trade-off.
+\end_layout
+
+\begin_layout Subsection
+Calibration
+\end_layout
+
+\begin_layout Standard
+Since each buffer is affected by process, voltage and temperature (PVT)
+ variations, a periodic bin-by-bin calibration process is required, otherwise
+ the system would suffer from a very high non-linearity and the measures
+ would be highly unreliable.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "8885152"
+literal "false"
+
+\end_inset
+
+.
+ This process consists of the creation of a Calibration Table (CT) listing
+ all the propagation delays of each one of the 
+\begin_inset Formula $N$
+\end_inset
+
+ bins (or virtual bins, if sub-interpolation is performed) composing the
+ TDL, thus allowing to always know the exact propagation delay of each bin
+ and obtain a reliable measurement.
+ It is also necessary that the calibration process has a periodic refresh
+ during the entire use of the TDC, in order to update the correct propagation
+ delays of each bin.
+ This is mandatory, since the working conditions change a lot during the
+ use of the device, and therefore, the PVT variations would corrupt again
+ the linearity and the measurements.
+ Once the CT is built, the Characteristic Curve (CC) of the device can be
+ derived.
+ The CC is nothing but the integration of the CT, thus representing, for
+ each one of the 
+\begin_inset Formula $N$
+\end_inset
+
+ bins, the total propagation delay of the asynchronous input signal from
+ the first bin up to that specific considered bin.
+ Therefore, once the TDL sends in output the thermometric code representing
+ the bin that is reached by the input signal in its propagation process,
+ it is possible to read from the CC the precise propagation delay up to
+ that bin, and the exact Fine measure, in picoseconds, is obtained.
+\end_layout
+
+\begin_layout Standard
+Since the bins are not ideal, they all have different propagation delays
+ and, due to the crossing of different clock regions, some of them can be
+ particularly slow.
+ The latters are called ultra-bins, as said before.
+ In Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Graphical-representation-of"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ is reported a CT and the derived CC, in both the ideal and in the real
+ cases.
+ 
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/CTCC.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Graphical representation of the Calibration Table (CT) and the Characteristic
+ Curve (CC) in the ideal case (at the top) and in the real case (at the
+ bottom).
+ In the real case, an ultra-bin is highlighted.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Graphical-representation-of"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body
