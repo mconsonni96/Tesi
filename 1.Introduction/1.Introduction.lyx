@@ -673,11 +673,383 @@ literal "false"
 \end_inset
 
 .
- Despite the ASIC is much more power efficient, the FPGA approach is the
- most suitable choice in the scientific research world, being characterized
- by high reconfigurability, fast prototyping, low non-recurring engineering
- (NRE) costs, and low time-to-market.
- 
+ Indeed, both these two approaches can be used to implement a certain digital
+ function, the former being the fixed computing approach, the latter being
+ the configurable computing one.
+ Let's briefly describe the pros and cons of both of them.
+\end_layout
+
+\begin_layout Paragraph
+FPGA
+\end_layout
+
+\begin_layout Standard
+A Field Programmable Gate Array (FPGA) is a fully-digital electronic device
+ that can be configured and re-configured by a designer, after the manufacturing
+ process.
+\end_layout
+
+\begin_layout Standard
+FPGAs contain a lot of pre-defined combinational and sequential logic elements
+ that can be programmed and connected to produce the desired functionality.
+ All these elements are contained in logic blocks called Configurable Logic
+ Blocks (CLBs), which are the main logic resources for implementing sequential
+ as well as combinatorial circuits, and the connections between them are
+ carried out thanks to a programmable switch matrix.
+\end_layout
+
+\begin_layout Standard
+The CLBs are generally arranged in a regular array inside the FPGA, and
+ each one of them connects to the switch matrix, which runs vertically and
+ horizontally between the CLB rows and columns.
+\end_layout
+
+\begin_layout Standard
+Furthermore, FPGAs have dedicated modules to create and manage clocks such
+ as Mixed-Mode Clock Manager (MMCM) and a Phase-Locked Loop (PLL) modules.
+ In the end, buffers are available to correctly transfer the signals from
+ the outside of the chip to the inside (and viceversa) or through different
+ clock regions.
+\end_layout
+
+\begin_layout Standard
+The main advantages of an FPGA are: high felixibility given to the user,
+ thanks to the reconfigurable nature of the device; fast prototyping and
+ low time-to-market, since it is sufficient to modify the Hardware Description
+ Language (HDL) to immediately change the hardware configuration of the
+ device; low Non-Recurring Engineering (NRE) costs, since there is no need
+ to buy litographic photomasks, thus having a low entry barrier.
+\end_layout
+
+\begin_layout Standard
+The main drawbacks are instead: the lower operating frequency and higher
+ power consumption with respect to ASICs, since FPGAs are not optimized
+ for the specific functionality implemented; the impossibility to have analog
+ or mixed-signal designs, since FPGAs are fully-digital devices.
+\end_layout
+
+\begin_layout Paragraph
+ASIC
+\end_layout
+
+\begin_layout Standard
+An Application Specific Integrated Circuit (ASIC) is a chip designed to
+ perform a specific functionality, suited for an high-volume production.
+ All the resources are placed on a single silicon chip, and the functionality
+ is fixed by the manufacturing process.
+\end_layout
+
+\begin_layout Standard
+The main advantages of an ASIC are: very high performance and lower power
+ consumption with respect to FPGAs, since the entire design is tailored
+ to perform the specific functionality; the possibility to have also analog
+ and mixed-signal designs other than digital ones.
+\end_layout
+
+\begin_layout Standard
+The main drawbacks are: the impossibility to change the ASIC's functionality
+ and thus the lack of flexibility, given by the fixed nature of the design;
+ the high time-to-market, in the order of months, employed in the manufacturing
+ process; the high NRE costs for the fabrication, representing an higher
+ entry barrier with respect to FPGAs.
+\end_layout
+
+\begin_layout Paragraph
+Conclusions
+\end_layout
+
+\begin_layout Standard
+Despite the ASIC being much more power efficient and performant, the FPGA
+ approach is the most suitable choice in the scientific research world,
+ being characterized by high reconfigurability, fast prototyping, low non-recurr
+ing engineering (NRE) costs, and low time-to-market.
+ Indeed, these features are acquiring more and more importance, due to the
+ requirements of the applications described before.
+ Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Comparison-between-FPGA"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ summarizes the strengths belonging to each one of the two approaches.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Feature
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+FPGA
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+ASIC
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Performance
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\checkmark$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Power Efficiency
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\checkmark$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Flexibility
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\checkmark$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Time-to-market
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\checkmark$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+NRE costs
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\checkmark$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Analog elements
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\checkmark$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Comparison between FPGA and ASIC.
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Comparison-between-FPGA"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -686,9 +1058,10 @@ State of the Art
 
 \begin_layout Standard
 In the current scientific research world, different types of Time-Interval-Meter
- are employed.
- The TIM is an electronic circuit, and can be analog, digital, or mixed-signal.
- 
+ (TIM) are employed.
+ The TIM is an electronic circuit, and it can be analog, digital, or mixed-signa
+l.
+ Let's decribe the available main types of TIMs.
 \end_layout
 
 \begin_layout Subsubsection
@@ -697,8 +1070,37 @@ Time-to-Amplitude Converter (TAC)
 
 \begin_layout Standard
 Considering the mixed-signal approach, the Time-to-Amplitude Converter (TAC)
- is the main device used in research, and it converts a time interval into
- a voltage level 
+ is the main device used in research, and it converts a time interval 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\varDelta t$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ into a voltage level 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "2Nicola"
@@ -706,15 +1108,141 @@ literal "false"
 
 \end_inset
 
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "8743999"
+literal "false"
+
+\end_inset
+
 .
- Precisely, its working principle consists in building a voltage ramp that
- starts synchronously with the START event and it stops when the STOP event
- occurs.
- In this way, the obtained ramp has as final value a voltage level, which
- is proportional to the measured time interval.
- However, the trade-off between resolution and Full-Scale Range (FSR) given
- by this device represents a significant drawback, and for this reason a
- fully-digital approach is usually preferred.
+ More precisely, its working principle consists in building a voltage ramp
+ that starts synchronously with the START event, and it stops when the STOP
+ event occurs.
+ In this way, the obtained ramp has as final value a voltage level proportional
+ to the measured time interval.
+ Then, at the second stage, an ADC converts the measured voltage level into
+ a digital code.
+ We can see the structure of a conventional TAC in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Conventional-structure-of"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, where the capacitor 
+\shape italic
+C
+\shape default
+ is charged by a constant current 
+\shape italic
+I
+\shape default
+ as long as START = 1 and STOP = 0; then, as soon as STOP = 1, START deasserts
+ to 0, and the capacitor gets isolated from the current generator, thus
+ holding the charge.
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/mconsonni/Desktop/tesi_mconsonni/2.State-of-the-Art/images/TAC.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Structure and operation of a conventional Time-to-Amplitude Converter (TAC).
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Conventional-structure-of"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+The value of the voltage across the capacitor has the following expression:
+\begin_inset Formula 
+\begin{equation}
+V_{C}=\varDelta t\cdot\frac{I}{C}\label{eq:cap}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and it is converted, by the 
+\shape italic
+n
+\shape default
+-bit ADC, into a digital output code representing the time distance 
+\begin_inset Formula $\varDelta t$
+\end_inset
+
+.
+ The resolution of the TAC is equal to:
+\begin_inset Formula 
+\begin{equation}
+\varDelta t_{LSB}=\frac{V_{FSR}}{2^{n}}\cdot\frac{C}{I}\label{eq:TAC_res}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $V_{FSR}$
+\end_inset
+
+ is the full voltage span of the ADC, given by its supply voltage.
+ It can be clearly seen from Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:TAC_res"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ that this architecture suffers from a trade-off between resolution and
+ Full-Scale Range (FSR).
+ This trade-off, along with the non-idealities of the current generator
+ and of the other components, represent a significant drawback, and for
+ this reason a fully-digital approach is usually preferred.
  
 \end_layout
 
