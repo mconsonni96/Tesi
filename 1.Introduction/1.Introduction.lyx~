@@ -755,7 +755,7 @@ The main drawbacks are: the impossibility to change the ASIC's functionality
 \end_layout
 
 \begin_layout Paragraph
-Conclusions
+Comparison
 \end_layout
 
 \begin_layout Standard
@@ -1108,6 +1108,14 @@ literal "false"
 
 \end_inset
 
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "8743999"
+literal "false"
+
+\end_inset
+
 .
  More precisely, its working principle consists in building a voltage ramp
  that starts synchronously with the START event, and it stops when the STOP
@@ -1243,16 +1251,173 @@ Shift–Clock Fast–Counter TDC, SCFC-TDC
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
+This is a fully-digital architecture which employs a counter, driven by
+ a clock signal with period 
+\begin_inset Formula $T_{CLK}$
+\end_inset
+
+, to produce two timestamps that are associated respectively to the value
+ of the counter at the START signal occurrence (
+\begin_inset Formula $T_{START}$
+\end_inset
+
+) and at the STOP condition (
+\begin_inset Formula $T_{STOP}$
+\end_inset
+
+).
+ Then, their difference provides the elapsed time between the two events,
+ which is equal to:
+\begin_inset Formula 
+\begin{equation}
+\varDelta t=T_{CLK}\cdot(T_{STOP}-T_{START})\label{eq:scfc-timediff}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+However, this single-counter implementation is useless for the kind of applicati
+ons that require Time-to-Digital Converters, since the achievable resolution
+ 
+\begin_inset Formula $\varDelta t_{LSB}$
+\end_inset
+
+ in this case is just equal to 
+\begin_inset Formula $T_{CLK}$
+\end_inset
+
+.
+ Hence, 
+\begin_inset Formula $N$
+\end_inset
+
+ counters are used, each one driven by the same clock signal used before,
+ but shifted in phase by 
+\begin_inset Formula $\varDelta\phi=\frac{2\pi}{N}$
+\end_inset
+
+ thanks to a Phase-Locked Loop (PLL).
+ This allows to have more clock edges acting as intermediate levels in the
+ counting process, and the resolution of the device improves to:
+\begin_inset Formula 
+\begin{equation}
+\varDelta t_{LSB}=\frac{T_{CLK}}{N}\label{eq:scfc-lsb}
+\end{equation}
+
+\end_inset
+
+ The FSR, given that each counter is 
+\shape italic
+n
+\shape default
+-bit wide, is instead equal to:
+\begin_inset Formula 
+\begin{equation}
+\varDelta t_{FSR}=2^{n}\cdot T_{CLK}\label{eq:scfc-fsr}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The architecture just described is represented in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Shift-Clock-Fast-Counter-TDC"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
 status open
 
 \begin_layout Plain Layout
-...
+\align center
+\begin_inset Graphics
+	filename images/scfc.png
+	width 60text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Shift-Clock Fast-Counter TDC (SCFC-TDC) architecture employing 
+\begin_inset Formula $N$
+\end_inset
+
+ n-bit counters.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Shift-Clock-Fast-Counter-TDC"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The main advantage of this architecture is that it doesn't suffer from the
+ trade-off between resolution (LSB) and Full-Scale Range (FSR), as can be
+ seen by Equations 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:scfc-lsb"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:scfc-fsr"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Besides, it exploits small hardware resources, and has a small DNL and
+ INL.
+ The drawback of this architecture is that the resolution is dependent from
+ the available clock lines of the FPGA and, being these limited (e.g: in
+ Xilinx 7-Series FPGAs, just ten clock lines are available), the achievable
+ resolution is not that high, but it is limited to some hundred of ps.
+ Moreover, more clock lines lead to more power consumption.
 \end_layout
 
 \begin_layout Subsubsection
