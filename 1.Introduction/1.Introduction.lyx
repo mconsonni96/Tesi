@@ -1433,16 +1433,49 @@ Delay-Line TDC
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
+To overcome the resolution limit given by the SCFC-TDC, Delay-Line TDCs
+ (DL-TDCs) are typically preferred.
+ A Delay-Line is nothing but a chain of buffers, also called 
+\begin_inset Quotes eld
+\end_inset
 
-\begin_layout Plain Layout
-intro
-\end_layout
+taps
+\begin_inset Quotes erd
+\end_inset
+
+ or 
+\begin_inset Quotes eld
+\end_inset
+
+bins
+\begin_inset Quotes erd
+\end_inset
+
+, along which the input START and STOP events propagate.
+ The overall method to calculate the time interval between the two signals
+ is to take a snapshot of the Delay-Line as soon as a sampling event occurs,
+ and count the number of bins hit by both the START signal and by the STOP
+ signal in their propagation process.
+ Then, by making the difference between the calculated number of bins, the
+ time interval information is obtained.
+ Two main types of Delay-Line TDCs are available: the Tapped Delay-Line
+ TDC (TDL-TDC) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "9452098"
+literal "false"
 
 \end_inset
 
+ and the Vernier Delay-Line TDC (VDL-TDC) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "8932420"
+literal "false"
 
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Paragraph
@@ -1574,16 +1607,186 @@ Vernier Delay-Line TDC, VDL-TDC
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
+The Vernier Delay-Line (VDL) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "8932420"
+literal "false"
+
+\end_inset
+
+ relies on two chains with the same number 
+\begin_inset Formula $N$
+\end_inset
+
+ of buffers and, while the output of the first chain's taps are connected
+ to the D-input of the sampling Flip-Flops (FFs), the outputs of the second
+ chain are connected to their clock inputs.
+ The START signal propagates on the first chain with a propagation delay
+ 
+\begin_inset Formula $t_{p1}$
+\end_inset
+
+ on each bin, and the STOP signal travels on the second chain with a propagation
+ delay 
+\begin_inset Formula $t_{p2}$
+\end_inset
+
+ on each bin, which is lower than 
+\begin_inset Formula $t_{p1}$
+\end_inset
+
+.
+ Hence, as soon as the STOP signal, travelling on the faster chain, reaches
+ the START one, the flip-flop corresponding to bin 
+\begin_inset Formula $N_{x}$
+\end_inset
+
+ change its state, and provides the information of the time interval 
+\begin_inset Formula $\Delta t$
+\end_inset
+
+ between START and STOP.
+ A representation of the Vernier Delay-Line structure and working mode can
+ be seen in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Vernier-Delay-Line-(VDL)"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
 status open
 
 \begin_layout Plain Layout
-...
+\align center
+\begin_inset Graphics
+	filename images/vdl.png
+	width 90text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Vernier Delay-Line (VDL) structure and propagation mechanism.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Vernier-Delay-Line-(VDL)"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Precisely, the time instant at which both the START and STOP signals reach
+ the same bin 
+\begin_inset Formula $N_{x}$
+\end_inset
+
+ is equal to:
+\begin_inset Formula 
+\begin{equation}
+T_{x}^{(start)}=N_{x}\cdot t_{p1}\label{eq:start-instant}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+T_{x}^{(stop)}=\varDelta t+N_{x}\cdot t_{p2}\label{eq:stop-instant}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+By equating relations 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:start-instant"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:stop-instant"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, the time interval 
+\begin_inset Formula $\varDelta t$
+\end_inset
+
+ is obtained:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\varDelta t=N_{x}\cdot(t_{p1}-t_{p2})\ \ ,~t_{p1}>t_{p2}\label{eq:vdl-timeinterval}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As can be seen from the obtained result, the time difference between the
+ START and STOP events is dependent on 
+\begin_inset Formula $t_{p1}$
+\end_inset
+
+ and 
+\begin_inset Formula $t_{p2}$
+\end_inset
+
+, and every fluctuation of their values will directly impact on the instrument's
+ resolution.
+ Therefore, this architecture is not so reliable, and the TDL-TDC in the
+ most suitable choice on an FPGA.
 \end_layout
 
 \begin_layout Subsection
@@ -1597,7 +1800,15 @@ The main goal of this thesis work has been to implement a Tapped Delay-Line
  version of this device.
  The system has been implemented at the Digital Electronics Laboratory (DigiLAB)
  at Politecnico di Milano, fully on FPGA as a tunable, plug-and-play, Intellectu
-al Property Core (IP-Core).
+al Property Core (IP-Core) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "9452098"
+literal "false"
+
+\end_inset
+
+.
  The IP-Core is a package containing the firmware and the parameters of
  all the blocks composing the TDC, and it is characterized by an high portabilit
 y.

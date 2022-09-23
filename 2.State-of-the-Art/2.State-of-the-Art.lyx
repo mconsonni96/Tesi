@@ -638,7 +638,9 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-Since the bins are not ideal, they all have different propagation delays
+Since in FPGAs there is not the possibility to tailor the chain of buffers
+ with the desired precise propagation delays, but a chain of CLBs is adapted
+ as a buffer chain, the bins will all have different propagation delays
  and, due to the crossing of different clock regions, some of them can be
  particularly slow.
  The latters are called ultra-bins, as said before.
@@ -682,7 +684,7 @@ status open
 Graphical representation of the Calibration Table (CT) and the Characteristic
  Curve (CC) in the ideal case (at the top) and in the real case (at the
  bottom).
- In the real case, an ultra-bin is highlighted.
+ In the real case, the presence of an ultra-bin is highlighted.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Graphical-representation-of"

@@ -668,7 +668,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/CTCC.png
-	width 100text%
+	width 80text%
 
 \end_inset
 
