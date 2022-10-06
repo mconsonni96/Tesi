@@ -2156,7 +2156,8 @@ This module hasn't been modified in this thesis work, therefore, its unique
  version will be described in the following.
  The only difference is that, thanks to the migration to the Ultrascale
  technology node, the operating frequency of this module has been pushed
- from 400 MHz to 500 MHz, thus increasing the measure rate of the system.
+ from 400 MHz to 500 MHz, same as the V-TDL, thus increasing the measure
+ rate of the system.
 \end_layout
 
 \begin_layout Standard
@@ -2186,15 +2187,7 @@ literal "false"
 \end_inset
 
 .
- The following relation holds:
-\begin_inset Formula 
-\begin{equation}
-BIT\_SUBINT=\log_{2}(BIT\_UNDECO)+1\label{eq:decoder_eq}
-\end{equation}
-
-\end_inset
-
-
+ 
 \end_layout
 
 \begin_layout Standard
@@ -2207,6 +2200,14 @@ The conversion is done in pipeline, thanks to a Thermo-to-Binary (T2B) engine.
  code into a binary one, by summing all the '1's in the case of an input
  signal with rising edge sensitivity, or all the '0's in the case of a falling
  edge in the input signal.
+ The following relation holds:
+\begin_inset Formula 
+\begin{equation}
+BIT\_SUBINT=\log_{2}(BIT\_UNDECO)+1\label{eq:decoder_eq}
+\end{equation}
+
+\end_inset
+
  Table 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2798,6 +2799,24 @@ name "tab:Selection-of-the"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsection
+Coarse Extension Core (CEC)
+\end_layout
+
+\begin_layout Standard
+This module is the same of the older TDC version.
+ The only difference is that it is now used with a different value of the
+ generic 
+\shape italic
+BIT_COARSE_CEC 
+\shape default
+as we will explain later; let's thus describe this module, before.
+ The Coarse Extension Core is where the Nutt-Interpolation is carried out,
+ i.e.
+ the addition of the Coarse measure on the Fine one, performed by the previous
+ modules.
 \end_layout
 
 \end_body
