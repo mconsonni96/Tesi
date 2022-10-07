@@ -2806,24 +2806,22 @@ Coarse Extension Core (CEC)
 \end_layout
 
 \begin_layout Standard
-This module is the same of the older TDC version.
- The only difference is that it is now used with a different value of the
- generic 
-\shape italic
-BIT_COARSE_CEC, 
-\shape default
-as we will explain later; let's thus describe the purpose and the working
- principle of the module, before.
- The Coarse Extension Core is where the Nutt-Interpolation is carried out,
+The Coarse Extension Core is where the Nutt-Interpolation is carried out,
  i.e.
  the addition of the Coarse measure to the Fine one (computed by the previous
  modules) in order to break the trade-off between Resolution and FSR.
- A Coarse Counter engine is in charge of counting the number of clock periods
+ A 
+\shape italic
+BIT_COARSE_CEC
+\shape default
+-wide Coarse Counter is in charge of counting the number of clock periods
  elapsed from the power-on instant of the system, up to the generation of
  the Fine measure, accomplished by the V-TDL.
- An overflow detection is also implemented; indeed, along with the Coarse-Counte
-r, another sub-module called TreeComparator, which is a comparator in pipeline,
- compares the value of the Coarse-Counter with a reference value equal to:
+ An overflow detection is also implemented, and it will be used by one of
+ the following modules to extend even more the FSR, up to some days.
+ This overflow detection is performed by a sub-module called TreeComparator,
+ which works in pipeline, and compares the value of the Coarse-Counter with
+ a reference value equal to:
 \begin_inset Formula 
 \begin{equation}
 OVERFLOW\_REF=2^{BIT\_COARSE\_CEC}-1-NUM\_STAGES\label{eq:OVERFLOW_REF}
@@ -2866,6 +2864,13 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/CEC.png
+	width 100text%
+
+\end_inset
+
 
 \end_layout
 
@@ -2895,6 +2900,56 @@ name "fig:Coarse-Extension-Core"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+The FINE_PART field contains the binary code representing the Fine measurement,
+ performed by the previous modules; the COARSE_COUNTER field contains the
+ number of clock cycles of the 500 MHz clock signal, elapsed from the power-on
+ instant of the system; the FID field contains the information about the
+ occurrence of an overflow in the Coarse-Counter.
+ If FID = 1, no overflow happened, and the COARSE_COUNTER and the FINE fields
+ contain their respective measurement information.
+ If instead FID = 0, an overflow happened, and the other two fields will
+ contain their older values, in order to signal that the measure is not
+ valid.
+\end_layout
+
+\begin_layout Standard
+The CEC also performs another fundamental action, being Clock Domain Crossing
+ (CDC).
+ Indeed, it contains a FIFO that allows to avoid loosing consecutive measurement
+s and to manage correctly the case in which a valid measure and an overflow
+ occur concurrently, and it is written and read using two different clocks
+ signals.
+ The write process in the FIFO is under the TDC_Clock domain, i.e.
+ the 500 MHz clock feeding also the V-TDL and the Decoder, while the read
+ process is done under the SYS_Clock domain, i.e.
+ a 200 MHz clock feeding all the following module.
+ Therefore, a passage from a very fast clock to a slower one is done, so
+ to have all the following processing under more relaxed timing contraints
+ and avoid timing errors.
+ 
+\end_layout
+
+\begin_layout Standard
+This module is the same as in the older version of the TDC.
+ The only difference is that it is now used with a different value of the
+ generic 
+\shape italic
+BIT_COARSE_CEC, 
+\shape default
+from 8 to 4.
+ This is done in order to improve even more the timing performance (i.e.
+ the Worst Negative Slack of the system), indeed, this allows to have a
+ narrower data, and thus a narrower FIFO, which is what really influences
+ the timing in the CEC.
+ Obviously, this causes to signal more overflows than before, but this will
+ be managed by one of the following modules, as we will see later.
+\end_layout
+
+\begin_layout Subsection
+Calibrator
 \end_layout
 
 \end_body

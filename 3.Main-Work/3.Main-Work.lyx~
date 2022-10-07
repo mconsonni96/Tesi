@@ -2810,13 +2810,113 @@ This module is the same of the older TDC version.
  The only difference is that it is now used with a different value of the
  generic 
 \shape italic
-BIT_COARSE_CEC 
+BIT_COARSE_CEC, 
 \shape default
-as we will explain later; let's thus describe this module, before.
+as we will explain later; let's thus describe the purpose and the working
+ principle of the module, before.
  The Coarse Extension Core is where the Nutt-Interpolation is carried out,
  i.e.
- the addition of the Coarse measure on the Fine one, performed by the previous
- modules.
+ the addition of the Coarse measure to the Fine one (computed by the previous
+ modules) in order to break the trade-off between Resolution and FSR.
+ A Coarse Counter engine is in charge of counting the number of clock periods
+ elapsed from the power-on instant of the system, up to the generation of
+ the Fine measure, accomplished by the V-TDL.
+ An overflow detection is also implemented, and it will be used by one of
+ the following modules to extend even more the FSR, up to some days.
+ This overflow detection is performed by a sub-module called TreeComparator,
+ which works in pipeline, and compares the value of the Coarse-Counter with
+ a reference value equal to:
+\begin_inset Formula 
+\begin{equation}
+OVERFLOW\_REF=2^{BIT\_COARSE\_CEC}-1-NUM\_STAGES\label{eq:OVERFLOW_REF}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this way, as soon as the Coarse-Counter reaches its maximum value 
+\begin_inset Formula $(2^{BIT\_COARSE\_CEC}-1)$
+\end_inset
+
+, an overflow condition is reported.
+ The subtraction of NUM_STAGES is required in order to take into account
+ the delay introduced by the pipeline stages of the TreeComparator.
+\end_layout
+
+\begin_layout Standard
+The data produced by the Coarse Extension Core module is composed by three
+ fields, as shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Coarse-Extension-Core"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/CEC.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Coarse Extension Core data structure.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Coarse-Extension-Core"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The FINE_PART field contains the binary code representing the Fine measurement,
+ performed by the previous modules; the COARSE_COUNTER field contains the
+ number of clock cycles of the 500 MHz clock signal, elapsed from the power-on
+ instant of the system; the FID field contains the information about the
+ occurrence of an overflow in the Coarse-Counter.
+ If FID = 1, no overflow happened, and the COARSE_COUNTER and the FINE fields
+ contain their respective measurement information.
+ If instead FID = 0, an overflow happened, and the other two fields will
+ contain their older values, in order to signal that the measure is not
+ valid.
 \end_layout
 
 \end_body
