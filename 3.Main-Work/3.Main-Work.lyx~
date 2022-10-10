@@ -2806,19 +2806,15 @@ Coarse Extension Core (CEC)
 \end_layout
 
 \begin_layout Standard
-This module is the same of the older TDC version.
- The only difference is that it is now used with a different value of the
- generic 
-\shape italic
-BIT_COARSE_CEC, 
-\shape default
-as we will explain later; let's thus describe the purpose and the working
- principle of the module, before.
- The Coarse Extension Core is where the Nutt-Interpolation is carried out,
+The Coarse Extension Core is where the Nutt-Interpolation is carried out,
  i.e.
  the addition of the Coarse measure to the Fine one (computed by the previous
  modules) in order to break the trade-off between Resolution and FSR.
- A Coarse Counter engine is in charge of counting the number of clock periods
+ A 
+\shape italic
+BIT_COARSE_CEC
+\shape default
+-wide Coarse Counter is in charge of counting the number of clock periods
  elapsed from the power-on instant of the system, up to the generation of
  the Fine measure, accomplished by the V-TDL.
  An overflow detection is also implemented, and it will be used by one of
@@ -2917,6 +2913,278 @@ The FINE_PART field contains the binary code representing the Fine measurement,
  If instead FID = 0, an overflow happened, and the other two fields will
  contain their older values, in order to signal that the measure is not
  valid.
+\end_layout
+
+\begin_layout Standard
+The CEC also performs another fundamental action, being Clock Domain Crossing
+ (CDC).
+ Indeed, it contains a FIFO that allows to avoid loosing consecutive measurement
+s and to manage correctly the case in which a valid measure and an overflow
+ occur concurrently, and it is written and read using two different clocks
+ signals.
+ The write process in the FIFO is under the TDC_Clock domain, i.e.
+ the 500 MHz clock feeding also the V-TDL and the Decoder, while the read
+ process is done under the SYS_Clock domain, i.e.
+ a 200 MHz clock feeding all the following module.
+ Therefore, a passage from a very fast clock to a slower one is done, so
+ to have all the following processing under more relaxed timing contraints
+ and avoid timing errors.
+ 
+\end_layout
+
+\begin_layout Standard
+This module is the same as in the older version of the TDC.
+ The only difference is that it is now used with a different value of the
+ generic 
+\shape italic
+BIT_COARSE_CEC, 
+\shape default
+from 8 to 4.
+ This is done in order to improve even more the timing performance (i.e.
+ the Worst Negative Slack of the system), indeed, this allows to have a
+ narrower data, and thus a narrower FIFO, which is what really influences
+ the timing in the CEC.
+ Obviously, this causes to signal more overflows than before, but this will
+ be managed by one of the following modules, as we will see later.
+\end_layout
+
+\begin_layout Subsection
+Calibrator
+\end_layout
+
+\begin_layout Standard
+This module is the same of the old TDC, and it is in charge of keeping track
+ of the process, voltage and temperature (PVT) variations affecting each
+ bin of the V-TDL, by means of the Calibration Table (CT) and the Characteristic
+ Curve (CC).
+ Its working principle is the following one: a set of random signals is
+ sent to the V-TDL, which generates a certain number of thermometric codes
+ that are then converted into binary values by the Decoder.
+ The Calibrator then performs a Code Density Test (CDT), which consists
+ of counting how many samples (i.e.
+ the binary values provided by the Decoder) fall on each bin of the V-TDL,
+ in the clock window (i.e.
+ the STOP signal) selected by the already-described 
+\begin_inset Quotes eld
+\end_inset
+
+valid
+\begin_inset Quotes erd
+\end_inset
+
+ mechanism.
+ Finally, at each bin is associated its propagation delay value in picoseconds,
+ and the CT is obtained.
+ This conversion, from 
+\begin_inset Quotes eld
+\end_inset
+
+bin counts
+\begin_inset Quotes erd
+\end_inset
+
+ to picoseconds, is done in this way: let's suppose that, in the selected
+ clock window, 
+\begin_inset Formula $N$
+\end_inset
+
+ bins of the V-TDL are involved, and let's call 
+\begin_inset Formula $n_{X}$
+\end_inset
+
+ the number of samples counted on the 
+\begin_inset Formula $x$
+\end_inset
+
+-th bin, where 
+\begin_inset Formula $x=1,2,...,N.$
+\end_inset
+
+ The propagation delay of each bin is obtained with this proportionality:
+\begin_inset Formula 
+\begin{equation}
+t_{X}=\frac{n_{X}}{\sum_{x=1}^{N}n_{X}}\cdot T_{CLK,ps}\ ,\ x=1,2,...,N\label{eq:CT}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Graphical-explanation-of"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ graphically explains the procedure just described.
+ It's clear that, if a bin captures a significant amount of events, it will
+ be mapped at a particularly high propagation delay value, and thus, it
+ will be nothing but the already-described 
+\begin_inset Quotes eld
+\end_inset
+
+ultra-bin
+\begin_inset Quotes erd
+\end_inset
+
+, responsible for worsening the single-shot precision of the TDC.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/CDT_CT.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Graphical explanation of how the Calibrator builds the CT.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Graphical-explanation-of"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Once the CT is obtained, it is integrated in order to obtain the Characteristic
+ Curve (CC) of the TDC, thus representing, for each one of the 
+\begin_inset Formula $N$
+\end_inset
+
+ bins, the total propagation delay of the asynchronous input signal from
+ the first bin up to that specific considered bin.
+ Therefore, once the Coarse Extension Core (CEC) sends the 
+\begin_inset Quotes eld
+\end_inset
+
+Fine
+\begin_inset Quotes erd
+\end_inset
+
+ field, representing the bin that is hit by the input signal, it is possible
+ to read from the CC the precise propagation delay up to that bin; the exact
+ Fine measure, in picoseconds, is thus obtained.
+ Let's briefly describe the generics of this module.
+ 
+\shape italic
+BIT_CALIBRATION
+\shape default
+ sets the number of samples used to build the CT, which means that after
+ 
+\begin_inset Formula $2^{BIT\_CALIBRATION}-1$
+\end_inset
+
+ samples, the CT is ready to be used.
+ 
+\shape italic
+BIT_RESOLUTION
+\shape default
+ is instead the length of the Fine measure at the output of the Calibrator,
+ which is the calibrated Fine measure, in picoseconds.
+ The calibration on the Fine data is peformed only if FID=1, which means
+ that a valid measure is coming from the CEC; otherwise, if FID=0, it means
+ that an overflow is coming from the CEC, and it is passed through the Calibrato
+r unaltered, apart from its bit length (
+\shape italic
+BIT_UNCALIBRATED
+\shape default
+ becomes 
+\shape italic
+BIT_RESOLUTION
+\shape default
+).
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Calibrator-working-principle."
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows the overall data flow and working principle of the Calibrator.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/calibrator.png
+	width 90text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Calibrator working principle.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Calibrator-working-principle."
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body
