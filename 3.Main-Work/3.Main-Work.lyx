@@ -2145,6 +2145,58 @@ hybrid
 n algorithm, allows to exploit the best features of both the two architectures,
  and to achieve an overall better single-shot precision with respect to
  the fully carry-based approach.
+ In Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Virtual-Tapped-Delay-Line"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ can be seen the IP-Core package and its generics.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/V-TDL_IP.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Virtual Tapped Delay-Line (V-TDL) IP-Core.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Virtual-Tapped-Delay-Line"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -2908,9 +2960,9 @@ The FINE_PART field contains the binary code representing the Fine measurement,
  number of clock cycles of the 500 MHz clock signal, elapsed from the power-on
  instant of the system; the FID field contains the information about the
  occurrence of an overflow in the Coarse-Counter.
- If FID = 1, no overflow happened, and the COARSE_COUNTER and the FINE fields
- contain their respective measurement information.
- If instead FID = 0, an overflow happened, and the other two fields will
+ If FID = '1', no overflow happened, and the COARSE_COUNTER and the FINE
+ fields contain their respective measurement information.
+ If instead FID = '0', an overflow happened, and the other two fields will
  contain their older values, in order to signal that the measure is not
  valid.
 \end_layout
@@ -3117,10 +3169,10 @@ BIT_RESOLUTION
 \shape default
  is instead the length of the calibrated Fine measure (in picoseconds) at
  the output of the Calibrator.
- The calibration on the Fine data is peformed only if FID=1, which means
- that a valid measure is coming from the CEC; otherwise, if FID=0, it means
- that an overflow is coming from the CEC, and it is passed through the Calibrato
-r unaltered, apart from its bit length (
+ The calibration on the Fine data is peformed only if FID='1', which means
+ that a valid measure is coming from the CEC; otherwise, if FID='0', it
+ means that an overflow is coming from the CEC, and it is passed unaltered
+ through the Calibrator, apart from its bit length (
 \shape italic
 BIT_UNCALIBRATED
 \shape default
@@ -3188,7 +3240,370 @@ name "fig:Calibrator-working-principle."
 \end_layout
 
 \begin_layout Subsection
-Overflow Counter
+Overflow Counter (OC)
+\end_layout
+
+\begin_layout Subsubsection
+Old Version
+\end_layout
+
+\begin_layout Standard
+Th Overflow Counter (OC) is strongly related to the Coarse Extension Core
+ (CEC), indeed, while the latter just signals the presence of an Overflow
+ in the Coarse-Counter (by putting FID='0'), the OC counts the number of
+ overflows coming from the CEC, allowing to extend the FSR of the TDC up
+ to some days.
+ The working principle of this older version of the OC is very simple, and
+ it is based on the value of the FID field of the input data (s00_timestamp_tdat
+a).
+ If FID='1', we have a valid timestamp, which passes unaltered through this
+ module, so the output data (m00_beltbus_tdata) is equal to the input data;
+ if instead FID='0', which means that an overflow is coming from the CEC,
+ a signal 
+\shape italic
+Overflow_cnt
+\shape default
+ is incremented by one and sent in output, along with FID='0'.
+ Obviously, 
+\shape italic
+Overflow_cnt 
+\shape default
+has a bit-length equal to
+\shape italic
+ BIT_COARSE_CEC + BIT_RESOLUTION.
+ 
+\shape default
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Timing-Diagram-of"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ graphically shows the data structure and the working principle of this
+ module, through a timing diagram.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/std_OC_data.png
+	width 90text%
+
+\end_inset
+
+
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/standard_OC.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Data structure (at the top) and Timing Diagram (at the bottom) of the Overflow
+ Counter.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Timing-Diagram-of"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+New Version
+\end_layout
+
+\begin_layout Standard
+The OC has been improved in this work in order to manage the change done
+ in the generic of the CEC module.
+ In fact, we already said that the generic 
+\shape italic
+BIT_COARSE_CEC
+\shape default
+ is now used with a value of 4 instead of 8, in order to solve the timing
+ errors that were present before and improve the Worst Negative Slack (WNS).
+ However, this choice leads the CEC to signal way more overflows than it
+ happened in the older version, and therefore, by also using the old version
+ of the OC, we would have at the output of each channel a lot FID='0' transactio
+ns.
+ These continuous transactions represent a big problem and, as we saw experiment
+ally, they can lead to the saturation of the TDC channel, and therefore
+ to the loss of data.
+ The new version of the OC, developed in this thesis work, has the scope
+ to solve this issue, by introducing an output Coarse field with a different
+ bit-length to the input Coarse field.
+ The generic for the input data's coarse length is the same of the previous
+ modules, i.e.
+ 
+\shape italic
+BIT_COARSE_CEC
+\shape default
+; the generic for the output data is instead 
+\shape italic
+BIT_COARSE.
+ 
+\shape default
+The following relation holds:
+\begin_inset Formula 
+\begin{equation}
+BIT\_COARSE\_CEC\leq BIT\_COARSE\label{eq:OC_generics}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Since the case where 
+\begin_inset Formula $BIT\_COARSE\_CEC=BIT\_COARSE$
+\end_inset
+
+ behaves exactly as the older version of the Overflow Counter, described
+ in the last paragraph, and since we just said that it would cause problems
+ to the channel's management of the data, we will now describe just the
+ useful case in which 
+\begin_inset Formula $BIT\_COARSE\_CEC<BIT\_COARSE$
+\end_inset
+
+.
+ In Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Overflow-Counter-IP-Core."
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ can be seen the IP-Core package and its generics.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/OC_IP.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Overflow Counter IP-Core.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Overflow-Counter-IP-Core."
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To correctly manage the counting of the overflows, an 
+\shape italic
+AuxiliaryCounter
+\shape default
+ signal, which is (BIT_COARSE_DIFFERENCE = 
+\shape italic
+BIT_COARSE - BIT_COARSE_CEC
+\shape default
+)-wide, is in charge of counting the overflows in input (i.e.
+ FID='0' coming from the CEC), and it is appended to the Coarse part of
+ the input data.
+ In this way, the data in output will be: [(FID = '1') & 
+\shape italic
+AuxiliaryCounter
+\shape default
+ & CoarseIn & Fine] if we have a measure as input (i.e.
+ FID = '1'); otherwise, if 
+\shape italic
+AuxiliaryCounter 
+\shape default
+has reached its maximum value (i.e.
+ 2**BIT_COARSE_DIFFERENCE-1) and we have a new overflow in input (FID =
+ '0'), 
+\shape italic
+AuxiliaryCounter
+\shape default
+ resets to 0, and the signal 
+\shape italic
+Overflow_cnt
+\shape default
+ is increased by one.
+ Thus, the output will be: [(FID = '0') & 
+\shape italic
+Overflow_cnt
+\shape default
+].
+ Obviously, 
+\shape italic
+Overflow_cnt 
+\shape default
+has a bit-length equal to
+\shape italic
+ BIT_COARSE + BIT_RESOLUTION.
+
+\shape default
+ In Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Data-structure-(at"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ we can see the data structure and the working principle of the improved
+ Overflow Counter (OC), in the simple example of 
+\shape italic
+BIT_COARSE_CEC
+\shape default
+ = 2, 
+\shape italic
+BIT_COARSE
+\shape default
+ = 4.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/new_OC_data.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/improved_OC.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Data structure (at the top) and Timing Diagram (at the bottom) of the improved
+ Overflow Counter.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Data-structure-(at"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+It's clear that, since the FID='0' transaction (with the updated value of
+ 
+\shape italic
+Overflow_cnt
+\shape default
+) happens only when 
+\shape italic
+AuxiliaryCounter
+\shape default
+ goes in overflow, way less of these transactions happen at the output than
+ the one happening at the input.
+ The channel saturation problem is thus solved, along with the old timing
+ errors coming from the CEC.
+ 
 \end_layout
 
 \end_body
