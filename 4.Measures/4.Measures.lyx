@@ -139,5 +139,81 @@
 Measures
 \end_layout
 
+\begin_layout Standard
+The experimental results obtained by this new implementation will now be
+ shown.
+ We have tested all the performances of the Time-to-Digital Converter (TDC)
+ on the KCU105 Evaluation Board by Xilinx, that is a development kit hosting
+ a Kintex-UltraScale™ Field Programmable Gate Array (xcku040-ffva1156-2-e).
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:KCU105-Evaluation-Board."
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows the evaluation board just mentioned 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "KCU105_BOARD"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/kcu105-unboxing-12.jpg
+	width 70text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+KCU105 Evaluation Board.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:KCU105-Evaluation-Board."
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Measurement Setup
+\end_layout
+
 \end_body
 \end_document
