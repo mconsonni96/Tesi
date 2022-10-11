@@ -171,19 +171,21 @@ The old version of the Time-To-Digital Converter, implemented at the Digital
  based Time-To-Digital Converter.
  The processing chain starts with the Virtual Tapped Delay-Line (V-TDL),
  which provides a thermometric code in output, representing the Fine part
- of the timestamp; then, a module called Iper Decoder converts the thermometric
- code in a binary one, giving the final Fine measure; after that, a Coarse
- Extension Core (CEC) module attaches the Fine part to the Coarse one (calculate
-d by a Coarse Counter internal to the CEC or external to it), and also performs
- a Cross-Domain Clock (CDC) change, i.e.
- the system goes from a faster clock to a slower one, in order to have a
- processing on the following blocks that respects all the timing constraints
- of system; the next block is called Magic Calibrator, and it performs a
- bin-by-bin calibration in order to compensate the already-mentioned process,
- voltage and temperature (PVT) variations of the TDL's taps; in the end,
- an Overflow Counter module solves the overflow problem given by the Coarse
- Counter, thanks to the possibility of counting overflows, thus extending
- even more the FSR.
+ of the timestamp.
+ Then, a Decoder module carries out further processing on the Fine data,
+ by converting the thermometric code into a binary one.
+ After that, a module called Coarse Extension Core (CEC) attaches the Fine
+ part to the Coarse one, which is calculated by a Coarse Counter internal
+ to the CEC or external to it; furthermore, this module also performs a
+ Clock-Domain Crossing (CDC), which means that the system goes from a faster
+ clock to a slower one, in order to have the data processing on the following
+ blocks respecting all the timing constraints of the system.
+ The following block is the Calibrator, which is in charge of performing
+ a bin-by-bin calibration in order to compensate the already-mentioned process,
+ voltage and temperature (PVT) variations of the TDL's taps.
+ Finally, an Overflow Counter module solves the overflow problem given by
+ the Coarse Counter, thanks to the possibility of counting overflows, thus
+ extending even more the FSR.
  We can see a schematic of the TDC core in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -195,6 +197,18 @@ noprefix "false"
 \end_inset
 
 .
+ In my thesis work, just the internal blocks have been modified, but the
+ macroscopic structure of the TDC core, reported in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Schematic-of-the"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, has been mantained.
 \end_layout
 
 \begin_layout Standard
@@ -218,7 +232,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Schematic of the structure of the state-of-the-art version of the TDC.
+Schematic of the structure of the older version of the TDC.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Schematic-of-the"
@@ -3426,6 +3440,13 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/OC_IP.png
+	width 100text%
+
+\end_inset
+
 
 \end_layout
 
