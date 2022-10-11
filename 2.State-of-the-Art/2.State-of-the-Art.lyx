@@ -136,7 +136,17 @@
 \begin_body
 
 \begin_layout Section
-Techniques (?)
+Techniques (
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+titolo da cambiare
+\end_layout
+
+\end_inset
+
+?)
 \end_layout
 
 \begin_layout Standard
@@ -350,7 +360,7 @@ Let's see the Super Wave Union algorithm in detail.
  This parallel architecture is very suitable for FPGA's spatial-computing
  structures and, moreover, the delay introduced on the START signal comes
  for free, because the routing process creates different paths that the
- signal has to cross moving towards each TDL.
+ signal has to cross moving towards each TDL (the so called 'skew' time).
  We can see a Super Wave Union implementation of order 
 \begin_inset Formula $N=3$
 \end_inset
