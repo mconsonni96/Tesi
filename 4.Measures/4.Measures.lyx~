@@ -211,5 +211,322 @@ name "fig:KCU105-Evaluation-Board."
 
 \end_layout
 
+\begin_layout Subsection
+Measurement Setup
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Block-design-of"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows the block diagram of the complete system.
+ As we can see, it contains way more blocks than the TDC core (called 
+\begin_inset Quotes eld
+\end_inset
+
+TDC_Calib
+\begin_inset Quotes erd
+\end_inset
+
+) itself, such as the modules managing the communication of the measurements
+ to the PC, and the Histogrammer (called 
+\begin_inset Quotes eld
+\end_inset
+
+BeltBus_TDCHistogrammer
+\begin_inset Quotes erd
+\end_inset
+
+), which is in charge of plotting the time difference between two events
+ on two different channels.
+ They haven't been developed in this thesis work, so they will not be described
+ in this presentation, but taken for granted.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/total_blockdesign.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Block design of the entire system.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Block-design-of"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The setup that has been used for the measurements exploits the 
+\begin_inset Quotes eld
+\end_inset
+
+Start-Stop Generator
+\begin_inset Quotes erd
+\end_inset
+
+, a module which is in charge of producing the Asynchronous Input signals.
+ It is a module developed by my Tutor, consisting of an internal Ring Oscillator
+ that produces a periodic square wave; the asynchronous signal is directly
+ sent at the START output, while at the STOP output is sent its delayed
+ version, with a delay 
+\begin_inset Formula $t_{Delay}$
+\end_inset
+
+.
+ This module is the one in charge of sending the random input signals, at
+ the power-on of the system, needed to build the Calibration Table (CT)
+ of the TDC; however, once the Calibration is completed, these signals can
+ be used as the 
+\begin_inset Quotes eld
+\end_inset
+
+real
+\begin_inset Quotes erd
+\end_inset
+
+ input signals to be measured.
+ In this work, a 3-channel TDC has been used, and the Start-Stop Generator
+ feeds the channels as shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Start-Stop-Generator-connection"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ As we can see, the STOP signal feeds both Channel 1 and Channel 2 and,
+ thanks to the routing on the FPGA, a delay 
+\begin_inset Formula $t_{Skew}$
+\end_inset
+
+ is present at the input of these channels.
+ The time distance between two rising-edges of the asynchronous input signals
+ on Channel 1 and Channel 2 is what has been measured; therefore, the time
+ information on 
+\begin_inset Formula $t_{Skew}$
+\end_inset
+
+ has been obtained.
+ (Obviously, the same thing can be done either between Channel 0 and Channel
+ 1, or between Channel 0 and Channel 2).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/start-stop.png
+	width 60text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename images/start_stop_bd.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Start-Stop Generator connection to the TDC's channels.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Start-Stop-Generator-connection"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The experiments that have been carried out are the following ones: 
+\end_layout
+
+\begin_layout Itemize
+Verification of the benefits of Sub-Interpolation, in the case where the
+ Virtual Tapped Delay-Line (V-TDL) is composed by CARRY-chains only: the
+ Resolution (LSB), the single-shot precision (
+\begin_inset Formula $\sigma_{r.m.s.})$
+\end_inset
+
+ and the hardware utilization have been measured, in the two cases where
+ the V-TDL is composed only by a single TDL and by 4 TDLs.
+\end_layout
+
+\begin_layout Itemize
+Measurement of the sub-interpolating capability and of the single-shot precision
+ (
+\begin_inset Formula $\sigma_{r.m.s.})$
+\end_inset
+
+ with the introduction of the DSP-chains in the V-TDL.
+\end_layout
+
+\begin_layout Itemize
+Inspection of hardware utilization vs.
+ single-shot precision in the two cases in which the 4 TDL (maximum level
+ of effective Sub-Interpolation) are composed just by CARRY-chains, or by
+ of mix of DSP-chains and CARRY-chains.
+\end_layout
+
+\begin_layout Itemize
+Linearity test of the TDC.
+\end_layout
+
+\begin_layout Standard
+Let's describe each experiment, one by one, and show the achieved experimental
+ results.
+\end_layout
+
+\begin_layout Subsection
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+1 carry vs.
+ 4 carry (come su NSS) così da verificare benefici sub-int.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+aggiunta dei DSP come semplice controllo se beneficiano o meno nella subint
+ (funzioni di cross corr matlab)
+\end_layout
+
+\begin_layout Plain Layout
+2_CARRY : cross-corr, CT, hist, prec;
+\end_layout
+
+\begin_layout Plain Layout
+1_HALF_DSP + 1_CARRY : cross-corr, CT, hist, prec;
+\end_layout
+
+\begin_layout Plain Layout
+1_FULL_DSP : cross-corr, CT, hist, prec; paragone tra halfDSP vs fullDSP
+ e perchè meglio il secondo
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+trade off tra le due max sub-interpolazioni (4_CARRY vs.
+ 2_CARRY+ 1_FULL_DSP):
+\end_layout
+
+\begin_layout Plain Layout
+CT, hist, prec, HARDWARE, POWER.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+linearità
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \end_body
 \end_document
