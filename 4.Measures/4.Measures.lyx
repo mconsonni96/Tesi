@@ -136,7 +136,7 @@
 \begin_body
 
 \begin_layout Section
-Measures
+Measurements
 \end_layout
 
 \begin_layout Standard
@@ -244,8 +244,8 @@ BeltBus_TDCHistogrammer
 \begin_inset Quotes erd
 \end_inset
 
-), which is in charge of plotting the time difference between two events
- on two different channels.
+), which is in charge of plotting the time difference between events on
+ two different channels.
  They haven't been developed in this thesis work, so they will not be described
  in this presentation, but taken for granted.
 \end_layout
@@ -316,7 +316,7 @@ Start-Stop Generator
  This module is the one in charge of sending the random input signals, at
  the power-on of the system, needed to build the Calibration Table (CT)
  of the TDC; however, once the Calibration is completed, these signals can
- be used as the 
+ also be used as the 
 \begin_inset Quotes eld
 \end_inset
 
@@ -432,19 +432,15 @@ Verification of the benefits of Sub-Interpolation, in the case where the
 \end_layout
 
 \begin_layout Itemize
-Measurement of the sub-interpolating capability and of the single-shot precision
- (
-\begin_inset Formula $\sigma_{r.m.s.})$
-\end_inset
-
- with the introduction of the DSP-chains in the V-TDL.
+Study of the sub-interpolating capability with the introduction of the DSP-chain
+s in the V-TDL.
 \end_layout
 
 \begin_layout Itemize
-Inspection of hardware utilization vs.
- single-shot precision in the two cases in which the 4 TDL (maximum level
- of beneficial Sub-Interpolation) are composed just by CARRY-chains, or
- by of mix of DSP-chains and CARRY-chains.
+Inspection of the hardware utilization vs.
+ the single-shot precision, in the two cases in which the 4 TDLs (maximum
+ level of beneficial Sub-Interpolation) are composed just by CARRY-chains,
+ or by a mix of DSP-chains and CARRY-chains.
 \end_layout
 
 \begin_layout Itemize
@@ -457,12 +453,548 @@ Let's describe each experiment, one by one, and show the achieved experimental
 \end_layout
 
 \begin_layout Subsection
-\begin_inset Note Note
+Verification of the Super Wave Union Sub-Interpolation on the carry-based
+ V-TDL
+\end_layout
+
+\begin_layout Standard
+This first experiment consisted of comparing two different implementations
+ of the Virtual Tapped Delay-Line, the first one without Sub-Interpolation
+ (which means that one single physical TDL is used to carry out the fine
+ measurement) and the second one with Sub-Interpolation, using 4 TDLs in
+ parallel.
+ Both these two implementations have been made by using just CARRY-chains,
+ and no DSP-chains.
+ In particular, a comparison between the Calibration Tables (CT) in the
+ two cases has been made, as shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Comparison-of-the"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
 status open
 
 \begin_layout Plain Layout
-1 carry vs.
- 4 carry (come su NSS) così da verificare benefici sub-int.
+\align center
+\begin_inset Graphics
+	filename images/** test_0: verifica sub-int sulle sole carry (NSS)/subint no**/CT_NOsubint.png
+	width 90text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/** test_0: verifica sub-int sulle sole carry (NSS)/subint yes**/**4 CARRY + 0 DSP/CT_subint.png
+	width 90text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Comparison between the Calibration Tables in the case without Sub-Interpolation
+ (at the top) and with Sub-Interpolation, using 4 TDLs in parallel (at the
+ bottom).
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Comparison-of-the"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As we can see, the latter case produces a four-times wider Calibration Table
+ with respect to the former case, and it is due to the fact that SuperWU
+ algorithm produces 
+\begin_inset Formula $N_{V}$
+\end_inset
+
+ virtual taps equal to 
+\begin_inset Formula $N\cdot N_{R}$
+\end_inset
+
+, where 
+\begin_inset Formula $N_{R}$
+\end_inset
+
+ is the number of taps of the single, real, TDL (512 in our case), and 
+\begin_inset Formula $N$
+\end_inset
+
+ is the number of TDLs used in parallel (4 in our case).
+ Therefore, 2048 virtual taps have been obtained in the case with Sub-Interpolat
+ion.
+ However, the most relevant information provided by the Calibration Tables
+ is the one involving the propagation delays of the taps composing the TDL.
+ In fact, the virtual taps of the sub-interpolated TDL are overall faster
+ than their real counterpart and, most of all, the 19-ps ultra-bin is lowered
+ a lot during this process.
+ This leads to a better single-shot precision in the time measurement between
+ Channel 1 and Channel 2.
+ The information about the time measurement is contained in a histogram
+ produced by the BeltBus_TDCHistogrammer module mentioned before, which
+ is in charge of performing a set of repeated measurements of the time intervals
+ elapsing between the events on the two channels; the x-axis represents
+ the time difference, in picoseconds (ps), while the y-axis represents the
+ number of occurrences of that specific time measurement.
+ Therefore, it's clear that, if a Gaussian curve is fitted on this histogram,
+ we will consider as an highly-precise time measurement the one where this
+ Gaussian curve is as narrow as possible, meaning that the spread (uncertainty)
+ of the calculated time interval is very low.
+ Thus, the Figure-of-Merit of the single-shot precision of the TDC will
+ be the standard deviation (
+\begin_inset Formula $\sigma_{r.m.s.}$
+\end_inset
+
+) of the fitted Gaussian curve on the histogram.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Comparison-between-the"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows the histograms representing the final time measurement between Channel
+ 1 and 2, in the case without Sub-Interpolation (on the left) and with Sub-Inter
+polation, using 4 TDLs in parallel (on the right).
+ As expected by the bin-splitting phenomenon given by the SuperWU algorithm,
+ the latter case has a lower standard deviation and, therefore, a better
+ single-shot precision.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename images/** test_0: verifica sub-int sulle sole carry (NSS)/subint no**/histo_NOsubint.png
+	width 50text%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename images/** test_0: verifica sub-int sulle sole carry (NSS)/subint yes**/**4 CARRY + 0 DSP/hist.png
+	width 50text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Comparison between the single-shot precision extracted by the Histograms
+ representing the time measurement, in the case without Sub-Interpolation
+ (on the left) and with Sub-Interpolation (on the right).
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Comparison-between-the"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Also the resolution of the TDL is improved by a factor 
+\begin_inset Formula $N=4$
+\end_inset
+
+ thanks to the Sub-Interpolation, in fact:
+\begin_inset Formula 
+\begin{equation}
+LSB=\frac{T_{CLK}}{N_{V}}=\frac{T_{CLK}}{N\cdot N_{R}}\label{eq:tdl_lsb}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Obviously, the benefits in terms of resolution and single-shot precision
+ are paid with a greater utilization of hardware resources, resulting in
+ a lower number of maximum implementable channels on the FPGA fabric.
+ Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Achievable-performances-of"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ summarizes all the performances and the used hardware resources.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="9" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Feature
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+without Sub-Interpolation
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+with Sub-Interpolation
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Clock TDC Freq.
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+500 MHz
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $N_{R}/N/N_{V}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+512/1/512
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+512/4/2048
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TDL Resolution (LSB)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3.9 ps
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.98 ps
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Full-Scale Range
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+some days
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Single-Shot Precision
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5.13 ps
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.8 ps
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Max.
+ Channel Rate
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+200 MHz
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+LUT/FF/BRAM (for one ch.)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2209/3050/1.5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5484/7736/3.5
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Number of Chs
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+up to 64
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+up to 32
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Achievable performances of the carry-based TDC with and without Sub-Interpolatio
+n.
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Achievable-performances-of"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \end_inset
