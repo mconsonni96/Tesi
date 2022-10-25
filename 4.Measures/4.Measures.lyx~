@@ -593,8 +593,8 @@ noprefix "false"
 \end_inset
 
  shows the histograms representing the final time measurement between Channel
- 1 and 2, in the case without Sub-Interpolation (at the top) and with Sub-Interp
-olation, using 4 TDLs in parallel (at the bottom).
+ 1 and 2, in the case without Sub-Interpolation (on the left) and with Sub-Inter
+polation, using 4 TDLs in parallel (on the right).
  As expected by the bin-splitting phenomenon given by the SuperWU algorithm,
  the latter case has a lower standard deviation and, therefore, a better
  single-shot precision.
@@ -630,7 +630,7 @@ status open
 \begin_layout Plain Layout
 Comparison between the single-shot precision extracted by the Histograms
  representing the time measurement, in the case without Sub-Interpolation
- (at the top) and with Sub-Interpolation (at the bottom).
+ (on the left) and with Sub-Interpolation (on the right).
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Comparison-between-the"
@@ -1003,30 +1003,637 @@ name "tab:Achievable-performances-of"
 \end_layout
 
 \begin_layout Subsection
-\begin_inset Note Note
+Preliminary studies about the introduction of the DSP-chains in the Super
+ Wave Union Sub-Interpolation
+\end_layout
+
+\begin_layout Standard
+Since, as we saw earlier, the DSP48E2 block is used in Dual 24-bit mode
+ (meaning that its internal Arithmetic Logic Unit (ALU) works as two, 24-bit,
+ sub-ALUs in parallel), from now on we will refer to it by calling 
+\begin_inset Quotes eld
+\end_inset
+
+FULL-DSP
+\begin_inset Quotes erd
+\end_inset
+
+ a DSP exploiting both its halves to generate both thermometric codes, while
+ we will call 
+\begin_inset Quotes eld
+\end_inset
+
+HALF-DSP
+\begin_inset Quotes erd
+\end_inset
+
+ a DSP that produces just one thermometric code using just one of its halves.
+ Obviously, from the hardware point of view, nothing changes, since in both
+ cases they are just the same dedicated DSP blocks placed by Xilinx on the
+ FPGA fabric; the difference is just related to collection of the generated
+ thermometric codes: a 
+\begin_inset Quotes eld
+\end_inset
+
+FULL-DSP
+\begin_inset Quotes erd
+\end_inset
+
+ generates two thermometric codes at the output, both contributing to the
+ Sub-Interpolation process in the Decoder module; an 
+\begin_inset Quotes eld
+\end_inset
+
+HALF-DSP
+\begin_inset Quotes erd
+\end_inset
+
+ generates instead just one thermometric code, acting therefore as a case
+ without any Sub-Interpolation.
+\end_layout
+
+\begin_layout Standard
+This second experiment consisted in acquiring the Calibration Tables of
+ the V-TDL and studying how much the Sub-Interpolation algorithm can be
+ beneficial with the introduction of DSP-chains alongside the CARRY-chains.
+ Being this just a preliminary study about the SuperWU effectiveness, a
+ Sub-Interpolation of order 
+\begin_inset Formula $N=2$
+\end_inset
+
+ has been carried out.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Different-combinations-of"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows the three different combinations of 
+\begin_inset Quotes eld
+\end_inset
+
+real
+\begin_inset Quotes erd
+\end_inset
+
+ TDLs that have been tested in this experiment: 2 CARRY-chains; 1 CARRY-chain
+ + 1 HALF-DSP-chain; 1 FULL-DSP-chain (i.e.
+ 2 HALF-DSP chains).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
 status open
 
 \begin_layout Plain Layout
-aggiunta dei DSP come semplice controllo se beneficiano o meno nella subint
- (funzioni di cross corr matlab)
+\align center
+\begin_inset Graphics
+	filename images/**test_1: corr e combinazioni 1 e 1 (precisione)/second_exp.png
+	width 60text%
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Plain Layout
-2_CARRY : cross-corr, CT, hist, prec;
-\end_layout
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
-1_HALF_DSP + 1_CARRY : cross-corr, CT, hist, prec;
-\end_layout
+Different SuperWU combinations tested in the experiment.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Different-combinations-of"
 
-\begin_layout Plain Layout
-1_FULL_DSP : cross-corr, CT, hist, prec; paragone tra halfDSP vs fullDSP
- e perchè meglio il secondo
+\end_inset
+
+
 \end_layout
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Based on the Super Wave Union theory 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Sub"
+literal "false"
+
+\end_inset
+
+, in order to have an effective Sub-Interpolation (which means that is capable
+ of splitting the ultra-bins and giving a V-TDL characterized by propagation
+ delays of the virtual bins as homogeneous as possible), we would like to
+ have the 2 Tapped Delay-Lines (TDLs) as different as possible.
+ The degree of dissimilarity between the two TDLs has been calculated by
+ performing the cross-correlation function between the Calibration Tables
+ of each one of the two TDLs.
+ In particular, the normalized cross-correlation has been calculated.
+ The cross-correlation is a measure of similarity between two signals.
+ By considering as 
+\begin_inset Formula $CT_{1}$
+\end_inset
+
+ the Calibration Table (composed by 
+\begin_inset Formula $N_{CT1}$
+\end_inset
+
+ bins) acquired from the first TDL, and 
+\begin_inset Formula $CT_{2}$
+\end_inset
+
+ (composed by 
+\begin_inset Formula $N_{CT2}$
+\end_inset
+
+ bins) the one acquired from the second TDL, we call 
+\begin_inset Formula $CT_{1}^{*}$
+\end_inset
+
+ and 
+\begin_inset Formula $CT_{2}^{*}$
+\end_inset
+
+ their mean-free version, i.e:
+\begin_inset Formula 
+\begin{equation}
+CT_{1}^{*}[n]=CT_{1}[n]-mean(CT_{1})\ ,\ n=1,2,....,N_{CT1}\label{eq:mean_free1}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+CT_{2}^{*}[n]=CT_{2}[n]-mean(CT_{2})\ ,\ n=1,2,....,N_{CT2}\label{eq:mean_free2}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The results obtained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:mean_free1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:mean_free2"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ are used in the cross-correlation function in order to avoid the ramp-like
+ behavior of the final result.
+ The normalized cross-correlation function has been calculated as follows:
+\begin_inset Formula 
+\begin{equation}
+R_{CT_{1}^{*}CT_{2}^{*}}[k]=\sum_{m=-\infty}^{\infty}CT_{1}^{*}[m]\cdot CT_{2}^{*}[m+k]\label{eq:crosscorr}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $k$
+\end_inset
+
+ is the lag between the two signals, representing the shift of the second
+ CT with respect to the first one, in number of bins.
+ This cross-correlation has then been normalized, in order to be in the
+ [-1;1] range, by using this relation:
+\begin_inset Formula 
+\begin{equation}
+\rho_{CT_{1}^{*}CT_{2}^{*}}[k]=\frac{R_{CT_{1}^{*}CT_{2}^{*}}}{\sqrt{\sum_{m=-\infty}^{\infty}(CT_{1}^{*}[m])^{2}\cdot\sum_{m=-\infty}^{\infty}(CT_{2}^{*}[m])^{2}}}\label{eq:norm_crosscorr}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let's now show, for each one of the three cases, the resulting cross-correlation
+, and the resulting CT after the Sub-Interpolation.
+\end_layout
+
+\begin_layout Subsubsection
+2 CARRY-chains
+\end_layout
+
+\begin_layout Standard
+The obtained cross-correlation function is shown is Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Crosscorrelation-function-for"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/**test_1: corr e combinazioni 1 e 1 (precisione)/**corr/2CARRY_crosscorr.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Crosscorrelation function for the two CARRY-chains.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Crosscorrelation-function-for"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The maximum value of 0.3 proves that the CARRY-chains are quite dissimilar,
+ thus giving an effective Sub-Interpolation.
+ In Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Calibration-Table-of"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ we can see that the CT of the V-TDL in this case is quite flat, meaning
+ that the propagation delays along the bins are homogeneous, and the SuperWU
+ algorithm has been effective.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/**test_1: corr e combinazioni 1 e 1 (precisione)/**CT e prec/**2 carry/**2 CARRY + 0 DSP/CT.png
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Calibration Table of a V-TDL composed by two CARRY-chains.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Calibration-Table-of"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+1 CARRY-chain + 1 HALF-DSP-chain
+\end_layout
+
+\begin_layout Standard
+The obtained cross-correlation function in this case is reported in Figure
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Crosscorrelation-function-for-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/**test_1: corr e combinazioni 1 e 1 (precisione)/**corr/CARRYDSP_crosscorr.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Crosscorrelation function for the CARRY-chain and the HALF-DSP-chain.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Crosscorrelation-function-for-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The maximum value is 0.2, which is comparable with the previous case.
+ Therefore, the Sub-Interpolation is very effective also here but, since
+ the ultra-bins of the HALF-DSP chain are very huge, in the order of 250
+ ps, the resulting Calibration Table will not be as flat as the previous
+ case, as we can see in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Calibration-Table-of-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Anyway, the great effectiveness of the Sub-Interpolation can be seen by
+ the fact that the ultra-bin is now just 18 ps rather than the original
+ 250 ps.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/**test_1: corr e combinazioni 1 e 1 (precisione)/**CT e prec/**1 carry + 1 half dsp/CT.png
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Calibration Table of a V-TDL composed by a CARRY-chain and an HALF-DSP-chain.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Calibration-Table-of-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+1 FULL-DSP-chain
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Crosscorrelation-function-for-2"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows the cross-correlation achieved in this last case.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/**test_1: corr e combinazioni 1 e 1 (precisione)/**corr/2DSP_Crosscorr.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Crosscorrelation function for the two half-chains composing the FULL-DSP-chain.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Crosscorrelation-function-for-2"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We can see that the maximum value is 1, and there are also other peaks being
+ quite high.
+ This means that two HALF-DSP-chains are often very similar, and the SuperWU
+ algorithm is not so effective in this case.
+ This is also proved by the resulting CT of the V-TDL, shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Calibration-Table-of-2"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/**test_1: corr e combinazioni 1 e 1 (precisione)/**CT e prec/**1 full dsp/**0 CARRY + 1 DSP/CT.png
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Calibration Table of a V-TDL composed by two HALF-DSP-chain.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Calibration-Table-of-2"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Anyway, as said before, achieving an ultra-bin which is 50 ps faster, using
+ the exact same hardware resources of the HALF-DSP-chain, leads to the obvious
+ choice of always using the FULL-DSP chain, since this gain on the ultra-bin
+ will be significant for the single-shot precision, when combined with other
+ CARRY-chains.
 \end_layout
 
 \begin_layout Subsection
