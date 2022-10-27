@@ -126,12 +126,13 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes false
+\tracking_changes true
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
 \author 268488506 "nicol"
+\author 1469408620 "Mattia Consonni"
 \end_header
 
 \begin_body
@@ -254,6 +255,23 @@ Introduction
 \end_layout
 
 \begin_layout Standard
+
+\change_inserted 1469408620 1666883672
+With respect to the scientific research field, recent years have been characteri
+zed by continuous growth in the study of temporal evolution in chemical-physical
+ phenomena; this has led to the need of employing high-performance instruments
+ called Time Interval Meters (TIMs), with the task of measuring very small
+ time intervals, with increasing precision and resolution.
+ Nowadays, the events under study in these applications are characterized
+ by a very high repetition rate and by a temporal resolution in the order
+ of the picoseconds.
+ Therefore, the TIM has to have features such as a resolution and a measurement
+ precision in the picoseconds order and a sampling rate of hundreds of megahertz
+ (MHz), to correctly process and measure the physical events detected on
+ the sensor front-end of the acquisition chain.
+\end_layout
+
+\begin_layout Standard
 The concept of 
 \begin_inset Quotes eld
 \end_inset
@@ -299,6 +317,8 @@ STOP
 
  signal.
  Anyhow, 
+\change_deleted 1469408620 1666881007
+
 \begin_inset Note Note
 status open
 
@@ -308,12 +328,10 @@ No forme verbali abbreviate->
 
 \end_inset
 
-it
-\change_inserted 268488506 1666689379
- in
-\change_deleted 268488506 1666689378
-'s
+
 \change_unchanged
+it is
+\change_deleted 1469408620 1666881015
 
 \begin_inset Note Note
 status open
@@ -324,6 +342,8 @@ status open
 
 \end_inset
 
+
+\change_unchanged
  clear that a Timestamp is nothing but a particular case of time distance
  between a chosen absolute time reference, and the event under study.
  Conversely, the time distance between two events is nothing but the time
@@ -337,10 +357,11 @@ zero
 \end_inset
 
  time origin.
- 
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 1469408620 1666881100
 \begin_inset Note Note
 status open
 
@@ -392,6 +413,8 @@ Metti questo capoverso come primo; il lettore è generalmente più interessato
 \end_inset
 
 
+\change_unchanged
+
 \end_layout
 
 \begin_layout Subsection
@@ -399,11 +422,12 @@ Applications
 \end_layout
 
 \begin_layout Standard
-The applications requiring these kind of instruments and performances span
- into very differents fields of the scientific research, from the biomedical
- to the nuclear one.
+The applications requiring these kinds of instruments and performances include
+ very different fields of scientific research, from biomedical to nuclear.
  Since countless applications belong to these areas, we will describe the
  most relevant ones, used every day.
+\change_deleted 1469408620 1666886101
+
 \begin_inset Note Note
 status open
 
@@ -417,11 +441,22 @@ Proegui un attimo il discorso che parlerai della TOF-PET come riferimento
 \end_inset
 
 
+\change_inserted 1469408620 1666890705
+For example, the Time-of-Flight Positron Emission Tomography (TOF-PET) is
+ the most relevant application in the biomedical field that requires a Time
+ Interval Meter (TIM); on the other hand, Laser Rangefinder techniques for
+ 3D imaging applications represent the main example of time-resolved application
+s in the industrial and automotive fields.
+ Another kind of important application is the so-called Time Correlated
+ Single Photon Counting (TCSPC), which is used in every-day time-resolved
+ spectroscopy experiments.
+ Let's now describe these three main applications in detail.
+ 
+\change_unchanged
+
 \end_layout
 
 \begin_layout Subsubsection
-
-\change_inserted 268488506 1666690962
 Time-of-Flight Positron Emission Tomography
 \change_deleted 268488506 1666690965
 
@@ -429,10 +464,12 @@ Time-of-Flight Positron Emission Tomography
 
 \begin_layout Standard
 
-\change_inserted 268488506 1666690986
+\change_deleted 1469408620 1666889967
 The 
 \change_unchanged
 Time-of-Flight Positron Emission Tomography (
+\change_deleted 1469408620 1666888177
+
 \begin_inset Note Note
 status open
 
@@ -443,14 +480,10 @@ TOF-PET non PET-TOF, rivdi altrove se si ripete l'errore
 \end_inset
 
 
-\change_deleted 268488506 1666690991
-PET-
 \change_unchanged
-TOF
-\change_inserted 268488506 1666690997
--PET
-\change_unchanged
-) 
+TOF-PET) 
+\change_deleted 1469408620 1666889420
+
 \begin_inset Note Note
 status open
 
@@ -464,25 +497,27 @@ no per la sua tesi per la tua è poco efficate; ti consiglio questo paper
 \end_inset
 
 
-\change_deleted 268488506 1666691048
+\change_inserted 1469408620 1666889726
 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "7581850"
+key "PET"
 literal "false"
 
 \end_inset
 
-: it
+
 \change_unchanged
  is a 3D technique used for medical imaging to detect the presence of tumors
  in the human body.
- A substance called radiotracer, characterized by capability to release
- a great number of positrons, is bound to a molecule which has the peculiarity
- to travel towards the region where the tumor is located.
+ A substance called radiotracer, characterized by the capability to release
+ a great number of positrons, is bound to a molecule that has the peculiarity
+ to travel toward the region where the tumor is located.
  Once there, the positrons are emitted by the radioactive decay of the radiotrac
-er, and collide with electrons.
+er and collide with electrons.
  
+\change_deleted 1469408620 1666890162
+
 \begin_inset Note Note
 status open
 
@@ -492,32 +527,14 @@ NOTA2: preposizioni/articoli sbagliati usa grammarly ->
 
 \end_inset
 
-When there is 
-\change_inserted 268488506 1666690145
-a 
+
 \change_unchanged
-collision between a positron and an electron, characterized by 
-\change_inserted 268488506 1666690158
-the 
-\change_unchanged
-same electrical charge with opposite sign, the so-called annihilation process
- occurs
-\change_inserted 268488506 1666690184
-;
-\change_deleted 268488506 1666690184
-,
-\change_unchanged
- which results in two 511 keV gamma photons trave
-\change_deleted 268488506 1666690200
-l
-\change_unchanged
-ling on the same line but 
-\change_deleted 268488506 1666690208
-with
-\change_inserted 268488506 1666690208
-in
-\change_unchanged
- opposite directions.
+When there is a collision between a positron and an electron, characterized
+ by the same electrical charge with opposite sign, the so-called annihilation
+ process occurs; this results in two 511 keV gamma photons traveling on
+ the same line but in opposite directions.
+\change_deleted 1469408620 1666890219
+
 \begin_inset Note Note
 status open
 
@@ -527,7 +544,11 @@ status open
 
 \end_inset
 
+
+\change_unchanged
  
+\change_deleted 1469408620 1666890574
+
 \begin_inset Note Note
 status open
 
@@ -538,8 +559,8 @@ NOTA3: ingloba meglio le figure all'interno del corpo dello scritto->
 \end_inset
 
 
-\change_inserted 268488506 1666691477
-Refering to Figure 
+\change_unchanged
+Referring to Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:PET-TOF-working-principle."
@@ -549,15 +570,7 @@ noprefix "false"
 
 \end_inset
 
-, 
-\change_deleted 268488506 1666691479
-T
-\change_inserted 268488506 1666691479
-t
-\change_unchanged
-hese two gamma photons arrive with a certain delay
-\change_inserted 268488506 1666691489
- (
+, these two gamma photons arrive with a certain delay (
 \begin_inset Formula $t_{1}$
 \end_inset
 
@@ -565,55 +578,17 @@ hese two gamma photons arrive with a certain delay
 \begin_inset Formula $t_{2}$
 \end_inset
 
-)
-\change_unchanged
- to the ring of detectors surrounding the patient, and thanks to the TIM
- is possible to measure this delay between the START event (
-\change_inserted 268488506 1666691552
-e.g., the photon detetction on detector 1
-\change_deleted 268488506 1666691526
-the first gamma photon arriving to the detector
-\change_unchanged
-) and the STOP event (
-\change_deleted 268488506 1666691563
-the second photon detected
-\change_inserted 268488506 1666691566
-e.g., the photon detetction on detector 2
-\change_unchanged
-)
-\change_deleted 268488506 1666691592
- (see Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:PET-TOF-working-principle."
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-)
-\change_inserted 268488506 1666693610
-; in this way, the time distance 
+) to the ring of detectors surrounding the patient, and thanks to the TIM
+ is possible to measure the delay between the START event (e.g., the photon
+ detection on detector 1) and the STOP event (e.g., the photon detection on
+ detector 2); in this way, the time distance 
 \begin_inset Formula $\Delta t=t_{2}-t_{1}$
 \end_inset
 
- can be used to derive the spatial positio
-\change_unchanged
-.
- 
-\change_deleted 268488506 1666693628
-From the time measure
-\change_inserted 268488506 1666693629
-so,
-\change_unchanged
- it is then possible to retrieve
-\change_deleted 268488506 1666693641
- the spatial information describing 
-\change_inserted 268488506 1666693656
- 
-\change_unchanged
-the position of the tumor.
+ can be used to derive the spatial position.
+ Therefore, it is possible to retrieve the position of the tumor.
+\change_deleted 1469408620 1666890571
+
 \begin_inset Note Note
 status open
 
@@ -623,6 +598,8 @@ status open
 
 \end_inset
 
+
+\change_unchanged
 
 \begin_inset Float figure
 wide false
@@ -644,15 +621,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-\change_inserted 268488506 1666694329
-TOF-
-\change_unchanged
-PET
-\change_deleted 268488506 1666694332
--TOF
-\change_unchanged
- working principle.
+TOF-PET working principle.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:PET-TOF-working-principle."
@@ -673,11 +642,7 @@ name "fig:PET-TOF-working-principle."
 \end_layout
 
 \begin_layout Subsubsection
-
-\change_inserted 268488506 1666694448
 Laser Rangefinding
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
@@ -689,22 +654,36 @@ literal "false"
 
 \end_inset
 
+, also known as laser telemeter, is a technique using a laser beam to determine
+ the distance to an object.
+ 
+\change_inserted 1469408620 1666890790
+As we can see in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Laser-Rangefinder-working"
+plural "false"
+caps "false"
+noprefix "false"
 
-\change_inserted 268488506 1666694541
-, also known as laser telemeter,
-\change_deleted 268488506 1666694457
-: it
+\end_inset
+
+, 
+\change_deleted 1469408620 1666890792
+T
+\change_inserted 1469408620 1666890792
+t
 \change_unchanged
- is a technique using a laser beam to determine the distance to an object
-\change_deleted 268488506 1666694554
-, thanks to an instrument called laser rangefinder, also known as laser
- telemeter
+he measured quantity
+\change_deleted 1469408620 1666890799
+, in this case,
 \change_unchanged
-.
- The measured quantity, in this case, is the time distance between the instant
- at which the laser pulse is sent towards the object, and the instant at
- which it is detected by the photodiode (located in the same position of
- the sender) after being reflected by the target (see Figure 
+ is the time distance between the instant at which the laser pulse is sent
+ toward the object and the instant at which it is detected by the photodiode
+ (located in the same position as the sender) after being reflected by the
+ target
+\change_deleted 1469408620 1666890848
+ (see Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Laser-Rangefinder-working"
@@ -724,30 +703,22 @@ ingloba meglio la figura nel testo
 
 \end_inset
 
-).
+)
+\change_unchanged
+.
  Once the time information 
 \begin_inset Formula $\varDelta T$
 \end_inset
 
- is obtained, and by knowing the 
-\change_deleted 268488506 1666694828
-propagation velocity
-\change_inserted 268488506 1666694836
-speed of the ligth
-\change_unchanged
- 
+ is obtained, and by knowing the speed of the light 
 \begin_inset Formula $v$
 \end_inset
 
- 
-\change_deleted 268488506 1666694855
-of the laser
-\change_unchanged
-, it is possible to retrieve the distance 
+ , it is possible to retrieve the distance 
 \begin_inset Formula $L$
 \end_inset
 
- at which the object is located with respect to the user, thanks to the
+ at which the object is located with respect to the user, as shown by the
  following equation:
 \begin_inset Formula 
 \begin{equation}
@@ -768,6 +739,8 @@ L=\frac{v\cdot\varDelta T}{2}\label{eq:laser2}
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 1469408620 1666891572
 \begin_inset Note Note
 status open
 
@@ -782,6 +755,21 @@ spendi 2 parolo che questo concetto può essere ripetuto per un numero N
 
 \end_inset
 
+
+\change_inserted 1469408620 1666892316
+The process just described can be repeated an 
+\begin_inset Formula $N\cdot M$
+\end_inset
+
+ number of times by arranging detectors (pixels) on an 
+\begin_inset Formula $N\cdot M$
+\end_inset
+
+ matrix, and a 3D image can be obtained.
+ The first two dimensions (2D) are nothing but the two axes of the matrix
+ itself, while the third dimension is the one given by the time measurements.
+ 
+\change_unchanged
 
 \begin_inset Float figure
 wide false
@@ -824,14 +812,12 @@ name "fig:Laser-Rangefinder-working"
 \end_layout
 
 \begin_layout Subsubsection
-
-\change_inserted 268488506 1666695085
 Time-Resolved Spectroscopy
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 1469408620 1666892380
 \begin_inset Note Note
 status open
 
@@ -841,6 +827,8 @@ NOTA4 Questa frase è copiata 1 a 1 da wikipedia devi rielaborarla!->
 
 \end_inset
 
+
+\change_unchanged
 Time-Resolved Spectroscopy 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -849,12 +837,16 @@ literal "false"
 
 \end_inset
 
-
-\change_deleted 268488506 1666695107
-: it
-\change_unchanged
- is the study, in physics and physical chemistry, of dynamic processes in
- materials or chemical compounds by means of spectroscopic techniques.
+ is the study
+\change_inserted 1469408620 1666893624
+ of dynamic processes, on times scales between seconds and femtoseconds,
+ in chemical compounds or other types of materials.
+ It exploits spectroscopic techniques that can be applied to any process
+ leading to changes in the properties of the material under study.
+ Usually, fluorescence processes are studied.
+\change_deleted 1469408620 1666892740
+, in physics and physical chemistry, of dynamic processes in materials or
+ chemical compounds by means of spectroscopic techniques.
  The technique can be applied to any process that leads to a change in the
  properties of a material, but usually, fluorescence processes are studied.
 \begin_inset Note Note
@@ -866,7 +858,11 @@ status open
 
 \end_inset
 
+
+\change_unchanged
  
+\change_deleted 1469408620 1666893669
+
 \begin_inset Note Note
 status open
 
@@ -879,6 +875,13 @@ Manca il passaggio che servono dei TIM (ovviamente dato il nome) che consentano
 
 \end_inset
 
+
+\change_inserted 1469408620 1666895021
+To measure the time interval elapsing from the instant in which the stimulus
+ is given to the material by an external source, and the instant in which
+ the material emits photons by fluorescence, a TIM has to be employed.
+ 
+\change_deleted 1469408620 1666895117
 
 \begin_inset Note Note
 status open
@@ -901,6 +904,36 @@ La TCSPC è uno degli N metodi e la riporti descritta molto brevemente solo
 
 \end_inset
 
+
+\change_inserted 1469408620 1666898626
+In scientific research, there are a lot of time-resolved spectroscopy techniques
+, the main ones being: Laser-Induced Breakdown Spectroscopy (LIBS) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "5225527"
+literal "false"
+
+\end_inset
+
+, Time-resolved infrared spectroscopy (TRIR) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "8429057"
+literal "false"
+
+\end_inset
+
+, Time-Correlated Single Photon Counting (TCSPC) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "6292166"
+literal "false"
+
+\end_inset
+
+.
+ 
+\change_deleted 1469408620 1666899567
 
 \begin_inset Note Note
 status open
@@ -934,6 +967,27 @@ Di conseguenza ristruttura questa frase->
 
 \end_inset
 
+
+\change_inserted 1469408620 1666900046
+The TCSPC method is the most common one, and it consists of the excitation
+ of the material under analysis thanks to the illumination by a pulsed laser.
+ This causes the fluorescence process in the material, which is a repetitive
+ emission of single photons with a statistic of some hundreds of picoseconds
+ to some tens of nanoseconds.
+ To get the decay shape of the fluorescence signal, repetitive measurements
+ of the time intervals between the excitation pulse and the single photons
+ emitted have to be carried out 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "6292166"
+literal "false"
+
+\end_inset
+
+.
+ Therefore, a TIM with a resolution in the order of picoseconds is needed.
+ 
+\change_deleted 1469408620 1666899798
 The common method is called Time Correlated Single Photon Counting (TCSPC),
  which achieves a resolution in the order of picoseconds, and consists in
  the excitation of the material thanks to the illumination by a pulsed laser;
@@ -961,7 +1015,20 @@ NOTA5 (sposta qui tutta la descrizione di come si costituisce la tecnica)
 \end_inset
 
 
-\change_inserted 268488506 1666696656
+\change_inserted 1469408620 1666899781
+As shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Time-Resolved-Spectroscopy-worki"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, the START signal of the TIM is the excitation laser pulse, while the STOP
+ signals are the photons emitted by fluorescence.
+\change_deleted 1469408620 1666899619
 The START signal is the excitation laser pulse, while the STOP signals are
  the photons emitted by fluorescence.
  The working principle is represented also in Figure 
@@ -975,8 +1042,6 @@ noprefix "false"
 \end_inset
 
 .
-\change_unchanged
-
 \begin_inset Note Note
 status open
 
@@ -986,44 +1051,18 @@ status open
 
 \end_inset
 
- In this way, the photon arrivals per time can be represented in a histogram
-\change_deleted 268488506 1666696470
-, whose bins
-\change_inserted 268488506 1666696472
- that
-\change_unchanged
- represent
-\change_inserted 268488506 1666696475
-s
-\change_unchanged
- the
-\change_inserted 268488506 1666696504
- so called Probbaility Density Function (PDF) of the
-\change_deleted 268488506 1666696488
- 
-\change_inserted 268488506 1666696506
  
 \change_unchanged
-time decay
-\change_inserted 268488506 1666696541
- profile
-\change_unchanged
- (
+In this way, the photon arrivals per time can be collected in a histogram
+ that represents the so called Probability Density Function (PDF) of the
+ time decay profile (
 \begin_inset Formula $T_{DECAY}$
 \end_inset
 
-)
-\change_deleted 268488506 1666696549
-, and therefore the time decay profile
-\change_unchanged
- of that material is 
-\change_deleted 268488506 1666696555
-obtained
-\change_inserted 268488506 1666696557
-under analisys
-\change_unchanged
-.
+) of the material under analysis.
  
+\change_deleted 1469408620 1666895117
+
 \begin_inset Note Note
 status open
 
@@ -1049,6 +1088,8 @@ noprefix "false"
 
 \end_inset
 
+
+\change_unchanged
  
 \begin_inset Float figure
 wide false
@@ -1070,17 +1111,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-T
-\change_deleted 268488506 1666696779
-ime-Resolved Spectroscopy
-\change_inserted 268488506 1666696780
-CSPC
-\change_unchanged
- working principle
-\change_deleted 268488506 1666696788
- employing Time Correlated Single Photon Counting (TCSPC)
-\change_unchanged
-.
+TCSPC working principle.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Time-Resolved-Spectroscopy-worki"
@@ -1142,24 +1173,11 @@ noprefix "false"
 
 .
  We have our two physical events hitting the two detectors, by which they
- are converted in
-\change_inserted 268488506 1666702416
-to
-\change_unchanged
- electrical signals; then, th
-\change_inserted 268488506 1666702424
-ese
-\change_deleted 268488506 1666702423
-is
-\change_unchanged
- two electrical signals are processed by Time Discriminators in order to
- get the right pulse shape, compatible with the TIM.
- In the end, the 
-\change_deleted 268488506 1666702443
-Time-Interval-Meter
-\change_inserted 268488506 1666702443
-TIM
-\change_unchanged
+ are converted into electrical signals; then, these two electrical signals
+ are processed by Time Discriminators in order to get the right pulse shape,
+ compatible with the TIM.
+ In the end, the TIM
+\change_deleted 1469408620 1666900175
 
 \begin_inset Note Note
 status open
@@ -1170,6 +1188,8 @@ quando hai definito un acronimo vai avanti ad usarlo nel testo
 
 \end_inset
 
+
+\change_unchanged
  measures the time difference 
 \begin_inset Formula $\varDelta T$
 \end_inset
@@ -2514,7 +2534,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename C:/home/mconsonni/Desktop/tesi_mconsonni/2.State-of-the-Art/images/TAC.png
+	filename /home/mconsonni/Desktop/tesi_mconsonni/2.State-of-the-Art/images/TAC.png
 	width 100text%
 
 \end_inset
