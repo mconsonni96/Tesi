@@ -3031,13 +3031,62 @@ name "fig:Absolute-DNL-(on-3"
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+By calling 
+\begin_inset Formula $DNL_{Abs}$
+\end_inset
+
+ the maximum value of 
+\begin_inset Formula $dnl_{Abs}[n]$
+\end_inset
+
+ in modulus, what we can conclude from the obtained results is:
+\end_layout
+
+\begin_layout Itemize
+The TDC with 1 FULL-DSP-chain has the worst non-linearity (i.e.
+ 
+\begin_inset Formula $DNL_{Abs}=23\ ps$
+\end_inset
+
+), due to its huge ultra-bins.
+\end_layout
+
+\begin_layout Itemize
+The SuperWU Sub-Interpolation algorithm on the Tapped Delay-Line improves
+ the overall linearity of the TDC, as we can see by comparing the TDC based
+ on 1 CARRY-chain (i.e.
+ 
+\begin_inset Formula $DNL_{Abs}=0.82\ ps$
+\end_inset
+
+) and the one with 4 CARRY-chains in parallel (i.e.
+ 
+\begin_inset Formula $DNL_{Abs}=0.22\ ps$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Itemize
+The TDC with 4 CARRY-chains in parallel is characterized by the most linear
+ behavior (i.e.
+ 
+\begin_inset Formula $DNL_{Abs}=0.22\ ps$
+\end_inset
+
+), followed by the one composed of 2 CARRY-chains + 1 FULL-DSP-chain in
+ parallel, which has a slightly worse linearity (i.e.
+ 
+\begin_inset Formula $DNL_{Abs}=0.3\ ps$
+\end_inset
+
+).
 \end_layout
 
 \end_body
