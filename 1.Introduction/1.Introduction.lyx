@@ -1136,6 +1136,8 @@ Typical measurement setup
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 1469408620 1666949328
 \begin_inset Note Note
 status open
 
@@ -1152,9 +1154,84 @@ Quello della differenza temporale è già riportato, quella dello del timestamp
 \end_inset
 
 
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
+
+\change_inserted 1469408620 1666949692
+In all the aforementioned applications, the typical measurement setup consists
+ of a TIM measuring the time interval 
+\begin_inset Formula $\varDelta t$
+\end_inset
+
+ between the two physical events.
+ As said in the first paragraph, the measurement of the time interval can
+ be represented either as the direct time difference 
+\begin_inset Formula $\varDelta t$
+\end_inset
+
+ between the START and the STOP events or as the difference of their timestamps,
+ each one calculated with respect to a common absolute reference (i.e., 
+\begin_inset Formula $\varDelta t=t_{2}-t_{1},$
+\end_inset
+
+ where 
+\begin_inset Formula $t_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $t_{2}$
+\end_inset
+
+ are the timestamps of the START and the STOP signal, respectively).
+ In the first case, each channel of the TIM is composed of two inputs (one
+ for the START signal and one for the STOP signal), and it is referred to
+ as a START/STOP-type TIM; on the other hand, in the second case, each channel
+ of the TIM has just one single input, with the scope of detecting the incoming
+ physical event and measuring its time distance with respect to the power-on
+ instant of the system (i.e.
+ its timestamp).
+ The latter is referred to as a TIMESTAMP-type TIM.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Measurement-Setup-employing"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows a START/STOP-type TIM (at the top) and a TIMESTAMP-type TIM (at the
+ bottom).
+ In both cases, we have our two physical events hitting two detectors, by
+ which they are converted into electrical signals; then, these two electrical
+ signals are processed by Time Discriminators to get the right pulse shape,
+ compatible with the TIM.
+ In the end, the TIM measures the time difference 
+\begin_inset Formula $\varDelta T$
+\end_inset
+
+, giving a digital code in output.
+ The only difference between the two types of TIM is that the first one
+ has a single channel and there is a direct calculation of 
+\begin_inset Formula $\varDelta t$
+\end_inset
+
+, while the second one has two channels, and 
+\begin_inset Formula $\varDelta t$
+\end_inset
+
+ is calculated by making the difference between the timestamps provided
+ by each channel.
+ Therefore, it's clear that by making the difference between two channels
+ of a TIMESTAMP-type TIM, a START/STOP-type TIM is obtained.
+ On the other hand, using a START/STOP-type TIM having the START event as
+ the power-on instant of the system is equivalent to having one channel
+ of a TIMESTAMP-type TIM.
+\change_deleted 1469408620 1666949324
 In all the applications just presented, the typical setup to measure the
  time distance 
 \begin_inset Formula $\varDelta T$
@@ -1176,9 +1253,11 @@ noprefix "false"
  are converted into electrical signals; then, these two electrical signals
  are processed by Time Discriminators in order to get the right pulse shape,
  compatible with the TIM.
- In the end, the TIM
-\change_deleted 1469408620 1666900175
 
+\change_unchanged
+ 
+\change_deleted 1469408620 1666949021
+In the end, the TIM
 \begin_inset Note Note
 status open
 
@@ -1188,13 +1267,13 @@ quando hai definito un acronimo vai avanti ad usarlo nel testo
 
 \end_inset
 
-
-\change_unchanged
  measures the time difference 
 \begin_inset Formula $\varDelta T$
 \end_inset
 
 , giving a digital code in output.
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -1218,7 +1297,8 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Measurement Setup employing TIMs.
+Measurement Setup employing a START/STOP-type TIM (at the top) and a TIMESTAMP-t
+ype TIM (at the bottom).
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Measurement-Setup-employing"
@@ -1239,6 +1319,8 @@ name "fig:Measurement-Setup-employing"
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 1469408620 1666949332
 \begin_inset Note Note
 status open
 
@@ -1275,6 +1357,8 @@ Dopo devi sottolineare le relazioni tra le 2 architetture; un TIM START/STOP
 
 \end_inset
 
+
+\change_unchanged
 
 \end_layout
 
@@ -2325,12 +2409,8 @@ name "tab:Comparison-between-FPGA"
 \end_layout
 
 \begin_layout Subsection
-
-\change_deleted 268488506 1666711306
-State of the Art
-\change_inserted 268488506 1666711318
- Architectures
-\change_unchanged
+Architectures
+\change_deleted 1469408620 1666960282
 
 \begin_inset Note Note
 status open
@@ -2343,90 +2423,31 @@ e disponibili
 \end_inset
 
 
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
-In 
-\change_deleted 268488506 1666711372
-the current scientific 
-\change_unchanged
-research
-\change_inserted 268488506 1666711382
- and industrial
-\change_unchanged
- world
-\change_inserted 268488506 1666711384
-s
-\change_unchanged
-, different types of Time-Interval-Meter
-\change_inserted 268488506 1666711389
-s
-\change_unchanged
- (TIM
-\change_inserted 268488506 1666711391
-s
-\change_unchanged
-) are employed.
- 
-\change_deleted 268488506 1666711401
-The
-\change_inserted 268488506 1666711411
-As a generic electronic circuits,
-\change_unchanged
- 
-\change_inserted 268488506 1666711413
-also 
-\change_unchanged
-TIM
-\change_inserted 268488506 1666711422
-s 
-\change_deleted 268488506 1666711420
- is an electronic circuit, and it 
-\change_unchanged
-can be 
-\change_inserted 268488506 1666711428
-fully
-\change_unchanged
- analog, 
-\change_inserted 268488506 1666711433
-fully
-\change_unchanged
- digital
-\change_inserted 268488506 1666711442
+In research and industrial worlds, different types of Time-Interval-Meters
+ (TIMs) are employed.
+ As generic electronic circuits, also TIMs can be fully analog, fully digital
  (a.k.a.
- TDCs)
-\change_unchanged
-, or mixed-signal.
- 
-\change_deleted 268488506 1666711465
-Let's decribe the available
-\change_inserted 268488506 1666711476
-In the following Paragraphs
-\change_unchanged
- main types of TIMs
-\change_inserted 268488506 1666711589
- will be described focusing on TDCs
-\change_unchanged
-.
+ TDCs), or mixed-signal.
+ In the following paragraphs, the main types of TIMs will be described,
+ mainly focusing on TDCs.
 \end_layout
 
 \begin_layout Subsubsection
 Time-to-Amplitude Converter
-\change_deleted 268488506 1666711631
- (TAC)
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
 Considering the mixed-signal approach, the Time-to-Amplitude Converter (TAC)
- is 
-\change_inserted 268488506 1666711684
-historically one of 
-\change_unchanged
-the main device used in research
+ is historically one of the main device used in research
 \change_inserted 268488506 1666711747
- (above all in TCSPC 
+ 
+\change_unchanged
+(above all in TCSPC 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "2Nicola"
@@ -2434,9 +2455,7 @@ literal "false"
 
 \end_inset
 
-)
-\change_unchanged
-, and it converts a time interval 
+), and it converts a time interval 
 \family roman
 \series medium
 \shape up
@@ -2466,19 +2485,7 @@ literal "false"
 \uwave default
 \noun default
 \color inherit
- into a voltage level
-\change_deleted 268488506 1666711744
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "2Nicola"
-literal "false"
-
-\end_inset
-
-
-\change_unchanged
- 
+ into a voltage level 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "8743999"
@@ -2488,15 +2495,11 @@ literal "false"
 
 .
  More precisely, its working principle consists in building a voltage ramp
- that starts synchronously with the START event, and it stops when the STOP
+ that starts synchronously with the START event, and stops when the STOP
  event occurs.
- In this way, 
-\change_deleted 268488506 1666711767
-the obtained ramp has as final value 
-\change_unchanged
-a voltage level proportional to the measured time interval.
- Then, at the second stage, an ADC converts the measured voltage level into
- a digital code.
+ In this way, a voltage level proportional to the measured time interval
+ is obtained.
+ Then, an ADC converts the measured voltage level into a digital code.
  We can see the structure of a conventional TAC in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2515,7 +2518,7 @@ C
 \shape italic
 I
 \shape default
- as long as START = 1 and STOP = 0; then, as soon as STOP = 1, START deasserts
+ as long as START = 1 and STOP = 0; then, as soon as STOP = 1, START transits
  to 0, and the capacitor gets isolated from the current generator, thus
  holding the charge.
 \begin_inset Float figure
@@ -2555,7 +2558,11 @@ name "fig:Conventional-structure-of"
 
 \end_inset
 
+
+\change_deleted 1469408620 1666960578
  
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -2597,7 +2604,7 @@ where
 \end_inset
 
  is the full voltage span of the ADC, given by its supply voltage.
- It can be clearly seen from Equation 
+ It can be seen from Equation 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:TAC_res"
@@ -2610,6 +2617,8 @@ noprefix "false"
  that this architecture suffers from a trade-off between resolution and
  Full-Scale Range (FSR).
  
+\change_deleted 1469408620 1666976133
+
 \begin_inset Note Note
 status open
 
@@ -2620,10 +2629,36 @@ parli di tutte queste non idealità, sarebbe meglio avere anche delle ref
 
 \end_inset
 
+
+\change_unchanged
 This trade-off, along with the non-idealities of the current generator and
- of the other components, represent a significant drawback, and for this
- reason a fully-digital approach is usually preferred.
  
+\change_deleted 1469408620 1666976187
+of the other
+\change_inserted 1469408620 1666976190
+the mismatches
+\change_unchanged
+ 
+\change_inserted 1469408620 1666976193
+of the other 
+\change_unchanged
+components
+\change_inserted 1469408620 1666976250
+ due to process and temperature variations 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "2Nicola"
+literal "false"
+
+\end_inset
+
+
+\change_unchanged
+, represents a significant drawback and, for this reason, a fully-digital
+ approach is usually preferred.
+ 
+\change_deleted 1469408620 1666976135
+
 \begin_inset Note Note
 status open
 
@@ -2634,9 +2669,41 @@ status open
 \end_inset
 
 
+\change_inserted 1469408620 1666976296
+
 \end_layout
 
 \begin_layout Standard
+
+\change_inserted 1469408620 1666977902
+The great advantage of this architecture is the relatively small area occupied.
+ On the other hand, a significant drawback is represented by the need to
+ continuously charge and discharge the capacitor 
+\begin_inset Formula $C$
+\end_inset
+
+, thus making this architecture quite slow, and not suitable for the multi-hit
+ capability required by the applications.
+ The power consumption depends by the wanted precision; in fact, to lower
+ the noise and achieve a better precision, the input current has to be increased
+, thus increasing also the power consumption.
+ If instead a greater value of noise can be tolerated, the input current
+ can be lowered, thus saving power 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "9333600"
+literal "false"
+
+\end_inset
+
+.
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 1469408620 1666976282
 \begin_inset Note Note
 status open
 
@@ -2661,68 +2728,23 @@ Prosegui elencando altre pregi/difetti.
 \end_inset
 
 
+\change_inserted 1469408620 1666976286
+
 \end_layout
 
 \begin_layout Subsubsection
-Shift-Clock Fast-Counter
-\change_inserted 268488506 1666718598
- TDC
-\change_unchanged
-
+Shift-Clock Fast-Counter TDC
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 268488506 1666716634
-The Shift-Clock Fast-Counter (SCFC) 
-\change_deleted 268488506 1666716638
-This 
-\change_unchanged
-is a 
-\change_deleted 268488506 1666716649
-fully-digital
-\change_inserted 268488506 1666716649
-TDC
-\change_unchanged
- architecture
-\change_inserted 268488506 1666716663
- (fully digital TIM)
-\change_unchanged
- 
-\change_deleted 268488506 1666716765
-which
-\change_unchanged
- 
-\change_inserted 268488506 1666716778
-derived to simpler
-\change_deleted 268488506 1666716784
-employs a
-\change_unchanged
- counter
-\change_inserted 268488506 1666716787
-.
-\change_deleted 268488506 1666716787
-,
-\change_unchanged
- 
-\change_inserted 268488506 1666716868
-Indeed, it is possible to use a simpler counter 
-\change_unchanged
-driven by a clock signal with period 
+The Shift-Clock Fast-Counter (SCFC) is a TDC architecture (fully digital
+ TIM) derived from a simple counter.
+ In fact, it is possible to use a simple counter, driven by a clock signal
+ with period 
 \begin_inset Formula $T_{CLK}$
 \end_inset
 
-
-\change_inserted 268488506 1666716898
- as a TDC
-\change_deleted 268488506 1666716877
-,
-\change_unchanged
- 
-\change_inserted 268488506 1666716882
-in order 
-\change_unchanged
-to produce two timestamps that are associated respectively to the value
+, as a TDC that produces two timestamps associated respectively to the value
  of the counter at the START signal occurrence (
 \begin_inset Formula $T_{START}$
 \end_inset
@@ -2741,7 +2763,7 @@ literal "false"
 
 .
  Then, their difference provides the elapsed time between the two events,
- which is equal to:
+ equal to:
 \begin_inset Formula 
 \begin{equation}
 \varDelta t=T_{CLK}\cdot(T_{STOP}-T_{START})\label{eq:scfc-timediff}
@@ -2753,64 +2775,34 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-However, this single-counter implementation is useless for 
-\change_deleted 268488506 1666716933
-the kind of
-\change_inserted 268488506 1666716937
-modern
-\change_unchanged
- applications that require 
-\change_inserted 268488506 1666717221
-high-resolution 
-\change_deleted 268488506 1666716926
-Time-to-Digital Converters
-\change_inserted 268488506 1666716926
-TDCs
-\change_unchanged
-, since the achievable resolution 
+However, this single-counter implementation is useless for modern applications
+ that require high-resolution TDCs, since the achievable resolution 
 \begin_inset Formula $\varDelta t_{LSB}$
 \end_inset
 
-
-\change_inserted 268488506 1666716957
-,
-\change_unchanged
- in this case
-\change_inserted 268488506 1666716960
-,
-\change_unchanged
- is just equal to 
+, in this case, is just equal to 
 \begin_inset Formula $T_{CLK}$
 \end_inset
 
 .
- 
-\change_deleted 268488506 1666717279
-Hence
-\change_inserted 268488506 1666717289
-In order to increase the resolution of a factor 
+ In order to increase the resolution of a factor 
 \begin_inset Formula $N$
 \end_inset
 
-
-\change_unchanged
 , 
 \begin_inset Formula $N$
 \end_inset
 
  counters are used, each one driven by the same clock signal used before
-\change_deleted 268488506 1666717297
-,
-\change_unchanged
  but shifted in phase by 
 \begin_inset Formula $\varDelta\phi=\frac{2\pi}{N}$
 \end_inset
 
  thanks to a Phase-Locked Loop (PLL).
- This allows to have more clock edges acting as intermediate levels in the
+ This allows having more clock edges acting as intermediate levels in the
  counting process,
-\change_deleted 268488506 1666717321
- and the resolution of the device improves to:
+\change_inserted 1469408620 1666978750
+ allowing to achieve:
 \change_unchanged
 
 \begin_inset Formula 
@@ -2820,25 +2812,7 @@ In order to increase the resolution of a factor
 
 \end_inset
 
- 
-\change_inserted 268488506 1666717135
-While, t
-\change_deleted 268488506 1666717135
-T
-\change_unchanged
-he FSR
-\change_deleted 268488506 1666717155
-, given that each counter is 
-\shape italic
-n
-\shape default
--bit wide,
-\change_unchanged
- is instead equal to
-\change_inserted 268488506 1666717176
- the case of the single-counter
-\change_unchanged
-:
+ The FSR is instead equal to the case of the single counter:
 \begin_inset Formula 
 \begin{equation}
 \varDelta t_{FSR}=2^{n}\cdot T_{CLK}\label{eq:scfc-fsr}
@@ -2847,10 +2821,28 @@ n
 \end_inset
 
 
+\change_inserted 1469408620 1666978871
+
 \end_layout
 
 \begin_layout Standard
-The architecture just described is represented in Figure 
+
+\change_inserted 1469408620 1666978970
+where 
+\begin_inset Formula $n$
+\end_inset
+
+ is the number of bits composing the counter.
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 1469408620 1666979001
+The architecture just described is represented in 
+\change_unchanged
+Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Shift-Clock-Fast-Counter-TDC"
@@ -2860,6 +2852,10 @@ noprefix "false"
 
 \end_inset
 
+
+\change_inserted 1469408620 1666979011
+ represents the architecture just described
+\change_unchanged
 .
 \end_layout
 
@@ -2884,15 +2880,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-\change_deleted 268488506 1666717339
-Shift-Clock Fast-Counter TDC (
-\change_unchanged
-SCFC-TDC
-\change_deleted 268488506 1666717344
-)
-\change_unchanged
- architecture employing 
+SCFC-TDC architecture employing 
 \begin_inset Formula $N$
 \end_inset
 
@@ -2921,9 +2909,7 @@ name "fig:Shift-Clock-Fast-Counter-TDC"
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 268488506 1666717477
-As can be seen by Equations 
+As shown by Equations 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:scfc-lsb"
@@ -2943,72 +2929,13 @@ noprefix "false"
 
 \end_inset
 
-, 
-\change_deleted 268488506 1666717478
-T
-\change_inserted 268488506 1666717478
-t
-\change_unchanged
-he main advantage of this architecture 
-\change_deleted 268488506 1666717501
-is
-\change_inserted 268488506 1666717501
-are
-\change_unchanged
+, the main advantage of this architecture is the absence of the trade-off
+ between resolution and FSR.
+ Moreover, the extremely slender architecture minimizes the DNL and INL,
+ which are limited only to clock fluctuations.
  
-\change_deleted 268488506 1666717505
-that it 
-\change_inserted 268488506 1666717474
-the 
-\change_deleted 268488506 1666717432
-doesn't suffer from
-\change_inserted 268488506 1666717474
-absence of
-\change_unchanged
- the trade-off between resolution
-\change_deleted 268488506 1666717461
- (LSB)
-\change_unchanged
- and 
-\change_deleted 268488506 1666717446
-Full-Scale Range (
-\change_unchanged
-FSR
-\change_deleted 268488506 1666717472
-), as can be seen by Equations 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:scfc-lsb"
-plural "false"
-caps "false"
-noprefix "false"
+\change_deleted 1469408620 1666979870
 
-\end_inset
-
- and 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:scfc-fsr"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-
-\change_inserted 268488506 1666717725
-.
- Moreover, the extremely slender architecture minimize the
-\change_deleted 268488506 1666717630
-.
- Besides, it exploits small hardware resources, and has a small
-\change_unchanged
- DNL and INL
-\change_inserted 268488506 1666717845
- that are limited only to the clock fluctuations
-\change_unchanged
-.
- 
 \begin_inset Note Note
 status open
 
@@ -3020,88 +2947,28 @@ riferisciti ai lavori di giovanni ticozzi ed il digilab, cercali su IEEE
 \end_inset
 
 
-\change_inserted 268488506 1666717947
-In the case of FPGA implementation, 
-\change_deleted 268488506 1666717941
-T
-\change_inserted 268488506 1666717941
-t
 \change_unchanged
-he 
-\change_inserted 268488506 1666717944
-main 
-\change_unchanged
-drawback 
-\change_deleted 268488506 1666717960
-of this architecture 
-\change_unchanged
-is 
-\change_deleted 268488506 1666717858
-that
-\change_inserted 268488506 1666717858
-a
-\change_unchanged
+In the case of FPGA implementation, the main drawback is a moderate resolution,
+ limited to the maximum achievable clock frequency and the available clock
+ lines that the FPGA has.
+ Considering 28-nm Xilinx 7-Series FPGAs as a case study, just ten clock
+ lines are available, limiting the resolution to some hundreds of ps.
+ Moreover, an increase in terms of resolution is paid with a linear increase
+ in area occupancy and greater power consumption
+\change_inserted 1469408620 1666979958
  
-\change_deleted 268488506 1666717860
-the
-\change_inserted 268488506 1666717861
-moderate
+\begin_inset CommandInset citation
+LatexCommand cite
+key "9507865"
+literal "false"
+
+\end_inset
+
+
 \change_unchanged
- resolution 
-\change_deleted 268488506 1666717968
-is dependent from
-\change_inserted 268488506 1666717970
-limited to
-\change_unchanged
- the 
-\change_inserted 268488506 1666718432
-maximum achievable clock frequency and the 
-\change_unchanged
-available clock lines 
-\change_inserted 268488506 1666717976
-that
-\change_deleted 268488506 1666717975
-of
-\change_unchanged
- the FPGA 
-\change_deleted 268488506 1666717983
-and
-\change_inserted 268488506 1666717988
-has.
-\change_deleted 268488506 1666717992
-,
-\change_unchanged
- 
-\change_inserted 268488506 1666718204
-Considering 
-\change_deleted 268488506 1666718210
-being these limited (e.g: in
-\change_inserted 268488506 1666718211
-28-nm
-\change_unchanged
- Xilinx 7-Series FPGAs
-\change_inserted 268488506 1666718223
- as case study
-\change_unchanged
-, just ten clock lines are available
-\change_deleted 268488506 1666718239
-), the achievable
-\change_inserted 268488506 1666718242
-limiting the
-\change_unchanged
- resolution 
-\change_deleted 268488506 1666718247
-is not that high, but it is limited 
-\change_unchanged
-to some hundred of ps.
- Moreover, 
-\change_inserted 268488506 1666718529
-an increasing in term of resolution is payed as a linear increase of the
- area occupancy and as bigger 
-\change_deleted 268488506 1666718533
-more clock lines lead to more 
-\change_unchanged
-power consumption.
+.
+\change_deleted 1469408620 1666979867
+
 \begin_inset Note Note
 status open
 
@@ -3111,6 +2978,8 @@ status open
 
 \end_inset
 
+
+\change_unchanged
 
 \end_layout
 
@@ -3140,19 +3009,7 @@ bins
 , along which the input START and STOP events propagate.
  The overall method to calculate the time interval between the two signals
  is to take a snapshot of the Delay-Line as soon as a sampling event occurs,
- 
-\change_deleted 268488506 1666718679
-and count the number of bins hit by both the START signal and by the STOP
- signal in their propagation process.
- T
-\change_inserted 268488506 1666718679
-t
-\change_unchanged
-hen
-\change_deleted 268488506 1666718713
-, by making the difference between the calculated number of bins
-\change_unchanged
-, the time interval information is obtained.
+ thus obtaining the time interval information.
  Two main types of Delay-Line TDCs are available: the Tapped Delay-Line
  TDC (TDL-TDC) 
 \begin_inset CommandInset citation
@@ -3175,111 +3032,10 @@ literal "false"
 
 \begin_layout Paragraph
 Tapped Delay-Line TDC
-\change_deleted 268488506 1666718610
-, TDL-TDC
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 268488506 1666719048
-As reported in Figure, 
-\change_deleted 268488506 1666719054
-The
-\change_inserted 268488506 1666719054
-a
-\change_unchanged
- Tapped Delay-Line (TDL) 
-\change_inserted 268488506 1666719046
-TDC 
-\change_unchanged
-consists of a sequence of buffers 
-\change_deleted 268488506 1666718628
-(also called 'bins' or 'taps') 
-\change_unchanged
-connected in series, where the output of each bin is
-\change_inserted 268488506 1666719133
- sampled by a flip-flop (e.g., edge triggered positive D flip-flop is the
- most common one)
-\change_deleted 268488506 1666719099
- connected to the D input of a D flip-flop
-\change_unchanged
-.
- In this way, the time elapsed from the 
-\change_inserted 268488506 1666719239
-rising-edge of the 
-\change_unchanged
-START event to the STOP one, can be obtained by simply counting the number
- of bins crossed by the former, when the latter occurs 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Nicola55"
-literal "false"
-
-\end_inset
-
-.
- More precisely, 
-\change_inserted 268488506 1666719433
-the rising-edge of the START is propagated bin-by-bin (each one having its
- own propagation delay 
-\begin_inset Formula $\varDelta t_{p}$
-\end_inset
-
-)
-\change_deleted 268488506 1666718912
-the operation of
-\change_inserted 268488506 1666719433
-over
-\change_unchanged
- the TDL
-\change_deleted 268488506 1666719430
- 
-\change_inserted 268488506 1666719526
- asserting in sequence the input of the flip-flops from '0' to '1'; so,
- when the rising-edge of the STOP occurs, the status of the TDL is memorize
- by the flip-flops
-\change_deleted 268488506 1666719635
-is the following: at first, all the buffers of the chain are kept to '0'
- logical value; then, when our first asynchronous event of interest occurs,
- i.e.
- our START signal, it propagates along the series of buffers (each one having
- its own propagation delay 
-\begin_inset Formula $\varDelta t_{p}$
-\end_inset
-
-), asserting them to '1' as soon as they are crossed in the propagation
- process; in the end, the STOP signal, which is nothing but the rising edge
- of the sampling clock, stores in the flip-flops the actual values of the
- buffers in the chain
-\change_inserted 268488506 1666719636
-;
-\change_deleted 268488506 1666719635
-,
-\change_unchanged
- thus
-\change_inserted 268488506 1666719638
-,
-\change_unchanged
- 
-\change_deleted 268488506 1666719650
-taking a picture of the propagation situation of our signal.
- Therefore
-\change_unchanged
-, a thermometric code
-\change_inserted 268488506 1666719663
- that
-\change_deleted 268488506 1666719680
- 
-\change_inserted 268488506 1666719834
- represents the number of bins crossed by the rising-edge of the START,
- is obtained.
-\change_deleted 268488506 1666719828
-at the output of the chain of flip-flops is obtained, and it represents
- the number of bins crossed by the propagating START signal and, thus, knowing
- the delay of each buffer, the time elapsed from the START to the STOP signal.
- In Figure 
+As reported in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Tapped-Delay-Line-structure."
@@ -3289,11 +3045,30 @@ noprefix "false"
 
 \end_inset
 
- is reported the structure of the Tapped-Delay Line and the propagation
- of the START signal till the third bin, thus obtaining that thermometric
- code.
-\change_unchanged
+, a Tapped Delay-Line (TDL) TDC consists of a sequence of buffers connected
+ in series, where the output of each bin is sampled by a flip-flop (e.g.,
+ edge-triggered positive D flip-flop is the most common one).
+ In this way, the time elapsed from the rising-edge of the START event to
+ the STOP one can be obtained by simply counting the number of bins crossed
+ by the former, when the latter occurs 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Nicola55"
+literal "false"
 
+\end_inset
+
+.
+ More precisely, the rising-edge of the START is propagated bin-by-bin (each
+ one having its own propagation delay 
+\begin_inset Formula $\varDelta t_{p}$
+\end_inset
+
+) over the TDL, asserting in sequence the inputs of the flip-flops from
+ '0' to '1'; so, when the rising-edge of the STOP occurs, the status of
+ the TDL is memorized by the flip-flops, thus generating a thermometric
+ code that represents the number of bins crossed by the rising-edge of the
+ START.
 \end_layout
 
 \begin_layout Standard
@@ -3317,13 +3092,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-T
-\change_deleted 268488506 1666718990
-apped Delay-Line
-\change_inserted 268488506 1666718990
-DL
-\change_unchanged
- structure and propagation mechanism.
+TDL structure and propagation mechanism.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Tapped-Delay-Line-structure."
@@ -3663,11 +3432,7 @@ As can be seen from the obtained result, the time difference between the
 \end_layout
 
 \begin_layout Subsection
-
-\change_inserted 268488506 1666733204
 State-of-the-Art
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
