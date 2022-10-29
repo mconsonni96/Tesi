@@ -1919,6 +1919,8 @@ C, but usually, compensation techniques are required in order to reach high
 \begin_layout Subsection
 FPGA vs.
  ASIC 
+\change_deleted 1469408620 1667040878
+
 \begin_inset Note Note
 status open
 
@@ -1929,9 +1931,13 @@ tutto da rivedere, segui le mie note
 \end_inset
 
 
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 1469408620 1667040883
 \begin_inset Note Note
 status open
 
@@ -1949,19 +1955,13 @@ Basta richiamare al tettore gli aspoetti principali
 \end_inset
 
 
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted 268488506 1666710943
-The 
-\change_unchanged
-TDC
-\change_inserted 268488506 1666710992
-s, like every digital circuit,
-\change_unchanged
- can be implemented both in an Application Specific Integrated Circuit (ASIC)
- 
+TDCs, like every digital circuit, can be implemented both in an Application
+ Specific Integrated Circuit (ASIC) 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "123198"
@@ -1969,19 +1969,8 @@ literal "false"
 
 \end_inset
 
- 
-\change_deleted 268488506 1666711002
-and
-\change_inserted 268488506 1666711002
-or
-\change_unchanged
- in 
-\change_inserted 268488506 1666711024
-usign Programmable Logic Device such as
-\change_deleted 268488506 1666711025
-a
-\change_unchanged
- Field Programmable Gate Array (FPGA) 
+ or using a Programmable Logic Device such as Field Programmable Gate Array
+ (FPGA) 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "9452098"
@@ -1989,14 +1978,8 @@ literal "false"
 
 \end_inset
 
-
-\change_deleted 268488506 1666711046
 .
- Indeed, both these two approaches can be used to implement a certain digital
- function, the former being the fixed computing approach, the latter being
- the configurable computing one.
- Let's briefly describe the pros and cons of both of them.
-\change_unchanged
+\change_deleted 1469408620 1667041553
 
 \begin_inset Note Note
 status open
@@ -2008,9 +1991,40 @@ qui riprendi il 1.4.2 partendo dalla descrizione ASIC
 \end_inset
 
 
+\change_inserted 1469408620 1667041825
+ An Application Specific Integrated Circuit (ASIC) is a chip designed to
+ perform one specific functionality, suited for high-volume production.
+ All the resources are placed on a single silicon chip, and the functionality
+ is fixed by the manufacturing process.
 \end_layout
 
 \begin_layout Standard
+
+\change_inserted 1469408620 1667042003
+The main advantages of an ASIC are the very high performance and the lower
+ power consumption with respect to FPGAs, since the entire design is tailored
+ to perform that specific functionality.
+ Moreover, it can host analog and mixed-signal components other than digital
+ ones.
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 1469408620 1667042197
+The main drawback is represented by the impossibility of changing the ASIC's
+ functionality; it thus lacks flexibility, due to the fixed nature of the
+ design.
+ Furthermore, it is characterized by a high time-to-market, in the order
+ of months, due to the very long manufacturing process, and by high Non-Recurrin
+g Engineering (NRE) costs for the fabrication, representing a higher entry
+ barrier with respect to FPGAs.
+\change_deleted 1469408620 1667042233
+
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 1469408620 1667042236
 \begin_inset Note Note
 status open
 
@@ -2024,9 +2038,36 @@ poi dopo aver sottolineato gli alti NRE degli ASIC e la scarsa flessibilità
 \end_inset
 
 
+\change_inserted 1469408620 1667043535
+For these reasons, another approach, less performant but leaner, is preferred
+ in scientific research and for fast-prototyping.
+ This approach consists of using an FPGA, which is a fully-digital electronic
+ device that can be configured and re-configured by a designer, after the
+ manufacturing process.
+ The main advantage of an FPGA is the high flexibility given to the user,
+ thanks to the reconfigurable nature of the device.
+ This allows fast prototyping and low time-to-market, since it is sufficient
+ to modify the Hardware Description Language (HDL) to immediately change
+ the hardware configuration of the device.
+ Moreover, since there is no need to buy lithographic photomasks, it has
+ low Non-Recurring Engineering (NRE) costs and, therefore, a low entry barrier.
 \end_layout
 
 \begin_layout Standard
+
+\change_inserted 1469408620 1667043771
+On the other hand, the main drawbacks are the lower operating frequency
+ and higher power consumption as compared to ASICs, since FPGAs are not
+ optimized for the specific functionality implemented.
+ Besides, it is not possible to have analog or mixed-signal designs, since
+ FPGAs are fully-digital devices.
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 1469408620 1667043881
 \begin_inset Note Note
 status open
 
@@ -2037,19 +2078,34 @@ infine riprendi comparison e richiami la tab di comparazione
 \end_inset
 
 
+\change_inserted 1469408620 1667044091
+Since the applications described in Paragraph 1.1 require features such as
+ low time-to-market, fast-prototyping, low non-recurring engineering (NRE)
+ costs, and high reconfigurability, the FPGA approach is the most suitable
+ choice.
+\change_unchanged
+
 \end_layout
 
 \begin_layout Subsubsection
+
+\change_deleted 1469408620 1667042763
 FPGA
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 1469408620 1667042765
 A Field Programmable Gate Array (FPGA) is a fully-digital electronic device
  that can be configured and re-configured by a designer, after the manufacturing
  process.
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 1469408620 1667042935
 FPGAs contain a lot of pre-defined combinational and sequential logic elements
  that can be programmed and connected to produce the desired functionality.
  All these elements are contained in logic blocks called Configurable Logic
@@ -2059,20 +2115,28 @@ FPGAs contain a lot of pre-defined combinational and sequential logic elements
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 1469408620 1667042935
 The CLBs are generally arranged in a regular array inside the FPGA, and
  each one of them connects to the switch matrix, which runs vertically and
  horizontally between the CLB rows and columns.
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 1469408620 1667042935
 Furthermore, FPGAs have dedicated modules to create and manage clocks such
  as Mixed-Mode Clock Manager (MMCM) and a Phase-Locked Loop (PLL) modules.
  In the end, buffers are available to correctly transfer the signals from
  the outside of the chip to the inside (and viceversa) or through different
  clock regions.
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 1469408620 1667043115
 The main advantages of an FPGA are: high felixibility given to the user,
  thanks to the reconfigurable nature of the device; fast prototyping and
  low time-to-market, since it is sufficient to modify the Hardware Description
@@ -2082,6 +2146,8 @@ The main advantages of an FPGA are: high felixibility given to the user,
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 1469408620 1667043115
 The main drawbacks are instead: the lower operating frequency and higher
  power consumption with respect to ASICs, since FPGAs are not optimized
  for the specific functionality implemented; the impossibility to have analog
@@ -2089,10 +2155,16 @@ The main drawbacks are instead: the lower operating frequency and higher
 \end_layout
 
 \begin_layout Subsubsection
+
+\change_deleted 1469408620 1667041040
 ASIC
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 1469408620 1667041081
 An Application Specific Integrated Circuit (ASIC) is a chip designed to
  perform a specific functionality, suited for an high-volume production.
  All the resources are placed on a single silicon chip, and the functionality
@@ -2100,6 +2172,8 @@ An Application Specific Integrated Circuit (ASIC) is a chip designed to
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 1469408620 1667041081
 The main advantages of an ASIC are: very high performance and lower power
  consumption with respect to FPGAs, since the entire design is tailored
  to perform the specific functionality; the possibility to have also analog
@@ -2107,6 +2181,8 @@ The main advantages of an ASIC are: very high performance and lower power
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 1469408620 1667043826
 The main drawbacks are: the impossibility to change the ASIC's functionality
  and thus the lack of flexibility, given by the fixed nature of the design;
  the high time-to-market, in the order of months, employed in the manufacturing
@@ -2115,16 +2191,28 @@ The main drawbacks are: the impossibility to change the ASIC's functionality
 \end_layout
 
 \begin_layout Subsubsection
+
+\change_deleted 1469408620 1667043829
 Comparison
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 1469408620 1667044032
 Despite the ASIC being much more power efficient and performant, the FPGA
  approach is the most suitable choice in the scientific research world,
  being characterized by high reconfigurability, fast prototyping, low non-recurr
 ing engineering (NRE) costs, and low time-to-market.
- Indeed, these features are acquiring more and more importance, due to the
+
+\change_unchanged
+ 
+\change_deleted 1469408620 1667043893
+Indeed, these features are acquiring more and more importance, due to the
  requirements of the applications described before.
+
+\change_unchanged
  Table 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -3113,6 +3201,8 @@ name "fig:Tapped-Delay-Line-structure."
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 1469408620 1667033507
 \begin_inset Note Note
 status open
 
@@ -3147,12 +3237,14 @@ Qui manca tutto:
 
 \end_inset
 
+
+\change_unchanged
 The resolution (LSB) of this architecture depends on the number of buffers
  (
 \begin_inset Formula $N_{B})$
 \end_inset
 
- and on the clock period (
+ and the clock period (
 \begin_inset Formula $T_{CLK})$
 \end_inset
 
@@ -3171,11 +3263,91 @@ LSB=\frac{T_{CLK}}{N_{B}}\label{eq:TDL resolution}
 \end_layout
 
 \begin_layout Standard
-The FSR is given instead by 
+The FSR is instead given by
+\change_deleted 1469408620 1667034017
+ 
 \begin_inset Formula $T_{CLK}$
 \end_inset
 
  itself.
+\change_inserted 1469408620 1667035813
+:
+\begin_inset Formula 
+\begin{equation}
+FSR=T_{CLK}\label{eq:TDL-fullscale}
+\end{equation}
+
+\end_inset
+
+ Therefore, as shown by Equations 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:TDL resolution"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:TDL-fullscale"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, at the same area condition (i.e., the same number of taps 
+\begin_inset Formula $N_{B}$
+\end_inset
+
+), a trade-off between FSR and LSB arises.
+ However, this trade-off can be solved using interpolatory techniques like
+ Nutt-Interpolation (as we will see in Chapter 2).
+ 
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 1469408620 1667039051
+The main drawback of this architecture is the area consumption, due to different
+ contributions.
+ Firstly, to improve the FSR (after having increased 
+\begin_inset Formula $T_{CLK}$
+\end_inset
+
+ already), the number of buffers 
+\begin_inset Formula $N_{B}$
+\end_inset
+
+ in the chain must be increased; therefore, the area consumption grows significa
+ntly with the FSR.
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 1469408620 1667034959
+A further increase in the area is given by the need for a thermometric-to-binary
+ converter, with the scope of extracting a binary value from the thermometric
+ code.
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 1469408620 1667035644
+The last significant area contribution is given by the need for a calibration
+ procedure of the TDL.
+ In fact, the TDL-TDC suffers from very high DNL and INL due to process,
+ voltage, and temperature (PVT) variations that lead to a dispersion of
+ the propagation delays on the TDL.
+ This dispersion can be easily compensated in an ASIC, but this is not possible
+ on an FPGA; therefore, a calibration procedure is needed, and this leads
+ to further area consumption.
+ 
+\change_deleted 1469408620 1667033509
+
 \begin_inset Note Note
 status open
 
@@ -3186,6 +3358,8 @@ status open
 \end_inset
 
 
+\change_unchanged
+
 \end_layout
 
 \begin_layout Paragraph
@@ -3193,11 +3367,7 @@ Vernier Delay-Line TDC, VDL-TDC
 \end_layout
 
 \begin_layout Standard
-The Vernier Delay-Line (VDL)
-\change_inserted 268488506 1666721590
- TDC
-\change_unchanged
- 
+The Vernier Delay-Line (VDL) TDC 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "8932420"
@@ -3210,13 +3380,8 @@ literal "false"
 \end_inset
 
  of buffers and, while the output of the first chain's taps are connected
- to the D-input of the 
-\change_deleted 268488506 1666721601
-sampling Flip-Flops (FFs)
-\change_inserted 268488506 1666721604
-flip-flops
-\change_unchanged
-, the outputs of the second chain are connected to their clock inputs.
+ to the D-input of the flip-flops, the outputs of the second chain are connected
+ to their clock inputs.
  The START signal propagates on the first chain with a propagation delay
  
 \begin_inset Formula $t_{p1}$
@@ -3232,29 +3397,18 @@ flip-flops
 \end_inset
 
 .
- Hence, as soon as the STOP signal, 
-\change_deleted 268488506 1666721622
-travelling
-\change_inserted 268488506 1666721622
-traveling
-\change_unchanged
- on the faster chain, reaches the START one, the flip-flop corresponding
- to bin 
+ Hence, as soon as the STOP signal, traveling on the faster chain, reaches
+ the START one, the flip-flop corresponding to bin 
 \begin_inset Formula $N_{x}$
 \end_inset
 
- change its state, and provides the information of the time interval 
+ changes its state, and provides the information of the time interval 
 \begin_inset Formula $\Delta t$
 \end_inset
 
  between START and STOP.
- A representation of the 
-\change_deleted 268488506 1666721636
-Vernier Delay-Line
-\change_inserted 268488506 1666721637
-VDL
-\change_unchanged
- structure and working mode can be seen in Figure 
+ A representation of the VDL structure and working mode can be seen in Figure
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Vernier-Delay-Line-(VDL)"
@@ -3377,11 +3531,93 @@ noprefix "false"
 \end_inset
 
 
+\change_inserted 1469408620 1667038259
+
 \end_layout
 
 \begin_layout Standard
+
+\change_inserted 1469408620 1667038369
+The minimum measurable time distance represents the resolution of the VDL,
+ and it is equal to:
+\begin_inset Formula 
+\begin{equation}
+LSB=t_{p1}-t_{p2}\label{eq:vdl_lsb}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 1469408620 1667038445
+The FSR is instead equal to:
+\begin_inset Formula 
+\begin{equation}
+FSR=N\cdot(t_{p1}-t_{p2})\label{eq:vdl_fsr}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 1469408620 1667039329
+Equations 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:vdl_lsb"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:vdl_fsr"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ show a direct trade-off between FSR and LSB, at the same area conditions
+ (i.e., the number of buffers 
+\begin_inset Formula $N$
+\end_inset
+
+).
+ To improve the FSR, the number of bins 
+\begin_inset Formula $N$
+\end_inset
+
+ has to be increased, thus paying with an enormous growth in the occupied
+ area.
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 1469408620 1667040207
+Like the TDL-TDC, also this architecture needs a thermometric-to-binary
+ converter, and a calibration process to compensate for process, voltage,
+ and temperature (PVT) variations, thus requiring specific modules and increasin
+g the area occupation.
+ 
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 1469408620 1667038623
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
 Qui manca tutto:
@@ -3414,8 +3650,26 @@ Qui manca tutto:
 
 \end_inset
 
-As can be seen from the obtained result, the time difference between the
- START and STOP events is dependent on 
+
+\change_unchanged
+As 
+\change_deleted 1469408620 1667039848
+can be seen from the obtained result
+\change_inserted 1469408620 1667039895
+shown by Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:vdl-timeinterval"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\change_unchanged
+, the time difference between the START and STOP events is dependent on
+ 
 \begin_inset Formula $t_{p1}$
 \end_inset
 
@@ -3423,20 +3677,16 @@ As can be seen from the obtained result, the time difference between the
 \begin_inset Formula $t_{p2}$
 \end_inset
 
-, and every fluctuation of their values will directly impact on the instrument's
+, and every fluctuation of their values will directly impact the instrument's
  resolution.
- Therefore, this architecture is not so reliable, and the TDL-TDC in the
- most suitable choice on an FPGA.
+ Therefore, this architecture is not so reliable, and the TDL-TDC is the
+ most suitable choice for an FPGA.
 \change_inserted 268488506 1666733195
 
 \end_layout
 
 \begin_layout Subsection
-
-\change_inserted 268488506 1666733204
 State-of-the-Art
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
