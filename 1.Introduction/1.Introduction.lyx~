@@ -1372,6 +1372,8 @@ In this thesis work, a fully-digital Time-Interval-Meter, a.k.a.
 
 \begin_layout Subsection
 Figures Of Merit (FOMs)
+\change_deleted 1469408620 1667379339
+
 \begin_inset Note Note
 status open
 
@@ -1382,23 +1384,28 @@ guarda la tesi di mcattaneo per maggiori info, hai l'accesso?
 \end_inset
 
 
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
+In this Paragraph, the main Figures Of Merit (FOMs) characterizing the TDC's
+ performance will be presented 
+\change_inserted 1469408620 1667396179
 
-\change_deleted 268488506 1666702809
-Let's see which are
-\change_inserted 268488506 1666702933
-In this Paragraph,
-\change_unchanged
- the main Figures Of Merit (FOMs) characterizing the TDC's performance
-\change_deleted 268488506 1666702823
-s
-\change_inserted 268488506 1666702831
- will be presented
+\begin_inset CommandInset citation
+LatexCommand cite
+key "TDC"
+literal "false"
+
+\end_inset
+
+
 \change_unchanged
 .
  
+\change_deleted 1469408620 1667396181
+
 \begin_inset Note Note
 status open
 
@@ -1410,6 +1417,8 @@ sarebbe bela una ref di un libro/pepr di metrologia in cui viene definito
 \end_inset
 
 
+\change_unchanged
+
 \end_layout
 
 \begin_layout Subsubsection
@@ -1417,40 +1426,12 @@ Resolution
 \end_layout
 
 \begin_layout Standard
-Resolution
-\change_deleted 268488506 1666703456
-: it
-\change_unchanged
- is defined as the minimum time interval that can be measured by the 
-\change_deleted 268488506 1666703473
-TDC
-\change_inserted 268488506 1666703474
-TIM
-\change_unchanged
-.
+Resolution is defined as the minimum time interval that can be measured
+ by the TIM.
+ In the case of TDC, the time duration of the Least Significant Bit (LSB)
+ of the digital output code is commonly used as resolution.
+\change_deleted 1469408620 1667381055
 
-\change_inserted 268488506 1666703483
- In the case of TDC,
-\change_unchanged
- 
-\change_inserted 268488506 1666703485
-t
-\change_deleted 268488506 1666703484
-T
-\change_unchanged
-he time duration of the 
-\change_inserted 268488506 1666703506
-Last Significant Bit (
-\change_unchanged
-LSB
-\change_inserted 268488506 1666703508
-)
-\change_unchanged
- of the digital output code is commonly used as 
-\change_deleted 268488506 1666703515
-the index of 
-\change_unchanged
-resolution.
 \begin_inset Note Note
 status open
 
@@ -1472,9 +1453,64 @@ questa frase non ha per nulla senso;
 
 \end_inset
 
- High performance TDCs have a resolution of hundreds of femtoseconds.
- This FOM can be improved using sub-interpolation techniques we will see
- later.
+
+\change_unchanged
+ High
+\change_deleted 1469408620 1667381048
+ 
+\change_inserted 1469408620 1667381048
+-
+\change_unchanged
+performance TDCs 
+\change_deleted 1469408620 1667381013
+have
+\change_inserted 1469408620 1667381015
+can reach
+\change_deleted 1469408620 1667381018
+ a
+\change_unchanged
+ resolution
+\change_inserted 1469408620 1667381023
+s
+\change_unchanged
+ 
+\change_inserted 1469408620 1667381026
+in the order 
+\change_unchanged
+of hundreds of femtoseconds
+\change_inserted 1469408620 1667381044
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "9452098"
+literal "false"
+
+\end_inset
+
+
+\change_unchanged
+.
+ 
+\change_inserted 1469408620 1667383155
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:LSB-and-FSR."
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ graphically shows the concept of LSB.
+ 
+\change_unchanged
+This FOM can be improved using sub-interpolation techniques
+\change_inserted 1469408620 1667380523
+, as we will see in Chapter 2.
+
+\change_deleted 1469408620 1667380530
+ we will see later.
 \begin_inset Note Note
 status open
 
@@ -1485,6 +1521,8 @@ status open
 \end_inset
 
 
+\change_unchanged
+
 \end_layout
 
 \begin_layout Subsubsection
@@ -1492,17 +1530,10 @@ Full-Scale Range
 \end_layout
 
 \begin_layout Standard
-Full-Scale Range (FSR)
-\change_deleted 268488506 1666703894
-: it
-\change_unchanged
- is the maximum time interval that can be measured by the 
-\change_deleted 268488506 1666703901
-instrument
-\change_inserted 268488506 1666703901
-TIM
-\change_unchanged
-.
+Full-Scale Range (FSR) is the maximum time interval that can be measured
+ by the TIM.
+\change_deleted 1469408620 1667383110
+
 \begin_inset Note Note
 status open
 
@@ -1523,10 +1554,65 @@ come detto per LSB la frase buttata così qui non ha molto senso;
 
 \end_inset
 
- A typical drawback of the TDC is the trade-off existing between FSR and
- LSB (resolution).
- This can be solved thanks to a technique called Nutt-Interpolation, as
- we will see later.
+
+\change_unchanged
+ 
+\change_deleted 1469408620 1667381396
+A typical drawback of the TDC is the
+\change_inserted 1469408620 1667383146
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:LSB-and-FSR."
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows the typical
+\change_unchanged
+ trade-off existing between FSR and LSB (resolution)
+\change_inserted 1469408620 1667383342
+; in fact, with the same number 
+\begin_inset Formula $n$
+\end_inset
+
+ of quantization levels, a greater FSR results in a greater LSB, since:
+ 
+\begin_inset Formula $LSB=\frac{FSR}{n}$
+\end_inset
+
+.
+\change_deleted 1469408620 1667382610
+.
+
+\change_unchanged
+ This
+\change_inserted 1469408620 1667382653
+ trade-off
+\change_unchanged
+ can be solved thanks to a technique called Nutt-Interpolation
+\change_inserted 1469408620 1667381325
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Nutt1968DigitalTI"
+literal "false"
+
+\end_inset
+
+
+\change_unchanged
+, as we will see 
+\change_deleted 1469408620 1667381329
+later
+\change_inserted 1469408620 1667381332
+in Chapter 2
+\change_unchanged
+.
+\change_deleted 1469408620 1667383115
+
 \begin_inset Note Note
 status open
 
@@ -1537,9 +1623,13 @@ status open
 \end_inset
 
 
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 1469408620 1667383116
 \begin_inset Note Note
 status open
 
@@ -1551,6 +1641,64 @@ prepara una figura del semplice quantizzatore in cui evidenzi cosa è l'LSB
 \end_inset
 
 
+\change_inserted 1469408620 1667383122
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+
+\change_inserted 1469408620 1667383174
+\begin_inset Graphics
+	filename images/lsb.png
+	width 50text%
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667383122
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667383136
+LSB and FSR.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:LSB-and-FSR."
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Subsubsection
@@ -1558,21 +1706,11 @@ Precision
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 268488506 1666704082
-Single-Shot 
-\change_unchanged
-Precision
-\change_inserted 268488506 1666704101
-, or simply precision,
-\change_deleted 268488506 1666704105
-: it's
-\change_inserted 268488506 1666704110
- is
-\change_unchanged
- the capability of the TDC to give the same output digital code given the
- same time interval in input.
+Single-Shot Precision, or simply precision, is the capability of the TDC
+ to give the same output digital code given the same time interval in input.
  
+\change_deleted 1469408620 1667387425
+
 \begin_inset Note Note
 status open
 
@@ -1622,7 +1760,107 @@ NB: aiutati con figure per spiegare questo concetto
 
 Since a gaussian curve is obatained from a set of repeated measurements,
  its standard deviation is typically used as index of precision.
+\change_inserted 1469408620 1667387390
+Based on this definition, the information about precision is obtained by
+ studying the statistics of a repeated set of measurements of the same time
+ interval.
+ For the Central Limit Theorem, without external disturbances, the statistical
+ distribution will be a Gaussian curve, whose standard deviation 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ will be the index of the precision.
+ Therefore, a TIM with a low precision will result in a wide gaussian curve,
+ which is equivalent to a high standard deviation and a wide statistic dispersio
+n.
+ Conversely, an instrument characterized by high precision will result in
+ a narrower gaussian, and thus in a lower 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ value.
+ There are some cases (e.g., Time-over-Threshold measurements from scintillators-c
+ollected light pulses 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "8532950"
+literal "false"
+
+\end_inset
+
+) where the statistic distribution is not gaussian; in these cases, the
+ FWHM is taken as the index of precision.
+
+\change_unchanged
  
+\change_inserted 1469408620 1667387530
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Single-Shot-Precision."
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ graphically shows the explained concepts.
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+
+\change_inserted 1469408620 1667385452
+\begin_inset Graphics
+	filename images/precision.png
+	width 50text%
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667385411
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667385426
+Single-Shot Precision.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Single-Shot-Precision."
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\change_deleted 1469408620 1667387427
+
 \begin_inset Note Note
 status open
 
@@ -1633,13 +1871,17 @@ status open
 \end_inset
 
 
+\change_unchanged
+
 \end_layout
 
 \begin_layout Subsubsection
-Linerity
+Linearity
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 1469408620 1667397822
 \begin_inset Note Note
 status open
 
@@ -1668,40 +1910,90 @@ Ti ho aggiustato le frasi ma manca:
 \end_inset
 
 
-\change_deleted 268488506 1666704703
-Linearity: t
-\change_inserted 268488506 1666704703
-T
 \change_unchanged
-he TDC suffers from
-\change_inserted 268488506 1666704781
- non-linearity errors.
- The non linearity is represent by meas of
-\change_unchanged
- Differential Non-Linearity (DNL) and Integral Non-Linearity (INL).
- The DNL 
-\change_inserted 268488506 1666704918
-represent the dispertion in time between consecutives digital codes with
- respect to the nominal one (i.e., the LSB)
-\change_deleted 268488506 1666704924
-is the difference between two consecutive output digital codes, and
-\change_inserted 268488506 1666704927
-.
+The TDC suffers from non-linearity errors.
+ The non-linearity is represented by meas of Differential Non-Linearity
+ (DNL) and Integral Non-Linearity (INL).
+ The DNL represents the dispersion in time between consecutive digital codes
+ with respect to the nominal one (i.e., the LSB).
+ The INL is the integral of the DNL and represents the difference in time
+ between the real time interval and the measured one.
+
+\change_inserted 1469408620 1667397085
+ They are commonly represented as a percentage of the LSB, and their calculation
+ procedure will be shown in detail in Paragraph 4.5.1.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:DNL-and-INL."
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ graphically shows the DNL and the INL.
+
+\change_deleted 1469408620 1667397049
+ They are commonly measured as percentage of LSB.
+\change_inserted 1469408620 1667397066
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+
+\change_inserted 1469408620 1667398393
+\begin_inset Graphics
+	filename images/dnlinl.png
+	width 50text%
+
+\end_inset
+
 
 \change_unchanged
- 
-\change_deleted 268488506 1666704929
-t
-\change_inserted 268488506 1666704929
-T
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667397066
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667397078
+DNL and INL.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:DNL-and-INL."
+
+\end_inset
+
+
 \change_unchanged
-he INL is the integral of the DNL
-\change_inserted 268488506 1666704994
- and represent the difference in time between the real time interval and
- the measured one
+
+\end_layout
+
+\end_inset
+
+
 \change_unchanged
-.
- They are commonly measured as percentage of LSB.
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\change_deleted 1469408620 1667398561
+
 \begin_inset Note Note
 status open
 
@@ -1712,6 +2004,8 @@ status open
 \end_inset
 
 
+\change_unchanged
+
 \end_layout
 
 \begin_layout Subsubsection
@@ -1719,16 +2013,10 @@ Conversion Time
 \end_layout
 
 \begin_layout Standard
+The Conversion Time is the time required by the TDC to produce a valid output
+ measure, given an input time interval.
+\change_deleted 1469408620 1667388926
 
-\change_inserted 268488506 1666705423
-The 
-\change_unchanged
-Conversion Time
-\change_deleted 268488506 1666705428
-: it
-\change_unchanged
- is the time required by the TDC to produce a valid output measure, given
- an input time interval.
 \begin_inset Note Note
 status open
 
@@ -1746,6 +2034,15 @@ Nel caso di assenza di pipeline allora è il tempo di propagazione necessario
 \end_inset
 
 
+\change_inserted 1469408620 1667388901
+In the case of the TDC, the Conversion Time is equivalent to the length
+ of the pipeline used for translating the physical time information into
+ the output digital code.
+ If a pipeline structure is not implemented, it is equal to the propagation
+ delay needed to cross the logic blocks used for generating the digital
+ code.
+\change_unchanged
+
 \end_layout
 
 \begin_layout Subsubsection
@@ -1753,35 +2050,16 @@ Maximum Rate
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 268488506 1666705654
-The Maximum
-\change_unchanged
- Rate
-\change_inserted 268488506 1666706137
-, represent the maximum number of measures per second that one single channel,
- Maximum Channel Rate, or the global TDC system, Maximum Measurement Rate,
- can be support.
- In pipeline based TDC the Maximum Channel Rate correspond to its
-\change_deleted 268488506 1666705929
-: it's the
-\change_unchanged
- throughput
-\change_inserted 268488506 1666706355
-; instead, if pipeline structures are not present the Maximum Channel Rate
- correspond to the inverse of the Conversion Time.
-
-\change_deleted 268488506 1666705933
- of the instrument, i.e.
- the number of measures per second.
-
-\change_inserted 268488506 1666706259
- Concerning the Maximum Measurement Rate referring to multi-channel TDC
- systems, the bottleneck is usually given by the communication link between
- the TDC and the device, such as Personal Computers (PCs) or work stations,
- used to store and/or process the information.
-\change_unchanged
-
+The Maximum Rate represents the maximum number of measures per second that
+ one single channel (Maximum Channel Rate), or the global TDC system (Maximum
+ Measurement Rate), can support.
+ In a pipeline-based TDC, the Maximum Channel Rate corresponds to its throughput
+; instead, if pipeline structures are not present, the Maximum Channel Rate
+ corresponds to the inverse of the Conversion Time.
+ Concerning the Maximum Measurement Rate of multi-channel TDC systems, the
+ bottleneck is usually given by the communication link between the TDC and
+ the device, such as Personal Computers (PCs) or work stations, used to
+ store and/or process the information.
 \end_layout
 
 \begin_layout Subsubsection
@@ -1789,40 +2067,14 @@ Dead-Time
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 268488506 1666706299
-As 
-\change_unchanged
-Dead-Time
-\change_inserted 268488506 1666706307
- we intend the
-\change_deleted 268488506 1666706301
-:
-\change_unchanged
- minimum time interval between two 
-\change_deleted 268488506 1666706313
-valid
-\change_inserted 268488506 1666706325
-consecutive event on the same channels that can be
-\change_unchanged
- measure
-\change_inserted 268488506 1666706329
-d
-\change_deleted 268488506 1666706329
-s
-\change_unchanged
-.
+As Dead-Time we intend the minimum time interval between two consecutive
+ events on the same channel that can be measured.
  It is representative of the multi-hit capability of the TDC.
-
-\change_inserted 268488506 1666706661
- If data storage mechanism, like Fist-In Fist-Out (FIFO) structure, are
- not present in the TDC architecture, the Dead-Time correspond to the inverse
+ If data storage mechanisms, like First-In First-Out (FIFO) structure, are
+ not present in the TDC architecture, the Dead-Time corresponds to the inverse
  of the Maximum Channel Rate.
- Otherwise, until free space is present in storage mechanism (e.g., FIFO not
- full) lower Dead-Time are allowed.
- 
-\change_unchanged
-
+ Otherwise, until free space is present in the storage mechanism (e.g., FIFO
+ not full), a lower Dead-Time is allowed.
 \end_layout
 
 \begin_layout Standard
@@ -1850,70 +2102,22 @@ Voltage and Temperature Sensitivities
 \end_layout
 
 \begin_layout Standard
-Voltage 
-\change_inserted 268488506 1666706735
-and Temperature 
-\change_unchanged
-Sensitivit
-\change_deleted 268488506 1666706739
-y
-\change_inserted 268488506 1666706739
-ies
-\change_deleted 268488506 1666706748
-: it
-\change_unchanged
- describe
-\change_deleted 268488506 1666706751
-s
-\change_unchanged
- how much the 
-\change_deleted 268488506 1666706759
-accuracy
-\change_inserted 268488506 1666706775
-resolution, precision, and the linearity
-\change_unchanged
- of the 
-\change_deleted 268488506 1666706791
-measurement
-\change_inserted 268488506 1666706791
-TDC
-\change_unchanged
- change
-\change_deleted 268488506 1666706796
-s
-\change_unchanged
-, with respect to power supply 
-\change_inserted 268488506 1666706806
-and temperature 
-\change_unchanged
-fluctuations.
+Voltage and Temperature Sensitivities describe how much the resolution,
+ precision, and linearity of the TDC change, with respect to power supply
+ and temperature fluctuations.
 \end_layout
 
-\begin_layout Itemize
-
-\change_deleted 268488506 1666706834
-Temperature Sensitivity: it describes how much the accuracy of the measurement
- changes, with respect to temperature variations.
- High temperature stability is required.
-
-\change_unchanged
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Dove lo hai letto? Meti una ref per giustificarlo, se te lo sei inventato
- fai un attimo di ricerca
-\end_layout
+\begin_layout Standard
+Usually, compensation techniques are required in order to reach high robustness
+ against these variations 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "8885152"
+literal "false"
 
 \end_inset
 
-It's typical value is in the range of 0.01÷0.1 ps/
-\begin_inset Formula $^{◦}$
-\end_inset
-
-C, but usually, compensation techniques are required in order to reach high
- robustness against these variations.
+.
 \end_layout
 
 \begin_layout Subsection

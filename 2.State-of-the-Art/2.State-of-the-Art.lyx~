@@ -136,277 +136,26 @@
 \begin_body
 
 \begin_layout Section
-Techniques (titolo da cambiare?)
+Techniques (
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+titolo da cambiare
+\end_layout
+
+\end_inset
+
+?)
 \end_layout
 
 \begin_layout Standard
 Since the Time-to-Digital Converter employed in our laboratory consists
- of a Tapped Delay-Line architecture, let's describe the techniques used
- to implement it on the FPGA fabric.
- These techniques have the scope to improve as much as possible the Figures
- Of Merit (FOMs) already mentioned, and break the trade-off from which the
- TDL-TDC suffers from.
-\end_layout
-
-\begin_layout Subsection
-Sub-Interpolation
-\end_layout
-
-\begin_layout Standard
-The Sub-Interpolation is a technique used to reduce the quantization error
- of the TDC, thus improving its resolution.
- It exploits redundancy in the measurements in order to do that 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Sub"
-literal "false"
-
-\end_inset
-
-.
- The TDL-TDC implemented in our laboratory exploits spatial redundancy,
- i.e.
- the Super Wave Union (SuperWU) sub-interpolation algorithm, characterized
- by the use of more physical TDLs, placed in parallel.
- If we have 
-\begin_inset Formula $N$
-\end_inset
-
- TDLs in parallel, each one with a real number 
-\begin_inset Formula $N_{R}$
-\end_inset
-
- of taps, we obtain the so-called Virtual Tapped Delay-Line (V-TDL), composed
- by 
-\begin_inset Formula $N_{V}=N_{R}\cdot N$
-\end_inset
-
- 
-\begin_inset Quotes eld
-\end_inset
-
-virtual taps
-\begin_inset Quotes erd
-\end_inset
-
- with a 
-\begin_inset Formula $N$
-\end_inset
-
- time faster propagation delay.
-\end_layout
-
-\begin_layout Standard
-In practice, let's consider n 
-\begin_inset Formula $\epsilon$
-\end_inset
-
- [1;N] replicas of the measure of the same time interval, performed by means
- of a TDL with 
-\begin_inset Formula $n_{R}$
-\end_inset
-
- 
-\begin_inset Formula $\epsilon$
-\end_inset
-
- [1;
-\begin_inset Formula $N_{R}$
-\end_inset
-
-] real bins characterized by the propagation delays 
-\begin_inset Formula $t_{R}$
-\end_inset
-
-[n
-\begin_inset Formula $_{R}$
-\end_inset
-
-] and FSR 
-\begin_inset Formula $T_{FSR}$
-\end_inset
-
-.
- In this situation, the sub–interpolation process leads to obtain a Virtual
- Tapped Delay–Line (V–TDL) composed of n
-\begin_inset Formula $_{V}$
-\end_inset
-
- 
-\begin_inset Formula $\epsilon$
-\end_inset
-
- [1;N
-\begin_inset Formula $_{V}$
-\end_inset
-
- ] “virtual bins” with t
-\begin_inset Formula $_{V}$
-\end_inset
-
-[n
-\begin_inset Formula $_{V}$
-\end_inset
-
-] propagation delays, where:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-\begin{cases}
-t_{V}[n_{V}]=\frac{1}{N}\sum_{n=1}^{n=N}t_{R}[n_{R}[n]]\\
-n_{V}=\sum_{n=1}^{n=N}n_{R}[n]
-\end{cases}\label{eq:subint-1}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Therefore, we can see that the sub–interpolation technique operates as a
- “bin–by–bin” averaging that reduces the delay of the real bins, obtaining
- virtual bins whose width is in average 
-\begin_inset Formula $N$
-\end_inset
-
- time smaller than the one of the “real bins”.
- Thanks to this process, the resolution (LSB) is improved, as we can see
- by using Equation 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:subint-1"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- in the V-TDL case, obtaining:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-LSB=\frac{T_{CLK}}{N_{V}}\label{eq:virtual-resolution}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-where 
-\begin_inset Formula $N_{V}=N_{R}\cdot N$
-\end_inset
-
-.
- Thus, the LSB is 
-\begin_inset Formula $N$
-\end_inset
-
- time smaller than the single TDL case.
-\end_layout
-
-\begin_layout Standard
-Another important reason for using sub-interpolation is due to the phenomenon
- of the ultra-bin.
- As we said earlier, the buffers in the cascade are not characterized by
- equal propagation delays, and there is the possibility that one of them
- is very slow maybe due to the crossing of two different clock regions.
- This particular bin is called ultra-bin and it worsens the single-shot
- precision of the measurements, indeed: if we have the occurrence of the
- START signal, the probability that it falls on the slow ultra-bin rather
- than on the other ones is very high, thus giving an unreliable measure
- with respect to the case of comparable bin-widths.
- This is where the sub-interpolation technique becomes useful; as we can
- see from Equation 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:subint-1"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-, the ultra-bin is splitted in faster virtual bins, and the measure uncertainty
- is improved a lot.
- 
-\end_layout
-
-\begin_layout Standard
-Let's see the Super Wave Union algorithm in detail.
- The 
-\begin_inset Formula $N$
-\end_inset
-
- TDLs are arranged in parallel, and the START signal is increasingly delayed
- on each one of them in order to have minimum probability that it falls
- on real ultra-bins.
- This parallel architecture is very suitable for FPGA's spatial-computing
- structures and, moreover, the delay introduced on the START signal comes
- for free, because the routing process creates different paths that the
- signal has to cross moving towards each TDL (the so called 'skew' time).
- We can see a Super Wave Union implementation of order 
-\begin_inset Formula $N=3$
-\end_inset
-
- in Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Super-Wave-Union"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename images/swu.png
-	width 60text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Super Wave Union architecture.
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Super-Wave-Union"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
+ of a Tapped Delay-Line architecture, let's describe the main techniques
+ used to implement it on the FPGA fabric.
+ These techniques aim to improve as much as possible some of the Figures
+ Of Merit (FOMs) already mentioned and break the LSB-FSR trade-off the TDL-TDC
+ suffers from.
 \end_layout
 
 \begin_layout Subsection
@@ -414,9 +163,9 @@ Nutt-Interpolation
 \end_layout
 
 \begin_layout Standard
-As we mentioned before, some TDC architectures typically suffer from a trade-off
- between resolution (LSB) and Full-Scale Range (FSR).
- In order to resolve this issue, a technique called Nutt-Interpolation is
+As mentioned before, the TDL-TDC architecture suffers from a trade-off between
+ resolution (LSB) and Full-Scale Range (FSR).
+ In order to solve this issue, a technique called Nutt-Interpolation is
  exploited 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -426,10 +175,10 @@ literal "false"
 \end_inset
 
 .
- This technique composes the time measurement by a Coarse part and a Fine
+ This technique composes the time measurement of a Coarse part and a Fine
  one, the former being characterized by high FSR and low resolution, and
- the latter being at low FSR and high resolution.
- Our time measurement will be the difference of these two parts:
+ the latter having low FSR and high resolution.
+ The time measurement will be the difference between these two parts:
 \end_layout
 
 \begin_layout Standard
@@ -444,22 +193,28 @@ T_{MEAS}=T_{COARSE}-T_{FINE}\label{eq:nutt-composition}
 \end_layout
 
 \begin_layout Standard
-In the Tapped Delay-Line context described up to now, 
+In the TDL context described in Paragraph 1.5.3, 
 \begin_inset Formula $T_{FINE}$
 \end_inset
 
- is just the same as before, i.e.
- the time distance from the START event to the following clock edge (STOP
- signal), and it is therefore managed by the TDL itself; 
+ is equal to the time distance from the START event to the following clock
+ edge (i.e., the STOP signal), and it is therefore managed by the TDL itself.
+ 
 \begin_inset Formula $T_{COARSE}$
 \end_inset
 
- is instead the number (
+ is instead equal to the number 
 \begin_inset Formula $N_{COARSE}$
 \end_inset
 
-) of clock-cycles from the power on of the instrument to the same STOP edge
- just mentioned, and is managed by a module called Coarse Counter.
+ of clock cycles, elapsed from the power-on of the instrument to the same
+ STOP edge used in the Fine measurement, multiplied by the clock period
+ 
+\begin_inset Formula $T_{CLK}$
+\end_inset
+
+.
+ The Coarse measurement is managed by a module called Coarse Counter.
  Therefore, we have:
 \end_layout
 
@@ -475,7 +230,7 @@ T_{COARSE}=N_{COARSE}\cdot T_{CLK}\label{eq:coarse_part}
 \end_layout
 
 \begin_layout Standard
-And, combining Equation 
+Finally, combining Equation 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:nutt-composition"
@@ -495,7 +250,7 @@ noprefix "false"
 
 \end_inset
 
-, we have as measure of our timestamp:
+, we obtain our timestamp measurement:
 \end_layout
 
 \begin_layout Standard
@@ -510,7 +265,7 @@ T_{MEAS}=N_{COARSE}\cdot T_{CLK}-T_{FINE}\label{eq:nutt_timestamp}
 \end_layout
 
 \begin_layout Standard
-All these concepts are graphically shown in Figure 
+Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Nutt-Interpolation-technique."
@@ -520,7 +275,7 @@ noprefix "false"
 
 \end_inset
 
-.
+ graphically explains all these concepts.
 \end_layout
 
 \begin_layout Standard
@@ -565,8 +320,9 @@ name "fig:Nutt-Interpolation-technique."
 \end_layout
 
 \begin_layout Standard
-Considering a Coarse Counter with a BIT_COARSE bit-length, the FSR of the
- TDC is no more given by 
+Thanks to the counting of the elapsed clock cycles, the FSR is greatly improved;
+ in fact, considering a Coarse Counter with a BIT_COARSE bit-length, the
+ FSR of the TDC is no more given by 
 \begin_inset Formula $T_{CLK}$
 \end_inset
 
@@ -585,9 +341,343 @@ FSR=(2^{BIT\_COARSE}-1)\cdot T_{CLK}\label{eq:nutt_FSR}
 \end_layout
 
 \begin_layout Standard
-The LSB is instead still given by the TDL itself and by the Sub-Interpolation,
- thus leaving it untouched with respect to the new FSR.
- Therefore, Nutt-Interpolation is able to break the trade-off.
+On the other hand, the LSB is still equal to 
+\begin_inset Formula $\frac{T_{CLK}}{N_{B}}$
+\end_inset
+
+, where 
+\begin_inset Formula $N_{B}$
+\end_inset
+
+ is the number of buffers composing the TDL, thus making it independent
+ from the FSR and breaking the initial trade-off.
+\end_layout
+
+\begin_layout Subsection
+Sub-Interpolation
+\end_layout
+
+\begin_layout Standard
+The Sub-Interpolation is a technique used to reduce the quantization error
+ of the TDC, thus improving its resolution.
+ It exploits redundancy in the measurements to lower the LSB as much as
+ desired 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Sub"
+literal "false"
+
+\end_inset
+
+.
+ The TDL-TDC implemented in our laboratory exploits spatial redundancy,
+ i.e.
+ the Super Wave Union (SuperWU) sub-interpolation algorithm, characterized
+ by the use of more physical TDLs placed in parallel.
+ If we have 
+\begin_inset Formula $N$
+\end_inset
+
+ TDLs in parallel, each one with a real number 
+\begin_inset Formula $N_{R}$
+\end_inset
+
+ of buffers (taps), we obtain the so-called Virtual Tapped Delay-Line (V-TDL),
+ composed of 
+\begin_inset Formula $N_{V}=N_{R}\cdot N$
+\end_inset
+
+ 
+\begin_inset Quotes eld
+\end_inset
+
+virtual
+\begin_inset Quotes erd
+\end_inset
+
+ taps with a 
+\begin_inset Formula $N$
+\end_inset
+
+-time faster propagation delay.
+\end_layout
+
+\begin_layout Standard
+In practice, let's consider n 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ [1;N] replicas of the measurement of the same time interval, performed
+ using a TDL with 
+\begin_inset Formula $n_{R}$
+\end_inset
+
+ 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ [1;
+\begin_inset Formula $N_{R}$
+\end_inset
+
+] real bins characterized by the propagation delays 
+\begin_inset Formula $t_{R}$
+\end_inset
+
+[n
+\begin_inset Formula $_{R}$
+\end_inset
+
+] and FSR 
+\begin_inset Formula $T_{FSR}$
+\end_inset
+
+.
+ In this situation, the sub–interpolation process generates a Virtual Tapped
+ Delay–Line (V–TDL) composed of n
+\begin_inset Formula $_{V}$
+\end_inset
+
+ 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ [1;N
+\begin_inset Formula $_{V}$
+\end_inset
+
+ ] “virtual bins” with t
+\begin_inset Formula $_{V}$
+\end_inset
+
+[n
+\begin_inset Formula $_{V}$
+\end_inset
+
+] propagation delays, where:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{cases}
+t_{V}[n_{V}]=\frac{1}{N}\sum_{n=1}^{n=N}t_{R}[n_{R}[n]]\\
+n_{V}=\sum_{n=1}^{n=N}n_{R}[n]
+\end{cases}\label{eq:subint-1}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Therefore, we can see that the sub–interpolation technique operates as a
+ “bin–by–bin” averaging that reduces the delay of the real bins, obtaining
+ 
+\begin_inset Quotes eld
+\end_inset
+
+virtual
+\begin_inset Quotes erd
+\end_inset
+
+ bins whose width is in average 
+\begin_inset Formula $N$
+\end_inset
+
+ time smaller than the one of the “real
+\begin_inset Quotes erd
+\end_inset
+
+ bins.
+ Thanks to this process, the LSB is improved, and it is equal to:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+LSB=\frac{T_{CLK}}{N_{V}}\label{eq:virtual-resolution}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $N_{V}=N_{R}\cdot N$
+\end_inset
+
+.
+ Therefore, the LSB is 
+\begin_inset Formula $N$
+\end_inset
+
+ times smaller than the one of a single TDL.
+\end_layout
+
+\begin_layout Standard
+Another important reason for using sub-interpolation is due to the phenomenon
+ of the 
+\begin_inset Quotes eld
+\end_inset
+
+ultra-bin
+\begin_inset Quotes erd
+\end_inset
+
+.
+ As we said earlier, the buffers in the cascade don't have equal propagation
+ delays, but a phenomenon of dispersion of their values is present due to
+ PVT variations.
+ Furthermore, there is the possibility to have particularly slow bins due
+ to the crossing of two different clock regions.
+ These particular bins are called 
+\begin_inset Quotes eld
+\end_inset
+
+ultra-bins
+\begin_inset Quotes erd
+\end_inset
+
+ and harm the single-shot precision of the measurements; in fact, when the
+ START signal occurs, the probability that it falls on an 
+\begin_inset Quotes eld
+\end_inset
+
+ultra-bin
+\begin_inset Quotes erd
+\end_inset
+
+ rather than the other ones is very high, thus giving an unreliable measurement.
+ This is where the sub-interpolation technique becomes useful, since, as
+ we can see from Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:subint-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, the 
+\begin_inset Quotes eld
+\end_inset
+
+ultra-bin
+\begin_inset Quotes erd
+\end_inset
+
+ is split into 
+\begin_inset Formula $N$
+\end_inset
+
+ 
+\begin_inset Formula $N$
+\end_inset
+
+-times faster 
+\begin_inset Quotes eld
+\end_inset
+
+virtual
+\begin_inset Quotes erd
+\end_inset
+
+ bins.
+ In this way, a V-TDL characterized by more homogeneous bins' propagation
+ delays is obtained, and the single-shot precision of the measurement is
+ improved.
+\end_layout
+
+\begin_layout Standard
+Let's see the SuperWU algorithm in detail.
+ The 
+\begin_inset Formula $N$
+\end_inset
+
+ TDLs are arranged in parallel, and the START signal is increasingly delayed
+ on each one of them in order to have a minimum probability that it falls
+ on the 
+\begin_inset Quotes eld
+\end_inset
+
+real
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\begin_inset Quotes eld
+\end_inset
+
+ultra-bins
+\begin_inset Quotes erd
+\end_inset
+
+.
+ This parallel architecture is very suitable for FPGA's spatial-computing
+ structures; moreover, the delay introduced on the START signal comes for
+ free, since the routing process creates different paths that the signal
+ has to cross moving towards each TDL (the so-called 'skew' time).
+ We can see a Super Wave Union implementation of order 
+\begin_inset Formula $N=3$
+\end_inset
+
+ in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Super-Wave-Union"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/swu.png
+	width 60text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Super Wave Union implementation.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Super-Wave-Union"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -595,11 +685,9 @@ Calibration
 \end_layout
 
 \begin_layout Standard
-Since each buffer is affected by process, voltage and temperature (PVT)
- variations, a periodic bin-by-bin calibration process is required, otherwise
- the system would suffer from a very high non-linearity and the measures
- would be highly unreliable.
- 
+Since each buffer composing the TDL is affected by PVT variations, a periodic
+ bin-by-bin calibration process is required, otherwise, the system would
+ suffer from very high non-linearities 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "8885152"
@@ -609,19 +697,25 @@ literal "false"
 
 .
  This process consists of the creation of a Calibration Table (CT) listing
- all the propagation delays of each one of the 
-\begin_inset Formula $N$
+ all the propagation delays of each bin (or 
+\begin_inset Quotes eld
 \end_inset
 
- bins (or virtual bins, if sub-interpolation is performed) composing the
- TDL, thus allowing to always know the exact propagation delay of each bin
- and obtain a reliable measurement.
+virtual
+\begin_inset Quotes erd
+\end_inset
+
+ bin, if sub-interpolation is performed) composing the TDL, thus allowing
+ us to always know the exact propagation delay of each bin and obtain a
+ reliable measurement.
+ Without calibration, the propagation delays would have unacceptably dispersed
+ values, and a wrong time measurement would be performed.
  It is also necessary that the calibration process has a periodic refresh
  during the entire use of the TDC, in order to update the correct propagation
  delays of each bin.
- This is mandatory, since the working conditions change a lot during the
- use of the device, and therefore, the PVT variations would corrupt again
- the linearity and the measurements.
+ This is mandatory since the working conditions change a lot during the
+ use of the device and, therefore, PVT variations would corrupt again the
+ linearity of the system.
  Once the CT is built, the Characteristic Curve (CC) of the device can be
  derived.
  The CC is nothing but the integration of the CT, thus representing, for
