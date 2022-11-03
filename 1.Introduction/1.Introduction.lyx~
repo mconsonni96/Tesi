@@ -1506,8 +1506,8 @@ noprefix "false"
  
 \change_unchanged
 This FOM can be improved using sub-interpolation techniques
-\change_inserted 1469408620 1667380523
-, as we will see in Chapter 2.
+\change_inserted 1469408620 1667466778
+, as we will see in Section 2.
 
 \change_deleted 1469408620 1667380530
  we will see later.
@@ -1607,8 +1607,8 @@ literal "false"
 , as we will see 
 \change_deleted 1469408620 1667381329
 later
-\change_inserted 1469408620 1667381332
-in Chapter 2
+\change_inserted 1469408620 1667466786
+in Section 2
 \change_unchanged
 .
 \change_deleted 1469408620 1667383115
@@ -2034,13 +2034,24 @@ Nel caso di assenza di pipeline allora è il tempo di propagazione necessario
 \end_inset
 
 
-\change_inserted 1469408620 1667388901
+\change_inserted 1469408620 1667473216
 In the case of the TDC, the Conversion Time is equivalent to the length
  of the pipeline used for translating the physical time information into
  the output digital code.
  If a pipeline structure is not implemented, it is equal to the propagation
  delay needed to cross the logic blocks used for generating the digital
  code.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Conversion-Time,-Maximum"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows the concept of Conversion Time.
 \change_unchanged
 
 \end_layout
@@ -2060,6 +2071,21 @@ The Maximum Rate represents the maximum number of measures per second that
  bottleneck is usually given by the communication link between the TDC and
  the device, such as Personal Computers (PCs) or work stations, used to
  store and/or process the information.
+
+\change_inserted 1469408620 1667473253
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Conversion-Time,-Maximum"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows the concept of Maximum Rate.
+\change_unchanged
+
 \end_layout
 
 \begin_layout Subsubsection
@@ -2075,9 +2101,31 @@ As Dead-Time we intend the minimum time interval between two consecutive
  of the Maximum Channel Rate.
  Otherwise, until free space is present in the storage mechanism (e.g., FIFO
  not full), a lower Dead-Time is allowed.
+
+\change_inserted 1469408620 1667474381
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Conversion-Time,-Maximum"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows the concept of Dead-Time in three different cases.
+ The first two cases represent the loss of a valid measurement when the
+ inverse of the rate of the incoming events is lower than the minimum Dead-Time.
+ In the last case, instead, a FIFO is written and read with two different
+ clock signals, making the Maximum Rate and the Dead-Time independent, and
+ allowing the latter to be much lower.
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 1469408620 1667473598
 \begin_inset Note Note
 status open
 
@@ -2094,6 +2142,67 @@ Ovvero le note che ho messo sopra
 
 \end_inset
 
+
+\change_inserted 1469408620 1667471640
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 1469408620 1667471656
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+
+\change_inserted 1469408620 1667471851
+\begin_inset Graphics
+	filename images/deadtime.png
+	width 100text%
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667471656
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667473173
+Conversion Time, Maximum Rate, Dead-Time in the three cases: without a Pipeline
+ structure (on the left); with a Pipeline structure (at the center); with
+ a FIFO storage mechanism alongside the Pipeline (on the right).
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Conversion-Time,-Maximum"
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
 
 \end_layout
 
@@ -2735,11 +2844,8 @@ Time-to-Amplitude Converter
 
 \begin_layout Standard
 Considering the mixed-signal approach, the Time-to-Amplitude Converter (TAC)
- is historically one of the main device used in research
-\change_inserted 268488506 1666711747
+ is historically one of the main device used in research (above all in TCSPC
  
-\change_unchanged
-(above all in TCSPC 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "2Nicola"
@@ -3357,10 +3463,10 @@ literal "false"
 \end_inset
 
 ) over the TDL, asserting in sequence the inputs of the flip-flops from
- '0' to '1'; so, when the rising-edge of the STOP occurs, the status of
- the TDL is memorized by the flip-flops, thus generating a thermometric
- code that represents the number of bins crossed by the rising-edge of the
- START.
+ '0' to '1'; so, when the rising-edge of the STOP occurs (i.e., the rising-edge
+ of the clock signal used to sample the TDL), the status of the TDL is memorized
+ by the flip-flops, thus generating a thermometric code that represents
+ the number of bins crossed by the rising-edge of the START.
 \end_layout
 
 \begin_layout Standard
@@ -3474,7 +3580,7 @@ The FSR is instead given by
 \end_inset
 
  itself.
-\change_inserted 1469408620 1667035813
+\change_inserted 1469408620 1667466768
 :
 \begin_inset Formula 
 \begin{equation}
@@ -3509,7 +3615,7 @@ noprefix "false"
 
 ), a trade-off between FSR and LSB arises.
  However, this trade-off can be solved using interpolatory techniques like
- Nutt-Interpolation (as we will see in Chapter 2).
+ Nutt-Interpolation (as we will see in Section 2).
  
 \end_layout
 

@@ -142,22 +142,35 @@ Main Work
 \begin_layout Standard
 The main goal of this thesis work has been to push even more the Time-to-Digital
  Converter performances, obtaining a drag-and-drop, tunable IP-Core, compatible
- also with Xilinx Ultrascale (20 nm) and Ultrascale+ (16 nm) technology
- nodes.
- The migration to a new technology, characterized by an improvement in the
- scaling with respect to 7-Series, has allowed to push even more the frequency
- of the clock involved in the measurements, thus giving a system with a
- faster conversion time, a lower dead-time and, a better resolution.
- The scaling has a beneficial effect also on the ultra-bins, which are lighter
- than the 7-Series counterpart, thus leading also to a better single-shot
- precision in the time measurements.
- 
-\end_layout
+ with Xilinx Ultrascale (20 nm) and Ultrascale+ (16 nm) FPGAs.
+ The migration to a new technology, characterized by an improved scaling
+ than Xilinx 7-Series, has allowed pushing the frequency of the clock involved
+ in the time measurements, resulting in a TDC with faster Measure Rate,
+ lower Dead-Time, and better Resolution (see Eqution 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:TDL resolution"
+plural "false"
+caps "false"
+noprefix "false"
 
-\begin_layout Standard
-Let's now briefly see the blocks composing the TDC core in its older version,
- to then describe in detail each one of them and highlight the improvements
- given by this thesis work.
+\end_inset
+
+).
+ The scaling is also beneficial for the 
+\begin_inset Quotes eld
+\end_inset
+
+ultra-bins
+\begin_inset Quotes erd
+\end_inset
+
+ phenomenon since they are faster than their 7-Series counterparts; this
+ results in an overall improvement of the measurements' single-shot precision.
+ Firstly, let's briefly describe the blocks composing the main core of the
+ older version of the TDC, which was implemented on Xilinx 7-Series technology;
+ then, each one of them will be described in detail, highlighting the improvemen
+ts done in this thesis work.
 \end_layout
 
 \begin_layout Subsection
@@ -168,25 +181,30 @@ Main blocks of the TDC
 The old version of the Time-To-Digital Converter, implemented at the Digital
  Electronics Laboratory (DigiLAB) at Politecnico di Milano, has been implemented
  on Xilinx 7-Series (28 nm) Artix-7 FPGA, and it is a Tapped Delay-Line
- based Time-To-Digital Converter.
- The processing chain starts with the Virtual Tapped Delay-Line (V-TDL),
- which provides a thermometric code in output, representing the Fine part
- of the timestamp.
- Then, a Decoder module carries out further processing on the Fine data,
- by converting the thermometric code into a binary one.
- After that, a module called Coarse Extension Core (CEC) attaches the Fine
- part to the Coarse one, which is calculated by a Coarse Counter internal
- to the CEC or external to it; furthermore, this module also performs a
- Clock-Domain Crossing (CDC), which means that the system goes from a faster
- clock to a slower one, in order to have the data processing on the following
- blocks respecting all the timing constraints of the system.
- The following block is the Calibrator, which is in charge of performing
- a bin-by-bin calibration in order to compensate the already-mentioned process,
- voltage and temperature (PVT) variations of the TDL's taps.
- Finally, an Overflow Counter module solves the overflow problem given by
- the Coarse Counter, thanks to the possibility of counting overflows, thus
- extending even more the FSR.
- We can see a schematic of the TDC core in Figure 
+ based TDC (TDL-TDC).
+ Besides, it is a TIMESTAMP-type TDC, thus being composed of as many channels
+ as the number of physical events to detect.
+ As described in Paragraph 1.2, by considering two of the channels composing
+ the TDC, the time distance between the two respective input signals is
+ computed as the difference between the timestamps provided by each channel.
+ The processing chain inside each channel starts with the Virtual Tapped
+ Delay-Line (V-TDL), which provides a thermometric code in output, representing
+ the Fine part of the timestamp, as explained in Paragraph 2.1.
+ The thermometric code is then converted into a binary one by a Decoder.
+ Once the binary code of the Fine measurement is obtained, Nutt-Interpolation
+ is implemented by a module called Coarse Extension Core (CEC).
+ This block attaches the Fine part to a Coarse part, the latter provided
+ by a Coarse Counter sub-module that can be internal to the CEC or external.
+ Furthermore, the CEC performs a Clock-Domain Crossing (CDC), meaning that
+ the system goes from a faster clock to a slower one, allowing the data
+ processing on all the following blocks to respect all the timing constraints
+ of the system.
+ The following block in the processing chain is the Calibrator, in charge
+ of performing a bin-by-bin calibration to compensate PVT variations of
+ the TDL's taps, as explained in Paragraph 2.3.
+ Finally, an Overflow Counter further extends the FSR of the TDC by counting
+ the overflows of the Coarse Counter present in the CEC.
+ Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Schematic-of-the"
@@ -196,9 +214,9 @@ noprefix "false"
 
 \end_inset
 
-.
- In my thesis work, just the internal blocks have been modified, but the
- macroscopic structure of the TDC core, reported in Figure 
+ shows a block diagram of the TDC, composed of all the aforementioned modules.
+ Since this thesis work consisted in modifying the internal blocks, the
+ macroscopic structure of the TDC, reported in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Schematic-of-the"
@@ -249,48 +267,30 @@ name "fig:Schematic-of-the"
 
 \end_inset
 
-The communication between all the blocks is in AXI4Stream protocol.
- This protocol is characterized by a flux of data from the output of a module
- (called 
-\begin_inset Quotes eld
-\end_inset
-
-master
-\begin_inset Quotes erd
-\end_inset
-
-) to the input of the following one (called 
-\begin_inset Quotes eld
-\end_inset
-
-slave
-\begin_inset Quotes erd
-\end_inset
-
-).
- The most important signals of the AXI4Stream protocol are:
+The communication between all the blocks is in the AXI4Stream protocol.
+ This protocol consists of a flux of data from the output of a module, called
+ “master”, to the input of the following one, called “slave”.
+ The main signals of the AXI4Stream protocol are:
 \end_layout
 
 \begin_layout Itemize
-TDATA, which is effectively the data to be sent.
+TDATA, which is effectively the data to be sent;
 \end_layout
 
 \begin_layout Itemize
 TVALID, which is a flag produced by the master, telling the slave that the
- incoming data is valid.
+ incoming data is valid;
 \end_layout
 
 \begin_layout Itemize
 TREADY, which is a flag produced by the slave, which tells the master that
  the module is ready to accept the data.
- 
 \end_layout
 
 \begin_layout Standard
 The AXI4Stream protocol relies on the concept of Handshake between TVALID
- and TREADY, which means that, only when both TVALID and TREADY are equal
- to '1', the transmission of TDATA takes place between the master and the
- slave modules (see Figure 
+ and TREADY.
+ A Handshake transaction is reported in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:AXI4Stream-protocol."
@@ -300,7 +300,7 @@ noprefix "false"
 
 \end_inset
 
-).
+, and takes place only when both TVALID and TREADY are equal to '1'.
 \end_layout
 
 \begin_layout Standard
@@ -345,23 +345,25 @@ name "fig:AXI4Stream-protocol."
 \end_layout
 
 \begin_layout Standard
-All the blocks presented before are connected inside a hierarchical IP-Core,
- which represents a single channel of the TDC.
- The concept of channel is the following one: a single channel has the task
- of receiving one single physical event (i.e.
- START signal) and measuring its timestamp when the STOP signal (i.e.
- the rising-edge of the following clock cycle) occurs.
- Since we are usually interested in the relative time-distance between physical
- events, the TDC will be characterized by more than one channel, where each
- one of them will measure the corresponding timestamp with respect to a
- common absolute time reference (typically the power-on instant of the device);
- then, a final module called Histogrammer, external to the main TDC core
- and therefore not described in detail in this thesis, will perform a repeated
- set of measurements of the time difference between two of those channels,
- and it will thus provide a Gaussian distribution characterized by a mean
- value and a certain standard deviation.
- As we said in the FoM chapter, this standard deviation will be the index
- of the single-shot precision of the TDC.
+All the presented blocks are connected inside a hierarchical IP-Core, which
+ is nothing but a channel of the TDC.
+ Since we are usually interested in the relative time distance between physical
+ events, the TDC will be characterized by more than one channel, each one
+ providing the respective timestamp with respect to a common absolute time
+ reference (i.e., the power-on instant of the device).
+ Then, an external module called 
+\begin_inset Quotes eld
+\end_inset
+
+Histogrammer
+\begin_inset Quotes erd
+\end_inset
+
+ will perform a repeated set of measurements of the time difference between
+ two of those channels, and it will thus provide a Gaussian distribution
+ characterized by a mean value and a certain standard deviation.
+ As described in Paragraph 1.3.3, the standard deviation will be used as the
+ index of the single-shot precision of the TDC.
  
 \end_layout
 
@@ -374,11 +376,15 @@ Old Version
 \end_layout
 
 \begin_layout Standard
-This module is in charge of performing the Fine measurement of the timestamp,
- as said before.
- Let's see more in details how it is structured.
- Being on the Xilinx 7-Series (X7S) technology node, the chain of buffers
- has been implemented by means of the CARRY4 primitive by Xilinx 
+This module is in charge of performing the Fine measurement of the timestamp.
+ Let's see in detail how it is structured.
+ As explained in Paragraph 1.5.3, the TDL is nothing but a sequence of buffers
+ connected in series, and it has been obtained by cascading Xilinx's CARRY
+ primitives.
+ In the old version of the V-TDL, implemented on the Xilinx 7-Series (X7S)
+ technology node, the elementary block used to create the chain structure
+ is the CARRY4 primitive.
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "XlinxUG474"
@@ -387,7 +393,7 @@ literal "false"
 \end_inset
 
 .
- The structure of the CARRY4 primitive is reported in Figure 
+ Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:CARRY4-primitive-truth"
@@ -397,7 +403,7 @@ noprefix "false"
 
 \end_inset
 
-.
+ shows the internal structure of the CARRY4 primitive.
 \end_layout
 
 \begin_layout Standard
@@ -449,17 +455,21 @@ name "fig:CARRY4-primitive-truth"
 \end_layout
 
 \begin_layout Standard
-We can see that the CARRY4 primitive has 4-bit output, which can be chosen
- between either the CO port (i.e.
- the carry-out of each stage of the carry chain) or O port (i.e.
- the XOR output, representing the result of the sum).
- In the context of the TDL structure described in the previous chapter,
- the four stages composing the CARRY4 primitive are nothing but 4 buffers
- (taps) of the TDL, cascaded thanks to the carry-out (CO) connection; our
- asynchronous input event (START signal) is connected to the carry-input
- port (CI), and the select line (S) controlling the multiplexer of each
- stage is such that it propagates the CI signal along all the four stages.
- In this way, as soon as the asynchronous input switches from 0 to 1, a
+As we can see, the CARRY4 primitive has two 4-bit outputs, the first being
+ the CO port (i.e., the set of the output carry-signals), the second being
+ the O port (i.e., the set of the XOR-outputs, representing the result of
+ the sum).
+ The four stages composing the CARRY4 primitive are nothing but four buffers
+ (or taps) composing the TDL, cascaded thanks to the carry-out (CO) connections.
+ Therefore, according to the number of taps required to compose the entire
+ TDL, a certain number of CARRY4 primitives will be cascaded by connecting
+ the carry-output of the fourth stage (i.e., CO(3)) of the previous primitive
+ to the carry-input port (CI) of the following primitive.
+ The asynchronous input event to be measured (i.e., the START signal) is connected
+ to the carry-input port (CI) of the first primitive, and the multiplexer's
+ selection signal (S) of each stage is set to propagate the signal on CI
+ along all the stages.
+ In this way, as soon as the asynchronous input switches from '0' to '1',
  propagation of 
 \begin_inset Quotes eld
 \end_inset
@@ -468,26 +478,21 @@ ones
 \begin_inset Quotes erd
 \end_inset
 
- takes place along the carry-chain, thus causing 0
+ takes place along the carry-chain, thus causing a '0'
 \begin_inset Formula $\rightarrow$
 \end_inset
 
-1 transitions on each CO output (or a 1
+'1' transition on each CO output (or a '1'
 \begin_inset Formula $\rightarrow$
 \end_inset
 
-0 transition on each O output, which is nothing but the inverted and delayed
+'0' transition on each O output, which is nothing but the inverted and delayed
  CO output) with different propagation delays.
- The 4-bit output represents the 4 outputs of the buffers which are then
- connected to the D-input of as many flip-flops.
- This means that, according to the number of taps required to compose the
- TDL, a certain number of CARRY4 primitives will be cascaded by connecting
- the output carry of the fourth stage (i.e.
- CO(3)) of the previous primitive to the carry-input port (CI) of the following
- primitive.
- The STOP signal is a clock at 400 MHz frequency and, as soon as it occurs,
- a thermometric code is generated at the output of the flip-flops chain,
- representing a snapshot of the TDL state, i.e.
+ Each output (CO or O) of the chain is then connected to the D-input of
+ a flip-flop (FF), used to sample the logic value of that specific tap,
+ when the STOP signal occurs.
+ The STOP signal is a user-chosen rising-edge of a clock signal at 400 MHz
+ frequency; when the STOP signal occurs, a snapshot of the TDL state (i.e.,
  the number of buffers hit by the propagation of 
 \begin_inset Quotes eld
 \end_inset
@@ -496,8 +501,9 @@ ones
 \begin_inset Quotes erd
 \end_inset
 
- up to that moment.
- We can see this structure in Figure 
+ up to that moment) is taken and, therefore, a thermometric code is generated
+ at the output of the chain of FFs.
+ Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:CARRY4-based-Tapped-Delay-Line"
@@ -507,7 +513,7 @@ noprefix "false"
 
 \end_inset
 
-.
+ graphically shows the structure of the TDL.
  
 \end_layout
 
@@ -553,21 +559,23 @@ name "fig:CARRY4-based-Tapped-Delay-Line"
 
 \end_inset
 
-In the description that follows, the words written in italic capital letters
+In the following description, the words written in italic capital letters
  refer to the Hardware Description Language (HDL) generics used in the code,
- and they are settable by the IP-Core's GUI (Graphical User Interface),
- thus having an highly-tunable TDL.
- Considering the SuperWU sub-interpolation, the Virtual Tapped Delay-Line
- is composed by a 
+ which are settable by the IP-Core's Graphical User Interface (GUI).
+ This allows having a highly-tunable TDL.
+ As explained in Paragraph 2.2, if a SuperWU Sub-Interpolation is performed,
+ a Virtual Tapped Delay-Line (V-TDL), composed of more TDLs in parallel,
+ is obtained.
+ The V-TDL is composed of 
 \shape italic
 NUMBER_OF_TDL
 \shape default
- of TDLs in parallel, each one composed by 
+ TDLs in parallel, where each one is 
 \shape italic
 NUM_TAP_TDL
 \shape default
- taps.
- Therefore, a V-TDL composed by 
+-taps long.
+ This results in a V-TDL composed of 
 \shape italic
 NUMBER_OF_TDL
 \begin_inset Formula $\cdot$
@@ -583,18 +591,15 @@ virtual
 \begin_inset Quotes erd
 \end_inset
 
- taps is obtained.
- As we said in the sub-interpolation paragraph, the propagation delay of
- the Virtual Tapped Delay-Line is, in average, 
-\shape italic
-NUMBER_OF_TDL
-\shape default
- times faster the the propagation delay of the real, single, TDL.
- Then, a number of flip-flops equal to 
+ taps.
+ Moreover, thanks to the Sub-Interpolation, the propagation delay of the
+ Virtual Tapped Delay-Line is, on average, NUMBER_OF_TDL times faster than
+ the propagation delay of the real, single, TDL.
+ Then, 
 \shape italic
 BIT_SMP_TDL
 \shape default
- will be placed at the output of the TDL.
+ FFs will be placed at the output of the TDL.
  Since 
 \shape italic
 BIT_SMP_TDL
@@ -607,49 +612,62 @@ BIT_SMP_TDL
 \shape italic
 NUM_TAP_TDL
 \shape default
-, it's possible either to sample the output of every buffer by placing a
- number of flip-flops equal to the number of taps, or to sample just a decimated
- number of taps by placing less flip-flops than buffers, thus saving hardware
- resources.
- In this last case, however, the hardware saving leads to a have a thermometric
- code in output composed by a lower number of bits, and hence to a lower
- resolution.
- The sampling of the TDL is managed also by 
+ holds, it is possible either to sample the output of each buffer, by placing
+ a number of FFs equal to the number of taps, or to sample just a decimated
+ number of taps, by placing less FFs than buffers.
+ In the latter case, hardware resources are saved, but a thermometric code
+ composed of a lower number of bits is generated; hence, the resolution
+ (LSB) is worsened.
+ The sampling of the V-TDL is also managed by the generics 
 \shape italic
 TYPE_TDL_i
 \shape default
- and by 
+ and 
 \shape italic
 OFFSET_TAP_TDL_i
 \shape default
-, where i is a value between 0 and 15 that indicates the number of the TDL
- we are referring to.
- By means of 
+, where 
+\shape italic
+i
+\shape default
+ is a value between 0 and 
+\shape italic
+NUMBER_OF_TDL
+\shape default
+ indicating which physical TDL we are referring to.
+ With 
 \shape italic
 TYPE_TDL_i
 \shape default
- is possible to choose which taps, CO or O, of the CARRY4 primitive we want
- to consider, for the i-th TDL.
- Instead, if we are in the decimated case where 
+ it is possible to choose which taps, CO or O, of the CARRY4 primitive we
+ want to sample, for the 
 \shape italic
-BIT_SMP_TDL
+i
+\shape default
+-th TDL.
+ Then, if we are in the decimated case (i.e.,
+\shape italic
+ BIT_SMP_TDL
 \begin_inset Formula $<$
 \end_inset
 
 NUM_TAP_TDL
 \shape default
-, by means of 
+), with the generic 
 \shape italic
 OFFSET_TAP_TDL_i
 \shape default
  it is possible to set an initial offset in the sampling of the chains,
- which means that the first flip-flop of the i-th TDL is put after an 
+ which means that the first FF of the 
+\shape italic
+i
+\shape default
+-th TDL is placed after 
 \shape italic
 OFFSET_TAP_TDL_i
 \shape default
- number of positions rather than in the first position of the chain.
- The concept of decimation and offset is reported in the example in Figure
- 
+ taps rather than on the first one.
+ The concept of decimation and offset is exemplified in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Concept-of-decimated"
@@ -671,15 +689,15 @@ BIT_SMP_TDL
 \shape italic
 NUM_TAP_TDL/2
 \shape default
-, and the two different cases of 
+, and the two different cases with 
 \shape italic
 OFFSET_TAP_TDL
 \shape default
- = 0 (in the case at the top) and 
+ = 0 (at the top) and 
 \shape italic
 OFFSET_TAP_TDL
 \shape default
- = 1 (in the case at the bottom).
+ = 1 (at the bottom).
 \end_layout
 
 \begin_layout Standard
@@ -728,35 +746,36 @@ name "fig:Concept-of-decimated"
 \end_layout
 
 \begin_layout Standard
-Up to now, we have said that the STOP signal, which saves the output of
- the buffers-chain in the flip-flops, is the following clock-edge after
- the arrival of the START event.
- This was a simplistic description and it is not completely true, since
- in reality, it relies on a 
+In Paragraph 1.5.3, we have said that the STOP signal, which saves the output
+ of the TDL in the FFs, is the rising clock-edge following the arrival of
+ the START event.
+ That was a general case, whereas the TDL implemented in our laboratory
+ relies on a 
 \begin_inset Quotes eld
 \end_inset
 
-valid
+VALID
 \begin_inset Quotes erd
 \end_inset
 
- mechanism.
+ mechanism that allows the user to choose which rising-edge will perform
+ the sampling.
  We are talking about the already-mentioned TVALID signal of the AXI4Stream
  protocol.
- Indeed, it's up to the user to decide which tap, along the TDL, where the
- TVALID is asserted, thus being able to center the clock period in that
- precise spot of the TDL.
- As soon as the selected tap makes a transition 0
+ It is up to the user to decide the TDL's tap where the TVALID signal will
+ be asserted, thus being able to center the clock period in that precise
+ spot of the TDL.
+ As soon as the selected tap makes a '0'
 \begin_inset Formula $\rightarrow$
 \end_inset
 
-1, meaning that it gets crossed by the input asynchronous event, the TVALID
- signal of the AXI4Stream protocol is asserted, and TDATA is sent to the
- output.
- If the user decides to select the valid assertion on one of the first taps,
- it is equivalent to center the clock period at the beginning of the TDL,
- and the output TDATA, i.e.
- the thermometric code, will be composed by still just a few 
+'1' transition (i.e., it gets crossed by the input asynchronous signal), the
+ TVALID signal of the AXI4Stream protocol is asserted, and TDATA is sent
+ in output.
+ If the user decides to select the TVALID assertion on one of the first
+ taps, it is equivalent to centering the clock period at the beginning of
+ the TDL; therefore, the output TDATA (i.e., the thermometric code), will
+ be composed of just few 
 \begin_inset Quotes eld
 \end_inset
 
@@ -764,10 +783,11 @@ ones
 \begin_inset Quotes erd
 \end_inset
 
-, since the input asynchronous signal has not propagated that much along
- the chain; instead, if the user selects the valid assertion on the last
- taps, the clock period is centered at the very end of the buffer chain,
- and the thermometric code will be composed mostly by 
+, since the asynchronous input signal still has not propagated that much
+ along the chain.
+ On the other hand, if the user selects the TVALID assertion on the last
+ few taps, the clock period will be centered at the very end of the buffer-chain
+, and the thermometric code will be composed mostly of 
 \begin_inset Quotes eld
 \end_inset
 
@@ -775,11 +795,11 @@ ones
 \begin_inset Quotes erd
 \end_inset
 
-, since the input signal has travelled as far as these last taps; similar
- results are obtained for all the other intermediate positions.
- To further improve the valid selection, a PRE-TDL has been introduced before
- each TDL.
- This PRE-TDL is composed by 
+ since the input signal has traveled as far as these last taps.
+ The same reasoning applies to all the other intermediate positions.
+ To further improve the TVALID selection, a PRE-TDL has been introduced
+ before each TDL.
+ The PRE-TDL is composed of 
 \shape italic
 NUM_TAP_PRE_TDL
 \shape default
@@ -788,11 +808,11 @@ NUM_TAP_PRE_TDL
 BIT_SMP_PRE_TDL
 \shape default
  taps are sampled.
- The PRE-TDL is not used for measuring the incoming signal, but it is used
- just to anticipate the acquisition of the valid before the acquisition
- of the input asynchronous signal.
- Indeed, if we choose the valid on a tap of the PRE-TDL, our output thermometric
- code, given by the actual TDL only, could have just very few 
+ The PRE-TDL is not used for measuring the incoming signal, but just to
+ anticipate the acquisition of the TVALID before the acquisition of the
+ asynchronous input signal.
+ Indeed, if we choose the TVALID assertion on PRE-TDL's tap, the thermometric
+ code, given by the actual TDL only, would have very few 
 \begin_inset Quotes eld
 \end_inset
 
@@ -800,8 +820,9 @@ ones
 \begin_inset Quotes erd
 \end_inset
 
- since the input signal would have travelled just on the PRE-TDL and on
- the very first TDL's taps (see Figure 
+ since the input signal would have traveled just on the PRE-TDL and on the
+ very first TDL's taps.
+ Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Valid-mechanism-of"
@@ -811,28 +832,13 @@ noprefix "false"
 
 \end_inset
 
-).
- The 
-\begin_inset Quotes eld
-\end_inset
-
-valid
-\begin_inset Quotes erd
-\end_inset
-
- mechanism is implemented such that TVALID stays high just for a single
- clock period, whose rising-edge represents the real STOP signal.
- Being able to center the sampling clock period in a convenient spot, as
- much as free possible from ultra-bins and therefore capable of providing
- very precise measurements, is the great utility given by this 
-\begin_inset Quotes eld
-\end_inset
-
-valid
-\begin_inset Quotes erd
-\end_inset
-
- mechanism.
+ shows the concepts just explained, highlighting the different positions
+ of the clock period with respect to the TDL.
+ The “VALID” mechanism allows the TVALID signal to have a high logical value
+ for just one clock period, whose rising-edge is nothing but the STOP signal.
+ The great usefulness given by the “VALID” mechanism is being able to center
+ the period of the clock signal in a convenient spot of the TDL, without
+ “ultra-bins” and therefore capable of providing highly-precise measurements.
 \end_layout
 
 \begin_layout Standard
@@ -873,7 +879,7 @@ name "fig:Valid-mechanism-of"
 
 \end_inset
 
-The valid selection is managed in two different ways, based on the generic
+The TVALID selection is performed in two different modes, based on the generic
  
 \shape italic
 DEBUG_MODE
@@ -883,7 +889,15 @@ DEBUG_MODE
 \shape italic
 DEBUG_MODE = 
 \shape default
-FALSE, the valid position is chosen statically by the generic 
+FALSE, the 
+\begin_inset Quotes eld
+\end_inset
+
+VALID
+\begin_inset Quotes erd
+\end_inset
+
+ position is statically chosen by the generic 
 \shape italic
 VALID_POSITION_TAP_INIT, 
 \shape default
@@ -896,12 +910,20 @@ BIT_SMP_PRE_TDL
 BIT_SMP_TDL
 \shape default
 -1.
- Instead, if 
+ Conversely, if 
 \shape italic
 DEBUG_MODE
 \shape default
- = TRUE, the valid is chosen at run-time, by port.
- In this case, we have the possibility to select just few of the 
+ = TRUE, the 
+\begin_inset Quotes eld
+\end_inset
+
+VALID
+\begin_inset Quotes erd
+\end_inset
+
+ position is chosen at run-time, by Port.
+ In this case, we can select just a few of the 
 \shape italic
 BIT_SMP_PRE_TDL
 \shape default
@@ -909,7 +931,7 @@ BIT_SMP_PRE_TDL
 \shape italic
 BIT_SMP_TDL
 \shape default
- sampled taps from which we could extract the valid, and it is done thanks
+ sampled taps from which we could extract the TVALID, and it is done thanks
  to the generics 
 \shape italic
 MIN_VALID_TAP_POS
@@ -923,11 +945,10 @@ MAX_VALID_TAP_POS
 STEP_VALID_TAP_POS
 \shape default
 .
- With the latters, we choose just some flip-flops along the chain from which
- we can select the valid, thus performing a decimation and avoiding the
- use of large multiplexers that may reduce the timing performance.
- Among these few flip-flops, the final chosen position is selected by the
- port 
+ With these generics, we choose just some FFs along the chain from which
+ we can select the TVALID, thus performing a decimation and avoiding using
+ large multiplexers that may reduce the timing performance.
+ Among these few FFs, the final position is selected with the Port 
 \begin_inset Quotes eld
 \end_inset
 
@@ -936,7 +957,7 @@ ValidPositionTap
 \end_inset
 
 .
- We can see in Figure 
+ Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Valid-selection-in"
@@ -946,7 +967,7 @@ noprefix "false"
 
 \end_inset
 
- the working principle just explained, in 
+ shows, with an example, the explained working principle in 
 \shape italic
 DEBUG_MODE
 \shape default
@@ -963,18 +984,18 @@ MAX_VALID_TAP_POS
  STEP_VALID_TAP_POS
 \shape default
  = 2.
- Since, if we use the SuperWU sub-interpolation algorithm, there are more
- TDLs in parallel, we must also select one single TDL among them in which
- this valid selection process is carried out.
+ Since, if we use the SuperWU Sub-Interpolation algorithm, there are more
+ TDLs in parallel, we must select one single TDL among them in which the
+ aforementioned "VALID" selection process is performed.
  This is done statically by the generic 
 \shape italic
 VALID_NUMBER_OF_TDL_INIT
 \shape default
- (if 
+ if 
 \shape italic
 DEBUG_MODE
 \shape default
- = FALSE) or by the port 
+ = FALSE, or by the Port 
 \begin_inset Quotes eld
 \end_inset
 
@@ -982,11 +1003,11 @@ ValidNumberOfTDL
 \begin_inset Quotes erd
 \end_inset
 
- (if 
+ if 
 \shape italic
 DEBUG_MODE
 \shape default
- = TRUE).
+ = TRUE.
 \end_layout
 
 \begin_layout Standard
@@ -1035,13 +1056,13 @@ name "fig:Valid-selection-in"
 \end_layout
 
 \begin_layout Standard
-In the end, there is the possibility just to simulate the TDL rather than
+Finally, there is the possibility of just simulating the TDL rather than
  implementing it, thanks to the generic 
 \shape italic
 SIM_VS_IMP
 \shape default
 .
- Indeed, if
+ If
 \shape italic
  SIM_VS_IMP = 
 \shape default
@@ -1054,8 +1075,9 @@ SIM
 \end_inset
 
 , the TDL is not physically implemented with the CARRY4 primitive, but a
- fictitious buffers-chain is created just for a test-bench scope.
- The simulated delays of the fictitious buffers are imported from 
+ fictitious buffer-chain is created just for a test-bench scope.
+ The simulated delays of the fictitious buffers are imported from two .txt
+ files, 
 \shape italic
 FILE_PATH_NAME_O_DELAY
 \shape default
@@ -1063,8 +1085,17 @@ FILE_PATH_NAME_O_DELAY
 \shape italic
 FILE_PATH_NAME_CO_DELAY,
 \shape default
- that are two .txt files containing their estimated delays (of the O taps
- and of the CO taps respectively).
+ containing their estimated delays
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+revisione personale fino a qui
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsubsection
