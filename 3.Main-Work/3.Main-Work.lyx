@@ -1085,17 +1085,7 @@ FILE_PATH_NAME_O_DELAY
 \shape italic
 FILE_PATH_NAME_CO_DELAY,
 \shape default
- containing their estimated delays
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-revisione personale fino a qui
-\end_layout
-
-\end_inset
-
-.
+ containing their estimated delays.
 \end_layout
 
 \begin_layout Subsubsection
@@ -1105,11 +1095,11 @@ New Version
 \begin_layout Standard
 In this thesis work, the portability of the Virtual Tapped Delay-Line has
  been improved, making it compatible also with 20-nm Xilinx Ultrascale (XUS)
- and 16-nm Ultrascale+ technology nodes.
- These are more scaled technologies with respect to 28-nm Xilinx 7-Series
- (X7S), leading to a lower power consumption and better performances such
- as an increased measure rate, a better resolution, lower ultra-bins and,
- as a consequence, a better single-shot precision for the TDC.
+ and 16-nm Ultrascale+ (XUS+) technology nodes.
+ These are more scaled technologies than the 28-nm Xilinx 7-Series (X7S),
+ leading to lower power consumption and better performances such as higher
+ measure rate, better resolution, lower ultra-bins, and, as a consequence,
+ better single-shot precision.
  Thanks to the generic 
 \shape italic
 XUS_VS_X7S 
@@ -1118,26 +1108,21 @@ in the IP-Core GUI
 \shape italic
 , 
 \shape default
-the technology node of the TDL that will be placed on the FPGA's fabric,
- can be chosen by the user in the instantiation stage, improving even more
- the portability of this structure on different systems.
- We already talked about the TDL structure for Xilinx 7-Series technology;
- let's now focus on the Ultrascale/Ultrascale+ version.
- 
+the user can choose, in the instantiation stage, the technology node of
+ the TDL that will be implemented, thus further improving the portability
+ of this structure on different systems.
+ We already described the TDL structure for the X7S technology; we will
+ now focus on the XUS/XUS+ version.
 \end_layout
 
 \begin_layout Paragraph
-Major differences between 7-Series and Ultrascale
+Major differences between X7S and XUS/XUS+
 \end_layout
 
 \begin_layout Standard
-The new version of the TDC has been fully implemented and tested on a Kintex
- Ultrascale FPGA, which has up to 40% lower power consumption with respect
- to the previous generation.
- Let's briefly describe the other major differences between the two technologies
-, other than the power consumption.
- The other main differences are structure-related, thus involving Configural
- Logic Blocks (CLBs) and slices 
+Other than the lower power consumption, which is a direct benefit of the
+ improved scaling, the other main differences are structure-related, thus
+ involving Configural Logic Blocks (CLBs) and slices 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "XlinxUG474"
@@ -1154,12 +1139,12 @@ literal "false"
 \end_inset
 
 .
- The CLBs are the main resources to implement general-purpose combinatorial
+ The CLBs are resources capable of implementing general-purpose combinatorial
  and sequential circuits in FPGA, while the slices are the internal parts
  of the CLBs.
- The slices and their CLBs are arranged in columns throughout the device,
- and they can easily connect to each other in order to create larger functions.
- Both 7-Series and Ultrascale CLBs provide:
+ Slices and CLBs are arranged in columns throughout the device, and they
+ can easily connect to each other, thus creating large functions.
+ Both X7S and XUS/XUS+ CLBs provide:
 \end_layout
 
 \begin_layout Itemize
@@ -1179,18 +1164,18 @@ Wide multiplexers (MUXes) for efficient utilization;
 \end_layout
 
 \begin_layout Itemize
-Dedicated high-speed carry logic for arithmetic functions;
+Dedicated high-speed carry logic for arithmetic functions.
 \end_layout
 
 \begin_layout Standard
-The Ultrascale CLB has also dedicated storage elements that can be configured
- as flip-flops (FFs) or latches with flexible control signals.
+The XUS/XUS+ CLB also has dedicated storage elements that can be configured
+ as FFs or latches with flexible control signals.
 \end_layout
 
 \begin_layout Standard
-The main structural difference between 7-Series and Ultrascale is internal
- to the CLB, thus residing on the Slices.
- The main differences inside a single CLB are reported in Table 
+The main structural difference between X7S and XUS/XUS+ is internal to the
+ CLB, thus residing on the Slices.
+ Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:CLB-differences-between"
@@ -1200,7 +1185,7 @@ noprefix "false"
 
 \end_inset
 
-.
+ shows the main differences inside a single CLB.
 \end_layout
 
 \begin_layout Standard
@@ -1366,15 +1351,16 @@ Number of FFs in a single slice
 \end_layout
 
 \begin_layout Standard
-As we can see, in Xilinx Ultrascale technology, two independent slices are
- now combined in a single, bigger slice, in order to have a better efficiency
- in the routing on the FPGA's fabric.
- The carry logic, in particular, is extended from 4 bits to 8 bits, achieving
+As we can see, in XUS/XUS+ technology two independent slices are now combined
+ in a single, bigger slice, in order to have better efficiency in the routing
+ process on the FPGA's fabric.
+ In particular, the carry logic is extended from 4 bits to 8 bits, achieving
  better routing and faster arithmetic functions.
- One single 8-bit carry chain is contained in a CLB.
- This is the reason why Xilinx Ultrascale uses the CARRY8 primitive to perform
- arithmetic functions, rather than the CARRY4 of the previous generation.
- The structure of the CARRY8 primitive is reported in Figure 
+ One single 8-bit carry-chain is present in a CLB.
+ This is why XUS/XUS+ technology is compatible with the CARRY8 primitive
+ to perform arithmetic functions rather than the CARRY4 of the previous
+ generation.
+ Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:CARRY8-primitive-structure."
@@ -1384,7 +1370,7 @@ noprefix "false"
 
 \end_inset
 
-.
+ shows the internal structure of the CARRY8 primitive.
 \end_layout
 
 \begin_layout Standard
@@ -1415,7 +1401,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-CARRY8 primitive structure.
+Structure of the CARRY8 primitive.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:CARRY8-primitive-structure."
@@ -1440,9 +1426,19 @@ name "fig:CARRY8-primitive-structure."
 \end_layout
 
 \begin_layout Standard
-We can see that the CARRY8 primitive can be configured either as a single
- 8-bit carry chain or as two independent 4-bit carry chains.
- The former option has been adopted in this thesis work.
+As we can see from Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:CARRY8-primitive-structure."
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, the CARRY8 primitive can be configured either as a single 8-bit carry-chain
+ or as two independent 4-bit carry-chains; the first option has been chosen
+ in this thesis work.
 \end_layout
 
 \begin_layout Paragraph
@@ -1450,17 +1446,17 @@ XUS-TDL structure
 \end_layout
 
 \begin_layout Standard
-In analogy with the X7S version of the TDL, we can see that here a single
- CARRY8 implements 8 buffers (taps) of the Tapped Delay-Line, and as before,
- more carry chains are cascaded connecting the last carry-out (CO(7)) of
- the previous primitive with the carry-in (CI) of the following one.
- The output of the buffers can be taken either from the sum output (O) or
- from the carry output (CO) by choosing the value of the generic 
+In analogy with the X7S version of the TDL, a single CARRY8 block implements
+ eight buffers (or taps) of the TDL and, as before, more carry-chains are
+ cascaded by connecting the last carry-out (CO(7)) of the previous primitive
+ with the carry-in (CI) of the following one.
+ As before, by choosing the value of the generic 
 \shape italic
 TYPE_TDL
 \shape default
- from the IP-Core's GUI, as before.
- The structure of the TDL is reported in Figure 
+ from the IP-Core's GUI, either the CO outputs or the O outputs of the TDL
+ can be sampled by the FFs.
+ Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:CARRY8-based-Tapped-Delay-Line"
@@ -1470,7 +1466,7 @@ noprefix "false"
 
 \end_inset
 
-.
+ shows the structure of the TDL.
 \end_layout
 
 \begin_layout Standard
@@ -1519,36 +1515,37 @@ name "fig:CARRY8-based-Tapped-Delay-Line"
 \end_layout
 
 \begin_layout Standard
-Concerning the sampling process, with the decimation of the flip-flops along
- the chain and the initial offset, all has been mantained as before.
- Also the valid mechanism, to choose the clock period in which the snapshot
- of the TDL is carried out, is the same as in the older version; the clock
- sampling the TDL has instead been pushed to 500 MHz, thanks to the possibilitie
-s given by the better scaling of the UltraScale technological node with
- respect to 7-Series, thus improving the measure rate and the dead-time
+The sampling process is managed in the same way as before, with the possibility
+ of decimating the FFs along the chain and of putting an initial offset
+ in their positioning.
+ The same “VALID” mechanism for choosing the clock period in which the snapshot
+ of the TDL will be done has also been maintained.
+ The clock signal used to sample the TDL has been pushed to 500 MHz.
+ This was possible thanks to the improved scaling of the XUS/XUS+ technology
+ node with respect to X7S, and it has improved the LSB and the Dead-Time
  of the TDC.
  
 \end_layout
 
 \begin_layout Standard
-The other major change to the Virtual Tapped Delay-Line introduced in this
- thesis work, is the possibility to instantiate also Digital Signal Processor
- (DSP)-based TDLs, in parallel to the carry-based ones.
- This is possible thanks to the two new generics 
+The other major change to the V-TDL, introduced in this thesis work, is
+ the possibility to perform the SuperWU Sub-Interpolation by instantiating
+ Digital Signal Processor (DSP)-based TDLs, in parallel to the CARRY-based
+ ones.
+ This is managed by two new generics,
 \shape italic
-NUMBER_OF_CARRY_CHAINS
+ NUMBER_OF_CARRY_CHAINS
 \shape default
  and 
 \shape italic
 NUMBER_OF_DSP_CHAINS
 \shape default
- introduced in substitution of the old 
+, introduced in substitution of 
 \shape italic
 NUMBER_OF_TDL
 \shape default
 .
- The SuperWU sub-interpolation algorithm now creates a Virtual Tapped Delay-Line
- made by 
+ The resulting V-TDL is composed of (
 \shape italic
 NUMBER_OF_CARRY_CHAINS
 \shape default
@@ -1556,7 +1553,7 @@ NUMBER_OF_CARRY_CHAINS
 \shape italic
  NUMBER_OF_DSP_CHAINS
 \shape default
- TDLs in parallel, where each one is 
+) TDLs in parallel, where each one is (
 \shape italic
 NUM_TAP_PRE_TDL
 \shape default
@@ -1564,13 +1561,13 @@ NUM_TAP_PRE_TDL
 \shape italic
  NUM_TAP_TDL
 \shape default
- long.
- This adds even more versatility to the IP-Core, indeed, it allows to implement
- a V-TDL either made only by carry-based TDLs (if 
+)-tap long.
+ This adds even more versatility to the IP-Core since it allows to have
+ a V-TDL either made by CARRY-based TDLs only (if 
 \shape italic
 NUMBER_OF_DSP_CHAINS
 \shape default
-=0), or by only DSP-based TDLs (if 
+=0), or by DSP-based TDLs only (if 
 \shape italic
 NUMBER_OF_CARRY_CHAINS
 \shape default
@@ -1591,9 +1588,8 @@ NUMBER_OF_DSP_CHAINS
 \end_inset
 
 0).
- We will see later what is the utility of a DSP-based TDL, and why the sub-inter
-polation that combines both types of TDL is the most powerful one.
- But before, let's present the Xilinx Digital Signal Processor (DSP).
+ We will see in Section 4 the usefulness of a DSP-based TDL, and why a SuperWU
+ Sub-Interpolation combining both types of TDL is the most powerful one.
 \end_layout
 
 \begin_layout Paragraph
@@ -1601,20 +1597,20 @@ Xilinx Digital Signal Processor (DSP)
 \end_layout
 
 \begin_layout Standard
-FPGAs are suitable for digital signal processing (DSP) applications because
- they can implement custom, fully parallel algorithms.
- The main operation performed by DSPs is MAC (Multiply and Accumulate),
- which consists in the calculation of the product between two numbers, and
- its addition in the accumulator.
- In hardware it is implemented as a multiplier followed by an adder and
- a register, but its implementation on FPGA employs a lot of resources,
+FPGAs are suitable for Digital Signal Processing applications since they
+ can implement custom, fully-parallel algorithms.
+ The basic operation performed by DSPs is the MAC (Multiply and Accumulate),
+ which consists of the product between two numbers, and its addition in
+ the accumulator.
+ In hardware, it is implemented as a multiplier followed by an adder and
+ a register; however, in FPGA, such implementation employs a lot of resources
  and has a low processing speed.
  For this reason, Xilinx decided to place dedicated DSP blocks on the FPGA
  fabric.
 \end_layout
 
 \begin_layout Standard
-Xilinx 7-Series technology uses the DSP48E1 slice as DSP block 
+X7S technology uses the DSP48E1 slice as DSP primitive 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "XILINX_7_SERIES"
@@ -1622,7 +1618,7 @@ literal "false"
 
 \end_inset
 
-, while Xilinx Ultrascale/Ultrascale+ uses the DSP48E2 slice 
+, while XUS/XUS+ uses the DSP48E2 slice 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "XUS_DSP"
@@ -1631,12 +1627,10 @@ literal "false"
 \end_inset
 
 .
- Since there are minor differences between the two DSP's technologies, and
- they are not a relevant topic of this thesis, from now on we will refer
- just to the DSP48E2 to describe both.
- The DSP48E2 slice consists of a 27-bit pre-adder, a 27 x 18 multiplier
- and, a flexible 48-bit Arithmetic Logic Unit (ALU) that serves as a post-adder/
-subtracter, accumulator, or logic unit (see Figure 
+ Since there are minor differences between the two aforementioned blocks,
+ not relevant for this thesis work, we will refer just to the DSP48E2 block
+ to describe both.
+ Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:DSP48E2-structure."
@@ -1646,7 +1640,10 @@ noprefix "false"
 
 \end_inset
 
-).
+ shows the internal structure of the DSP48E2 slice, consisting of a 27-bit
+ pre-adder, a 27 x 18 multiplier, and a flexible 48-bit Arithmetic Logic
+ Unit (ALU) that serves as a post-adder/subtracter, accumulator, or logic
+ unit.
 \end_layout
 
 \begin_layout Standard
@@ -1705,30 +1702,31 @@ noprefix "false"
 
 \end_inset
 
- that there are four direct inputs (A, B, C, D) and a 48-bit wide direct
- output (P), which is the result of the operation performed by the ALU.
- An input carry and an output one are also present, along with an output
- port for pattern detection and the output of a XOR gate.
- Furthermore, 5 input (ACIN, BCIN, PCIN, CARRYCASCIN, MULTSIGNIN) and output
- ports (ACOUT, BCOUT, PCOUT, CARRYCASCOUT, MULTSIGNOUT), with the function
- of cascading more DSP slices, are present.
+ that there are four direct inputs (i.e., A, B, C, D) and a 48-bit-wide direct
+ output (i.e., P), which is the result of the operation performed by the ALU.
+ An input carry (i.e., CARRYIN) and an output one (i.e., CARRYOUT) are also
+ present, along with an output port for pattern detection (i.e., PATTERNDETECT/PAT
+TERNBDETECT) and the output of a XOR gate (i.e., XOR OUT).
+ Furthermore, five input (i.e., ACIN, BCIN, PCIN, CARRYCASCIN, MULTSIGNIN)
+ and output ports (i.e., ACOUT, BCOUT, PCOUT, CARRYCASCOUT, MULTSIGNOUT) are
+ present, with the function of cascading more DSP slices.
  All the remaining inputs are control signals:
 \end_layout
 
 \begin_layout Itemize
-ALUMODE: it controls the operation to be performed by the ALU, which is
- either a sum, a subtraction, or a logic operation.
+ALUMODE: it controls the operation performed by the ALU, which can be either
+ a sum, a subtraction, or a logic operation;
 \end_layout
 
 \begin_layout Itemize
-CARRYINSEL: it decides whether the direct carry-in or the cascade one is
- fed to the ALU.
+CARRYINSEL: it decides whether the direct carry-in or the cascaded one is
+ fed to the ALU;
 \end_layout
 
 \begin_layout Itemize
 OPMODE: it contains fields for W, X, Y, and Z multiplexer selects.
- So, basically, this signal decides which input signals are fed to the ALU,
- making them nothing but the factors of the operation decided by ALUMODE.
+ Therefore, this signal decides which input signals are used as the factors
+ for the ALU operation;
 \end_layout
 
 \begin_layout Itemize
@@ -1737,7 +1735,7 @@ INMODE: it controls the functionality of the pre-adder.
 
 \begin_layout Standard
 These control signals require a specific bit-mask to perform all the different
- functionalities, as can be seen in the data-sheet (User Guide) 
+ functionalities, as can be seen in the DSP48E2 User Guide 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "XUS_DSP"
@@ -1752,12 +1750,12 @@ literal "false"
 Finally, it is worth saying that the DSP48E2 has three different working
  modes.
  Indeed, thanks to the Single-Instruction-Multiple-Data (SIMD) mode, the
- 48-bit ALU (the first, default, working mode) also supports dual 24-bit
- (the second working mode) or quad 12-bit (the third working mode) arithmetic
- operations.
- Based on the experimental results that will be shown later, the dual 24-bit
- SIMD mode has been used in this thesis work, thus having a single 48-bit
- ALU that works as two, independent, 24-bit ALUs in parallel.
+ 48-bit ALU (i.e.
+ the first, default, working mode) also supports dual 24-bit (i.e., the second
+ working mode) or quad 12-bit (i.e., the third working mode) arithmetic operations.
+ Based on the experimental results that will be shown in Paragraph 4.3, the
+ dual 24-bit SIMD mode has been used in this thesis work, thus having a
+ single 48-bit ALU that works as two, independent, 24-bit ALUs in parallel.
  
 \end_layout
 
@@ -1766,14 +1764,15 @@ DSP-based TDL
 \end_layout
 
 \begin_layout Standard
-The propagation mechanism of the asynchronous input signal (i.e.
- START signal) along the DSP's output bits, representing the taps of the
- TDL, is based on the subtraction operation performed by the ALU.
+The propagation mechanism of the START along the DSP's output bits (i.e.,
+ the taps of the TDL) relies on the subtraction operation performed by the
+ ALU.
  Let's see more in detail the ports and the control signals involved.
- The dual A and B register, along with the pre-adder and the multiplier,
- are not involved in this implementation, thus they are bypassed by all
- the signals, and the D input and the INMODE control is not used.
- The ALUMODE signal is set such that the ALU performs the following operation:
+ The dual A and B registers, along with the pre-adder and the multiplier,
+ are not involved in this implementation; therefore, they are bypassed by
+ all the signals.
+ Besides, the D input signal and the INMODE control are not used.
+ The ALUMODE signal is set to make the ALU perform the following operation:
 \begin_inset Formula 
 \begin{equation}
 P=Z-(W+X+Y+CIN)\label{eq:alu}
@@ -1785,56 +1784,53 @@ P=Z-(W+X+Y+CIN)\label{eq:alu}
 \end_layout
 
 \begin_layout Standard
-where CIN is selected by CARRYINSEL to be the direct CARRYIN signal, imposed
- equal to zero; and Z, W, X, Y are the input signals, multiplexed by OPMODE.
+where CIN is set by CARRYINSEL to be the direct CARRYIN signal, and it is
+ put equal to zero.
+ Z, W, X, and Y are the input signals, multiplexed by OPMODE.
  The selection is such that:
 \end_layout
 
 \begin_layout Itemize
-Z feeds the C input signal to the ALU;
+Z transmits the C input signal to the ALU;
 \end_layout
 
 \begin_layout Itemize
-W feeds a vector of zeroes to the ALU;
+W transmits a constant vector of zeroes to the ALU;
 \end_layout
 
 \begin_layout Itemize
-X feeds the concatenated A and B input signals (A:B) to the ALU; 
+X transmits the concatenated A and B input signals (i.e., A:B) to the ALU;
+ 
 \end_layout
 
 \begin_layout Itemize
-Y feeds a vector of zeroes to the ALU;
+Y transmits a constant vector of zeroes to the ALU.
 \end_layout
 
 \begin_layout Standard
 The A:B vector is the one containing the asynchronous input signal (AsyncInput)
- the TDC has to measure, while to the C port is assigned a vector of zeroes.
+ the TDC has to measure, while the C port is assigned a constant vector
+ of zeroes.
 \end_layout
 
 \begin_layout Standard
-The ALU, P, C, A:B and the vectors of zeroes are all 48-bit wide, but, since
- in this work the DSP is used in dual 24-bit SIMD mode, in reality is like
+The signals P, C, A:B and the vectors of zeroes are all 48-bit wide, but,
+ since in this work the DSP is used in dual 24-bit SIMD mode, it is like
  having a single DSP slice containing two independent ALUs working in parallel,
  where each one of them has 24-bit wide P, C, A:B signals, and 24-bit wide
  vectors of zeroes.
 \end_layout
 
 \begin_layout Standard
-To form a long DSP-based TDL, more DSP slices have to be cascaded, and this
- is done by connecting the ACOUT and BCOUT ports of the previous slice to
- ACIN and BCIN of the following one.
+To create a long DSP-based TDL, more DSP slices have to be cascaded, and
+ this is done by connecting the ACOUT and BCOUT ports of the previous slice
+ to the ACIN and BCIN of the following one.
  Therefore, the AsyncInput is connected to the direct A and B input ports
- just on the first DSP block and, on the following ones, it just propagates
- in the cascade inputs ACIN and ACOUT, and the direct A and B inputs are
- not used anymore.
- Since A is 30-bit wide and B is 18-bit wide, the AsyncInput signal must
- be linked both to bit 0 of B and to bit 6 of A, in order to have the logical
- value of our signal of interest on the least-significant bit of each 24-bit
- half of the A:B vector.
- In this way, in both the two 24-bit ALUs, the decimal value of the factor
- coming from the X multiplexer is equal to 0 when AsyncInput = 0, and it
- switches to 1 as soon as AsyncInput makes a transition form 0 to 1.
- This data assignment is better clarified in Figure 
+ of the first DSP block.
+ Then, on the following ones, it propagates along the cascade passing through
+ the ACIN and ACOUT inputs; here, the direct A and B inputs are not used
+ anymore.
+ Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:AsyncInput-connection-to"
@@ -1844,7 +1840,25 @@ noprefix "false"
 
 \end_inset
 
-.
+ shows the data assignment on the A:B vector.
+ It is shown that, since A is 30-bit-wide and B is 18-bit-wide, the AsyncInput
+ signal must be assigned both to the 
+\begin_inset Formula $0$
+\end_inset
+
+-th bit of B and to the 
+\begin_inset Formula $6$
+\end_inset
+
+-th bit of A, thus having our signal of interest on the least-significant
+ bit of each 24-bit half of the A:B vector.
+ In this way, in both the two 24-bit ALUs, the decimal value of the factor
+ coming from the X multiplexer is equal to 0 when AsyncInput = '0', and
+ it increases to 1 as soon as AsyncInput makes a '0'
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+'1' transition.
 \end_layout
 
 \begin_layout Standard
@@ -1882,19 +1896,15 @@ name "fig:AsyncInput-connection-to"
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-Finally, at the P output, the internal register of the DSP48E2 is used to
- sample the TDL; therefore, external flip-flops are not required, as it
- was in the carry-based TDL.
+Finally, at the P output, the internal register of the DSP48E2 block is
+ used to sample the TDL; therefore, external FFs are not required, as was
+ in the CARRY-based TDL.
  We can see in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1905,8 +1915,7 @@ noprefix "false"
 
 \end_inset
 
- all the internal resources and signals involved in the setup of the DSP
- slice.
+ all the internal resources and the signals involved in the DSP setup.
 \end_layout
 
 \begin_layout Standard
@@ -1965,7 +1974,7 @@ noprefix "false"
 
 \end_inset
 
-, and substituting the values assigned to all the signals in the instantiation
+ and substituting the values assigned to all the signals in the instantiation
  stage of the DSP48E2, we obtain the following equation:
 \begin_inset Formula 
 \begin{equation}
@@ -1978,7 +1987,7 @@ P=0-(0+AsyncInput+0+0)\label{eq:mid-formula}
 \end_layout
 
 \begin_layout Standard
-which leads to the simple subtraction:
+which leads to the following subtraction:
 \begin_inset Formula 
 \begin{equation}
 P=0-AsyncInput\label{eq:sub-formula}
@@ -1990,30 +1999,30 @@ P=0-AsyncInput\label{eq:sub-formula}
 \end_layout
 
 \begin_layout Standard
-Therefore, until AsyncInput stays at 0, P is a 24-bit wide vector of zeroes;
- then, as soon as AsyncInput transits from 0 to 1, an underflow takes place,
- and there is a propagation of 
+Therefore, until AsyncInput stays at '0', P is a 24-bit wide vector of zeroes;
+ then, as soon as AsyncInput transits from '0' to '1', an underflow takes
+ place, causing propagation of 
 \begin_inset Quotes eld
 \end_inset
 
-1
+ones
 \begin_inset Quotes erd
 \end_inset
 
- from the least-significant bit to the most-significant bit of the P result.
- This behavior is the same as in the carry-based TDL: the bits of the P
- output are the taps of the TDL, and the underflow-carry takes a certain
- propagation delay to cross each one of them.
+ from the least-significant bit to the most-significant bit of P.
+ This behavior is the same as in the CARRY-based TDL, where the bits of
+ the P output are the taps of the TDL and the underflow-carry propagates
+ with a certain propagation delay on each one of them.
  
 \end_layout
 
 \begin_layout Standard
-The DSP-based TDL relies on the same Valid mechanism of the carry-based
- counterpart, and the clock period selected by the valid assertion is the
- STOP signal that takes a snapshot of the state of the TDL.
+The DSP-based TDL relies on the same “VALID” mechanism of the CARRY-based
+ counterpart, and the selected clock period for the TVALID assertion is
+ the STOP signal taking a snapshot of the TDL's state.
  Since a single DSP48E2 is used in dual 24-bit mode, two thermometric codes
- are generated in parallel, as final output.
- We can better see the propagation mechanism in Figure 
+ are generated in parallel, instead of one.
+ Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Propagation-mechanism-along"
@@ -2023,7 +2032,7 @@ noprefix "false"
 
 \end_inset
 
-.
+ better shows the propagation mechanism of the DSP-chain.
 \end_layout
 
 \begin_layout Standard
@@ -2080,8 +2089,8 @@ active
 \begin_inset Quotes erd
 \end_inset
 
- ALUs are performing the subtraction operation in parallel.
- For example, if 
+ ALUs perform the subtraction operation in parallel.
+ For example, in both cases where 
 \shape italic
 NUMBER_OF_DSP_CHAINS
 \shape default
@@ -2089,22 +2098,20 @@ NUMBER_OF_DSP_CHAINS
 \shape italic
 NUMBER_OF_DSP_CHAINS
 \shape default
- = 2, in both cases the TDL is composed by a single DSP-chain.
- But, keeping in mind that each DSP48E2 is used in dual 24-bit SIMD mode,
- the difference is that: in the second case, both the 24-bit ALUs perform
- the operation, and two thermometric codes are generated in output; instead,
- in the first case, just one of the two ALUs is involved in the operation,
- and one single thermometric code is produced.
- Since, in both cases, the same amount of DSP resources is exploited and
- since, thanks to the sub-interpolation, having two thermometric codes is
- more beneficial than having just a single one, choosing an even number
+ = 2, the hardware TDL is composed of a single DSP-chain; however, since
+ every DSP48E2 is used in dual 24-bit SIMD mode, the difference is the following
+ one: in the second case, both the 24-bit ALUs perform the operation, and
+ two thermometric codes are generated in output; instead, in the first case,
+ both ALUs still perform the operation, but one single thermometric code
+ is provided, while the other is discarded.
+ Since, in both cases, the same amount of hardware resources are exploited
+ and since, thanks to the Sub-Interpolation, having two thermometric codes
+ is more beneficial than having just a single one, choosing an even number
  for 
 \shape italic
-NUMBER_OF_DSP_CHAINS 
+NUMBER_OF_DSP_CHAINS
 \shape default
-is always the more convenient choice
-\shape italic
-.
+ is always more convenient.
 \end_layout
 
 \begin_layout Standard
@@ -2116,8 +2123,7 @@ allows
 \shape italic
  
 \shape default
-to choose the technology node also for the DSP slice, as it is for the carry
- primitive.
+to choose the technology node of the DSP block, as for the CARRY primitive.
  If 
 \shape italic
 XUS_VS_X7S = 
@@ -2130,7 +2136,7 @@ X7S
 \begin_inset Quotes erd
 \end_inset
 
-, only DSP48E1 primitives are instantiated; if instead 
+, only DSP48E1 primitives are instantiated; on the other hand, if 
 \shape italic
 XUS_VS_X7S = 
 \shape default
@@ -2151,46 +2157,27 @@ Advantages and drawbacks of the DSP-based TDL
 \end_layout
 
 \begin_layout Standard
-One great advantage of this type of Tapped Delay-Line (TDL) is that the
- taps (bins) of the DSP slice are characterized by a tiny propagation delay,
- in the order of very few picoseconds (ps), thus allowing a very fast propagatio
-n of the input signal along the chain.
- However, the cascade path from one DSP slice to another introduces a huge
- propagation delay and therefore the presence of a very high ultra-bin in
- the chain.
- The recurring presence of ultra-bins along the DSP-based TDL is the main
- drawback of this architecture, since, as explained earlier, it worsens
- the single-shot precision of the Time-to-Digital Converter (TDC).
- 
+The main advantage of this type of TDL is that a more compact structure
+ is obtained, since long CARRY chains, hindering the routing across different
+ regions of the FPGA, are avoided.
+ Furthermore, it allows a relaxation in the hardware utilization, since
+ the sampling of the TDL is made with the P-register integrated with the
+ DSP itself, thus not requiring the use of external FFs as in the CARRY-based
+ approach.
+ However, the DSP-chains suffer from a relevant problem, since the cascade
+ path from one DSP slice to another introduces a huge propagation delay
+ and therefore the presence of a very high “ultra-bin” in the chain.
+ The recurring presence of “ultra-bins” along the DSP-chain is the main
+ drawback of this architecture since, as explained in Paragraph 2.3, it worsens
+ the single-shot precision of the TDC.
 \end_layout
 
 \begin_layout Standard
-The main reason which led to use DSPs as main blocks to create a TDL is
- that, exploiting this type of resource makes possible to build a more compact
- structure because it avoids long carry chains hindering the routing across
- different regions of the FPGA, also leading to relax the hardware utilization.
- Indeed, the sampling of the Tapped Delay-Line is made by the P-register
- integrated in the DSP itself, thus not requiring to use the flip-flops
- (FFs) present in the FPGA fabric, as it was in the carry-based approach.
- 
-\end_layout
-
-\begin_layout Standard
-As we will see later, when the obtained experimental results will be shown,
- the combination of the carry-based TDL and the DSP-based TDL creates an
- 
-\begin_inset Quotes eld
-\end_inset
-
-hybrid
-\begin_inset Quotes erd
-\end_inset
-
- Virtual Tapped Delay-Line (V-TDL) which, thanks to the SuperWU sub-interpolatio
-n algorithm, allows to exploit the best features of both the two architectures,
- and to achieve an overall better single-shot precision with respect to
- the fully carry-based approach.
- In Figure 
+As we will see in Section 4, when the experimental results will be shown,
+ the combination of the CARRY-based TDL and the DSP-based TDL creates a
+ “hybrid” V-TDL which, thanks to the SuperWU Sub-Interpolation algorithm,
+ exploits the best features of both the two architectures.
+ Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Virtual-Tapped-Delay-Line"
@@ -2200,7 +2187,7 @@ noprefix "false"
 
 \end_inset
 
- can be seen the IP-Core package and its generics.
+ shows the V-TDL IP-Core.
 \end_layout
 
 \begin_layout Standard
@@ -2224,7 +2211,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Virtual Tapped Delay-Line (V-TDL) IP-Core.
+V-TDL IP-Core.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Virtual-Tapped-Delay-Line"
@@ -2249,12 +2236,12 @@ Decoder
 \end_layout
 
 \begin_layout Standard
-This module hasn't been modified in this thesis work, therefore, its unique
- version will be described in the following.
- The only difference is that, thanks to the migration to the Ultrascale
- technology node, the operating frequency of this module has been pushed
- from 400 MHz to 500 MHz, same as the V-TDL, thus increasing the measure
- rate of the system.
+Since this module hasn't been modified in this thesis work, its older version
+ will be described in the following.
+ The only difference is that, thanks to the migration to the XUS technology
+ node, the operating frequency of this module has been pushed from 400 MHz
+ to 500 MHz as the V-TDL, thus lowering the Dead-Time and increasing the
+ multi-hit capability of the system.
 \end_layout
 
 \begin_layout Standard
@@ -2262,7 +2249,7 @@ The Decoder has the task of converting the
 \shape italic
 BIT_UNDECO
 \shape default
--wide thermometric codes, one for each 
+-wide thermometric codes (one for each 
 \begin_inset Quotes eld
 \end_inset
 
@@ -2270,12 +2257,11 @@ real
 \begin_inset Quotes erd
 \end_inset
 
- Tapped Delay-Line (TDL) composing the V-TDL, into 
+ TDL composing the V-TDL) into 
 \shape italic
 BIT_SUBINT
 \shape default
--wide binary codes, representing the time information of the Fine part of
- the timestamp 
+-wide as many binary codes 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "4529581"
@@ -2288,15 +2274,16 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-The conversion is done in pipeline, thanks to a Thermo-to-Binary (T2B) engine.
+The conversion is done in a Pipeline structure using a Thermo-to-Binary
+ (T2B) engine.
  Let's briefly describe the working principle of the T2B engine.
- First of all, it detects the position of the Rising or Falling edge of
- the input signal, and it does it by summing the '0's or the '1's of the
- thermometric data, respectively.
- Then, by means of a pipelined tree structure, it transforms the thermometric
- code into a binary one, by summing all the '1's in the case of an input
- signal with rising edge sensitivity, or all the '0's in the case of a falling
- edge in the input signal.
+ Firstly, it detects the position of the rising-edge or falling-edge of
+ the input signal by summing the '0's or the '1's of the thermometric data,
+ respectively.
+ Then, thanks to a pipelined tree structure, it transforms the thermometric
+ code into a binary one, by summing all the '1's in the case of rising-edge
+ sensitivity to the input signal, or all the '0's in the case of falling-edge
+ sensitivity.
  The following relation holds:
 \begin_inset Formula 
 \begin{equation}
@@ -2315,8 +2302,8 @@ noprefix "false"
 
 \end_inset
 
- shows the mechanism just explained, in the simple case of a 4-bit wide
- thermometric code coming from the TDL, which thus gives a 3-bit wide output
+ shows the mechanism just explained, in the simple case of a 4-bit-wide
+ thermometric code coming from the TDL, thus resulting in a 3-bit-wide output
  binary code.
 \end_layout
 
@@ -2622,9 +2609,9 @@ Binary code
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Thermometric to Binary conversion in the case of an input signal with rising
- edge sensitivity (table on the left) and with falling edge sensitivity
- (table on the right).
+Thermometric to Binary conversion in the case of rising-edge sensitivity
+ to the input signal (on the left) and with falling-edge sensitivity (on
+ the right).
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:Thermometric-to-Binary"
@@ -2649,11 +2636,18 @@ name "tab:Thermometric-to-Binary"
 \end_layout
 
 \begin_layout Standard
-The Decoder has also the task of performing sub-interpolation, and it does
- it by summing all the binary codes provided by each one of the real TDLs,
- by means of a pipelined Tree Adder (TA).
+The Decoder also has the task of performing Sub-Interpolation by summing
+ all the binary codes provided by each one of the 
+\begin_inset Quotes eld
+\end_inset
+
+real
+\begin_inset Quotes erd
+\end_inset
+
+ TDLs, using a pipelined Tree Adder (TA).
  It is possible to dynamically choose the number of TDLs involved in the
- sub-interpolation by means of the so-called SubInterpolationMatrix.
+ sub-interpolation employing the so-called Sub-Interpolation Matrix.
  Table 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2664,7 +2658,8 @@ noprefix "false"
 
 \end_inset
 
- shows the case of 3 TDLs in parallel, thus giving 8 possible combinations.
+ shows a case where three TDLs are placed in parallel, thus giving eight
+ possible combinations.
  Obviously, by sub-interpolating all three TDLs, the best resolution is
  achieved, according to the SuperWU algorithm.
 \end_layout
@@ -2873,8 +2868,8 @@ TDL #1 + TDL #2 + TDL #3
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Selection of the TDLs to involve in the sub-interpolation, by means of the
- SubInterpolationMatrix.
+Selection of the TDLs to involve in the Sub-Interpolation using the Sub-Interpol
+ation Matrix.
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:Selection-of-the"
@@ -2899,26 +2894,25 @@ name "tab:Selection-of-the"
 \end_layout
 
 \begin_layout Subsection
-Coarse Extension Core (CEC)
+Coarse Extension Core
 \end_layout
 
 \begin_layout Standard
-The Coarse Extension Core is where the Nutt-Interpolation is carried out,
- i.e.
- the addition of the Coarse measure to the Fine one (computed by the previous
- modules) in order to break the trade-off between Resolution and FSR.
+In the Coarse Extension Core (CEC) module, Nutt-Interpolation is carried
+ out to break the trade-off between LSB and FSR.
  A 
 \shape italic
 BIT_COARSE_CEC
 \shape default
--wide Coarse Counter is in charge of counting the number of clock periods
- elapsed from the power-on instant of the system, up to the generation of
+-wide Coarse-Counter is in charge of counting the number of clock periods
+ elapsed from the power-on instant of the system up to the generation of
  the Fine measure, accomplished by the V-TDL.
- An overflow detection is also implemented, and it will be used by one of
- the following modules to extend even more the FSR, up to some days.
- This overflow detection is performed by a sub-module called TreeComparator,
- which works in pipeline, and compares the value of the Coarse-Counter with
- a reference value equal to:
+ Overflow-detection is also implemented and will be used by one of the following
+ modules (i.e., the Overflow Counter) to extend even more the FSR (see Paragraph
+ 3.6).
+ The aforementioned overflow-detection is performed by a sub-module called
+ TreeComparator, working in a Pipeline structure, which compares the value
+ of the Coarse-Counter with a reference value equal to:
 \begin_inset Formula 
 \begin{equation}
 OVERFLOW\_REF=2^{BIT\_COARSE\_CEC}-1-NUM\_STAGES\label{eq:OVERFLOW_REF}
@@ -2930,18 +2924,22 @@ OVERFLOW\_REF=2^{BIT\_COARSE\_CEC}-1-NUM\_STAGES\label{eq:OVERFLOW_REF}
 \end_layout
 
 \begin_layout Standard
-In this way, as soon as the Coarse-Counter reaches its maximum value 
-\begin_inset Formula $(2^{BIT\_COARSE\_CEC}-1)$
+In this way, as soon as the Coarse-Counter reaches its maximum value (i.e.,
+ 
+\begin_inset Formula $2^{BIT\_COARSE\_CEC}-1$
 \end_inset
 
-, an overflow condition is reported.
- The subtraction of NUM_STAGES is required in order to take into account
- the delay introduced by the pipeline stages of the TreeComparator.
+) an overflow condition is reported.
+ The subtraction of 
+\begin_inset Formula $NUM\_STAGES$
+\end_inset
+
+ is required to take into account the delay introduced by the pipeline stages
+ of the TreeComparator.
 \end_layout
 
 \begin_layout Standard
-The data produced by the Coarse Extension Core module is composed by three
- fields, as shown in Figure 
+Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Coarse-Extension-Core"
@@ -2951,7 +2949,8 @@ noprefix "false"
 
 \end_inset
 
-.
+ shows the structure of the data provided by the CEC, which is composed
+ of three fields.
 \end_layout
 
 \begin_layout Standard
@@ -3000,49 +2999,48 @@ name "fig:Coarse-Extension-Core"
 \end_layout
 
 \begin_layout Standard
-The FINE_PART field contains the binary code representing the Fine measurement,
- performed by the previous modules; the COARSE_COUNTER field contains the
- number of clock cycles of the 500 MHz clock signal, elapsed from the power-on
- instant of the system; the FID field contains the information about the
- occurrence of an overflow in the Coarse-Counter.
- If FID = '1', no overflow happened, and the COARSE_COUNTER and the FINE
- fields contain their respective measurement information.
- If instead FID = '0', an overflow happened, and the other two fields will
- contain their older values, in order to signal that the measure is not
- valid.
+The FINE_PART field contains the binary code provided by the Decoder; the
+ COARSE_COUNTER field contains the number of the elapsed 500 MHz clock's
+ cycles; the FID field contains the information about the occurrence of
+ an overflow in the Coarse-Counter.
+ FID = '1' indicates that no overflows happened, and the COARSE_COUNTER
+ and the FINE_PART fields contain the valid measurement; on the other hand,
+ FID = '0' signals an overflow occurrence, and the other two fields will
+ contain their older values, signaling that the measurement is not valid.
 \end_layout
 
 \begin_layout Standard
-The CEC also performs another fundamental action, being Clock Domain Crossing
- (CDC).
- Indeed, it contains a FIFO that allows to avoid loosing consecutive measurement
-s and to manage correctly the case in which a valid measure and an overflow
- occur concurrently, and it is written and read using two different clocks
- signals.
- The write process in the FIFO is under the TDC_Clock domain, i.e.
- the 500 MHz clock feeding also the V-TDL and the Decoder, while the read
- process is done under the SYS_Clock domain, i.e.
- a 200 MHz clock feeding all the following module.
- Therefore, a passage from a very fast clock to a slower one is done, so
- to have all the following processing under more relaxed timing contraints
- and avoid timing errors.
+The CEC also performs Clock Domain Crossing (CDC), meaning that the system
+ goes from a faster clock to a slower one.
+ Indeed, it contains a FIFO that prevents losing consecutive measurements,
+ and correctly manages the case in which a valid measure and an overflow
+ occur concurrently.
+ The FIFO is written and read under two different clock domains; the writing
+ process is done under the TDC_Clock domain (i.e., the same 500 MHz clock
+ feeding in the V-TDL and the Decoder), while the reading process is done
+ under the SYS_Clock domain, which is a 200 MHz clock controlling all the
+ following modules.
+ Therefore, a passage from a faster clock to a slower one is performed,
+ thus allowing all the processing of the following modules to be under more
+ relaxed timing constraints.
  
 \end_layout
 
 \begin_layout Standard
-This module is the same as in the older version of the TDC.
+The structure of the CEC is the same as in the older version of the TDC.
  The only difference is that it is now used with a different value of the
  generic 
 \shape italic
 BIT_COARSE_CEC, 
 \shape default
-from 8 to 4.
- This is done in order to improve even more the timing performance (i.e.
- the Worst Negative Slack of the system), indeed, this allows to have a
- narrower data, and thus a narrower FIFO, which is what really influences
- the timing in the CEC.
- Obviously, this causes to signal more overflows than before, but this will
- be managed by one of the following modules, as we will see later.
+equal to 4 rather than 8.
+ This choice has been made to improve the timing performance (i.e., the Worst
+ Negative Slack of the system); in fact, this allows having narrower data,
+ and thus a narrower FIFO, which results in an overall better timing performance
+ of the CEC.
+ Unfortunately, this leads the Coarse-Counter to experience more overflows
+ than before, but this will be managed by the Overflow Counter module, as
+ we will see in Paragraph 3.6.
 \end_layout
 
 \begin_layout Subsection
@@ -3050,38 +3048,30 @@ Calibrator
 \end_layout
 
 \begin_layout Standard
-This module is the same of the old TDC, and it is in charge of keeping track
- of the process, voltage and temperature (PVT) variations affecting each
- bin of the V-TDL, by means of the Calibration Table (CT) and the Characteristic
- Curve (CC).
- Its working principle is the following one: a set of random signals is
- sent to the V-TDL, which generates a certain number of thermometric codes
- that are then converted into binary values by the Decoder.
- The Calibrator then performs a Code Density Test (CDT), which consists
- of counting how many samples (i.e.
- the binary values provided by the Decoder) fall on each bin of the V-TDL,
- in the clock window (i.e.
- the STOP signal) selected by the already-described 
+This module has the same structure as in the old TDC and is in charge of
+ keeping track of the PVT variations affecting each bin of the V-TDL.
+ As explained in Paragraph 2.3, it performs calibration by creating a Calibration
+ Table (CT) and a Characteristic Curve (CC).
+ The working principle of the Calibrator consists of receiving a set of
+ random signals, which, propagating on the V-TDL, generate a certain number
+ of thermometric codes.
+ The Calibrator performs a Code Density Test (CDT) on these signals, which
+ consists of counting how many samples (i.e., the binary codes converted from
+ the thermometric ones by the Decoder) fall on each bin composing the V-TDL.
+ The CDT is carried out on the portion of the TDL where the clock window,
+ selected by the “VALID” mechanism, is centered (i.e., the STOP signal).
+ Finally, a propagation delay, in picoseconds, is assigned to each tap (or
+ 
 \begin_inset Quotes eld
 \end_inset
 
-valid
+bin
 \begin_inset Quotes erd
 \end_inset
 
- mechanism.
- Finally, at each bin is associated its propagation delay value in picoseconds,
- and the CT is obtained.
- This conversion, from 
-\begin_inset Quotes eld
-\end_inset
-
-bin counts
-\begin_inset Quotes erd
-\end_inset
-
- to picoseconds, is done in this way: let's suppose that, in the selected
- clock window, 
+).
+ This conversion from bin-counts to picoseconds is done in this way: let's
+ suppose that, in the selected clock window, 
 \begin_inset Formula $N$
 \end_inset
 
@@ -3093,11 +3083,11 @@ bin counts
 \begin_inset Formula $x$
 \end_inset
 
--th bin, where 
-\begin_inset Formula $x=1,2,...,N.$
+-th bin (
+\begin_inset Formula $x=1,2,...,N$
 \end_inset
 
- The propagation delay of each bin is obtained with this proportionality:
+); the propagation delay of each bin is obtained with this proportionality:
 \begin_inset Formula 
 \begin{equation}
 t_{X}=\frac{n_{X}}{\sum_{x=1}^{N}n_{X}}\cdot T_{CLK,ps}\ ,\ x=1,2,...,N\label{eq:CT}
@@ -3121,16 +3111,9 @@ noprefix "false"
 
  graphically explains the procedure just described.
  It's clear that, if a bin captures a significant amount of events, it will
- be mapped at a particularly high propagation delay value, and thus, it
- will be nothing but the already-described 
-\begin_inset Quotes eld
-\end_inset
-
-ultra-bin
-\begin_inset Quotes erd
-\end_inset
-
-, responsible for worsening the single-shot precision of the TDC.
+ be assigned to a particularly high propagation delay; therefore, this bin
+ will be nothing but the already-described “ultra-bin”, responsible for
+ worsening the single-shot precision of the TDC.
 \end_layout
 
 \begin_layout Standard
@@ -3154,7 +3137,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Graphical explanation of how the Calibrator builds the CT.
+CDT performed by the Calibrator to build the CT.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Graphical-explanation-of"
@@ -3179,14 +3162,12 @@ name "fig:Graphical-explanation-of"
 \end_layout
 
 \begin_layout Standard
-Once the CT is obtained, it is integrated in order to obtain the Characteristic
- Curve (CC) of the TDC, thus representing, for each one of the 
-\begin_inset Formula $N$
-\end_inset
-
- bins, the total propagation delay of the asynchronous input signal from
- the first bin up to that specific considered bin.
- Therefore, once the Coarse Extension Core (CEC) sends the 
+Once the CT is obtained, it is integrated to obtain the Characteristic Curve
+ (CC) of the TDC.
+ The latter represents, for each one of the three bins, the total propagation
+ delay of the asynchronous input signal from the first bin of the clock
+ window up to that specific bin.
+ Once the CEC sends the 
 \begin_inset Quotes eld
 \end_inset
 
@@ -3194,15 +3175,16 @@ Fine
 \begin_inset Quotes erd
 \end_inset
 
- field, representing the bin that is hit by the input signal, it is possible
- to read from the CC the precise propagation delay up to that bin; the exact
- Fine measure, in picoseconds, is thus obtained.
+ field to the Calibrator, representing the bin hit by the input signal,
+ it is possible to read from the CC the precise propagation delay up to
+ that bin.
+ Hence, the exact Fine measure, in picoseconds, is obtained.
  Let's briefly describe the generics of this module.
  
 \shape italic
 BIT_CALIBRATION
 \shape default
- sets the number of samples used to build the CT, which means that after
+ sets the number of samples used to build the CT, which means that, after
  
 \begin_inset Formula $2^{BIT\_CALIBRATION}-1$
 \end_inset
@@ -3212,12 +3194,12 @@ BIT_CALIBRATION
 \shape italic
 BIT_RESOLUTION
 \shape default
- is instead the length of the calibrated Fine measure (in picoseconds) at
- the output of the Calibrator.
- The calibration on the Fine data is peformed only if FID='1', which means
+ is instead the length of the calibrated Fine measurement, in picoseconds,
+ at the output of the Calibrator.
+ The calibration on the Fine data is performed only if FID='1', which means
  that a valid measure is coming from the CEC; otherwise, if FID='0', it
- means that an overflow is coming from the CEC, and it is passed unaltered
- through the Calibrator, apart from its bit length (
+ means that an overflow is coming from the CEC, and the data is passed unaltered
+ through the Calibrator, apart from its bit length (i.e., 
 \shape italic
 BIT_UNCALIBRATED
 \shape default
@@ -3236,7 +3218,7 @@ noprefix "false"
 
 \end_inset
 
- shows the overall data flow and working principle of the Calibrator.
+ shows the overall data-flow and working principle of the Calibrator.
 \end_layout
 
 \begin_layout Standard
@@ -3285,7 +3267,7 @@ name "fig:Calibrator-working-principle."
 \end_layout
 
 \begin_layout Subsection
-Overflow Counter (OC)
+Overflow Counter
 \end_layout
 
 \begin_layout Subsubsection
@@ -3293,18 +3275,17 @@ Old Version
 \end_layout
 
 \begin_layout Standard
-Th Overflow Counter (OC) is strongly related to the Coarse Extension Core
- (CEC), indeed, while the latter just signals the presence of an Overflow
- in the Coarse-Counter (by putting FID='0'), the OC counts the number of
- overflows coming from the CEC, allowing to extend the FSR of the TDC up
- to some days.
- The working principle of this older version of the OC is very simple, and
- it is based on the value of the FID field of the input data (s00_timestamp_tdat
-a).
- If FID='1', we have a valid timestamp, which passes unaltered through this
- module, so the output data (m00_beltbus_tdata) is equal to the input data;
- if instead FID='0', which means that an overflow is coming from the CEC,
- a signal 
+The Overflow Counter (OC) is strongly related to the CEC.
+ Indeed, while the CEC just signals the presence of an overflow in the Coarse-Co
+unter (by putting FID='0'), the OC counts the number of overflows coming
+ from the CEC, allowing to extend the FSR of the TDC up to some days.
+ The working principle of the OC relies on the value of the FID field of
+ the input data (i.e., s00_timestamp_tdata).
+ FID='1' signals a valid timestamp, which passes unaltered through the module;
+ therefore, the output data (i.e., m00_beltbus_tdata) is equal to the s00_timestam
+p_tdata.
+ On the other hand, FID='0' signals that an overflow is coming from the
+ CEC, and a signal 
 \shape italic
 Overflow_cnt
 \shape default
@@ -3328,8 +3309,8 @@ noprefix "false"
 
 \end_inset
 
- graphically shows the data structure and the working principle of this
- module, through a timing diagram.
+ graphically shows with a timing diagram the data structure and the working
+ principle of this module.
 \end_layout
 
 \begin_layout Standard
@@ -3398,31 +3379,29 @@ New Version
 \end_layout
 
 \begin_layout Standard
-The OC has been improved in this work in order to manage the change done
+In this thesis work, the OC has been improved to cope with the change done
  in the generic of the CEC module.
- In fact, we already said that the generic 
+ In fact, we said in Paragraph 3.4 that the generic 
 \shape italic
 BIT_COARSE_CEC
 \shape default
- is now used with a value of 4 instead of 8, in order to solve the timing
- errors that were present before and improve the Worst Negative Slack (WNS).
- However, this choice leads the CEC to signal way more overflows than it
- happened in the older version, and therefore, by also using the old version
- of the OC, we would have at the output of each channel a lot FID='0' transactio
-ns.
- These continuous transactions represent a big problem and, as we saw experiment
-ally, they can lead to the saturation of the TDC channel, and therefore
- to the loss of data.
- The new version of the OC, developed in this thesis work, has the scope
- to solve this issue, by introducing an output Coarse field with a different
- bit-length to the input Coarse field.
- The generic for the input data's coarse length is the same of the previous
- modules, i.e.
- 
+ is now used with a value of 4, instead of 8, to solve the timing errors
+ and improve the Worst Negative Slack (WNS).
+ However, this choice leads the CEC to signal way more overflows than before;
+ therefore, if we used the old version of the OC, we would have at the output
+ of each channel a lot of FID='0' transactions.
+ These continuous transactions represent a big problem since, as we saw
+ experimentally, they can lead to the saturation of the TDC channel and,
+ as a consequence, to the loss of valid measurements.
+ The new version of the OC, developed in this thesis work, aims to solve
+ this issue, by introducing an output Coarse field with a different bit-length
+ to the input Coarse field.
+ The generic for selecting the coarse bit-length of the input data is the
+ same as the previous modules (i.e., 
 \shape italic
 BIT_COARSE_CEC
 \shape default
-; the generic for the output data is instead 
+); the generic for the bit-length of the output data is instead 
 \shape italic
 BIT_COARSE.
  
@@ -3439,19 +3418,18 @@ BIT\_COARSE\_CEC\leq BIT\_COARSE\label{eq:OC_generics}
 \end_layout
 
 \begin_layout Standard
-Since the case where 
+Since the 
 \begin_inset Formula $BIT\_COARSE\_CEC=BIT\_COARSE$
 \end_inset
 
- behaves exactly as the older version of the Overflow Counter, described
- in the last paragraph, and since we just said that it would cause problems
- to the channel's management of the data, we will now describe just the
- useful case in which 
+ case behaves exactly as in the older version of the OC, described in Paragraph
+ 3.6.1, and since we just said that it would cause problems to the channel's
+ management of the data, we will now describe just the 
 \begin_inset Formula $BIT\_COARSE\_CEC<BIT\_COARSE$
 \end_inset
 
-.
- In Figure 
+ case.
+ Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Overflow-Counter-IP-Core."
@@ -3461,7 +3439,7 @@ noprefix "false"
 
 \end_inset
 
- can be seen the IP-Core package and its generics.
+ shows the IP-Core package and the generics of the OC.
 \end_layout
 
 \begin_layout Standard
@@ -3518,21 +3496,21 @@ AuxiliaryCounter
 \shape italic
 BIT_COARSE - BIT_COARSE_CEC
 \shape default
-)-wide, is in charge of counting the overflows in input (i.e.
- FID='0' coming from the CEC), and it is appended to the Coarse part of
- the input data.
- In this way, the data in output will be: [(FID = '1') & 
+)-wide, is in charge of counting the overflows in input (i.e., the data with
+ FID='0' coming from the CEC) and it is appended to the Coarse part of the
+ input data.
+ In this way, the output data will be [(FID = '1') | 
 \shape italic
 AuxiliaryCounter
 \shape default
- & CoarseIn & Fine] if we have a measure as input (i.e.
+ | CoarseIn | Fine] if we have a valid measure as an input (i.e.
  FID = '1'); otherwise, if 
 \shape italic
 AuxiliaryCounter 
 \shape default
 has reached its maximum value (i.e.
- 2**BIT_COARSE_DIFFERENCE-1) and we have a new overflow in input (FID =
- '0'), 
+ 2**BIT_COARSE_DIFFERENCE-1) and we have a new overflow in input (i.e., FID
+ = '0'), 
 \shape italic
 AuxiliaryCounter
 \shape default
@@ -3541,7 +3519,7 @@ AuxiliaryCounter
 Overflow_cnt
 \shape default
  is increased by one.
- Thus, the output will be: [(FID = '0') & 
+ In this case, the output data will be [(FID = '0') | 
 \shape italic
 Overflow_cnt
 \shape default
@@ -3555,7 +3533,7 @@ has a bit-length equal to
  BIT_COARSE + BIT_RESOLUTION.
 
 \shape default
- In Figure 
+ Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Data-structure-(at"
@@ -3565,12 +3543,12 @@ noprefix "false"
 
 \end_inset
 
- we can see the data structure and the working principle of the improved
- Overflow Counter (OC), in the simple example of 
+ shows the data structure and the working principle of the improved OC,
+ in a simplified example using 
 \shape italic
 BIT_COARSE_CEC
 \shape default
- = 2, 
+ = 2 and 
 \shape italic
 BIT_COARSE
 \shape default
@@ -3635,20 +3613,26 @@ name "fig:Data-structure-(at"
 \end_layout
 
 \begin_layout Standard
-It's clear that, since the FID='0' transaction (with the updated value of
- 
+It's clear that, since the update of 
 \shape italic
 Overflow_cnt
 \shape default
-) happens only when 
+ only happens when 
 \shape italic
 AuxiliaryCounter
 \shape default
- goes in overflow, way less of these transactions happen at the output than
- the one happening at the input.
- The channel saturation problem is thus solved, along with the old timing
- errors coming from the CEC.
- 
+ overflows, there are fewer FID='0' output transactions than the input ones.
+ The channel saturation problem is thus solved, along with the timing errors
+ the CEC had.
+ In the OC implemented in this thesis work, 
+\shape italic
+BIT_COARSE_CEC
+\shape default
+=4 and 
+\shape italic
+BIT_COARSE
+\shape default
+=16 have been used.
 \end_layout
 
 \end_body
