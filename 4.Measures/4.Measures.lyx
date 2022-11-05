@@ -140,11 +140,19 @@ Measurements
 \end_layout
 
 \begin_layout Standard
-The experimental results obtained by this new implementation will now be
- shown.
- We have tested all the performances of the Time-to-Digital Converter (TDC)
- on the KCU105 Evaluation Board by Xilinx, that is a development kit hosting
- a Kintex-UltraScale™ Field Programmable Gate Array (xcku040-ffva1156-2-e).
+The experimental results obtained by the new TDC implementation will now
+ be shown.
+ All the performances of the TDC have been tested on the KCU105 Evaluation
+ Board by Xilinx 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "KCU105_BOARD"
+literal "false"
+
+\end_inset
+
+, which is a development kit hosting a Kintex-UltraScale™ FPGA (xcku040-ffva1156
+-2-e).
  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -155,15 +163,7 @@ noprefix "false"
 
 \end_inset
 
- shows the evaluation board just mentioned 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "KCU105_BOARD"
-literal "false"
-
-\end_inset
-
-.
+ shows the aforementioned evaluation board.
 \end_layout
 
 \begin_layout Standard
@@ -227,7 +227,8 @@ noprefix "false"
 \end_inset
 
  shows the block diagram of the complete system.
- As we can see, it contains way more blocks than the TDC core (called 
+ As we can see, it contains way more blocks than the main core of the TDC
+ (i.e., 
 \begin_inset Quotes eld
 \end_inset
 
@@ -235,8 +236,10 @@ TDC_Calib
 \begin_inset Quotes erd
 \end_inset
 
-) itself, such as the modules managing the communication of the measurements
- to the PC, and the Histogrammer (called 
+ in Figure).
+ The most relevant are the Memory Management Engine (MME), which manages
+ the communication of the time measurements to the PC, and the Histogrammer
+ (i.e., 
 \begin_inset Quotes eld
 \end_inset
 
@@ -244,10 +247,10 @@ BeltBus_TDCHistogrammer
 \begin_inset Quotes erd
 \end_inset
 
-), which is in charge of plotting the time difference between events on
- two different channels.
- They haven't been developed in this thesis work, so they will not be described
- in this presentation, but taken for granted.
+ in Figure), which is in charge of calculating the time difference between
+ the events on two different channels.
+ Since these modules have not been developed in this thesis work, they will
+ not be described in this presentation, but considered as black-boxes.
 \end_layout
 
 \begin_layout Standard
@@ -296,7 +299,7 @@ name "fig:Block-design-of"
 \end_layout
 
 \begin_layout Standard
-The setup that has been used for the measurements exploits the 
+The employed measurement setup exploits the 
 \begin_inset Quotes eld
 \end_inset
 
@@ -304,29 +307,21 @@ Start-Stop Generator
 \begin_inset Quotes erd
 \end_inset
 
-, a module which is in charge of producing the Asynchronous Input signals.
+ module, in charge of producing the AsyncInput signals.
  It is a module developed by my Tutor, consisting of an internal Ring Oscillator
- that produces a periodic square wave; the asynchronous signal is directly
- sent at the START output, while at the STOP output is sent its delayed
- version, with a delay 
+ that produces a periodic square wave.
+ The produced square wave is directly sent at the START output, while at
+ the STOP output its delayed version is sent, with a delay equal to 
 \begin_inset Formula $t_{Delay}$
 \end_inset
 
 .
  This module is the one in charge of sending the random input signals, at
- the power-on of the system, needed to build the Calibration Table (CT)
- of the TDC; however, once the Calibration is completed, these signals can
- also be used as the 
-\begin_inset Quotes eld
-\end_inset
-
-real
-\begin_inset Quotes erd
-\end_inset
-
- input signals to be measured.
- In this work, a 3-channel TDC has been used, and the Start-Stop Generator
- feeds the channels as shown in Figure 
+ the power-on of the system, needed to build the CT of the TDC; however,
+ once the Calibration process is completed, these signals can also be used
+ as the “real” AsyncInput signals to be measured.
+ In this work, a 3-channel TDC has been implemented, and the Start-Stop
+ Generator is connected to the channels as shown in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Start-Stop-Generator-connection"
@@ -337,21 +332,20 @@ noprefix "false"
 \end_inset
 
 .
- As we can see, the STOP signal feeds both Channel 1 and Channel 2 and,
+ As we can see, the STOP signal feeds both Channel 1 and Channel 2, and,
  thanks to the routing on the FPGA, a delay 
 \begin_inset Formula $t_{Skew}$
 \end_inset
 
- is present at the input of these channels.
+ is present between them.
  The time distance between two rising-edges of the asynchronous input signals
- on Channel 1 and Channel 2 is what has been measured; therefore, the time
- information on 
+ on Channel 1 and Channel 2 (i.e., 
 \begin_inset Formula $t_{Skew}$
 \end_inset
 
- has been obtained.
- (Obviously, the same thing can be done either between Channel 0 and Channel
- 1, or between Channel 0 and Channel 2).
+) is the measured quantity.
+ Obviously, the same measurement process could be done either between Channel
+ 0 and Channel 1 or between Channel 0 and Channel 2.
 \end_layout
 
 \begin_layout Standard
@@ -421,26 +415,26 @@ The experiments that have been carried out are the following ones:
 \end_layout
 
 \begin_layout Itemize
-Verification of the benefits of Sub-Interpolation, in the case where the
- Virtual Tapped Delay-Line (V-TDL) is composed by CARRY-chains only: the
- Resolution (LSB), the single-shot precision (
-\begin_inset Formula $\sigma_{r.m.s.})$
+Verification of the benefits given by SuperWU Sub-Interpolation, in a V-TDL
+ is composed of CARRY-chains only: the Resolution (LSB), the single-shot
+ precision (
+\begin_inset Formula $\sigma_{r.m.s.}$
 \end_inset
 
- and the hardware utilization have been measured, in the two cases where
- the V-TDL is composed only by a single TDL and by 4 TDLs.
+), and the hardware utilization have been measured, in the two cases where
+ the V-TDL is composed of either a single TDL or 4 TDLs in parallel.
+ 
 \end_layout
 
 \begin_layout Itemize
-Study of the sub-interpolating capability with the introduction of the DSP-chain
-s in the V-TDL.
+Study of the sub-interpolating capability of the DSP-chains.
 \end_layout
 
 \begin_layout Itemize
-Inspection of the hardware utilization vs.
- the single-shot precision, in the two cases in which the 4 TDLs (maximum
- level of beneficial Sub-Interpolation) are composed just by CARRY-chains,
- or by a mix of DSP-chains and CARRY-chains.
+Inspection of hardware utilization vs.
+ single-shot precision, in the two cases where the 4 TDLs (i.e., the maximum
+ level of beneficial Sub-Interpolation) are composed of either CARRY-chains
+ only or a mix of DSP-chains and CARRY-chains.
 \end_layout
 
 \begin_layout Itemize
@@ -448,25 +442,24 @@ Linearity test of the TDC.
 \end_layout
 
 \begin_layout Standard
-Let's describe each experiment, one by one, and show the achieved experimental
- results.
+Let's describe each experiment and show the achieved experimental results.
 \end_layout
 
-\begin_layout Subsection
-Verification of the Super Wave Union Sub-Interpolation on the carry-based
+\begin_layout Subsubsection
+Verification of the Super Wave Union Sub-Interpolation on a CARRY-based
  V-TDL
 \end_layout
 
 \begin_layout Standard
 The first experiment consisted of comparing two different implementations
- of the Virtual Tapped Delay-Line, the first one without Sub-Interpolation
- (which means that one single physical TDL is used to carry out the fine
- measurement) and the second one with Sub-Interpolation, using 4 TDLs in
- parallel.
- Both these two implementations have been made by using just CARRY-chains,
+ of the V-TDL, the first one without Sub-Interpolation (i.e., one single physical
+ TDL is used to perform the Fine measurement) and the second one with Sub-Interp
+olation, using 4 TDLs in parallel.
+ Both these two implementations have been made by using CARRY-chains only,
  and no DSP-chains.
- In particular, a comparison between the Calibration Tables (CT) in the
- two cases has been made, as shown in Figure 
+ Firstly, a comparison between the Calibration Tables (CTs) in the two cases
+ has been made.
+ Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Comparison-of-the"
@@ -476,7 +469,7 @@ noprefix "false"
 
 \end_inset
 
-.
+ shows the obtained results.
 \end_layout
 
 \begin_layout Standard
@@ -538,9 +531,9 @@ name "fig:Comparison-of-the"
 \end_layout
 
 \begin_layout Standard
-As we can see, the latter case produces a four-times wider Calibration Table
- with respect to the former case, and it is due to the fact that SuperWU
- algorithm produces 
+As we can see, the second case produces a four-times wider CT than the first
+ one.
+ This is because the SuperWU algorithm produces 
 \begin_inset Formula $N_{V}$
 \end_inset
 
@@ -552,36 +545,65 @@ As we can see, the latter case produces a four-times wider Calibration Table
 \begin_inset Formula $N_{R}$
 \end_inset
 
- is the number of taps of the single, real, TDL (512 in our case), and 
+ is the number of taps of the single, 
+\begin_inset Quotes eld
+\end_inset
+
+real
+\begin_inset Quotes erd
+\end_inset
+
+, TDL (i.e., 512 in our case), and 
 \begin_inset Formula $N$
 \end_inset
 
- is the number of TDLs used in parallel (4 in our case).
- Therefore, 2048 virtual taps have been obtained in the case with Sub-Interpolat
-ion.
- However, the most relevant information provided by the Calibration Tables
- is the one involving the propagation delays of the taps composing the TDL.
- In fact, the virtual taps of the sub-interpolated TDL are overall faster
- than their real counterpart and, most of all, the 19-ps ultra-bin is lowered
- a lot during this process.
- This leads to a better single-shot precision in the time measurement between
+ is the number of TDLs placed in parallel (i.e., 4 in our case).
+ Therefore, 2048 
+\begin_inset Quotes eld
+\end_inset
+
+virtual
+\begin_inset Quotes erd
+\end_inset
+
+ taps have been obtained in the sub-interpolated case.
+ The most relevant information provided by the CT is the one describing
+ the propagation delays of the TDL's taps.
+ In fact, the 
+\begin_inset Quotes eld
+\end_inset
+
+virtual
+\begin_inset Quotes erd
+\end_inset
+
+ taps of the sub-interpolated TDL are overall faster than their 
+\begin_inset Quotes eld
+\end_inset
+
+real
+\begin_inset Quotes erd
+\end_inset
+
+ counterpart and, mostly, the 19-ps ultra-bin is lowered a lot in the process.
+ This leads to a better single-shot precision of the time measurement between
  Channel 1 and Channel 2.
  The information about the time measurement is contained in a histogram
  produced by the BeltBus_TDCHistogrammer module mentioned before, which
  is in charge of performing a set of repeated measurements of the time intervals
- elapsing between the events on the two channels; the x-axis represents
- the time difference, in picoseconds (ps), while the y-axis represents the
+ elapsing between the events on the two channels; the x-axis of the histogram
+ represents the time difference, in ps, while the y-axis represents the
  number of occurrences of that specific time measurement.
- Therefore, it's clear that, if a Gaussian curve is fitted on this histogram,
- we will consider as an highly-precise time measurement the one where this
- Gaussian curve is as narrow as possible, meaning that the spread (uncertainty)
- of the calculated time interval is very low.
- Thus, the Figure-of-Merit of the single-shot precision of the TDC will
- be the standard deviation (
+ Therefore, as explained in Paragraph 1.3.3, if a Gaussian curve is fitted
+ on this histogram, we will consider as a highly-precise time measurement
+ the one providing an as narrow as possible Gaussian curve, meaning that
+ the uncertainty of the measurement is low.
+ The standard deviation 
 \begin_inset Formula $\sigma_{r.m.s.}$
 \end_inset
 
-) of the fitted Gaussian curve on the histogram.
+ of the fitted Gaussian curve will be used as the FoM of the single-shot
+ precision of the TDC.
  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -592,12 +614,12 @@ noprefix "false"
 
 \end_inset
 
- shows the histograms representing the final time measurement between Channel
- 1 and 2, in the case without Sub-Interpolation (on the left) and with Sub-Inter
-polation, using 4 TDLs in parallel (on the right).
- As expected by the bin-splitting phenomenon given by the SuperWU algorithm,
- the latter case has a lower standard deviation and, therefore, a better
- single-shot precision.
+ shows the histograms representing the time measurement between Channel
+ 1 and 2, both in the case without Sub-Interpolation (on the left) and with
+ 4-th order Sub-Interpolation (on the right).
+ As expected, thanks to the bin-splitting phenomenon given by the SuperWU
+ algorithm, the latter case results in a lower standard deviation and, therefore
+, a better single-shot precision.
 \end_layout
 
 \begin_layout Standard
@@ -655,11 +677,11 @@ name "fig:Comparison-between-the"
 \end_layout
 
 \begin_layout Standard
-Also the resolution of the TDL is improved by a factor 
+The LSB of the TDL is also improved by a factor of 
 \begin_inset Formula $N=4$
 \end_inset
 
- thanks to the Sub-Interpolation, in fact:
+ thanks to the Sub-Interpolation, and it is equal to:
 \begin_inset Formula 
 \begin{equation}
 LSB=\frac{T_{CLK}}{N_{V}}=\frac{T_{CLK}}{N\cdot N_{R}}\label{eq:tdl_lsb}
@@ -671,9 +693,9 @@ LSB=\frac{T_{CLK}}{N_{V}}=\frac{T_{CLK}}{N\cdot N_{R}}\label{eq:tdl_lsb}
 \end_layout
 
 \begin_layout Standard
-Obviously, the benefits in terms of resolution and single-shot precision
- are paid with a greater utilization of hardware resources, resulting in
- a lower number of maximum implementable channels on the FPGA fabric.
+However, the benefits in terms of LSB and single-shot precision are paid
+ with greater utilization of hardware resources, resulting in a lower number
+ of maximum implementable channels on the FPGA fabric.
  Table 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -684,7 +706,7 @@ noprefix "false"
 
 \end_inset
 
- summarizes all the performances and the used hardware resources.
+ summarizes all the achieved performances and the used hardware resources.
 \end_layout
 
 \begin_layout Standard
@@ -977,8 +999,8 @@ up to 62
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Achievable performances of the carry-based TDC with and without Sub-Interpolatio
-n.
+Achievable performances of the CARRY-based TDC, with and without Sub-Interpolati
+on.
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:Achievable-performances-of"
@@ -1003,14 +1025,13 @@ name "tab:Achievable-performances-of"
 \end_layout
 
 \begin_layout Subsection
-Preliminary studies about the introduction of the DSP-chains in the Super
- Wave Union Sub-Interpolation
+Preliminary studies about the introduction of DSP-chains in the Super Wave
+ Union Sub-Interpolation
 \end_layout
 
 \begin_layout Standard
-Since, as we saw earlier, the DSP48E2 block is used in Dual 24-bit mode
- (meaning that its internal Arithmetic Logic Unit (ALU) works as two, 24-bit,
- sub-ALUs in parallel), from now on we will refer to it by calling 
+Since, as we said earlier, the DSP48E2 block is used in Dual 24-bit mode,
+ from now on we will refer to it by calling it 
 \begin_inset Quotes eld
 \end_inset
 
@@ -1018,8 +1039,8 @@ FULL-DSP
 \begin_inset Quotes erd
 \end_inset
 
- a DSP exploiting both its halves to generate both thermometric codes, while
- we will call 
+ if it exploits both its halves to generate two thermometric codes, while
+ we will call it 
 \begin_inset Quotes eld
 \end_inset
 
@@ -1027,37 +1048,31 @@ HALF-DSP
 \begin_inset Quotes erd
 \end_inset
 
- a DSP that produces just one thermometric code using just one of its halves.
- Obviously, from the hardware point of view, nothing changes, since in both
- cases they are just the same dedicated DSP blocks placed by Xilinx on the
- FPGA fabric; the difference is just related to the collection of the generated
- thermometric codes: a 
-\begin_inset Quotes eld
-\end_inset
-
-FULL-DSP
-\begin_inset Quotes erd
-\end_inset
-
- generates two thermometric codes at the output, both contributing to the
- Sub-Interpolation process in the Decoder module; a 
-\begin_inset Quotes eld
-\end_inset
-
-HALF-DSP
-\begin_inset Quotes erd
-\end_inset
-
- generates instead just one thermometric code, acting therefore as a case
- without any Sub-Interpolation.
+ if it produces just one thermometric code, provided by just one of its
+ halves.
+ Obviously, from the hardware point of view, nothing changes; in both cases,
+ it is just the same dedicated DSP block, placed by Xilinx on the FPGA fabric.
+ Their difference is related to the collection of the generated thermometric
+ codes only, since a “FULL-DSP” generates two thermometric codes at the
+ output, both contributing to the Sub-Interpolation process in the Decoder
+ module, while a “HALF-DSP” generates just one thermometric code, acting
+ therefore as a not sub-interpolated case.
  The reason to use the DSP-chain rather than the CARRY-chain is the already-ment
 ioned compactness of the architecture and, most of all, the saving of external
- flip-flops on the FPGA fabric, since the ones internal to the DSPs are
- used to sample the TDL.
+ FFs on the FPGA fabric, since the ones integrated inside the DSPs are used
+ to sample the TDL.
  This allows to implement a greater number of channels, which is a very
- useful feature in some applications.
- On the other hand, the drawback of the DSP-chain is the presence of huge
- ultra-bins.
+ useful feature in applications requiring the detection of a great number
+ of physical events.
+ However, the drawback of the DSP-chain is the presence of huge 
+\begin_inset Quotes eld
+\end_inset
+
+ultra-bins
+\begin_inset Quotes erd
+\end_inset
+
+.
  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1068,9 +1083,16 @@ noprefix "false"
 
 \end_inset
 
- shows that for a HALF-DSP-chain, the ultra-bins have a propagation delay
- of 270 ps, while in the FULL-DSP-chain they are around 200 ps, thanks to
- the Sub-Interpolation between the two halves.
+ shows that, for a HALF-DSP-chain, the 
+\begin_inset Quotes eld
+\end_inset
+
+ultra-bins
+\begin_inset Quotes erd
+\end_inset
+
+ have a propagation delay of 270 ps, while in the FULL-DSP-chain they are
+ around 200 ps, thanks to the Sub-Interpolation between the two halves.
  
 \end_layout
 
@@ -1142,9 +1164,19 @@ noprefix "false"
 
 \end_inset
 
-, both these two cases lead to a very bad single-shot precision of the time
- measurement if they are used without CARRY-chains in parallel.
- 
+, both the two cases depicted in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Calibration-Table-of-3"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ lead to a very bad single-shot precision of the time measurement.
+ This problem can be solved only by placing CARRY-chains in parallel to
+ the DSP-chains.
 \begin_inset Float figure
 wide false
 sideways false
@@ -1172,8 +1204,8 @@ status open
 
 \begin_layout Plain Layout
 Comparison between the single-shot precision extracted by the Histograms
- representing the time measurement, in the case of the HALF-DSP-chain (on
- the left) and of the FULL-DSP-chain (on the right).
+ representing the time measurement, in the case of a HALF-DSP-chain (on
+ the left) and of a FULL-DSP-chain (on the right).
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Comparison-between-the-1"
@@ -1198,19 +1230,30 @@ name "fig:Comparison-between-the-1"
 \end_layout
 
 \begin_layout Standard
-Since both these cases exploit the same hardware resources (i.e.
- the same DSP48E2 slices), and since there is a benefit on the ultra-bin
+Since both these cases exploit the same hardware resources (i.e., the same
+ DSP48E2 blocks), and, since there is a benefit on the 
+\begin_inset Quotes eld
+\end_inset
+
+ultra-bin
+\begin_inset Quotes erd
+\end_inset
+
  in the second case, there are no reasons not to always use the FULL-DSP-chain
  in practical contexts.
- This second experiment consisted in acquiring the Calibration Tables of
- the V-TDL and studying how much the Sub-Interpolation algorithm can be
- beneficial with the introduction of DSP-chains alongside the CARRY-chains.
- Being this just a preliminary study about the SuperWU effectiveness, a
- Sub-Interpolation of order 
+ 
+\end_layout
+
+\begin_layout Standard
+This second experiment consisted of acquiring the CT of the V-TDL and studying
+ how much the Sub-Interpolation algorithm can be beneficial with the introductio
+n of DSP-chains alongside the CARRY-chains.
+ In this preliminary study about the SuperWU effectiveness, a Sub-Interpolation
+ of order 
 \begin_inset Formula $N=2$
 \end_inset
 
- has been carried out.
+ has been implemented.
  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1221,17 +1264,9 @@ noprefix "false"
 
 \end_inset
 
- shows the three different combinations of 
-\begin_inset Quotes eld
-\end_inset
-
-real
-\begin_inset Quotes erd
-\end_inset
-
- TDLs that have been tested in this experiment: 2 CARRY-chains; 1 CARRY-chain
- + 1 HALF-DSP-chain; 1 FULL-DSP-chain (i.e.
- 2 HALF-DSP chains).
+ shows the three different combinations of TDLs tested in this experiment:
+ 2 CARRY-chains in parallel; 1 CARRY-chain + 1 HALF-DSP-chain in parallel;
+ 1 FULL-DSP-chain (i.e., 2 HALF-DSP chains in parallel).
 \end_layout
 
 \begin_layout Standard
@@ -1255,7 +1290,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Different SuperWU combinations tested in the experiment.
+SuperWU combinations tested in the experiment.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Different-combinations-of"
@@ -1280,7 +1315,7 @@ name "fig:Different-combinations-of"
 \end_layout
 
 \begin_layout Standard
-Based on the Super Wave Union theory 
+Based on the SuperWU operation 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Sub"
@@ -1288,20 +1323,18 @@ literal "false"
 
 \end_inset
 
-, in order to have an effective Sub-Interpolation (which means that is capable
- of splitting the ultra-bins and giving a V-TDL characterized by propagation
- delays of the virtual bins as homogeneous as possible), we would like to
- have the 2 Tapped Delay-Lines (TDLs) as different as possible.
+, to have an effective Sub-Interpolation (i.e., it is capable of splitting
+ the "ultra-bins" and providing "virtual bins" with as homogeneous as possible
+ propagation delays) we would like the two involved TDLs to be as different
+ as possible, concerning their taps' propagation delays.
  The degree of dissimilarity between the two TDLs has been calculated by
- performing the cross-correlation function between the Calibration Tables
- of each one of the two TDLs.
- In particular, the normalized cross-correlation has been calculated.
- The cross-correlation is a measure of similarity between two signals.
- By considering as 
+ performing the cross-correlation function between the CTs of each TDL.
+ The cross-correlation function is a measure of similarity between two signals.
+ By calling 
 \begin_inset Formula $CT_{1}$
 \end_inset
 
- the Calibration Table (composed by 
+ the CT (composed of 
 \begin_inset Formula $N_{CT1}$
 \end_inset
 
@@ -1309,7 +1342,7 @@ literal "false"
 \begin_inset Formula $CT_{2}$
 \end_inset
 
- (composed by 
+ (composed of 
 \begin_inset Formula $N_{CT2}$
 \end_inset
 
@@ -1321,7 +1354,7 @@ literal "false"
 \begin_inset Formula $CT_{2}^{*}$
 \end_inset
 
- their mean-free version, i.e:
+ their mean-free version, equal to:
 \begin_inset Formula 
 \begin{equation}
 CT_{1}^{*}[n]=CT_{1}[n]-mean(CT_{1})\ ,\ n=1,2,....,N_{CT1}\label{eq:mean_free1}
@@ -1344,7 +1377,7 @@ CT_{2}^{*}[n]=CT_{2}[n]-mean(CT_{2})\ ,\ n=1,2,....,N_{CT2}\label{eq:mean_free2}
 \end_layout
 
 \begin_layout Standard
-The results obtained in 
+The mean-free results of Equations 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:mean_free1"
@@ -1364,9 +1397,9 @@ noprefix "false"
 
 \end_inset
 
- are used in the cross-correlation function in order to avoid the ramp-like
- behavior of the final result.
- The normalized cross-correlation function has been calculated as follows:
+ are used in the cross-correlation function to avoid the ramp-like behavior
+ of the resulting plot.
+ Then, the cross-correlation function has been calculated as follows:
 \begin_inset Formula 
 \begin{equation}
 R_{CT_{1}^{*}CT_{2}^{*}}[k]=\sum_{m=-\infty}^{\infty}CT_{1}^{*}[m]\cdot CT_{2}^{*}[m+k]\label{eq:crosscorr}
@@ -1384,8 +1417,8 @@ where
 
  is the lag between the two signals, representing the shift of the second
  CT with respect to the first one, in number of bins.
- This cross-correlation has then been normalized, in order to be in the
- [-1;1] range, by using this relation:
+ Finally, the cross-correlation has been normalized in the [-1;1] range,
+ using this relation:
 \begin_inset Formula 
 \begin{equation}
 \rho_{CT_{1}^{*}CT_{2}^{*}}[k]=\frac{R_{CT_{1}^{*}CT_{2}^{*}}}{\sqrt{\sum_{m=-\infty}^{\infty}(CT_{1}^{*}[m])^{2}\cdot\sum_{m=-\infty}^{\infty}(CT_{2}^{*}[m])^{2}}}\label{eq:norm_crosscorr}
@@ -1397,8 +1430,18 @@ where
 \end_layout
 
 \begin_layout Standard
-Let's now show, for each one of the three cases, the resulting cross-correlation
-, and the resulting CT after the Sub-Interpolation.
+Let's now show, for each case reported in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Different-combinations-of"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, the normalized cross-correlation function and the resulting CTs after
+ Sub-Interpolation.
 \end_layout
 
 \begin_layout Subsubsection
@@ -1406,7 +1449,8 @@ Let's now show, for each one of the three cases, the resulting cross-correlation
 \end_layout
 
 \begin_layout Standard
-The obtained cross-correlation function is shown is Figure 
+The normalized cross-correlation function for two CARRY-chains placed in
+ parallel is shown in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Crosscorrelation-function-for"
@@ -1440,7 +1484,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Crosscorrelation function for the two CARRY-chains.
+Normalized cross-correlation function for the two CARRY-chains.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Crosscorrelation-function-for"
@@ -1461,8 +1505,8 @@ name "fig:Crosscorrelation-function-for"
 \end_layout
 
 \begin_layout Standard
-The maximum value of 0.3 proves that the CARRY-chains are quite dissimilar,
- thus giving an effective Sub-Interpolation.
+The maximum value, equal to 0.3, proves that the CARRY-chains are quite dissimila
+r, thus giving an effective Sub-Interpolation.
  In Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1473,9 +1517,9 @@ noprefix "false"
 
 \end_inset
 
- we can see that the CT of the V-TDL in this case is quite flat, meaning
- that the propagation delays along the bins are homogeneous, and the SuperWU
- algorithm has been effective.
+ we can see that the CT of the resulting V-TDL is quite flat, meaning that
+ the propagation delays along the bins are homogeneous and the SuperWU algorithm
+ was effective.
 \end_layout
 
 \begin_layout Standard
@@ -1500,7 +1544,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Calibration Table of a V-TDL composed by two CARRY-chains.
+Calibration Table of a V-TDL composed of two CARRY-chains.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Calibration-Table-of"
@@ -1529,8 +1573,8 @@ name "fig:Calibration-Table-of"
 \end_layout
 
 \begin_layout Standard
-The obtained cross-correlation function in this case is reported in Figure
- 
+The resulting normalized cross-correlation function for a CARRY-chain placed
+ in parallel to a HALF-DSP-chain is reported in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Crosscorrelation-function-for-1"
@@ -1564,7 +1608,8 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Crosscorrelation function for the CARRY-chain and the HALF-DSP-chain.
+Normalized cross-correlation function for the CARRY-chain in parallel to
+ the HALF-DSP-chain.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Crosscorrelation-function-for-1"
@@ -1589,11 +1634,18 @@ name "fig:Crosscorrelation-function-for-1"
 \end_layout
 
 \begin_layout Standard
-The maximum value is 0.2, which is comparable with the previous case.
- Therefore, the Sub-Interpolation is very effective also here but, since
- the ultra-bins of the HALF-DSP chain are very huge, in the order of 270
- ps, the resulting Calibration Table will not be as flat as the previous
- case, as we can see in Figure 
+The maximum value is equal to 0.2, which is comparable to the previous case.
+ Therefore, the Sub-Interpolation is still very effective; however, since
+ the 
+\begin_inset Quotes eld
+\end_inset
+
+ultra-bins
+\begin_inset Quotes erd
+\end_inset
+
+ of the HALF-DSP-chain are huge, in the order of 270 ps, the resulting CT
+ will not be as flat as in the previous case, as we can see in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Calibration-Table-of-1"
@@ -1604,9 +1656,16 @@ noprefix "false"
 \end_inset
 
 .
- Anyway, the great effectiveness of the Sub-Interpolation can be seen by
- the fact that the ultra-bin is now just 18 ps rather than the original
- 270 ps.
+ Despite this, the Sub-Interpolation's effectiveness can be seen by the
+ fact that the 
+\begin_inset Quotes eld
+\end_inset
+
+ultra-bin
+\begin_inset Quotes erd
+\end_inset
+
+ is now just 18 ps, rather than the original 270 ps.
 \end_layout
 
 \begin_layout Standard
@@ -1630,7 +1689,8 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Calibration Table of a V-TDL composed by a CARRY-chain and an HALF-DSP-chain.
+Calibration Table of a V-TDL composed of a CARRY-chain in parallel to a
+ HALF-DSP-chain.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Calibration-Table-of-1"
@@ -1669,7 +1729,7 @@ noprefix "false"
 
 \end_inset
 
- shows the cross-correlation achieved in this last case.
+ shows the normalized cross-correlation for two HALF-DSP-chains in parallel.
 \end_layout
 
 \begin_layout Standard
@@ -1693,7 +1753,8 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Crosscorrelation function for the two half-chains composing the FULL-DSP-chain.
+Normalized cross-correlation function for the two half-chains composing
+ the FULL-DSP-chain.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Crosscorrelation-function-for-2"
@@ -1714,11 +1775,11 @@ name "fig:Crosscorrelation-function-for-2"
 \end_layout
 
 \begin_layout Standard
-We can see that the maximum value is 1, and there are also other peaks being
- quite high.
- This means that two HALF-DSP-chains are often very similar, and the SuperWU
- algorithm is not so effective in this case.
- This is also proved by the resulting CT of the V-TDL, shown in Figure 
+We can see that the maximum value is equal to 1, and other high peaks are
+ also present.
+ This means that two HALF-DSP-chains are usually very similar, and the SuperWU
+ algorithm is not effective in this case.
+ Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Calibration-Table-of-2"
@@ -1728,7 +1789,7 @@ noprefix "false"
 
 \end_inset
 
-.
+ shows the CT of the resulting V-TDL.
 \end_layout
 
 \begin_layout Standard
@@ -1753,7 +1814,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Calibration Table of a V-TDL composed by two HALF-DSP-chain.
+Calibration Table of a V-TDL composed of two HALF-DSP-chain.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Calibration-Table-of-2"
@@ -1778,16 +1839,15 @@ name "fig:Calibration-Table-of-2"
 \end_layout
 
 \begin_layout Standard
-Anyway, as said before, achieving an ultra-bin which is 70 ps faster, using
- the exact same hardware resources of the HALF-DSP-chain, leads to the obvious
+Anyway, as said before, achieving a 70 ps-faster "ultra-bin", using the
+ exact same hardware resources of a HALF-DSP-chain, leads to the obvious
  choice of always using the FULL-DSP-chain.
- This improvement on the ultra-bin will be significant for the single-shot
- precision when combined with other CARRY-chains.
 \end_layout
 
 \begin_layout Subsection
 Study of the trade-off between single-shot precision and hardware utilization
- in a fully-CARRY-based V-TDL and in a mixed-CARRY-DSP V-TDL 
+ in a fully-CARRY-based V-TDL vs.
+ a mixed-CARRY-DSP V-TDL 
 \end_layout
 
 \begin_layout Standard
@@ -1801,11 +1861,9 @@ noprefix "false"
 
 \end_inset
 
-, characterized by the maximum Sub-Interpolation order (i.e.
- 4 in this thesis work) have been compared, highlighting the trade-off existing
- between resolution and single-shot precision vs.
- the hardware utilization and power consumption.
- 
+, characterized by the maximum Sub-Interpolation order (i.e., 4 in this thesis
+ work), have been compared, highlighting the trade-off existing between
+ single-shot precision and hardware utilization.
 \begin_inset Float figure
 wide false
 sideways false
@@ -1863,7 +1921,8 @@ noprefix "false"
 
 \end_inset
 
- and Figure 
+ shows the comparison of the resulting CTs for the two implementations,
+ while Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Histograms-representing-the"
@@ -1873,8 +1932,7 @@ noprefix "false"
 
 \end_inset
 
- show respectively the acquired Calibration Tables and the acquired histograms
- for both implementations.
+ shows the comparison of the acquired histograms.
 \end_layout
 
 \begin_layout Standard
@@ -1909,8 +1967,8 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Calibration Table of a V-TDL composed by 4 CARRY-chains (at the top) and
- by 2 CARRY-chains + 1 FULL-DSP-chain (at the bottom).
+Calibration Table of a V-TDL composed of 4 CARRY-chains (at the top) and
+ of 2 CARRY-chains + 1 FULL-DSP-chain (at the bottom).
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Calibration-Table-of-4"
@@ -1962,7 +2020,7 @@ status open
 
 \begin_layout Plain Layout
 Histograms representing the time measurement in the case of of a V-TDL composed
- by 4 CARRY-chains (on the left) and by 2 CARRY-chains + 1 FULL-DSP-chain
+ of 4 CARRY-chains (on the left) and of 2 CARRY-chains + 1 FULL-DSP-chain
  (on the right).
 \begin_inset CommandInset label
 LatexCommand label
@@ -1994,8 +2052,8 @@ noprefix "false"
 
 \end_inset
 
- are characterized by quite fast bins, but the one belonging to the implementati
-on with 4 CARRY-chains in parallel has overall faster bins and is more flat.
+ are characterized by quite fast bins; however, the one belonging to the
+ first implementation has overall faster bins and is flatter.
  As shown in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2006,12 +2064,11 @@ noprefix "false"
 
 \end_inset
 
-, this allows obtaining a better single-shot precision of the time measurement
- with respect to the implementation using 2 CARRY-chains + 1 FULL-DSP-chain
- in parallel.
+, this allows the achievement of a better single-shot precision of the time
+ measurement rather than the second implementation.
  Anyhow, the second implementation has as strength points the lower power
- consumption and the more relaxed hardware utilization, which allows to
- implement more TDC-channels on the FPGA fabric.
+ consumption and the more relaxed hardware utilization, which makes it possible
+ to have a greater number of TDC-channels on the FPGA fabric.
  Table 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2331,9 +2388,9 @@ Power Consumption
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Performances and hardware usage of a V-TDL composed by 4 CARRY-chains in
- parallel (first implementation) and of a V-TDL composed by 2 CARRY-chains
- + 1 FULL-DSP-chain in parallel (second implementation).
+Performances and hardware usage of a V-TDL composed of 4 CARRY-chains in
+ parallel (first implementation) and of 2 CARRY-chains + 1 FULL-DSP-chain
+ in parallel (second implementation).
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:Performances-and-hardware"
@@ -2358,48 +2415,45 @@ name "tab:Performances-and-hardware"
 \end_layout
 
 \begin_layout Standard
-In conclusion, the two implementations studied in this experiment showed
- that each one of them has its strengths: the one with a fully-CARRY-based
- V-TDL has a single-shot precision in the order of 3 ps, thus being the
- most suitable for those applications that require very high precision in
- the time measurement most than everything else; the one with a mixed-CARRY-DSP-
-based V-TDL, instead, saves a lot of flip-flop resources and power, and
- it is more suitable in those applications that require the capability to
- measure a greater number of physical events, thanks to possibility of having
- more channels.
+In conclusion, each implementation studied in this experiment showed its
+ strengths: the one with a fully-CARRY-based V-TDL has a single-shot precision
+ in the order of 3 ps, thus being the most suitable choice for those application
+s requiring very high precision in the time measurement; conversely, the
+ one with a mixed-CARRY-DSP-based V-TDL saves a lot of FFs resources and
+ power, and is more suitable for those applications requiring a higher number
+ of channels to detect a higher number of physical events.
 \end_layout
 
 \begin_layout Subsection
-Linearity of the Time-to-Digital Converter (TDC)
+Linearity of the Time-to-Digital Converter
 \end_layout
 
 \begin_layout Standard
-The scope of this last experiment is to measure how much the entire TDC
- is linear.
+This last experiment aimed at measuring the non-linear behavior of the TDC.
  To quantify the linearity of the system, a Code-Density Test (CDT) has
- been performed using the BeltBus_TDCHistogrammer module, by measuring equally
+ been performed with the BeltBus_TDCHistogrammer module, by measuring equally
  distributed time intervals.
  In particular, by defining as 
 \begin_inset Formula $LSB_{histo}$
 \end_inset
 
- the width of each bin of the histogram, increasingly greater time intervals,
- of a quantity equal to 
+ the width of each histogram's bin, increasingly greater time intervals
+ (of a quantity equal to 
 \begin_inset Formula $LSB_{histo}$
 \end_inset
 
-, have been measured, thus covering the entire measurement range 
+) have been measured, covering the entire measurement range 
 \begin_inset Formula $FSR_{histo}$
 \end_inset
 
 .
- In a perfectly ideal (free from non-linearities) TDC, since the time intervals
- have a homogeneous distribution, the obtained histogram should be completely
- flat, meaning that every time interval would have the same probability
- of being measured over the entire range.
- In reality, this is not the case, since there are relevant sources of non-linea
-rity in the system, the first one being the Tapped-Delay Line itself, which
- is not optimized on the FPGA, and the second being Cross-Talk (XT) 
+ In a perfectly ideal, free from non-linearities, TDC, the resulting histogram
+ should be completely flat, meaning that every equally distributed time
+ interval would have the same probability of being measured over the entire
+ range.
+ However, this is not the case, since there are relevant sources of non-linearit
+y in the system, the first one being the TDL itself, which is not optimized
+ on the FPGA, and the second being Cross-Talk (XT) 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "9539161"
@@ -2408,15 +2462,34 @@ literal "false"
 \end_inset
 
 .
- The latter is a phenomenon of electromagnetic interference that can corrupt
- the physical signal to be measured, thus giving a wrong time measurement.
+ XT is a phenomenon of electromagnetic interference that can corrupt the
+ physical signal to be measured, thus giving a wrong time measurement.
  The higher the operating frequency and the density of the components in
  the system, the more critical this phenomenon will be.
- Therefore, by measuring the deviation of the histogram from his ideal,
- flat behavior, the information about the system's linearity has been retrieved.
- This deviation of the histogram values from its average value is called
- Differential Non-Linearity (DNL), while the integration of the DNL is called
- Integral Non-Linearity (INL).
+ 
+\end_layout
+
+\begin_layout Standard
+By measuring the 
+\begin_inset Quotes eld
+\end_inset
+
+deviation
+\begin_inset Quotes erd
+\end_inset
+
+ of the histogram from his ideal, flat, behavior, the information about
+ the system's non-linearity can be retrieved.
+ This 
+\begin_inset Quotes eld
+\end_inset
+
+deviation
+\begin_inset Quotes erd
+\end_inset
+
+ is nothing but the DNL, already presented in Paragraph 1.3.4, while the integrati
+on of the latter is the INL.
  
 \end_layout
 
@@ -2450,8 +2523,8 @@ By denoting as
 \begin_inset Formula $n\in[0;N_{bins}-1])$
 \end_inset
 
- the height of the bins, representing the number of events hitting that
- specific bin, the following relation holds:
+ the height of each bin, representing the number of events falling on it,
+ we have the following relation:
 \begin_inset Formula 
 \begin{equation}
 N_{SAMPLE}=\sum_{n=0}^{N_{bins}-1}h_{CD}[n]\label{eq:histo_sample}
@@ -2506,7 +2579,7 @@ dnl_{Abs}[n]=dnl_{Rel}[n]\cdot LSB_{histo}\label{eq:dnl_abs}
 \end_layout
 
 \begin_layout Standard
-Once the results in 
+Once the results in Equations 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:dnl_rel"
@@ -2526,7 +2599,7 @@ noprefix "false"
 
 \end_inset
 
- have been calculated, the INL can be calculated by simply integrating the
+ have been calculated, the INL can be retrieved by simply integrating the
  DNL curves:
 \begin_inset Formula 
 \begin{equation}
@@ -2554,16 +2627,17 @@ Experimental Setup
 \end_layout
 
 \begin_layout Standard
-To generate time intervals uniformly distributed along the entire 
+To generate a set of time intervals uniformly distributed along the entire
+ 
 \begin_inset Formula $FSR_{histo}$
 \end_inset
 
 , two uncorrelated signal generators have been used, working at different
  frequencies.
- Once the Start-Stop Generator module provides all the samples needed to
- perform the Calibration of the Tapped Delay-Line (TDL), the two external
- signal generators are used to provide the physical events to Channel 1
- and Channel 2 of the TDC.
+ Once the Start-Stop Generator module has provided all the samples needed
+ to perform the Calibration of the TDL, the two external signal generators
+ have been used to provide the physical events to Channel 1 and Channel
+ 2 of the TDC.
  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2574,8 +2648,8 @@ noprefix "false"
 
 \end_inset
 
- shows the experimental setup that has been used, where we can see that
- an Agilent 33120A Arbitrary Waveform Generator 
+ shows the used experimental setup, where we can see that an Agilent 33120A
+ Arbitrary Waveform Generator 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "AGILENT"
@@ -2655,13 +2729,13 @@ The signal on channel 1 is a square wave with a frequency
 \begin_inset Formula $T_{1}=999.984\ ns$
 \end_inset
 
- for the signal on channel 1, and in a period 
+ for the signal on channel 1, and a period 
 \begin_inset Formula $T_{2}=999.986\ ns$
 \end_inset
 
  for the signal on channel 2.
  Therefore, a uniform distribution of time intervals have been generated,
- where:
+ since:
 \begin_inset Formula 
 \begin{equation}
 T_{1}=FSR\label{eq:fsr_exp4}
@@ -2702,7 +2776,7 @@ noprefix "false"
 
 \end_inset
 
- graphically shows the generated signals.
+ graphically shows the signals provided by the Waveform Generators.
 \end_layout
 
 \begin_layout Standard
@@ -2726,7 +2800,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Time intervals obtained from the two signals at 
+Equally distributed time intervals obtained from the two signals at 
 \begin_inset Formula $f_{1}$
 \end_inset
 
@@ -2759,8 +2833,8 @@ name "fig:Time-intervals-obtained"
 \end_layout
 
 \begin_layout Standard
-Therefore, to otbain the measurement of the DNL and the INL of the TDC,
- an histogram with 
+To obtain the measurement of the DNL and the INL of the TDC, a histogram
+ with 
 \begin_inset Formula $LSB_{histo}=LSB=2\ ps$
 \end_inset
 
@@ -2768,17 +2842,16 @@ Therefore, to otbain the measurement of the DNL and the INL of the TDC,
 \begin_inset Formula $FSR_{histo}\leq FSR=999.984\ ns$
 \end_inset
 
- (in order to cover the entire measurement range) has been plotted.
- In this thesis work, an 
+ (in order to cover the entire measurement range) has been acquired.
+ In this experiment, a 
 \begin_inset Formula $FSR_{histo}=16\ ns$
 \end_inset
 
- has been chosen for simplicity, and a total number of measurements equal
- to 
+ and a total number of measurements equal to 
 \begin_inset Formula $N_{SAMPLE}=10^{7}$
 \end_inset
 
- has been performed.
+ have been chosen.
  
 \end_layout
 
@@ -2795,7 +2868,8 @@ The
 \begin_inset Formula $inl_{Abs}[n]$
 \end_inset
 
- have been measured on four different TDL architectures.
+ have been measured in four different cases, involving four different V-TDL
+ implementations.
  Figures 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2826,7 +2900,7 @@ noprefix "false"
 
 \end_inset
 
-, 
+, and 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Absolute-DNL-(on-3"
@@ -2836,9 +2910,9 @@ noprefix "false"
 
 \end_inset
 
- show the DNL and the INL for, respectively: a TDL composed by 1 CARRY-chain;
- a V-TDL composed by 1 FULL-DSP-chain; a V-TDL composed by 4 CARRY-chains
- in parallel; a V-TDL composed by 2 CARRY-chains + 1 FULL-DSP-chain in parallel.
+ show the DNL and the INL for, respectively: a TDL composed of 1 CARRY-chain;
+ a V-TDL composed of 1 FULL-DSP-chain; a V-TDL composed of 4 CARRY-chains
+ in parallel; a V-TDL composed of 2 CARRY-chains + 1 FULL-DSP-chain in parallel.
 \end_layout
 
 \begin_layout Standard
@@ -2870,7 +2944,7 @@ status open
 
 \begin_layout Plain Layout
 Absolute DNL (on the left) and INL (on the right) for a TDC with a TDL composed
- by 1 CARRY-chain.
+ of 1 CARRY-chain.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Absolute-DNL-(on"
@@ -2918,7 +2992,7 @@ status open
 
 \begin_layout Plain Layout
 Absolute DNL (on the left) and INL (on the right) for a TDC with a V-TDL
- composed by 1 FULL-DSP-chain.
+ composed of 1 FULL-DSP-chain.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Absolute-DNL-(on-1"
@@ -2967,7 +3041,7 @@ status open
 
 \begin_layout Plain Layout
 Absolute DNL (on the left) and INL (on the right) for a TDC with a V-TDL
- composed by 4 CARRY-chains.
+ composed of 4 CARRY-chains.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Absolute-DNL-(on-2"
@@ -3016,7 +3090,7 @@ status open
 
 \begin_layout Plain Layout
 Absolute DNL (on the left) and INL (on the right) for a TDC with a V-TDL
- composed by 2 CARRY-chains + 1 FULL-DSP-chain.
+ composed of 2 CARRY-chains + 1 FULL-DSP-chain.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Absolute-DNL-(on-3"
@@ -3041,11 +3115,11 @@ By calling
 \begin_inset Formula $DNL_{Abs}$
 \end_inset
 
- the maximum value of 
+ the maximum value of the modulus of 
 \begin_inset Formula $dnl_{Abs}[n]$
 \end_inset
 
- in modulus, what we can conclude from the obtained results is:
+, we can conclude that:
 \end_layout
 
 \begin_layout Itemize
@@ -3054,13 +3128,21 @@ The TDC with 1 FULL-DSP-chain has the worst non-linearity (i.e.
 \begin_inset Formula $DNL_{Abs}=23\ ps$
 \end_inset
 
-), due to its huge ultra-bins.
+), due to its huge 
+\begin_inset Quotes eld
+\end_inset
+
+ultra-bins
+\begin_inset Quotes erd
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Itemize
-The SuperWU Sub-Interpolation algorithm on the Tapped Delay-Line improves
- the overall linearity of the TDC, as we can see by comparing the TDC based
- on 1 CARRY-chain (i.e.
+The SuperWU Sub-Interpolation algorithm on the TDL improves the overall
+ linearity of the TDC, as we can see by comparing the TDC based on 1 CARRY-chain
+ (i.e.
  
 \begin_inset Formula $DNL_{Abs}=0.82\ ps$
 \end_inset
@@ -3074,14 +3156,14 @@ The SuperWU Sub-Interpolation algorithm on the Tapped Delay-Line improves
 \end_layout
 
 \begin_layout Itemize
-The TDC with 4 CARRY-chains in parallel is characterized by the most linear
+The TDC using 4 CARRY-chains in parallel is characterized by the most linear
  behavior (i.e.
  
 \begin_inset Formula $DNL_{Abs}=0.22\ ps$
 \end_inset
 
-), followed by the one composed of 2 CARRY-chains + 1 FULL-DSP-chain in
- parallel, which has a slightly worse linearity (i.e.
+), followed by the one using 2 CARRY-chains + 1 FULL-DSP-chain in parallel,
+ which has slightly worse linearity (i.e.
  
 \begin_inset Formula $DNL_{Abs}=0.3\ ps$
 \end_inset
