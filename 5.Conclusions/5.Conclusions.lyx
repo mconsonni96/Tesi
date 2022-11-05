@@ -139,5 +139,68 @@
 Conclusions
 \end_layout
 
+\begin_layout Standard
+To cope with the increasing demand for performant Time Interval Meters (TIMs)
+ in time-resolved experiments, more and more performances such as resolution,
+ single-shot precision, and multi-hit detection are required for these kinds
+ of instruments.
+ In this thesis work, a high-resolution Time-to-Digital Converter (TDC)
+ Intellectual Property Core (IP-Core) for Field Programmable Gate Arrays
+ (FPGAs) has been implemented.
+ Thanks to the user-friendly IP-Core's Graphical User Interface (GUI), high
+ portability and tunability are guaranteed.
+ The GUI allows the user to set the TDC's parameters as FSR, resolution
+ (LSB), and the number of channels in the instantiation stage; besides,
+ portability on different FPGA systems is allowed thanks to a simple drag-and-dr
+op action on the IP-Core.
+ The system is also compatible with different FPGA technology nodes, thus
+ further increasing its portability, and exploiting more scaled and performant
+ technologies.
+ By simply choosing an option from the GUI, the user can implement the TDC
+ either on Xilinx 7-Series technology (X7S) or on Xilinx Ultrascale/Ultrascale+
+ (XUS/XUS+) technology, the latter pushing even more the TDC's performances
+ thanks to the scaling.
+ Two different TDCs have been implemented, both using the Super Wave Union
+ (SuperWU) Sub-Interpolation algorithm with four Tapped Delay-Lines (TDLs)
+ to improve the LSB and the single-shot precision of the TDC.
+ The first implementation consists of a V-TDL made with 4 CARRY-chains in
+ parallel, the second of a V-TDL resulting from 2 CARRY-chains + 1 FULL-DSP-chai
+ns in parallel.
+ Both implementations have been tested on Xilinx's KCU105 Evaluation Board,
+ hosting a Kintex-UltraScale™ FPGA (xcku040-ffva1156-2-e).
+ The following experimental results have been obtained:
+\end_layout
+
+\begin_layout Itemize
+an LSB of 0.98 ps has been achieved for both implementations, along with
+ a FSR of some days;
+\end_layout
+
+\begin_layout Itemize
+a higher clock frequency, equal to 500 MHz, has been reached in both implementat
+ions thanks to the improved scaling of the XUS technology, allowing it to
+ lower the Dead-Time and improve the multi-hit capability of the TDC;
+\end_layout
+
+\begin_layout Itemize
+a better single-shot precision has been achieved on the first implementation
+ (i.e., 2.8 ps) than on the second one (i.e., 3.8 ps), making the former more
+ suitable for those applications requiring very high precision;
+\end_layout
+
+\begin_layout Itemize
+lower power consumption and hardware occupancy have been achieved on the
+ second implementation than in the first, allowing the former to have a
+ greater number of channels.
+ It is thus more suitable for those applications requiring a higher number
+ of physical events to be detected;
+\end_layout
+
+\begin_layout Itemize
+both implementations have negligible non-linearity since the DNLs are equal
+ to 0.22 ps and 0.3 ps for the first and the second implementation, respectively.
+ 
+\end_layout
+
 \end_body
 \end_document

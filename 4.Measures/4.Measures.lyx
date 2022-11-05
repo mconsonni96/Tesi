@@ -3115,17 +3115,29 @@ By calling
 \begin_inset Formula $DNL_{Abs}$
 \end_inset
 
+ and 
+\begin_inset Formula $INL_{Abs}$
+\end_inset
+
  the maximum value of the modulus of 
 \begin_inset Formula $dnl_{Abs}[n]$
 \end_inset
 
-, we can conclude that:
+ and 
+\begin_inset Formula $inl_{Abs}[n]$
+\end_inset
+
+ respectively, we can conclude that:
 \end_layout
 
 \begin_layout Itemize
 The TDC with 1 FULL-DSP-chain has the worst non-linearity (i.e.
  
 \begin_inset Formula $DNL_{Abs}=23\ ps$
+\end_inset
+
+, 
+\begin_inset Formula $INL_{Abs}=65\ ps$
 \end_inset
 
 ), due to its huge 
@@ -3147,9 +3159,17 @@ The SuperWU Sub-Interpolation algorithm on the TDL improves the overall
 \begin_inset Formula $DNL_{Abs}=0.82\ ps$
 \end_inset
 
+, 
+\begin_inset Formula $INL_{Abs}=8\ ps$
+\end_inset
+
 ) and the one with 4 CARRY-chains in parallel (i.e.
  
 \begin_inset Formula $DNL_{Abs}=0.22\ ps$
+\end_inset
+
+, 
+\begin_inset Formula $INL_{Abs}=5.8\ ps$
 \end_inset
 
 ).
@@ -3162,10 +3182,18 @@ The TDC using 4 CARRY-chains in parallel is characterized by the most linear
 \begin_inset Formula $DNL_{Abs}=0.22\ ps$
 \end_inset
 
+, 
+\begin_inset Formula $INL_{Abs}=5.8\ ps$
+\end_inset
+
 ), followed by the one using 2 CARRY-chains + 1 FULL-DSP-chain in parallel,
  which has slightly worse linearity (i.e.
  
 \begin_inset Formula $DNL_{Abs}=0.3\ ps$
+\end_inset
+
+, 
+\begin_inset Formula $INL_{Abs}=12\ ps$
 \end_inset
 
 ).

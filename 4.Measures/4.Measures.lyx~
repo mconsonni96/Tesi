@@ -3156,14 +3156,14 @@ The SuperWU Sub-Interpolation algorithm on the TDL improves the overall
 \end_layout
 
 \begin_layout Itemize
-The TDC with 4 CARRY-chains in parallel is characterized by the most linear
+The TDC using 4 CARRY-chains in parallel is characterized by the most linear
  behavior (i.e.
  
 \begin_inset Formula $DNL_{Abs}=0.22\ ps$
 \end_inset
 
-), followed by the one composed of 2 CARRY-chains + 1 FULL-DSP-chain in
- parallel, which has slightly worse linearity (i.e.
+), followed by the one using 2 CARRY-chains + 1 FULL-DSP-chain in parallel,
+ which has slightly worse linearity (i.e.
  
 \begin_inset Formula $DNL_{Abs}=0.3\ ps$
 \end_inset
