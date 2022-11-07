@@ -2240,8 +2240,8 @@ Since this module hasn't been modified in this thesis work, its older version
  will be described in the following.
  The only difference is that, thanks to the migration to the XUS technology
  node, the operating frequency of this module has been pushed from 400 MHz
- to 500 MHz as the V-TDL, thus lowering the Dead-Time and increasing the
- multi-hit capability of the system.
+ to 500 MHz as the V-TDL, thus lowering the Dead-Time (i.e., 2 ns) and increasing
+ the multi-hit capability of the system.
 \end_layout
 
 \begin_layout Standard
@@ -3613,18 +3613,17 @@ name "fig:Data-structure-(at"
 \end_layout
 
 \begin_layout Standard
-It's clear that, since the FID='0' output transaction (i.e., 
+It's clear that, since the update of 
 \shape italic
 Overflow_cnt
 \shape default
- is incremented by one) happens only when 
+ only happens when 
 \shape italic
 AuxiliaryCounter
 \shape default
- overflows, there are way less output transactions than the FID='0' input
- ones.
- The channel saturation problem is thus solved, along with the old timing
- errors coming from the CEC.
+ overflows, there are fewer FID='0' output transactions than the input ones.
+ The channel saturation problem is thus solved, along with the timing errors
+ the CEC had.
  In the OC implemented in this thesis work, 
 \shape italic
 BIT_COARSE_CEC

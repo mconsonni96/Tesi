@@ -718,7 +718,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="9" columns="3">
+<lyxtabular version="3" rows="10" columns="3">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -916,6 +916,35 @@ Max.
 
 \begin_layout Plain Layout
 200 MHz
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Dead-Time
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2 ns
 \end_layout
 
 \end_inset
@@ -3115,17 +3144,29 @@ By calling
 \begin_inset Formula $DNL_{Abs}$
 \end_inset
 
+ and 
+\begin_inset Formula $INL_{Abs}$
+\end_inset
+
  the maximum value of the modulus of 
 \begin_inset Formula $dnl_{Abs}[n]$
 \end_inset
 
-, we can conclude that:
+ and 
+\begin_inset Formula $inl_{Abs}[n]$
+\end_inset
+
+ respectively, we can conclude that:
 \end_layout
 
 \begin_layout Itemize
 The TDC with 1 FULL-DSP-chain has the worst non-linearity (i.e.
  
 \begin_inset Formula $DNL_{Abs}=23\ ps$
+\end_inset
+
+, 
+\begin_inset Formula $INL_{Abs}=65\ ps$
 \end_inset
 
 ), due to its huge 
@@ -3147,9 +3188,17 @@ The SuperWU Sub-Interpolation algorithm on the TDL improves the overall
 \begin_inset Formula $DNL_{Abs}=0.82\ ps$
 \end_inset
 
+, 
+\begin_inset Formula $INL_{Abs}=8\ ps$
+\end_inset
+
 ) and the one with 4 CARRY-chains in parallel (i.e.
  
 \begin_inset Formula $DNL_{Abs}=0.22\ ps$
+\end_inset
+
+, 
+\begin_inset Formula $INL_{Abs}=5.8\ ps$
 \end_inset
 
 ).
@@ -3162,10 +3211,18 @@ The TDC using 4 CARRY-chains in parallel is characterized by the most linear
 \begin_inset Formula $DNL_{Abs}=0.22\ ps$
 \end_inset
 
+, 
+\begin_inset Formula $INL_{Abs}=5.8\ ps$
+\end_inset
+
 ), followed by the one using 2 CARRY-chains + 1 FULL-DSP-chain in parallel,
  which has slightly worse linearity (i.e.
  
 \begin_inset Formula $DNL_{Abs}=0.3\ ps$
+\end_inset
+
+, 
+\begin_inset Formula $INL_{Abs}=12\ ps$
 \end_inset
 
 ).
