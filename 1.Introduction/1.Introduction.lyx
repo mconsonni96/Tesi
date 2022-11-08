@@ -256,16 +256,16 @@ Introduction
 
 \begin_layout Standard
 
-\change_inserted 1469408620 1666883672
-With respect to the scientific research field, recent years have been characteri
-zed by continuous growth in the study of temporal evolution in chemical-physical
+\change_inserted 1469408620 1667908046
+Concerning the scientific research field, recent years have been characterized
+ by continuous growth in the study of temporal evolution in chemical-physical
  phenomena; this has led to the need of employing high-performance instruments
  called Time Interval Meters (TIMs), with the task of measuring very small
  time intervals, with increasing precision and resolution.
  Nowadays, the events under study in these applications are characterized
  by a very high repetition rate and by a temporal resolution in the order
  of the picoseconds.
- Therefore, the TIM has to have features such as a resolution and a measurement
+ Therefore, the TIM has to have features such as a resolution and measurement
  precision in the picoseconds order and a sampling rate of hundreds of megahertz
  (MHz), to correctly process and measure the physical events detected on
  the sensor front-end of the acquisition chain.
@@ -5532,7 +5532,7 @@ N.A.
 
 \begin_layout Plain Layout
 
-\change_inserted 1469408620 1667835976
+\change_inserted 1469408620 1667917535
 Comparison of different TDC solutions.
 \begin_inset CommandInset label
 LatexCommand label
