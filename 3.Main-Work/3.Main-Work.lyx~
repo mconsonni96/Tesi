@@ -2240,8 +2240,11 @@ Since this module hasn't been modified in this thesis work, its older version
  will be described in the following.
  The only difference is that, thanks to the migration to the XUS technology
  node, the operating frequency of this module has been pushed from 400 MHz
- to 500 MHz as the V-TDL, thus lowering the Dead-Time (i.e., 2 ns) and increasing
- the multi-hit capability of the system.
+ to 500 MHz as the V-TDL, thus lowering the Dead-Time (i.e., 
+\begin_inset Formula $2\ ns$
+\end_inset
+
+) and increasing the multi-hit capability of the system.
 \end_layout
 
 \begin_layout Standard
@@ -2899,7 +2902,15 @@ Coarse Extension Core
 
 \begin_layout Standard
 In the Coarse Extension Core (CEC) module, Nutt-Interpolation is carried
- out to break the trade-off between LSB and FSR.
+ out to break the trade-off between LSB and FSR 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Nutt1968DigitalTI"
+literal "false"
+
+\end_inset
+
+.
  A 
 \shape italic
 BIT_COARSE_CEC

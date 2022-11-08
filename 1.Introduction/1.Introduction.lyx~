@@ -4338,7 +4338,7 @@ literal "false"
 
 \begin_layout Standard
 
-\change_inserted 1469408620 1667835985
+\change_inserted 1469408620 1667836069
 Table 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -4349,8 +4349,8 @@ noprefix "false"
 
 \end_inset
 
- summarizes all the performances for all the TDC architectures described
- in this paragraph.
+ summarizes the performances of all the TDC architectures described in this
+ paragraph.
 \end_layout
 
 \begin_layout Standard

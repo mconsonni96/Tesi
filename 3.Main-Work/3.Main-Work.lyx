@@ -2902,7 +2902,15 @@ Coarse Extension Core
 
 \begin_layout Standard
 In the Coarse Extension Core (CEC) module, Nutt-Interpolation is carried
- out to break the trade-off between LSB and FSR.
+ out to break the trade-off between LSB and FSR 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Nutt1968DigitalTI"
+literal "false"
+
+\end_inset
+
+.
  A 
 \shape italic
 BIT_COARSE_CEC
@@ -3052,7 +3060,15 @@ Calibrator
 
 \begin_layout Standard
 This module has the same structure as in the old TDC and is in charge of
- keeping track of the PVT variations affecting each bin of the V-TDL.
+ keeping track of the PVT variations affecting each bin of the V-TDL 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "8885152"
+literal "false"
+
+\end_inset
+
+.
  As explained in Paragraph 2.3, it performs calibration by creating a Calibration
  Table (CT) and a Characteristic Curve (CC).
  The working principle of the Calibrator consists of receiving a set of
