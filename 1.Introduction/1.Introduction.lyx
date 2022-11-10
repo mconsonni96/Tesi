@@ -253,6 +253,17 @@ Usa bene l divisione in paragrafi:
 
 \begin_layout Section
 Introduction
+\change_inserted 1469408620 1668115364
+
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Introduction"
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -958,8 +969,10 @@ Time-Resolved Spectroscopy
 
 \begin_layout Standard
 Time-Resolved Spectroscopy 
+\change_deleted 1469408620 1668111652
+
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
 Questa ref è un articoletto di un front-end per time-resolved spect.
@@ -975,22 +988,14 @@ https://scholar.google.it/scholar?q=time-resolved+spectroscopy+book&hl=it&as_sdt
 \end_inset
 
 
-\change_deleted -1129936465 1668066410
-
-\begin_inset CommandInset citation
-LatexCommand cite
-key "6674612"
-literal "false"
-
-\end_inset
-
-
 \change_unchanged
  is the study of dynamic processes, on times scales between seconds and
  femtoseconds, in chemical compounds or other types of materials.
  It exploits spectroscopic techniques that can be applied to any process
  leading to changes in the properties of the material under study.
  Usually, fluorescence processes are studied
+\change_deleted 1469408620 1668113028
+
 \begin_inset Note Note
 status open
 
@@ -1001,8 +1006,22 @@ metti una bella ref generica per dare idea al lettore che cosa sia un processo
 
 \end_inset
 
+
+\change_inserted 1469408620 1668112538
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Spectroscopy"
+literal "false"
+
+\end_inset
+
+
+\change_unchanged
 .
  
+\change_deleted 1469408620 1668113486
+
 \begin_inset Note Note
 status open
 
@@ -1023,12 +1042,17 @@ Per legarti a questa frase devi dire che solitamente questi exp si conducono
 \end_inset
 
 
-\change_inserted 1469408620 1666895021
-To measure the time interval elapsing from the instant in which the stimulus
- is given to the material by an external source, and the instant in which
- the material emits photons by fluorescence, a TIM has to be employed.
+\change_inserted 1469408620 1668113792
+These kinds of experiments usually consist of the excitation of the substance
+ under study by means of a light source (e.g., a laser pulse or a Synchrotron
+ light source).
+ After the excitation, the fluorescence phenomenon, which is an emission
+ of photons from the material, takes place.
+ To measure the time interval elapsing from the instant in which the stimulus
+ is given to the material and the instant in which the material emits photons,
+ a TIM has to be employed.
  
-\change_unchanged
+\change_deleted 1469408620 1668113488
 
 \begin_inset Note Note
 status open
@@ -1039,6 +1063,8 @@ status open
 
 \end_inset
 
+
+\change_unchanged
 In scientific research, there are a lot of time-resolved spectroscopy techniques
 , the main ones being: Laser-Induced Breakdown Spectroscopy (LIBS) 
 \begin_inset CommandInset citation
@@ -1065,16 +1091,8 @@ literal "false"
 \end_inset
 
 .
- The TCSPC method is 
-\change_inserted -1129936465 1668066855
-one of 
-\change_unchanged
-the most common
-\change_deleted -1129936465 1668066861
- one
-\change_unchanged
-, and it consists of the excitation of the material under analysis thanks
- to the illumination by a pulsed laser.
+ The TCSPC method is one of the most common, and it consists of the excitation
+ of the material under analysis thanks to the illumination by a pulsed laser.
  This causes the fluorescence process in the material, which is a repetitive
  emission of single photons with a statistic of some hundreds of picoseconds
  to some tens of nanoseconds.
@@ -1090,11 +1108,7 @@ literal "false"
 
 .
  Therefore, a TIM with a resolution in the order of picoseconds is needed.
- 
-\change_deleted 1469408620 1666899798
- 
-\change_unchanged
-As shown in Figure 
+ As shown in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Time-Resolved-Spectroscopy-worki"
@@ -1113,10 +1127,6 @@ noprefix "false"
 
 ) of the material under analysis.
  
-\change_deleted -1129936465 1668066981
- 
-\change_unchanged
-
 \begin_inset Float figure
 wide false
 sideways false
@@ -1126,10 +1136,12 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/spectroscopy.png
-	width 80text%
+	width 90text%
 
 \end_inset
 
+
+\change_deleted 1469408620 1668114526
 
 \begin_inset Note Note
 status open
@@ -1140,6 +1152,8 @@ in questa figura manca il TIM che misura rosso - blu!
 
 \end_inset
 
+
+\change_unchanged
 
 \end_layout
 
@@ -1178,12 +1192,8 @@ In all the aforementioned applications, the typical measurement setup consists
 \end_inset
 
  between the two physical events.
- As said in 
-\change_deleted -1129936465 1668067174
-the first paragraph
-\change_inserted -1129936465 1668067243
-Chapter
-\change_unchanged
+ As said in Chapter
+\change_deleted 1469408620 1668115386
 
 \begin_inset Note Note
 status open
@@ -1196,6 +1206,20 @@ metti la ref dinamica al paragrafo, questa cosa lo hai detto in 1 Introduction
 
 \end_inset
 
+
+\change_inserted 1469408620 1668115464
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Introduction"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\change_unchanged
 , the measurement of the time interval can be represented either as the
  direct time difference 
 \begin_inset Formula $\varDelta t$
@@ -1219,17 +1243,8 @@ metti la ref dinamica al paragrafo, questa cosa lo hai detto in 1 Introduction
 
 \begin_layout Standard
 In the first case, each channel of the TIM is composed of two inputs (one
- for the START 
-\change_deleted -1129936465 1668067350
-signal 
-\change_unchanged
-and one for the STOP
-\change_deleted -1129936465 1668067353
- signal
-\change_unchanged
-), and it is referred to as a START/STOP-type TIM
-\change_inserted -1129936465 1668067671
- (Figure 
+ for the START and one for the STOP), and it is referred to as a START/STOP-type
+ TIM (Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Measurement-Setup-employing"
@@ -1240,46 +1255,11 @@ noprefix "false"
 \end_inset
 
  at the top).
-\change_deleted -1129936465 1668067377
-;
-\change_unchanged
- 
-\change_deleted -1129936465 1668067379
-o
-\change_inserted -1129936465 1668067663
-O
-\change_unchanged
-n the other hand, in the second case, each channel of the TIM has just one
- single input, with the scope of detecting the incoming physical event and
- measuring 
-\change_inserted -1129936465 1668067663
-its timestamp 
-\change_deleted -1129936465 1668067599
-its
-\change_inserted -1129936465 1668067663
-as the
-\change_unchanged
- time distance with respect to
-\change_inserted -1129936465 1668067663
- an absolute time event chosen as reference
-\change_unchanged
- 
-\change_inserted -1129936465 1668067663
-(e.g., 
-\change_unchanged
-the power-on instant of the system
-\change_inserted -1129936465 1668067663
-)
-\change_unchanged
- 
-\change_deleted -1129936465 1668067558
-(i.e.
- its timestamp)
-\change_unchanged
-.
- The latter is referred to as a TIMESTAMP-type TIM
-\change_inserted -1129936465 1668067713
- (Figure 
+ On the other hand, in the second case, each channel of the TIM has just
+ one single input, with the scope of detecting the incoming physical event
+ and measuring its timestamp as the time distance with respect to an absolute
+ time event chosen as reference (e.g., the power-on instant of the system).
+ The latter is referred to as a TIMESTAMP-type TIM (Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Measurement-Setup-employing"
@@ -1289,31 +1269,12 @@ noprefix "false"
 
 \end_inset
 
- at the bottom)
-\change_unchanged
-.
- 
+ at the bottom).
 \change_inserted -1129936465 1668067663
 
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted -1129936465 1668067719
-Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Measurement-Setup-employing"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- shows a START/STOP-type TIM (at the top) and a TIMESTAMP-type TIM (at the
- bottom).
-\change_unchanged
-
 \begin_inset Note Note
 status open
 
@@ -1465,6 +1426,8 @@ name "fig:Measurement-Setup-employing"
 \end_layout
 
 \begin_layout Plain Layout
+
+\change_deleted 1469408620 1668116331
 \begin_inset Note Note
 status open
 
@@ -1482,6 +1445,8 @@ OCCHIO che l'uscita del TIMESTAMP Type sono i 2 timestamp con
 
 \end_inset
 
+
+\change_unchanged
 
 \end_layout
 
@@ -1535,20 +1500,10 @@ Dopo devi sottolineare le relazioni tra le 2 architetture; un TIM START/STOP
 \end_layout
 
 \begin_layout Standard
-In this thesis work, a fully-digital 
-\change_inserted -1129936465 1668068318
-TIMESTAMP-type 
-\change_unchanged
-Time-Interval-Meter, a.k.a.
- 
-\change_inserted -1129936465 1668068325
-TIMESTAMP-type 
-\change_unchanged
-Time-to-Digital Converter (
-\change_inserted -1129936465 1668068385
-hereinafter simply called 
-\change_unchanged
-TDC), implemented in Field Programmable Gate Array (FPGA) will be presented.
+In this thesis work, a fully-digital TIMESTAMP-type Time-Interval-Meter,
+ a.k.a.
+ TIMESTAMP-type Time-to-Digital Converter (hereinafter simply called TDC),
+ implemented in Field Programmable Gate Array (FPGA) will be presented.
 \begin_inset Note Note
 status open
 
@@ -1567,14 +1522,8 @@ Figures Of Merit (FOMs)
 \end_layout
 
 \begin_layout Standard
-In this 
-\change_inserted -1129936465 1668068409
-Section
-\change_deleted -1129936465 1668068407
-Paragraph
-\change_unchanged
-, the main Figures Of Merit (FOMs) characterizing the TDC's performance
- will be presented 
+In this Section, the main Figures Of Merit (FOMs) characterizing the TDC's
+ performance will be presented 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "TDC"
@@ -1615,22 +1564,6 @@ noprefix "false"
 \end_inset
 
  graphically shows the concept of LSB.
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Troppo presto dire questa cosa qui, fai solo confusione
-\end_layout
-
-\end_inset
-
-
-\change_deleted -1129936465 1668068782
-This FOM can be improved using sub-interpolation techniques, as we will
- see in Section 2.
-\change_unchanged
-
 \end_layout
 
 \begin_layout Subsubsection
@@ -1651,59 +1584,23 @@ noprefix "false"
 \end_inset
 
  shows the typical trade-off existing between FSR and LSB (resolution);
- in fact, with the same number
-\change_deleted -1129936465 1668068880
- 
-\begin_inset Formula $n$
-\end_inset
-
-
-\change_unchanged
- of quantization levels
-\change_inserted -1129936465 1668068917
- 
+ in fact, with the same number of quantization levels 
 \begin_inset Formula $N$
 \end_inset
 
- (that mean a number of bits 
+ (meaning that 
 \begin_inset Formula $n$
 \end_inset
 
- in order to have 
+ bits are used in order to have 
 \begin_inset Formula $N\geq2^{n}$
 \end_inset
 
-)
-\change_unchanged
-, a greater FSR results in a greater LSB, since: 
+), a greater FSR results in a greater LSB, since: 
 \begin_inset Formula $LSB=\frac{FSR}{N}$
 \end_inset
 
 .
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Troppo presto dire questa cosa qui, fai solo confusione
-\end_layout
-
-\end_inset
-
-
-\change_deleted -1129936465 1668068850
-This trade-off can be solved thanks to a technique called Nutt-Interpolation
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Nutt1968DigitalTI"
-literal "false"
-
-\end_inset
-
-, as we will see in Section 2.
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
@@ -1727,15 +1624,11 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-LSB and FSR
-\change_inserted -1129936465 1668068980
- with 
+LSB and FSR with 
 \begin_inset Formula $N=7$
 \end_inset
 
- quantization levels
-\change_unchanged
-.
+ quantization levels.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:LSB-and-FSR."
@@ -1771,9 +1664,7 @@ Single-Shot Precision, or simply precision, is the capability of the TDC
 \end_inset
 
  will be the index of the precision.
- 
-\change_inserted -1129936465 1668069233
-Figure 
+ Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Single-Shot-Precision."
@@ -1783,17 +1674,10 @@ noprefix "false"
 
 \end_inset
 
- graphically shows the explained concepts.
- 
-\change_unchanged
-Therefore, a 
-\change_deleted -1129936465 1668069102
-TIM
-\change_inserted -1129936465 1668069103
-TDC
-\change_unchanged
- with a low precision will result in a wide gaussian curve, which is equivalent
- to a high standard deviation and a wide statistic dispersion.
+ graphically shows the explained concept.
+ Therefore, a TDC with a low precision will result in a wide gaussian curve,
+ which is equivalent to a high standard deviation and a wide statistic dispersio
+n.
  Conversely, an instrument characterized by high precision will result in
  a narrower gaussian, and thus in a lower 
 \begin_inset Formula $\sigma$
@@ -1805,18 +1689,9 @@ TDC
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted -1129936465 1668069242
- There are some cases
-\change_inserted -1129936465 1668069156
-In some cases,
-\change_unchanged
- 
-\change_inserted -1129936465 1668069177
-if the measured time interval is not characterize by a gaussian shape 
-\change_unchanged
-(e.g., Time-over-Threshold measurements from scintillators-collected light
- pulses 
+In some cases, if the measured time interval is not characterize by a gaussian
+ shape (e.g., Time-over-Threshold measurements from scintillators-collected
+ light pulses 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "8532950"
@@ -1824,40 +1699,9 @@ literal "false"
 
 \end_inset
 
-)
-\change_deleted -1129936465 1668069187
- where the statistic distribution is not gaussian; in these cases, 
-\change_unchanged
-the 
-\change_inserted -1129936465 1668069199
-Full-Width at Half-Maximum (
-\change_unchanged
-FWHM
-\change_inserted -1129936465 1668069215
-) and the Full-Width at Tenth-Maximum (FWTM)
-\change_unchanged
+)the Full-Width at Half-Maximum (FWHM) and the Full-Width at Tenth-Maximum
+ (FWTM) are taken as the index of precision.
  
-\change_deleted -1129936465 1668069217
-is
-\change_inserted -1129936465 1668069217
-are
-\change_unchanged
- taken as the index of precision.
- 
-\change_deleted -1129936465 1668069228
-Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Single-Shot-Precision."
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- graphically shows the explained concepts.
-\change_unchanged
-
 \begin_inset Float figure
 wide false
 sideways false
@@ -1911,6 +1755,8 @@ In TDC the non-linearity is represented by meas of Differential Non-Linearity
  in time between the real time interval and the measured one.
  They are commonly represented as a percentage of the LSB, and their calculation
  procedure will be shown in detail in Paragraph 
+\change_deleted 1469408620 1668117542
+
 \begin_inset Note Note
 status open
 
@@ -1921,7 +1767,26 @@ ref dinamica
 \end_inset
 
 4.5.1.
- Figure 
+
+\change_inserted 1469408620 1668117545
+ 
+\change_deleted 1469408620 1668117542
+ 
+\change_inserted 1469408620 1668117553
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:DNL-and-INL"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ 
+\change_unchanged
+Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:DNL-and-INL."
@@ -1941,10 +1806,12 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/dnlinl.png
-	width 50text%
+	width 100text%
 
 \end_inset
 
+
+\change_deleted 1469408620 1668121427
 
 \begin_inset Note Note
 status open
@@ -1955,6 +1822,8 @@ aggiungi anche la curca di rosso - blu della DNL ed INL
 
 \end_inset
 
+
+\change_unchanged
 
 \end_layout
 
