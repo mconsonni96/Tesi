@@ -126,7 +126,7 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes true
+\tracking_changes false
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
@@ -561,9 +561,46 @@ Sub-Interpolation
 
 \begin_layout Standard
 The Sub-Interpolation is a technique used to reduce the quantization error
- of the TDC, thus improving its resolution.
- It exploits redundancy in the measurements to lower the LSB as much as
- desired 
+\change_inserted -1129936465 1668079891
+ (i.e., improving the resolution)
+\change_unchanged
+ of the 
+\change_inserted -1129936465 1668079883
+TDL-
+\change_unchanged
+TDC
+\change_deleted -1129936465 1668079895
+, thus improving its resolution
+\change_unchanged
+.
+ 
+\change_inserted -1129936465 1668079983
+In this seance, i
+\change_deleted -1129936465 1668079983
+I
+\change_unchanged
+t exploits redundancy in the measurement
+\change_inserted -1129936465 1668079997
+ process
+\change_deleted -1129936465 1668079993
+s 
+\change_inserted -1129936465 1668079999
+ 
+\change_unchanged
+to lower the LSB
+\change_deleted -1129936465 1668080033
+ 
+\change_inserted -1129936465 1668080082
+ 
+\change_unchanged
+as much as desired
+\change_deleted -1129936465 1668080085
+ 
+\change_inserted -1129936465 1668080085
+ delay beyond the minimum propagation delay offered by the technological
+ node 
+\change_unchanged
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Sub"
@@ -572,10 +609,23 @@ literal "false"
 \end_inset
 
 .
- The TDL-TDC implemented in our laboratory exploits spatial redundancy,
- i.e.
- the Super Wave Union (SuperWU) sub-interpolation algorithm, characterized
- by the use of more physical TDLs placed in parallel.
+ The 
+\change_inserted -1129936465 1668080109
+proposed Sub-Interpolated 
+\change_unchanged
+TDL-TDC 
+\change_deleted -1129936465 1668080117
+implemented in our laboratory 
+\change_unchanged
+exploits spatial redundancy, i.e.
+\change_inserted -1129936465 1668080134
+,
+\change_unchanged
+ the Super Wave Union (SuperWU)
+\change_deleted -1129936465 1668080130
+ sub-interpolation algorithm
+\change_unchanged
+, characterized by the use of more physical TDLs placed in parallel.
  If we have 
 \begin_inset Formula $N$
 \end_inset
@@ -602,19 +652,40 @@ virtual
 \end_inset
 
 -time faster propagation delay.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+qui usi Nr e prima in cap1 usavi Nb ...
+ normalizza un po' il tutto.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-In practice, let's consider n 
-\begin_inset Formula $\epsilon$
+In practice, let's consider 
+\begin_inset Formula $n\in[1;N]$
 \end_inset
 
- [1;N] replicas of the measurement of the same time interval, performed
- using a TDL with 
-\begin_inset Formula $n_{R}$
+ replicas of the measurement of the same time interval, performed using
+ 
+\begin_inset Formula $N$
+\end_inset
+
+ TDL 
+\change_inserted -1129936465 1668080221
+in parallel 
+\change_unchanged
+with 
+\begin_inset Formula $n_{R}\in[1;N_{R}]$
 \end_inset
 
  
+\change_deleted -1129936465 1668080234
+
 \begin_inset Formula $\epsilon$
 \end_inset
 
@@ -622,7 +693,33 @@ In practice, let's consider n
 \begin_inset Formula $N_{R}$
 \end_inset
 
-] real bins characterized by the propagation delays 
+]
+\change_unchanged
+ real bins
+\change_inserted -1129936465 1668080245
+ per TDL
+\change_unchanged
+ characterized by 
+\change_deleted -1129936465 1668080301
+the
+\change_inserted -1129936465 1668080301
+a
+\change_unchanged
+ 
+\change_inserted -1129936465 1668080400
+real 
+\begin_inset Quotes eld
+\end_inset
+
+bin-by-bin
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\change_unchanged
+propagation delays 
+\change_deleted -1129936465 1668080305
+
 \begin_inset Formula $t_{R}$
 \end_inset
 
@@ -630,13 +727,23 @@ In practice, let's consider n
 \begin_inset Formula $_{R}$
 \end_inset
 
-] and FSR 
+]
+\change_inserted -1129936465 1668080305
+
+\begin_inset Formula $t_{R}[n_{R}]$
+\end_inset
+
+
+\change_unchanged
+ and FSR 
 \begin_inset Formula $T_{FSR}$
 \end_inset
 
 .
  In this situation, the sub–interpolation process generates a Virtual Tapped
- Delay–Line (V–TDL) composed of n
+ Delay–Line (V–TDL) composed of 
+\change_deleted -1129936465 1668080320
+n
 \begin_inset Formula $_{V}$
 \end_inset
 
@@ -648,7 +755,27 @@ In practice, let's consider n
 \begin_inset Formula $_{V}$
 \end_inset
 
- ] “virtual bins” with t
+ ]
+\change_inserted -1129936465 1668080320
+
+\begin_inset Formula $n_{V}\in[1;N_{V}]$
+\end_inset
+
+
+\change_unchanged
+ “virtual bins” with 
+\change_inserted -1129936465 1668080422
+a virtual 
+\begin_inset Quotes eld
+\end_inset
+
+bin-by-bin
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\change_deleted -1129936465 1668080379
+t
 \begin_inset Formula $_{V}$
 \end_inset
 
@@ -656,7 +783,17 @@ In practice, let's consider n
 \begin_inset Formula $_{V}$
 \end_inset
 
-] propagation delays, where:
+]
+\change_unchanged
+ propagation delays
+\change_inserted -1129936465 1668080445
+ 
+\begin_inset Formula $t_{V}[n_{V}]$
+\end_inset
+
+
+\change_unchanged
+, where:
 \end_layout
 
 \begin_layout Standard
@@ -674,6 +811,44 @@ n_{V}=\sum_{n=1}^{n=N}n_{R}[n]
 \end_layout
 
 \begin_layout Standard
+
+\change_inserted -1129936465 1668080737
+Referring to Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:subint-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and to 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Sub"
+literal "false"
+
+\end_inset
+
+, we can demonstrate that 
+\begin_inset Formula $N_{V}=N_{R}\cdot N$
+\end_inset
+
+; therefore, the LSB of the V-TDL is 
+\begin_inset Formula $N$
+\end_inset
+
+ times smaller than the one of a single real TDL.
+ In general, each propagation delays of the real-bins of different TDLs
+ are averaged each other reducing the propagation delays of the virtual-bins.
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted -1129936465 1668080591
 Therefore, we can see that the sub–interpolation technique operates as a
  “bin–by–bin” averaging that reduces the delay of the real bins, obtaining
  
@@ -697,6 +872,8 @@ virtual
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted -1129936465 1668080586
 \begin_inset Formula 
 \begin{equation}
 LSB=\frac{T_{CLK}}{N_{V}}\label{eq:virtual-resolution}
@@ -708,6 +885,8 @@ LSB=\frac{T_{CLK}}{N_{V}}\label{eq:virtual-resolution}
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted -1129936465 1668080586
 where 
 \begin_inset Formula $N_{V}=N_{R}\cdot N$
 \end_inset
@@ -718,9 +897,13 @@ where
 \end_inset
 
  times smaller than the one of a single TDL.
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted -1129936465 1668080653
 Another important reason for using sub-interpolation is due to the phenomenon
  of the 
 \begin_inset Quotes eld
@@ -793,9 +976,22 @@ virtual
  In this way, a V-TDL characterized by more homogeneous bins' propagation
  delays is obtained, and the single-shot precision of the measurement is
  improved.
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Qui fai un discorso più generale che le repliche devono essere non correlate
+ e su queste introduci il ritardo.
+ NON hai caora parlato di ulta bin, questo verra dopo la calib
+\end_layout
+
+\end_inset
+
 Let's see the SuperWU algorithm in detail.
  The 
 \begin_inset Formula $N$
