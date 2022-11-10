@@ -126,11 +126,12 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes true
+\tracking_changes false
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\author -1129936465 "Nicola Lusardi"
 \author 268488506 "nicol"
 \author 1469408620 "Mattia Consonni"
 \end_header
@@ -255,8 +256,15 @@ Introduction
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
 
-\change_inserted 1469408620 1667908046
+\begin_layout Plain Layout
+metti delle ref sensate a questa frase ->
+\end_layout
+
+\end_inset
+
 Concerning the scientific research field, recent years have been characterized
  by continuous growth in the study of temporal evolution in chemical-physical
  phenomena; this has led to the need of employing high-performance instruments
@@ -272,6 +280,15 @@ Concerning the scientific research field, recent years have been characterized
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+metti una bella figura in rifereimento a questo capoverso ->
+\end_layout
+
+\end_inset
+
 The concept of 
 \begin_inset Quotes eld
 \end_inset
@@ -291,11 +308,35 @@ zero
 
  on the time axis, and the occurrence of a certain event of interest.
  In this case, our measurement is a Timestamp; however, we are usually more
- interested to carry out a Time Measurement as the relative 
+ interested to carry out a 
+\change_inserted -1129936465 1668063889
+t
+\change_deleted -1129936465 1668063888
+T
+\change_unchanged
+ime 
+\change_inserted -1129936465 1668063893
+m
+\change_deleted -1129936465 1668063892
+M
+\change_unchanged
+easurement as the relative 
 \begin_inset Quotes eld
 \end_inset
 
-time distance
+
+\change_inserted -1129936465 1668063899
+T
+\change_deleted -1129936465 1668063899
+t
+\change_unchanged
+ime 
+\change_deleted -1129936465 1668063902
+d
+\change_inserted -1129936465 1668063902
+D
+\change_unchanged
+istance
 \begin_inset Quotes erd
 \end_inset
 
@@ -329,7 +370,7 @@ No forme verbali abbreviate->
 \end_inset
 
 
-\change_unchanged
+\change_deleted -1129936465 1668064073
 it is
 \change_deleted 1469408620 1666881015
 
@@ -343,12 +384,39 @@ status open
 \end_inset
 
 
+\change_deleted -1129936465 1668064073
+ clear that 
 \change_unchanged
- clear that a Timestamp is nothing but a particular case of time distance
- between a chosen absolute time reference, and the event under study.
- Conversely, the time distance between two events is nothing but the time
- difference between their timestamps, each one calculated referencing to
- a common absolute 
+a 
+\change_inserted -1129936465 1668063925
+
+\begin_inset Quotes eld
+\end_inset
+
+
+\change_unchanged
+Timestamp
+\change_inserted -1129936465 1668063926
+
+\begin_inset Quotes erd
+\end_inset
+
+
+\change_unchanged
+ is nothing but a particular case of time distance between a chosen absolute
+ time reference, and the event under study.
+ 
+\change_deleted -1129936465 1668064061
+Conversely
+\change_inserted -1129936465 1668064061
+On the other hand
+\change_unchanged
+, the time distance between two events is 
+\change_deleted -1129936465 1668064102
+nothing but 
+\change_unchanged
+the time difference between their timestamps, each one calculated referencing
+ to a common absolute 
 \begin_inset Quotes eld
 \end_inset
 
@@ -359,83 +427,56 @@ zero
  time origin.
 \end_layout
 
-\begin_layout Standard
-
-\change_deleted 1469408620 1666881100
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Metti questo capoverso come primo; il lettore è generalmente più interessato
- all'applicazione ->
-\end_layout
-
-\end_inset
-
-With respect to the scientific research field, recent years have been characteri
-zed by a continuous growth in the study of temporal evolution in chemical-physic
-al phenomena; this has lead to the need of employing high-performance instrument
-s called Time Interval Meters (TIMs), with the task of measuring really
- small time intervals, with increasing precision and resolution.
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-io ho capito ma è poco chiara, riformula la frase ->
-\end_layout
-
-\end_inset
-
-Since the TIM needs to have at least the same performance, in terms of speed
- and accuracy, of the sensors used in the measurement setup, it must have
- features as picoseconds precision with hundreds megahertz (MHz) sampling
- rate.
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-<-
-\end_layout
-
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Metti questo capoverso come primo; il lettore è generalmente più interessato
- all'applicazione ->
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
-\end_layout
-
 \begin_layout Subsection
 Applications
 \end_layout
 
 \begin_layout Standard
-The applications requiring these kinds of instruments and performances include
- very different fields of scientific research, from biomedical to nuclear.
- Since countless applications belong to these areas, we will describe the
- most relevant ones, used every day.
-\change_deleted 1469408620 1666886101
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Ho visto che hai provato a seguire la mia nota che diceva di inglore il
+ discorso, ma l'intero capoverso è struttturato male.
+\end_layout
+
+\begin_layout Plain Layout
+Nella prima frase parli principalemnte dell'ambito sceintifico; poi, nell'elenco
+ sotto tiri fuori anche quello industriale con il LiDAR.
+ Inoltre la seconda frase è completamente slegata alla prima dal punto di
+ vista della costruzione del periodo.
+ Cerca di migliorare il capoverso
+\end_layout
+
+\end_inset
+
 
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-Proegui un attimo il discorso che parlerai della TOF-PET come riferimento
- dell'ambito biomedicale, il laser rang finder come riferimento dell'imaging
- 3D in ambito industriale/automotive, mentre la TCSPC come riferimento per
- la spetroscopia risolta in tempo e per la ricerc in generalr 
+Prima Frase, la sostituirei con questa che è più generica
+\end_layout
+
+\begin_layout Plain Layout
+TIMs are applied in many different industrial and academic fields, from
+ the R&D to the final product, from the most exotic experimental setups
+ to standard testbenches.
+ 
+\end_layout
+
+\end_inset
+
+The applications requiring these kinds of instruments and performances include
+ very different fields of scientific research, from biomedical to nuclear.
+ Since countless applications belong to these areas, we will describe the
+ most relevant ones, used every day.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Seconda Frase, da legare meglio alla prima
 \end_layout
 
 \end_inset
@@ -451,6 +492,8 @@ s in the industrial and automotive fields.
  Single Photon Counting (TCSPC), which is used in every-day time-resolved
  spectroscopy experiments.
  Let's now describe these three main applications in detail.
+
+\change_deleted -1129936465 1668064635
  
 \change_unchanged
 
@@ -458,47 +501,10 @@ s in the industrial and automotive fields.
 
 \begin_layout Subsubsection
 Time-of-Flight Positron Emission Tomography
-\change_deleted 268488506 1666690965
-
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted 1469408620 1666889967
-The 
-\change_unchanged
-Time-of-Flight Positron Emission Tomography (
-\change_deleted 1469408620 1666888177
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-TOF-PET non PET-TOF, rivdi altrove se si ripete l'errore
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-TOF-PET) 
-\change_deleted 1469408620 1666889420
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-NOTA1: Qua ci vuole una ref alla PET in generale, questa ref parla di come
- sincronizzare i modulini PET; forse è una ref che può tornare utile a Jflorenti
-no per la sua tesi per la tua è poco efficate; ti consiglio questo paper
- per una visione generale della PET: https://pubmed.ncbi.nlm.nih.gov/33711831/
-\end_layout
-
-\end_inset
-
-
-\change_inserted 1469408620 1666889726
-
+Time-of-Flight Positron Emission Tomography (TOF-PET) 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "PET"
@@ -506,61 +512,70 @@ literal "false"
 
 \end_inset
 
-
-\change_unchanged
  is a 3D technique used for medical imaging to detect the presence of tumors
  in the human body.
- A substance called radiotracer, characterized by the capability to release
- a great number of positrons, is bound to a molecule that has the peculiarity
- to travel toward the region where the tumor is located.
+ A substance called 
+\change_inserted -1129936465 1668065999
+
+\begin_inset Quotes eld
+\end_inset
+
+
+\change_unchanged
+radiotracer
+\change_inserted -1129936465 1668066001
+
+\begin_inset Quotes erd
+\end_inset
+
+
+\change_unchanged
+, 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+manca sempre il soggeto radiotracer è il complemento oggetto!!!
+\end_layout
+
+\end_inset
+
+
+\change_inserted -1129936465 1668065805
+which is 
+\change_unchanged
+characterized by the capability to release a great number of positrons,
+ 
+\change_deleted -1129936465 1668065852
+is bound
+\change_inserted -1129936465 1668065856
+binds
+\change_unchanged
+ to
+\change_inserted -1129936465 1668065883
+ cankerous
+\change_unchanged
+ 
+\change_deleted -1129936465 1668065862
+a 
+\change_unchanged
+molecule
+\change_deleted -1129936465 1668065895
+ that has the peculiarity to travel toward the region where the tumor is
+ located
+\change_unchanged
+.
  Once there, the positrons are emitted by the radioactive decay of the radiotrac
-er and collide with electrons.
- 
-\change_deleted 1469408620 1666890162
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-NOTA2: preposizioni/articoli sbagliati usa grammarly ->
-\end_layout
-
-\end_inset
-
-
+er and collide with electrons 
+\change_inserted -1129936465 1668064986
+that are presents in the tissues
 \change_unchanged
-When there is a collision between a positron and an electron, characterized
- by the same electrical charge with opposite sign, the so-called annihilation
- process occurs; this results in two 511 keV gamma photons traveling on
+.
+ When there is a collision between a positron and an electron, characterized
+ by the same electrical charge but with opposite sign, the so-called annihilatio
+n process occurs; this results in two 511 keV gamma photons traveling on
  the same line but in opposite directions.
-\change_deleted 1469408620 1666890219
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-<-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
- 
-\change_deleted 1469408620 1666890574
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-NOTA3: ingloba meglio le figure all'interno del corpo dello scritto->
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-Referring to Figure 
+ Referring to Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:PET-TOF-working-principle."
@@ -579,7 +594,21 @@ noprefix "false"
 \end_inset
 
 ) to the ring of detectors surrounding the patient, and thanks to the TIM
- is possible to measure the delay between the START event (e.g., the photon
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Occhio ai soggetti mancanti, to the TIM è complemento di termine!!!
+\end_layout
+
+\end_inset
+
+
+\change_inserted -1129936465 1668065555
+it 
+\change_unchanged
+is possible to measure the delay between the START event (e.g., the photon
  detection on detector 1) and the STOP event (e.g., the photon detection on
  detector 2); in this way, the time distance 
 \begin_inset Formula $\Delta t=t_{2}-t_{1}$
@@ -587,19 +616,15 @@ noprefix "false"
 
  can be used to derive the spatial position.
  Therefore, it is possible to retrieve the position of the tumor.
-\change_deleted 1469408620 1666890571
-
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-<-
+metti una figura della detectiond el tumore stile NSS
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
 
 \begin_inset Float figure
 wide false
@@ -656,9 +681,7 @@ literal "false"
 
 , also known as laser telemeter, is a technique using a laser beam to determine
  the distance to an object.
- 
-\change_inserted 1469408620 1666890790
-As we can see in Figure 
+ As we can see in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Laser-Rangefinder-working"
@@ -668,44 +691,10 @@ noprefix "false"
 
 \end_inset
 
-, 
-\change_deleted 1469408620 1666890792
-T
-\change_inserted 1469408620 1666890792
-t
-\change_unchanged
-he measured quantity
-\change_deleted 1469408620 1666890799
-, in this case,
-\change_unchanged
- is the time distance between the instant at which the laser pulse is sent
- toward the object and the instant at which it is detected by the photodiode
- (located in the same position as the sender) after being reflected by the
- target
-\change_deleted 1469408620 1666890848
- (see Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Laser-Rangefinder-working"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-ingloba meglio la figura nel testo
-\end_layout
-
-\end_inset
-
-)
-\change_unchanged
-.
+, the measured quantity is the time distance between the instant at which
+ the laser pulse is sent toward the object and the instant at which it is
+ detected by the photodiode (located in the same position as the sender)
+ after being reflected by the target.
  Once the time information 
 \begin_inset Formula $\varDelta T$
 \end_inset
@@ -739,24 +728,6 @@ L=\frac{v\cdot\varDelta T}{2}\label{eq:laser2}
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted 1469408620 1666891572
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-spendi 2 parolo che questo concetto può essere ripetuto per un numero N
- x M di volte disponendo N x M ricevitori in una struttura a matrice (pixel)
- creando di conseguenza un'immagine 3D (3D imaging).
- La 3za dimensione è data dalla misura temporale (come nel telemetro) e
- le altre 2D (x e y) dalla struttura stessa della matrice.
- 
-\end_layout
-
-\end_inset
-
-
-\change_inserted 1469408620 1666892316
 The process just described can be repeated an 
 \begin_inset Formula $N\cdot M$
 \end_inset
@@ -765,11 +736,26 @@ The process just described can be repeated an
 \begin_inset Formula $N\cdot M$
 \end_inset
 
- matrix, and a 3D image can be obtained.
+ matrix, 
+\change_deleted -1129936465 1668066260
+and
+\change_inserted -1129936465 1668066260
+so
+\change_unchanged
+ a 3D image can be obtained.
  The first two dimensions (2D) are nothing but the two axes of the matrix
  itself, while the third dimension is the one given by the time measurements.
  
-\change_unchanged
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Di che questo sistima si chiama in generale imaging 3D, metti una bella
+ figura esempio quella della presentazione di NSS.
+\end_layout
+
+\end_inset
+
 
 \begin_inset Float figure
 wide false
@@ -816,20 +802,26 @@ Time-Resolved Spectroscopy
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted 1469408620 1666892380
+Time-Resolved Spectroscopy 
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
-NOTA4 Questa frase è copiata 1 a 1 da wikipedia devi rielaborarla!->
+Questa ref è un articoletto di un front-end per time-resolved spect.
+ Non va bene come cit, te lo ho già detto vaire note fa che le cit devono
+ essere un minimo coerenti! Cerca tra questi libri di ampia panoramica
+\begin_inset Newline newline
+\end_inset
+
+https://scholar.google.it/scholar?q=time-resolved+spectroscopy+book&hl=it&as_sdt=0
+&as_vis=1&oi=scholart
 \end_layout
 
 \end_inset
 
 
-\change_unchanged
-Time-Resolved Spectroscopy 
+\change_deleted -1129936465 1668066410
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "6674612"
@@ -837,40 +829,40 @@ literal "false"
 
 \end_inset
 
- is the study
-\change_inserted 1469408620 1666893624
- of dynamic processes, on times scales between seconds and femtoseconds,
- in chemical compounds or other types of materials.
+
+\change_unchanged
+ is the study of dynamic processes, on times scales between seconds and
+ femtoseconds, in chemical compounds or other types of materials.
  It exploits spectroscopic techniques that can be applied to any process
  leading to changes in the properties of the material under study.
- Usually, fluorescence processes are studied.
-\change_deleted 1469408620 1666892740
-, in physics and physical chemistry, of dynamic processes in materials or
- chemical compounds by means of spectroscopic techniques.
- The technique can be applied to any process that leads to a change in the
- properties of a material, but usually, fluorescence processes are studied.
+ Usually, fluorescence processes are studied
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-<-
+metti una bella ref generica per dare idea al lettore che cosa sia un processo
+ di fluorescenza
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
+.
  
-\change_deleted 1469408620 1666893669
-
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-Manca il passaggio che servono dei TIM (ovviamente dato il nome) che consentano
- di misurare differenti intervalli temporali, in generale i ritardi tra
- tra i tempi di emissione/assorbimento ed i relativi stimoli laser al fine
- di estarre l'info spettroscopia richiesta
+La frase sull'introduzione dei TIM buttata giù così non va bene; cioè è
+ aggiunta ma non legata al testo.
+\end_layout
+
+\begin_layout Plain Layout
+Per legarti a questa frase devi dire che solitamente questi exp si conducono
+ con una sorgente eccitatnte (e.g.
+ LASER, luce di sicnrotrono o altro) pilotata da direttamente dall'utente
+ che va a stimoare il campione.
+ La distanza temporale tra la sorgente di stimolo e l'emissione del campione
+ fornisce le informazioni spettroscopiche richieste ->
 \end_layout
 
 \end_inset
@@ -881,31 +873,17 @@ To measure the time interval elapsing from the instant in which the stimulus
  is given to the material by an external source, and the instant in which
  the material emits photons by fluorescence, a TIM has to be employed.
  
-\change_deleted 1469408620 1666895117
+\change_unchanged
 
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-Esistono tante tecniche ...
- elenca pure le i principali 2 o 3 nomi (vedi qui alcuni https://www.ism.cnr.it/it/
-tempism/analisi/spettroscopia/spettroscopia-risolta-in-tempo.html; puoi usare
- anche wikipedia per fare l'elenco delle varie tecniche) con delle reference:
- una molto generica per metodo che ne spiega il fenomeno oppure un libro
- in cui si possono avere chiarimenti su questa tecniche (metto questo come
- un esempio per dare una idea https://tel.archives-ouvertes.fr/tel-01777947v2/docu
-ment)
-\end_layout
-
-\begin_layout Plain Layout
-La TCSPC è uno degli N metodi e la riporti descritta molto brevemente solo
- come caso esemplificatico
+<-
 \end_layout
 
 \end_inset
 
-
-\change_inserted 1469408620 1666898626
 In scientific research, there are a lot of time-resolved spectroscopy techniques
 , the main ones being: Laser-Induced Breakdown Spectroscopy (LIBS) 
 \begin_inset CommandInset citation
@@ -932,45 +910,16 @@ literal "false"
 \end_inset
 
 .
- 
-\change_deleted 1469408620 1666899567
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Come dicevo prima questo è uno dei tanti metodi ed è una tecnica abbastanza
- comune che richiede l'utilizzo di un TIM con precisione di qualche ps ...
- non è il 
-\begin_inset Quotes eld
-\end_inset
-
-materiale che ha una risoluzione del ps
-\begin_inset Quotes erd
-\end_inset
-
-.
- Si studiano i cosidetti processi di fluorescenza, quindi hai a che fare
- con delle emissioni che hanno una statistica di qualche decina/centinaio
- di ns, di conseguenza questo determina l'utilizzo di TIM del ps e non di
- più precisi.
-\end_layout
-
-\begin_layout Plain Layout
-NB: ricordati di mettere referecne a paper ogni qual volta dai una cifra
- o un ordine di grandezza!
-\end_layout
-
-\begin_layout Plain Layout
-Di conseguenza ristruttura questa frase->
-\end_layout
-
-\end_inset
-
-
-\change_inserted 1469408620 1666900046
-The TCSPC method is the most common one, and it consists of the excitation
- of the material under analysis thanks to the illumination by a pulsed laser.
+ The TCSPC method is 
+\change_inserted -1129936465 1668066855
+one of 
+\change_unchanged
+the most common
+\change_deleted -1129936465 1668066861
+ one
+\change_unchanged
+, and it consists of the excitation of the material under analysis thanks
+ to the illumination by a pulsed laser.
  This causes the fluorescence process in the material, which is a repetitive
  emission of single photons with a statistic of some hundreds of picoseconds
  to some tens of nanoseconds.
@@ -988,34 +937,8 @@ literal "false"
  Therefore, a TIM with a resolution in the order of picoseconds is needed.
  
 \change_deleted 1469408620 1666899798
-The common method is called Time Correlated Single Photon Counting (TCSPC),
- which achieves a resolution in the order of picoseconds, and consists in
- the excitation of the material thanks to the illumination by a pulsed laser;
- this causes a process called 'fluorescence', that is a repetitive emission
- of single photons which are then registered by a detector.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-<-
-\end_layout
-
-\end_inset
-
  
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-NOTA5 (sposta qui tutta la descrizione di come si costituisce la tecnica)
- riorganizza e descrivi meglio e ome sempre integra con la figura che hai
- preparato->
-\end_layout
-
-\end_inset
-
-
-\change_inserted 1469408620 1666899781
+\change_unchanged
 As shown in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1027,70 +950,18 @@ noprefix "false"
 \end_inset
 
 , the START signal of the TIM is the excitation laser pulse, while the STOP
- signals are the photons emitted by fluorescence.
-\change_deleted 1469408620 1666899619
-The START signal is the excitation laser pulse, while the STOP signals are
- the photons emitted by fluorescence.
- The working principle is represented also in Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Time-Resolved-Spectroscopy-worki"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-<-
-\end_layout
-
-\end_inset
-
- 
-\change_unchanged
-In this way, the photon arrivals per time can be collected in a histogram
- that represents the so called Probability Density Function (PDF) of the
- time decay profile (
+ signals are the photons emitted by fluorescence.In this way, the photon
+ arrivals per time can be collected in a histogram that represents the so
+ called Probability Density Function (PDF) of the time decay profile (
 \begin_inset Formula $T_{DECAY}$
 \end_inset
 
 ) of the material under analysis.
  
-\change_deleted 1469408620 1666895117
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Spostata Sopra in NOTA5
-\end_layout
-
-\begin_layout Plain Layout
-The START signal is the excitation laser pulse, while the STOP signals are
- the photons emitted by fluorescence.
- The working principle is represented also in Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Time-Resolved-Spectroscopy-worki"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
+\change_deleted -1129936465 1668066981
  
+\change_unchanged
+
 \begin_inset Float figure
 wide false
 sideways false
@@ -1101,6 +972,16 @@ status open
 \begin_inset Graphics
 	filename images/spectroscopy.png
 	width 80text%
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+in questa figura manca il TIM che misura rosso - blu!
+\end_layout
 
 \end_inset
 
@@ -1136,39 +1017,32 @@ Typical measurement setup
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted 1469408620 1666949328
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-come sopra hai detto che puoi calcolare la distanza temporale o il timestamp,
- dovresti rappresentare due figure con due testi.
-\end_layout
-
-\begin_layout Plain Layout
-Quello della differenza temporale è già riportato, quella dello del timestamp
- deve essere fatto ed inserito.
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
-\end_layout
-
-\begin_layout Standard
-
-\change_inserted 1469408620 1666949692
 In all the aforementioned applications, the typical measurement setup consists
  of a TIM measuring the time interval 
 \begin_inset Formula $\varDelta t$
 \end_inset
 
  between the two physical events.
- As said in the first paragraph, the measurement of the time interval can
- be represented either as the direct time difference 
+ As said in 
+\change_deleted -1129936465 1668067174
+the first paragraph
+\change_inserted -1129936465 1668067243
+Chapter
+\change_unchanged
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+metti la ref dinamica al paragrafo, questa cosa lo hai detto in 1 Introduction
+ che è una Capitolo; 1.1 è una Sezione e 1.3.1 è un Paragrafo, e 1.3.1.1 è sun
+ Sub_Paragrafh (sotto paragrafo)
+\end_layout
+
+\end_inset
+
+, the measurement of the time interval can be represented either as the
+ direct time difference 
 \begin_inset Formula $\varDelta t$
 \end_inset
 
@@ -1186,15 +1060,92 @@ In all the aforementioned applications, the typical measurement setup consists
 \end_inset
 
  are the timestamps of the START and the STOP signal, respectively).
- In the first case, each channel of the TIM is composed of two inputs (one
- for the START signal and one for the STOP signal), and it is referred to
- as a START/STOP-type TIM; on the other hand, in the second case, each channel
- of the TIM has just one single input, with the scope of detecting the incoming
- physical event and measuring its time distance with respect to the power-on
- instant of the system (i.e.
- its timestamp).
- The latter is referred to as a TIMESTAMP-type TIM.
- Figure 
+\end_layout
+
+\begin_layout Standard
+In the first case, each channel of the TIM is composed of two inputs (one
+ for the START 
+\change_deleted -1129936465 1668067350
+signal 
+\change_unchanged
+and one for the STOP
+\change_deleted -1129936465 1668067353
+ signal
+\change_unchanged
+), and it is referred to as a START/STOP-type TIM
+\change_inserted -1129936465 1668067671
+ (Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Measurement-Setup-employing"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ at the top).
+\change_deleted -1129936465 1668067377
+;
+\change_unchanged
+ 
+\change_deleted -1129936465 1668067379
+o
+\change_inserted -1129936465 1668067663
+O
+\change_unchanged
+n the other hand, in the second case, each channel of the TIM has just one
+ single input, with the scope of detecting the incoming physical event and
+ measuring 
+\change_inserted -1129936465 1668067663
+its timestamp 
+\change_deleted -1129936465 1668067599
+its
+\change_inserted -1129936465 1668067663
+as the
+\change_unchanged
+ time distance with respect to
+\change_inserted -1129936465 1668067663
+ an absolute time event chosen as reference
+\change_unchanged
+ 
+\change_inserted -1129936465 1668067663
+(e.g., 
+\change_unchanged
+the power-on instant of the system
+\change_inserted -1129936465 1668067663
+)
+\change_unchanged
+ 
+\change_deleted -1129936465 1668067558
+(i.e.
+ its timestamp)
+\change_unchanged
+.
+ The latter is referred to as a TIMESTAMP-type TIM
+\change_inserted -1129936465 1668067713
+ (Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Measurement-Setup-employing"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ at the bottom)
+\change_unchanged
+.
+ 
+\change_inserted -1129936465 1668067663
+
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted -1129936465 1668067719
+Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Measurement-Setup-employing"
@@ -1206,7 +1157,33 @@ noprefix "false"
 
  shows a START/STOP-type TIM (at the top) and a TIMESTAMP-type TIM (at the
  bottom).
- In both cases, we have our two physical events hitting two detectors, by
+\change_unchanged
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+***
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Qui devi spiegare il perché è richiesto il time discriminator, il motivo
+ principale è poter adattare i livelli logici dell'uscita dei detector a
+ quelli richiesti dal circuito del TIM->
+\end_layout
+
+\end_inset
+
+In both cases, we have our two physical events hitting two detectors, by
  which they are converted into electrical signals; then, these two electrical
  signals are processed by Time Discriminators to get the right pulse shape,
  compatible with the TIM.
@@ -1215,8 +1192,60 @@ noprefix "false"
 \end_inset
 
 , giving a digital code in output.
- The only difference between the two types of TIM is that the first one
- has a single channel and there is a direct calculation of 
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+<-
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Spostami qui *** e modifcami ->
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Rivedi un attimo la frase perché ci sono un paio di concetti che hai ripetutto
+ 1000 volte (inizio di questa Section e del Cap1 che continuui a ripetere)
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+In questa frase devi anche mettere che se hai un sistema ad N canali per
+ il TIMESTAMP Type aumentrà semplicemente il numro dei Ch (fino a Ch.
+ N) ed ovviamente il numero delle uscite.
+ Per lo start/Stop pyte la cosa è leggermente più variegata.
+ Ovvero si avranno N coppie di START/STOP afferenti ad N START/STOP TIM
+ ma poi, per compattezza, visto che tutti gli exp sono del tipo trigger
+ -> eventi, tutti gli START (metti generalmente perché in alcune arch viene
+ fatto sugli STOP) vengono connessi ad un unico segnale in modo da avere
+ 1 solo connettore di START ed N di STOP
+\end_layout
+
+\end_inset
+
+The only difference between the two types of TIM is that the first one has
+ a single channel and there is a direct calculation of 
 \begin_inset Formula $\varDelta t$
 \end_inset
 
@@ -1231,48 +1260,15 @@ noprefix "false"
  On the other hand, using a START/STOP-type TIM having the START event as
  the power-on instant of the system is equivalent to having one channel
  of a TIMESTAMP-type TIM.
-\change_deleted 1469408620 1666949324
-In all the applications just presented, the typical setup to measure the
- time distance 
-\begin_inset Formula $\varDelta T$
-\end_inset
-
- between the two physical events, can be represented by the block diagram
- reported in Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Measurement-Setup-employing"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
- We have our two physical events hitting the two detectors, by which they
- are converted into electrical signals; then, these two electrical signals
- are processed by Time Discriminators in order to get the right pulse shape,
- compatible with the TIM.
-
-\change_unchanged
- 
-\change_deleted 1469408620 1666949021
-In the end, the TIM
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-quando hai definito un acronimo vai avanti ad usarlo nel testo
+<-
 \end_layout
 
 \end_inset
 
- measures the time difference 
-\begin_inset Formula $\varDelta T$
-\end_inset
-
-, giving a digital code in output.
-\change_unchanged
 
 \end_layout
 
@@ -1306,6 +1302,27 @@ name "fig:Measurement-Setup-employing"
 \end_inset
 
 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+OCCHIO che l'uscita del TIMESTAMP Type sono i 2 timestamp con 
+\begin_inset Formula $\Delta t$
+\end_inset
+
+, tu puoi calcolarti il 
+\begin_inset Formula $\Delta t$
+\end_inset
+
+ se fai la diff tra t2 e t1; però il tuo output è t1 e t2
 \end_layout
 
 \end_inset
@@ -1363,36 +1380,46 @@ Dopo devi sottolineare le relazioni tra le 2 architetture; un TIM START/STOP
 \end_layout
 
 \begin_layout Standard
-In this thesis work, a fully-digital Time-Interval-Meter, a.k.a.
- Time-to-Digital Converter (TDC), implemented in Field Programmable Gate
- Array (FPGA) will be presented.
- This instrument converts the measured time interval into a digital binary
- code, representing the time elapsed between the START and the STOP event.
-\end_layout
-
-\begin_layout Subsection
-Figures Of Merit (FOMs)
-\change_deleted 1469408620 1667379339
-
+In this thesis work, a fully-digital 
+\change_inserted -1129936465 1668068318
+TIMESTAMP-type 
+\change_unchanged
+Time-Interval-Meter, a.k.a.
+ 
+\change_inserted -1129936465 1668068325
+TIMESTAMP-type 
+\change_unchanged
+Time-to-Digital Converter (
+\change_inserted -1129936465 1668068385
+hereinafter simply called 
+\change_unchanged
+TDC), implemented in Field Programmable Gate Array (FPGA) will be presented.
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-guarda la tesi di mcattaneo per maggiori info, hai l'accesso?
+qui metti che il TDC converte l'intervallo temporale misurato in un numero
+ digitale indipendentemente se di tipo timestamp o start/stop
 \end_layout
 
 \end_inset
 
 
-\change_unchanged
+\end_layout
 
+\begin_layout Subsection
+Figures Of Merit (FOMs)
 \end_layout
 
 \begin_layout Standard
-In this Paragraph, the main Figures Of Merit (FOMs) characterizing the TDC's
- performance will be presented 
-\change_inserted 1469408620 1667396179
-
+In this 
+\change_inserted -1129936465 1668068409
+Section
+\change_deleted -1129936465 1668068407
+Paragraph
+\change_unchanged
+, the main Figures Of Merit (FOMs) characterizing the TDC's performance
+ will be presented 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "TDC"
@@ -1400,25 +1427,7 @@ literal "false"
 
 \end_inset
 
-
-\change_unchanged
 .
- 
-\change_deleted 1469408620 1667396181
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-sarebbe bela una ref di un libro/pepr di metrologia in cui viene definito
- ognuno dei parametri sotto indicati
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
 \end_layout
 
 \begin_layout Subsubsection
@@ -1430,56 +1439,8 @@ Resolution is defined as the minimum time interval that can be measured
  by the TIM.
  In the case of TDC, the time duration of the Least Significant Bit (LSB)
  of the digital output code is commonly used as resolution.
-\change_deleted 1469408620 1667381055
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-questa frase non ha per nulla senso;
-\end_layout
-
-\begin_layout Plain Layout
-1) dici che high-resoltion è 100 fs, ma senza mettere nessuna reference
- non puoi farlo, ogni volta che parli di una cosa devi mettere delle ref
- per validarla.
-\end_layout
-
-\begin_layout Plain Layout
-2) Dici che si aumenta con la sub-Interpolation ma anche qui: i) non abbiamo
- nessuna ref per capire cosa vuoi dire (io lo so ma il lettore no); ii)
- non rimandi nel testo nei punti in cui parli della sub-interpolation ->
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
- High
-\change_deleted 1469408620 1667381048
- 
-\change_inserted 1469408620 1667381048
--
-\change_unchanged
-performance TDCs 
-\change_deleted 1469408620 1667381013
-have
-\change_inserted 1469408620 1667381015
-can reach
-\change_deleted 1469408620 1667381018
- a
-\change_unchanged
- resolution
-\change_inserted 1469408620 1667381023
-s
-\change_unchanged
- 
-\change_inserted 1469408620 1667381026
-in the order 
-\change_unchanged
-of hundreds of femtoseconds
-\change_inserted 1469408620 1667381044
- 
+ High-performance TDCs can reach resolutions in the order of hundreds of
+ femtoseconds 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "9452098"
@@ -1487,12 +1448,8 @@ literal "false"
 
 \end_inset
 
-
-\change_unchanged
 .
- 
-\change_inserted 1469408620 1667383155
-Figure 
+ Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:LSB-and-FSR."
@@ -1504,23 +1461,19 @@ noprefix "false"
 
  graphically shows the concept of LSB.
  
-\change_unchanged
-This FOM can be improved using sub-interpolation techniques
-\change_inserted 1469408620 1667466778
-, as we will see in Section 2.
-
-\change_deleted 1469408620 1667380530
- we will see later.
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-<-
+Troppo presto dire questa cosa qui, fai solo confusione
 \end_layout
 
 \end_inset
 
 
+\change_deleted -1129936465 1668068782
+This FOM can be improved using sub-interpolation techniques, as we will
+ see in Section 2.
 \change_unchanged
 
 \end_layout
@@ -1532,35 +1485,7 @@ Full-Scale Range
 \begin_layout Standard
 Full-Scale Range (FSR) is the maximum time interval that can be measured
  by the TIM.
-\change_deleted 1469408620 1667383110
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-come detto per LSB la frase buttata così qui non ha molto senso;
-\end_layout
-
-\begin_layout Plain Layout
-1) perché ci dovrebbe essere questo trade-off (io lo capisco ma il lettore
- no), devi rimandare ad un peper ed a un punto del testo in cui viene spiegata
- questa cosa
-\end_layout
-
-\begin_layout Plain Layout
-2) la Nutt-INterpolation, io so cosa è ma anche qui servono le reference
- e il rimando a un punto del testo in cui la vai ad introdurre
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
- 
-\change_deleted 1469408620 1667381396
-A typical drawback of the TDC is the
-\change_inserted 1469408620 1667383146
-Figure 
+ Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:LSB-and-FSR."
@@ -1570,30 +1495,49 @@ noprefix "false"
 
 \end_inset
 
- shows the typical
-\change_unchanged
- trade-off existing between FSR and LSB (resolution)
-\change_inserted 1469408620 1667383342
-; in fact, with the same number 
+ shows the typical trade-off existing between FSR and LSB (resolution);
+ in fact, with the same number
+\change_deleted -1129936465 1668068880
+ 
 \begin_inset Formula $n$
 \end_inset
 
- of quantization levels, a greater FSR results in a greater LSB, since:
+
+\change_unchanged
+ of quantization levels
+\change_inserted -1129936465 1668068917
  
-\begin_inset Formula $LSB=\frac{FSR}{n}$
+\begin_inset Formula $N$
+\end_inset
+
+ (that mean a number of bits 
+\begin_inset Formula $n$
+\end_inset
+
+ in order to have 
+\begin_inset Formula $N\geq2^{n}$
+\end_inset
+
+)
+\change_unchanged
+, a greater FSR results in a greater LSB, since: 
+\begin_inset Formula $LSB=\frac{FSR}{N}$
 \end_inset
 
 .
-\change_deleted 1469408620 1667382610
-.
+ 
+\begin_inset Note Note
+status open
 
-\change_unchanged
- This
-\change_inserted 1469408620 1667382653
- trade-off
-\change_unchanged
- can be solved thanks to a technique called Nutt-Interpolation
-\change_inserted 1469408620 1667381325
+\begin_layout Plain Layout
+Troppo presto dire questa cosa qui, fai solo confusione
+\end_layout
+
+\end_inset
+
+
+\change_deleted -1129936465 1668068850
+This trade-off can be solved thanks to a technique called Nutt-Interpolation
  
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -1602,47 +1546,12 @@ literal "false"
 
 \end_inset
 
-
-\change_unchanged
-, as we will see 
-\change_deleted 1469408620 1667381329
-later
-\change_inserted 1469408620 1667466786
-in Section 2
-\change_unchanged
-.
-\change_deleted 1469408620 1667383115
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-<-
-\end_layout
-
-\end_inset
-
-
+, as we will see in Section 2.
 \change_unchanged
 
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted 1469408620 1667383116
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-prepara una figura del semplice quantizzatore in cui evidenzi cosa è l'LSB
- ed il FSR e riferisci la figura ai paragrafi di LSB e FSR rispettivamente
-\end_layout
-
-\end_inset
-
-
-\change_inserted 1469408620 1667383122
-
 \begin_inset Float figure
 wide false
 sideways false
@@ -1650,8 +1559,6 @@ status open
 
 \begin_layout Plain Layout
 \align center
-
-\change_inserted 1469408620 1667383174
 \begin_inset Graphics
 	filename images/lsb.png
 	width 50text%
@@ -1659,19 +1566,21 @@ status open
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1667383122
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+LSB and FSR
+\change_inserted -1129936465 1668068980
+ with 
+\begin_inset Formula $N=7$
+\end_inset
 
-\change_inserted 1469408620 1667383136
-LSB and FSR.
+ quantization levels
+\change_unchanged
+.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:LSB-and-FSR."
@@ -1679,25 +1588,15 @@ name "fig:LSB-and-FSR."
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
 
-\change_unchanged
-
-\end_layout
-
-\begin_layout Plain Layout
-
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
 
 \end_layout
 
@@ -1708,60 +1607,7 @@ Precision
 \begin_layout Standard
 Single-Shot Precision, or simply precision, is the capability of the TDC
  to give the same output digital code given the same time interval in input.
- 
-\change_deleted 1469408620 1667387425
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-anche qui frase buttata giù male come nelle FoMs sopra, io capisco ma un
- revisore non è detto.
-\end_layout
-
-\begin_layout Plain Layout
-1) devi dire che l'informazione di precisione, seguendo la sua definizione,
- si estrapola dalla statistica di un pull di misure svolte sullo stesso
- intervallo temorale
-\end_layout
-
-\begin_layout Plain Layout
-2) ne onsegue che la dispersione della statistica (il cui indice è la std
- deviation) sarà legata alla precisione dello strumento; ovvero uno strumento
- meno precisione avrà una statistica più dispersa di uno più preciso, quindi
- una std maggiore.
-\end_layout
-
-\begin_layout Plain Layout
-3) Per quanto riguarda la gaussiana, devi precisa che per via del teorema
- del limite centrale, in assenza di 
-\begin_inset Quotes eld
-\end_inset
-
-bias esterni
-\begin_inset Quotes erd
-\end_inset
-
- la distribuzione sarà gaussiana
-\end_layout
-
-\begin_layout Plain Layout
-5) Nel caso in cui abbiamo una statistica di precisione non gaussiana (prendi
- come esempio le misure di time-over-threshold da scintillaotri) si prende
- come indice la FWHM della statistcia in uscita (se vuoi magigori info ti
- spiego a voce quando ritorno) 
-\end_layout
-
-\begin_layout Plain Layout
-NB: aiutati con figure per spiegare questo concetto
-\end_layout
-
-\end_inset
-
-Since a gaussian curve is obatained from a set of repeated measurements,
- its standard deviation is typically used as index of precision.
-\change_inserted 1469408620 1667387390
-Based on this definition, the information about precision is obtained by
+ Based on this definition, the information about precision is obtained by
  studying the statistics of a repeated set of measurements of the same time
  interval.
  For the Central Limit Theorem, without external disturbances, the statistical
@@ -1770,30 +1616,8 @@ Based on this definition, the information about precision is obtained by
 \end_inset
 
  will be the index of the precision.
- Therefore, a TIM with a low precision will result in a wide gaussian curve,
- which is equivalent to a high standard deviation and a wide statistic dispersio
-n.
- Conversely, an instrument characterized by high precision will result in
- a narrower gaussian, and thus in a lower 
-\begin_inset Formula $\sigma$
-\end_inset
-
- value.
- There are some cases (e.g., Time-over-Threshold measurements from scintillators-c
-ollected light pulses 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "8532950"
-literal "false"
-
-\end_inset
-
-) where the statistic distribution is not gaussian; in these cases, the
- FWHM is taken as the index of precision.
-
-\change_unchanged
  
-\change_inserted 1469408620 1667387530
+\change_inserted -1129936465 1668069233
 Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1805,6 +1629,80 @@ noprefix "false"
 \end_inset
 
  graphically shows the explained concepts.
+ 
+\change_unchanged
+Therefore, a 
+\change_deleted -1129936465 1668069102
+TIM
+\change_inserted -1129936465 1668069103
+TDC
+\change_unchanged
+ with a low precision will result in a wide gaussian curve, which is equivalent
+ to a high standard deviation and a wide statistic dispersion.
+ Conversely, an instrument characterized by high precision will result in
+ a narrower gaussian, and thus in a lower 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ value.
+\change_inserted -1129936465 1668069242
+
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted -1129936465 1668069242
+ There are some cases
+\change_inserted -1129936465 1668069156
+In some cases,
+\change_unchanged
+ 
+\change_inserted -1129936465 1668069177
+if the measured time interval is not characterize by a gaussian shape 
+\change_unchanged
+(e.g., Time-over-Threshold measurements from scintillators-collected light
+ pulses 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "8532950"
+literal "false"
+
+\end_inset
+
+)
+\change_deleted -1129936465 1668069187
+ where the statistic distribution is not gaussian; in these cases, 
+\change_unchanged
+the 
+\change_inserted -1129936465 1668069199
+Full-Width at Half-Maximum (
+\change_unchanged
+FWHM
+\change_inserted -1129936465 1668069215
+) and the Full-Width at Tenth-Maximum (FWTM)
+\change_unchanged
+ 
+\change_deleted -1129936465 1668069217
+is
+\change_inserted -1129936465 1668069217
+are
+\change_unchanged
+ taken as the index of precision.
+ 
+\change_deleted -1129936465 1668069228
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Single-Shot-Precision."
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ graphically shows the explained concepts.
+\change_unchanged
+
 \begin_inset Float figure
 wide false
 sideways false
@@ -1812,8 +1710,6 @@ status open
 
 \begin_layout Plain Layout
 \align center
-
-\change_inserted 1469408620 1667385452
 \begin_inset Graphics
 	filename images/precision.png
 	width 50text%
@@ -1821,18 +1717,12 @@ status open
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1667385411
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1667385426
 Single-Shot Precision.
 \begin_inset CommandInset label
 LatexCommand label
@@ -1841,37 +1731,15 @@ name "fig:Single-Shot-Precision."
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
 
-\change_unchanged
-
-\end_layout
-
-\begin_layout Plain Layout
-
 \end_layout
 
 \end_inset
 
-
-\change_deleted 1469408620 1667387427
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-<-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
 
 \end_layout
 
@@ -1880,48 +1748,24 @@ Linearity
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted 1469408620 1667397822
+In TDC the non-linearity is represented by meas of Differential Non-Linearity
+ (DNL) and Integral Non-Linearity (INL).
+ The DNL represents the dispersion in time between consecutive digital codes
+ with respect to the nominal one (i.e., the LSB).
+ Instead, the INL is the integral of the DNL and represents the difference
+ in time between the real time interval and the measured one.
+ They are commonly represented as a percentage of the LSB, and their calculation
+ procedure will be shown in detail in Paragraph 
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-Ti ho aggiustato le frasi ma manca:
-\end_layout
-
-\begin_layout Plain Layout
-1) come le misuro? IL code density test oppure un reference nel testo in
- cui ne parlo meglio
-\end_layout
-
-\begin_layout Plain Layout
-2) formala per definire la DNL/INL oppure un reference nel testo in cui
- ne parlo meglio
-\end_layout
-
-\begin_layout Plain Layout
-3) figura in cui rapresenti la DNL/INL
-\end_layout
-
-\begin_layout Plain Layout
-->
+ref dinamica
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
-The TDC suffers from non-linearity errors.
- The non-linearity is represented by meas of Differential Non-Linearity
- (DNL) and Integral Non-Linearity (INL).
- The DNL represents the dispersion in time between consecutive digital codes
- with respect to the nominal one (i.e., the LSB).
- The INL is the integral of the DNL and represents the difference in time
- between the real time interval and the measured one.
-
-\change_inserted 1469408620 1667397085
- They are commonly represented as a percentage of the LSB, and their calculation
- procedure will be shown in detail in Paragraph 4.5.1.
+4.5.1.
  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1933,11 +1777,6 @@ noprefix "false"
 \end_inset
 
  graphically shows the DNL and the INL.
-
-\change_deleted 1469408620 1667397049
- They are commonly measured as percentage of LSB.
-\change_inserted 1469408620 1667397066
-
 \begin_inset Float figure
 wide false
 sideways false
@@ -1945,8 +1784,6 @@ status open
 
 \begin_layout Plain Layout
 \align center
-
-\change_inserted 1469408620 1667398393
 \begin_inset Graphics
 	filename images/dnlinl.png
 	width 50text%
@@ -1954,18 +1791,22 @@ status open
 \end_inset
 
 
-\change_unchanged
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+aggiungi anche la curca di rosso - blu della DNL ed INL
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1667397066
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1667397078
 DNL and INL.
 \begin_inset CommandInset label
 LatexCommand label
@@ -1974,37 +1815,15 @@ name "fig:DNL-and-INL."
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
 
-\change_unchanged
-
-\end_layout
-
-\begin_layout Plain Layout
-
 \end_layout
 
 \end_inset
 
-
-\change_deleted 1469408620 1667398561
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-<-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
 
 \end_layout
 
@@ -2014,31 +1833,12 @@ Conversion Time
 
 \begin_layout Standard
 The Conversion Time is the time required by the TDC to produce a valid output
- measure, given an input time interval.
-\change_deleted 1469408620 1667388926
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-devi mettere che in riferimento d un TDC è praticamente la lunghezza della
- pipeline di traduzione dell'informazione fisica di tempo nel codice digitale
- d'uscita.
-\end_layout
-
-\begin_layout Plain Layout
-Nel caso di assenza di pipeline allora è il tempo di propagazione necessario
- ad attraversare la logica di generazione del codice
-\end_layout
-
-\end_inset
-
-
+ measure, given an input time interval.In the case of the TDC, the Conversion
+ Time is equivalent to the length of the pipeline used for translating the
+ physical time information into the output digital code.
+ 
 \change_inserted 1469408620 1667473216
-In the case of the TDC, the Conversion Time is equivalent to the length
- of the pipeline used for translating the physical time information into
- the output digital code.
- If a pipeline structure is not implemented, it is equal to the propagation
+If a pipeline structure is not implemented, it is equal to the propagation
  delay needed to cross the logic blocks used for generating the digital
  code.
  Figure 
@@ -2054,6 +1854,19 @@ noprefix "false"
  shows the concept of Conversion Time.
 \change_unchanged
 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+devi proseguirela frase, cioè anche nel pipelie il conv time è il tempo
+ per attraversa tutta la pipeline menttre nelle FIFO + pipeline per attraversar
+ entrambe.
+ Insomma il Tconv è il tempo impiegato per andare da inghresso ad uscita!
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
@@ -2064,16 +1877,55 @@ Maximum Rate
 The Maximum Rate represents the maximum number of measures per second that
  one single channel (Maximum Channel Rate), or the global TDC system (Maximum
  Measurement Rate), can support.
- In a pipeline-based TDC, the Maximum Channel Rate corresponds to its throughput
-; instead, if pipeline structures are not present, the Maximum Channel Rate
- corresponds to the inverse of the Conversion Time.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+qui devi dire che i TDC se devono sostenere alti Channel Rate sono organizzati
+ a pipeline e non a singolo blocco di logica in modo da svincolare Tconv
+ da Tclk.
+ In questo modo il Max Rate diventa 1/Tclk.
+ Quando parli di questo fai rif alla figura sotto ed ai colori (blu conv
+ e rate verde)->
+\end_layout
+
+\end_inset
+
+In a pipeline-based TDC, the Maximum Channel Rate corresponds to its throughput;
+ instead, if pipeline structures are not present, the Maximum Channel Rate
+ corresponds to the inverse of the Conversion Time
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+<-
+\end_layout
+
+\end_inset
+
+.
  Concerning the Maximum Measurement Rate of multi-channel TDC systems, the
  bottleneck is usually given by the communication link between the TDC and
  the device, such as Personal Computers (PCs) or work stations, used to
  store and/or process the information.
 
 \change_inserted 1469408620 1667473253
- Figure 
+ 
+\change_unchanged
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+questo ref va sopra quando parli dello svincolare Tconv e Rate->
+\end_layout
+
+\end_inset
+
+
+\change_inserted 1469408620 1667473253
+Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Conversion-Time,-Maximum"
@@ -2096,7 +1948,21 @@ Dead-Time
 As Dead-Time we intend the minimum time interval between two consecutive
  events on the same channel that can be measured.
  It is representative of the multi-hit capability of the TDC.
- If data storage mechanisms, like First-In First-Out (FIFO) structure, are
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Qui devi mettere che una FIFO che consenta di immagazzinare dati ad un clk
+ FAST molto maggiore al clk di SISTEMA (SLOW) è una startegia che viene
+ usata per aumentare il dead-time rispetto ad 1/Rate.
+ Quando parli di questo fai rif alla figura sotto ed ai colori (blu conv
+ e rate verde e rosso)
+\end_layout
+
+\end_inset
+
+If data storage mechanisms, like First-In First-Out (FIFO) structure, are
  not present in the TDC architecture, the Dead-Time corresponds to the inverse
  of the Maximum Channel Rate.
  Otherwise, until free space is present in the storage mechanism (e.g., FIFO
@@ -2121,35 +1987,19 @@ noprefix "false"
  allowing the latter to be much lower.
 \change_unchanged
 
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 1469408620 1667473598
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-Prepara una figura in cui metti in evidenza dead-time, convertion time e
- measurment rate in modo da farc apire che sono cose svincolate e dipendono
- in un sstema digitale da le FIFO e le pipeline messe nel sistema di elaborazion
-e numerica.
-\end_layout
-
-\begin_layout Plain Layout
-Ovvero le note che ho messo sopra
+<-
 \end_layout
 
 \end_inset
 
 
-\change_inserted 1469408620 1667471640
-
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1469408620 1667471656
 \begin_inset Float figure
 wide false
 sideways false
@@ -2157,8 +2007,6 @@ status open
 
 \begin_layout Plain Layout
 \align center
-
-\change_inserted 1469408620 1667471851
 \begin_inset Graphics
 	filename images/deadtime.png
 	width 100text%
@@ -2166,21 +2014,82 @@ status open
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1667471656
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+Conversion Time
+\change_inserted -1129936465 1668070195
+ (
+\begin_inset Formula $T_{CONV}$
+\end_inset
 
-\change_inserted 1469408620 1667473173
-Conversion Time, Maximum Rate, Dead-Time in the three cases: without a Pipeline
- structure (on the left); with a Pipeline structure (at the center); with
- a FIFO storage mechanism alongside the Pipeline (on the right).
+ in blue)
+\change_unchanged
+, Maximum Rate
+\change_inserted -1129936465 1668070210
+ (in green)
+\change_unchanged
+, 
+\change_inserted -1129936465 1668070222
+and 
+\change_unchanged
+Dead-Time
+\change_inserted -1129936465 1668070220
+ (in red)
+\change_unchanged
+ in the three 
+\change_inserted -1129936465 1668070232
+different TDC 
+\change_deleted -1129936465 1668070238
+cases
+\change_inserted -1129936465 1668070246
+architectures
+\change_unchanged
+: without a Pipeline structure
+\change_inserted -1129936465 1668070292
+, a.k.a.
+ only logic,
+\change_unchanged
+ (on the left); with a Pipeline structure
+\change_inserted -1129936465 1668070313
+ clocked at the system clock 
+\begin_inset Formula $T_{CLK}$
+\end_inset
+
+
+\change_unchanged
+ (at the center); with a FIFO 
+\change_inserted -1129936465 1668070337
+a fast dual-port 
+\change_unchanged
+storage mechanism 
+\change_inserted -1129936465 1668070536
+that stores measurements at 
+\begin_inset Formula $T_{CLK}^{FAST}$
+\end_inset
+
+ 
+\change_unchanged
+alongside the Pipeline 
+\change_inserted -1129936465 1668070468
+clocked with the system clock 
+\begin_inset Formula $T_{CLK}^{SLOW}$
+\end_inset
+
+ 
+\change_unchanged
+(on the right)
+\change_inserted -1129936465 1668070472
+ where 
+\begin_inset Formula $T_{CLK}^{FAST}<T_{CLK}^{SLOW}$
+\end_inset
+
+
+\change_unchanged
+.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Conversion-Time,-Maximum"
@@ -2188,21 +2097,15 @@ name "fig:Conversion-Time,-Maximum"
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
 
 \end_layout
 
@@ -2231,43 +2134,9 @@ literal "false"
 
 \begin_layout Subsection
 FPGA vs.
- ASIC 
-\change_deleted 1469408620 1667040878
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-tutto da rivedere, segui le mie note
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 1469408620 1667040883
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Secondo me devi rivedere un attimo il paragrafo mettendo le argomentaizoni
- tutte allo stesso livello per essere una atitmo più sintetico (questo argomento
- è sicuramente chiaro a tutti poiché è genera purpose e non aprla dei TDC
- in generale)
-\end_layout
-
-\begin_layout Plain Layout
-Basta richiamare al tettore gli aspoetti principali
-\end_layout
-
-\end_inset
-
-
+ ASIC
+\change_deleted -1129936465 1668070635
+ 
 \change_unchanged
 
 \end_layout
@@ -2292,19 +2161,6 @@ literal "false"
 \end_inset
 
 .
-\change_deleted 1469408620 1667041553
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-qui riprendi il 1.4.2 partendo dalla descrizione ASIC
-\end_layout
-
-\end_inset
-
-
-\change_inserted 1469408620 1667041825
  An Application Specific Integrated Circuit (ASIC) is a chip designed to
  perform one specific functionality, suited for high-volume production.
  All the resources are placed on a single silicon chip, and the functionality
@@ -2312,25 +2168,70 @@ qui riprendi il 1.4.2 partendo dalla descrizione ASIC
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1469408620 1667042003
-The main advantages of an ASIC are the very high performance and the lower
- power consumption with respect to FPGAs, since the entire design is tailored
- to perform that specific functionality.
+The main advantages of 
+\change_deleted -1129936465 1668071434
+an 
+\change_unchanged
+ASIC
+\change_inserted -1129936465 1668071435
+s
+\change_unchanged
+ 
+\change_inserted -1129936465 1668071439
+with respect to FPGAs 
+\change_unchanged
+are the very high
+\change_inserted -1129936465 1668070647
+-
+\change_deleted -1129936465 1668070646
+ 
+\change_unchanged
+performance
+\change_inserted -1129936465 1668071516
+ (e.g., fast operating frequency),
+\change_unchanged
+ 
+\change_deleted -1129936465 1668071518
+and 
+\change_unchanged
+the lower power consumption
+\change_inserted -1129936465 1668071536
+, and lower area occupancy
+\change_deleted -1129936465 1668071451
+ with respect to FPGAs
+\change_unchanged
+, since the entire design is tailored to perform that specific functionality.
  Moreover, it can host analog and mixed-signal components other than digital
  ones.
+\change_inserted 1469408620 1667042003
+
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1469408620 1667042197
 The main drawback is represented by the impossibility of changing the ASIC's
  functionality; it thus lacks flexibility, due to the fixed nature of the
  design.
  Furthermore, it is characterized by a high time-to-market, in the order
- of months, due to the very long manufacturing process, and by high Non-Recurrin
-g Engineering (NRE) costs for the fabrication, representing a higher entry
- barrier with respect to FPGAs.
+ of 
+\change_deleted -1129936465 1668070695
+months
+\change_inserted -1129936465 1668070696
+years
+\change_unchanged
+, due to the very long manufacturing 
+\change_inserted -1129936465 1668070707
+and design 
+\change_unchanged
+process
+\change_inserted -1129936465 1668070711
+es
+\change_unchanged
+, and by high Non-Recurring Engineering (NRE) costs for the fabrication,
+ representing a higher entry barrier with respect to FPGAs.
+
+\change_inserted -1129936465 1668070883
+ This makes ASIC more suitable for massive production governed by the economy
+ of scale and not compatible with the request of the fast-prototyping.
 \change_deleted 1469408620 1667042233
 
 \end_layout
@@ -2351,24 +2252,96 @@ poi dopo aver sottolineato gli alti NRE degli ASIC e la scarsa flessibilità
 \end_inset
 
 
-\change_inserted 1469408620 1667043535
-For these reasons, another approach, less performant but leaner, is preferred
- in scientific research and for fast-prototyping.
+\change_unchanged
+For these reasons, another approach, less performant 
+\change_inserted -1129936465 1668071007
+in term of FOMs 
+\change_unchanged
+but leaner, is preferred in scientific research 
+\change_inserted -1129936465 1668071261
+( in which cases where few units are requested) 
+\change_unchanged
+and for fast-prototyping.
  This approach consists of using an FPGA, which is a fully-digital electronic
- device that can be configured and re-configured by a designer, after the
- manufacturing process.
+ device that can be configured and re-configured by 
+\change_inserted -1129936465 1668071297
+the
+\change_deleted -1129936465 1668071296
+a
+\change_unchanged
+ designer, after the manufacturing process
+\change_deleted -1129936465 1668071277
+.
  The main advantage of an FPGA is the high flexibility given to the user,
  thanks to the reconfigurable nature of the device.
  This allows fast prototyping and low time-to-market, since it is sufficient
- to modify the Hardware Description Language (HDL) to immediately change
- the hardware configuration of the device.
- Moreover, since there is no need to buy lithographic photomasks, it has
- low Non-Recurring Engineering (NRE) costs and, therefore, a low entry barrier.
+ to
+\change_inserted -1129936465 1668071138
+simply
+\change_unchanged
+ 
+\change_deleted -1129936465 1668071172
+modify
+\change_inserted -1129936465 1668071310
+using
+\change_unchanged
+ the Hardware Description Language (HDL)
+\change_inserted -1129936465 1668071179
+ code
+\change_unchanged
+ 
+\change_inserted -1129936465 1668071351
+that describe the disordered system
+\change_deleted -1129936465 1668071162
+to immediately change the hardware configuration of the device
+\change_unchanged
+.
+ Moreover, 
+\change_inserted -1129936465 1668071339
+if FPGAs are used 
+\change_deleted -1129936465 1668071341
+since 
+\change_unchanged
+there is no need to 
+\change_deleted -1129936465 1668071198
+buy
+\change_inserted -1129936465 1668071198
+produce
+\change_unchanged
+ 
+\change_inserted -1129936465 1668071202
+custom 
+\change_unchanged
+lithographic photomasks, 
+\change_inserted -1129936465 1668071365
+reducing 
+\change_deleted -1129936465 1668071369
+it has low
+\change_inserted -1129936465 1668071369
+the
+\change_unchanged
+ Non-Recurring Engineering (NRE) costs
+\change_deleted -1129936465 1668071382
+ and, therefore, a low entry barrier
+\change_unchanged
+.
+\change_inserted 1469408620 1667043535
+
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
 
-\change_inserted 1469408620 1667043771
+\begin_layout Plain Layout
+Qui ripeti lo stesso concetto 1000 volte frammentandolo, devi raccorpare
+ e dire le cose 1 volta sola
+\end_layout
+
+\end_inset
+
+
+\change_deleted -1129936465 1668071544
 On the other hand, the main drawbacks are the lower operating frequency
  and higher power consumption as compared to ASICs, since FPGAs are not
  optimized for the specific functionality implemented.
@@ -2379,154 +2352,40 @@ On the other hand, the main drawbacks are the lower operating frequency
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted 1469408620 1667043881
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-infine riprendi comparison e richiami la tab di comparazione
+Questa cosa non è vera, siamo noi a voler targettare il nostro sistema x
+ FPGA per renderlo suitable ad applicazioni scientifiche e fast-prototyping;
+ quindi viste che queste sono le applicazioni, dobbiamo garantire le FOM
+ che tali applicazioni richiedono allo stato dell'arte attuale
+\end_layout
+
+\begin_layout Plain Layout
+Questa frase sta bene a conclusione del paragrafo; mettila dove vedi +++->
+\end_layout
+
+\end_inset
+
+Since the applications described in Paragraph 1.1 require features such as
+ low time-to-market, fast-prototyping, low non-recurring engineering (NRE)
+ costs, and high reconfigurability, the FPGA approach is the most suitable
+ choice.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+<-
 \end_layout
 
 \end_inset
 
 
-\change_inserted 1469408620 1667044091
-Since the applications described in Paragraph 1.1 require features such as
- low time-to-market, fast-prototyping, low non-recurring engineering (NRE)
- costs, and high reconfigurability, the FPGA approach is the most suitable
- choice.
-\change_unchanged
-
-\end_layout
-
-\begin_layout Subsubsection
-
-\change_deleted 1469408620 1667042763
-FPGA
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted 1469408620 1667042765
-A Field Programmable Gate Array (FPGA) is a fully-digital electronic device
- that can be configured and re-configured by a designer, after the manufacturing
- process.
-\change_unchanged
-
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 1469408620 1667042935
-FPGAs contain a lot of pre-defined combinational and sequential logic elements
- that can be programmed and connected to produce the desired functionality.
- All these elements are contained in logic blocks called Configurable Logic
- Blocks (CLBs), which are the main logic resources for implementing sequential
- as well as combinatorial circuits, and the connections between them are
- carried out thanks to a programmable switch matrix.
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 1469408620 1667042935
-The CLBs are generally arranged in a regular array inside the FPGA, and
- each one of them connects to the switch matrix, which runs vertically and
- horizontally between the CLB rows and columns.
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 1469408620 1667042935
-Furthermore, FPGAs have dedicated modules to create and manage clocks such
- as Mixed-Mode Clock Manager (MMCM) and a Phase-Locked Loop (PLL) modules.
- In the end, buffers are available to correctly transfer the signals from
- the outside of the chip to the inside (and viceversa) or through different
- clock regions.
-\change_unchanged
-
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 1469408620 1667043115
-The main advantages of an FPGA are: high felixibility given to the user,
- thanks to the reconfigurable nature of the device; fast prototyping and
- low time-to-market, since it is sufficient to modify the Hardware Description
- Language (HDL) to immediately change the hardware configuration of the
- device; low Non-Recurring Engineering (NRE) costs, since there is no need
- to buy litographic photomasks, thus having a low entry barrier.
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 1469408620 1667043115
-The main drawbacks are instead: the lower operating frequency and higher
- power consumption with respect to ASICs, since FPGAs are not optimized
- for the specific functionality implemented; the impossibility to have analog
- or mixed-signal designs, since FPGAs are fully-digital devices.
-\end_layout
-
-\begin_layout Subsubsection
-
-\change_deleted 1469408620 1667041040
-ASIC
-\change_unchanged
-
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 1469408620 1667041081
-An Application Specific Integrated Circuit (ASIC) is a chip designed to
- perform a specific functionality, suited for an high-volume production.
- All the resources are placed on a single silicon chip, and the functionality
- is fixed by the manufacturing process.
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 1469408620 1667041081
-The main advantages of an ASIC are: very high performance and lower power
- consumption with respect to FPGAs, since the entire design is tailored
- to perform the specific functionality; the possibility to have also analog
- and mixed-signal designs other than digital ones.
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 1469408620 1667043826
-The main drawbacks are: the impossibility to change the ASIC's functionality
- and thus the lack of flexibility, given by the fixed nature of the design;
- the high time-to-market, in the order of months, employed in the manufacturing
- process; the high NRE costs for the fabrication, representing an higher
- entry barrier with respect to FPGAs.
-\end_layout
-
-\begin_layout Subsubsection
-
-\change_deleted 1469408620 1667043829
-Comparison
-\change_unchanged
-
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 1469408620 1667044032
-Despite the ASIC being much more power efficient and performant, the FPGA
- approach is the most suitable choice in the scientific research world,
- being characterized by high reconfigurability, fast prototyping, low non-recurr
-ing engineering (NRE) costs, and low time-to-market.
-
-\change_unchanged
- 
-\change_deleted 1469408620 1667043893
-Indeed, these features are acquiring more and more importance, due to the
- requirements of the applications described before.
-
-\change_unchanged
- Table 
+Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:Comparison-between-FPGA"
@@ -2809,23 +2668,21 @@ name "tab:Comparison-between-FPGA"
 
 \end_layout
 
-\begin_layout Subsection
-Architectures
-\change_deleted 1469408620 1666960282
-
+\begin_layout Standard
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-questo non è lo state of the art, ma sono l'elenco delle principali architetttur
-e disponibili
++++
 \end_layout
 
 \end_inset
 
 
-\change_unchanged
+\end_layout
 
+\begin_layout Subsection
+Architectures
 \end_layout
 
 \begin_layout Standard
