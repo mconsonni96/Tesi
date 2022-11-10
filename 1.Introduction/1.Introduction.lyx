@@ -2686,8 +2686,11 @@ Architectures
 \end_layout
 
 \begin_layout Standard
-In research and industrial worlds, different types of Time-Interval-Meters
- (TIMs) are employed.
+In research and industrial worlds
+\change_deleted -1129936465 1668073928
+,
+\change_unchanged
+ different types of Time-Interval-Meters (TIMs) are employed.
  As generic electronic circuits, also TIMs can be fully analog, fully digital
  (a.k.a.
  TDCs), or mixed-signal.
@@ -2784,7 +2787,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /home/mconsonni/Desktop/tesi_mconsonni/2.State-of-the-Art/images/TAC.png
+	filename 2.State-of-the-Art/images/TAC.png
 	width 100text%
 
 \end_inset
@@ -2871,35 +2874,9 @@ noprefix "false"
 
  that this architecture suffers from a trade-off between resolution and
  Full-Scale Range (FSR).
- 
-\change_deleted 1469408620 1666976133
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-parli di tutte queste non idealità, sarebbe meglio avere anche delle ref
- su di esse ->
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-This trade-off, along with the non-idealities of the current generator and
- 
-\change_deleted 1469408620 1666976187
-of the other
-\change_inserted 1469408620 1666976190
-the mismatches
-\change_unchanged
- 
-\change_inserted 1469408620 1666976193
-of the other 
-\change_unchanged
-components
-\change_inserted 1469408620 1666976250
- due to process and temperature variations 
+ This trade-off, along with the non-idealities of the current generator
+ and the mismatches of the other components due to process and temperature
+ variations 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "2Nicola"
@@ -2907,30 +2884,11 @@ literal "false"
 
 \end_inset
 
-
-\change_unchanged
 , represents a significant drawback and, for this reason, a fully-digital
  approach is usually preferred.
- 
-\change_deleted 1469408620 1666976135
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-<-
-\end_layout
-
-\end_inset
-
-
-\change_inserted 1469408620 1666976296
-
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1469408620 1666977902
 The great advantage of this architecture is the relatively small area occupied.
  On the other hand, a significant drawback is represented by the need to
  continuously charge and discharge the capacitor 
@@ -2938,12 +2896,43 @@ The great advantage of this architecture is the relatively small area occupied.
 \end_inset
 
 , thus making this architecture quite slow, and not suitable for the multi-hit
- capability required by the applications.
- The power consumption depends by the wanted precision; in fact, to lower
- the noise and achieve a better precision, the input current has to be increased
-, thus increasing also the power consumption.
- If instead a greater value of noise can be tolerated, the input current
+ capability required by 
+\change_deleted -1129936465 1668071980
+the
+\change_inserted -1129936465 1668071980
+some
+\change_unchanged
+ applications.
+ The power consumption depends 
+\change_deleted -1129936465 1668072069
+by
+\change_inserted -1129936465 1668072069
+on
+\change_unchanged
+ the wanted precision; in fact, to lower the noise and achieve a better
+ precision, the 
+\change_deleted -1129936465 1668072135
+input
+\change_unchanged
+ current
+\change_inserted -1129936465 1668072139
+ 
+\begin_inset Formula $I$
+\end_inset
+
+
+\change_unchanged
+ has to be increased, thus increasing also the power consumption
+\change_deleted -1129936465 1668072153
+.
+
+\change_unchanged
+ 
+\change_deleted -1129936465 1668072150
+If instead a greater value of noise can be tolerated, the input current
  can be lowered, thus saving power 
+\change_unchanged
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "9333600"
@@ -2952,38 +2941,15 @@ literal "false"
 \end_inset
 
 .
-\change_unchanged
-
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 1469408620 1666976282
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-Prosegui elencando altre pregi/difetti.
-\end_layout
-
-\begin_layout Plain Layout
-- are occupata relativamente poca
-\end_layout
-
-\begin_layout Plain Layout
-- velocità è lenta (devo caricae/scaricae) non è idoeno al multi hit
-\end_layout
-
-\begin_layout Plain Layout
-- pwr dipende dal livello di precisione che voglio avere, se sono disposto
- a tollerare del rumore basta ridurre la corrente a piacimento (metti una
- ref dove spieghi che + corrente = - rumore)
+ixed solo ASIC
 \end_layout
 
 \end_inset
 
-
-\change_inserted 1469408620 1666976286
 
 \end_layout
 
@@ -2992,9 +2958,23 @@ Shift-Clock Fast-Counter TDC
 \end_layout
 
 \begin_layout Standard
-The Shift-Clock Fast-Counter (SCFC) is a TDC architecture (fully digital
- TIM) derived from a simple counter.
- In fact, it is possible to use a simple counter, driven by a clock signal
+The Shift-Clock Fast-Counter (SCFC) is a TDC architecture 
+\change_deleted -1129936465 1668073957
+(fully digital TIM) 
+\change_unchanged
+derived from a simple counter.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+devi essere conforme alla numenclatura che hai dato; il counter è uno timestamp-
+type quindi produce un timestamp
+\end_layout
+
+\end_inset
+
+In fact, it is possible to use a simple counter, driven by a clock signal
  with period 
 \begin_inset Formula $T_{CLK}$
 \end_inset
@@ -3027,6 +3007,16 @@ literal "false"
 \end_inset
 
 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+la misura p ins^2!!!
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3037,6 +3027,17 @@ However, this single-counter implementation is useless for modern applications
 
 , in this case, is just equal to 
 \begin_inset Formula $T_{CLK}$
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+devi dire che il clock può essere dell'ordine dei ns e nel caso delle FPGA
+ al massimo puoi spingerti a poco più di 1 ns
+\end_layout
+
 \end_inset
 
 .
@@ -3055,11 +3056,7 @@ However, this single-counter implementation is useless for modern applications
 
  thanks to a Phase-Locked Loop (PLL).
  This allows having more clock edges acting as intermediate levels in the
- counting process,
-\change_inserted 1469408620 1666978750
- allowing to achieve:
-\change_unchanged
-
+ counting process, allowing to achieve:
 \begin_inset Formula 
 \begin{equation}
 \varDelta t_{LSB}=\frac{T_{CLK}}{N}\label{eq:scfc-lsb}
@@ -3076,27 +3073,17 @@ However, this single-counter implementation is useless for modern applications
 \end_inset
 
 
-\change_inserted 1469408620 1666978871
-
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1469408620 1666978970
 where 
 \begin_inset Formula $n$
 \end_inset
 
  is the number of bits composing the counter.
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted 1469408620 1666979001
-The architecture just described is represented in 
-\change_unchanged
 Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -3107,11 +3094,7 @@ noprefix "false"
 
 \end_inset
 
-
-\change_inserted 1469408620 1666979011
- represents the architecture just described
-\change_unchanged
-.
+ represents the architecture just described.
 \end_layout
 
 \begin_layout Standard
@@ -3154,10 +3137,6 @@ name "fig:Shift-Clock-Fast-Counter-TDC"
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -3189,29 +3168,32 @@ noprefix "false"
  Moreover, the extremely slender architecture minimizes the DNL and INL,
  which are limited only to clock fluctuations.
  
-\change_deleted 1469408620 1666979870
-
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-riferisciti ai lavori di giovanni ticozzi ed il digilab, cercali su IEEE
- xploer->
+sia Asic che FPGA; 
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
 In the case of FPGA implementation, the main drawback is a moderate resolution,
  limited to the maximum achievable clock frequency and the available clock
  lines that the FPGA has.
- Considering 28-nm Xilinx 7-Series FPGAs as a case study, just ten clock
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+dato che poi tu parli della Ultrascale cerca le info anche x quella
+\end_layout
+
+\end_inset
+
+Considering 28-nm Xilinx 7-Series FPGAs as a case study, just ten clock
  lines are available, limiting the resolution to some hundreds of ps.
  Moreover, an increase in terms of resolution is paid with a linear increase
- in area occupancy and greater power consumption
-\change_inserted 1469408620 1666979958
- 
+ in area occupancy and greater power consumption 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "9507865"
@@ -3219,23 +3201,7 @@ literal "false"
 
 \end_inset
 
-
-\change_unchanged
 .
-\change_deleted 1469408620 1666979867
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-<-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
 \end_layout
 
 \begin_layout Subsubsection
@@ -3261,7 +3227,17 @@ bins
 \begin_inset Quotes erd
 \end_inset
 
-, along which the input START and STOP events propagate.
+, along which the input START and STOP events propagate
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+classificalo come TDC START/STOP
+\end_layout
+
+\end_inset
+
+.
  The overall method to calculate the time interval between the two signals
  is to take a snapshot of the Delay-Line as soon as a sampling event occurs,
  thus obtaining the time interval information.
@@ -3319,6 +3295,16 @@ literal "false"
 \begin_inset Formula $\varDelta t_{p}$
 \end_inset
 
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+sarebbe più preciso tp e basta
+\end_layout
+
+\end_inset
+
 ) over the TDL, asserting in sequence the inputs of the flip-flops from
  '0' to '1'; so, when the rising-edge of the STOP occurs (i.e., the following
  rising-edge of the clock signal used to sample the TDL), the status of
@@ -3369,44 +3355,16 @@ name "fig:Tapped-Delay-Line-structure."
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted 1469408620 1667033507
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-Qui manca tutto:
-\end_layout
-
-\begin_layout Plain Layout
-- tarde off FSR e risoluzione a pari area
-\end_layout
-
-\begin_layout Plain Layout
-- area crese enormemente con il FSR
-\end_layout
-
-\begin_layout Plain Layout
-- alata DNL ed INL che dipendono dalle dispersioni dei tempi di proèagzione
- che sono figlie della PVT e che in FPGA non possono essere compensate in
- alcun modo ma solo calibrate (uso di aura) mentre in ASIC sono posssibili
- sistemi di compensazione.
-\end_layout
-
-\begin_layout Plain Layout
-- necessità di un convertitore tra termoemtico -> binario per estarrre il
- valore ...
- ovvero area
-\end_layout
-
-\begin_layout Plain Layout
-- ricordati di integrare bene nel discoros le formule sotto
+non è vero l'LSB è tp; non hai ancora parlato del clock (nutt) mentre FSR
+ è Nb LSB
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
 The resolution (LSB) of this architecture depends on the number of buffers
  (
 \begin_inset Formula $N_{B})$
@@ -3424,6 +3382,32 @@ The resolution (LSB) of this architecture depends on the number of buffers
 \begin{equation}
 LSB=\frac{T_{CLK}}{N_{B}}\label{eq:TDL resolution}
 \end{equation}
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $LSB=t_{p}$
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -3447,7 +3431,43 @@ FSR=T_{CLK}\label{eq:TDL-fullscale}
 
 \end_inset
 
- Therefore, as shown by Equations 
+
+\change_unchanged
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $FSR=N_{B}\cdot t_{p}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\change_inserted 1469408620 1667466768
+ 
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+Therefore, as shown by Equations 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:TDL resolution"
@@ -3467,44 +3487,103 @@ noprefix "false"
 
 \end_inset
 
-, at the same area condition (i.e., the same number of taps 
+, at the same area 
+\change_deleted -1129936465 1668074503
+condition
+\change_inserted -1129936465 1668074504
+occupancy
+\change_unchanged
+ (i.e., the same number of taps 
 \begin_inset Formula $N_{B}$
 \end_inset
 
 ), a trade-off between FSR and LSB arises.
- However, this trade-off can be solved using interpolatory techniques like
- Nutt-Interpolation (as we will see in Section 2).
- 
+ However, this trade-off can be 
+\change_deleted -1129936465 1668074524
+solved
+\change_inserted -1129936465 1668074525
+overome
+\change_unchanged
+ using interpolatory techniques like Nutt-Interpolation (as we will see
+ in Section 2
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref dinamica
+\end_layout
+
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1469408620 1667039051
-The main drawback of this architecture is the area consumption, due to different
- contributions.
- Firstly, to improve the FSR (after having increased 
+The main drawback of this architecture
+\change_inserted -1129936465 1668074578
+ with respect to others
+\change_unchanged
+ is the 
+\change_inserted -1129936465 1668074563
+high 
+\change_unchanged
+area consumption, due to different contributions.
+ Firstly, to 
+\change_deleted -1129936465 1668074595
+improve
+\change_inserted -1129936465 1668074597
+increase
+\change_unchanged
+ the FSR 
+\change_deleted -1129936465 1668074603
+(after having increased 
 \begin_inset Formula $T_{CLK}$
 \end_inset
 
- already), the number of buffers 
+ already),
+\change_unchanged
+ the number of buffers 
 \begin_inset Formula $N_{B}$
 \end_inset
 
- in the chain must be increased; therefore, the area consumption grows significa
-ntly with the FSR.
+ 
+\change_deleted -1129936465 1668074610
+in the chain
+\change_unchanged
+ must be increased
+\change_deleted -1129936465 1668074622
+; therefore, the area consumption grows significantly with the FSR.
+\change_inserted -1129936465 1668074628
+; secondly, 
+\change_deleted -1129936465 1668074633
+
 \end_layout
 
 \begin_layout Standard
 
-\change_inserted 1469408620 1667034959
-A further increase in the area is given by the need for a thermometric-to-binary
+\change_deleted -1129936465 1668074631
+A 
+\change_inserted -1129936465 1668074632
+a 
+\change_unchanged
+further increase in the area is given by the need for a thermometric-to-binary
  converter, with the scope of extracting a binary value from the thermometric
  code.
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
 
-\change_inserted 1469408620 1667035644
+\begin_layout Plain Layout
+Questo concetto lo devi introdurre con motta calma e dire che è solo presente
+ per le FPGA dove non c'è modo di usare altre tecniche di compensazione.
+ Quindi un mecacnismo di calibrazione rende questi TDC ad high-perfoamce
+ in sist FPGA->
+\end_layout
+
+\end_inset
+
 The last significant area contribution is given by the need for a calibration
  procedure of the TDL.
  In fact, the TDL-TDC suffers from very high DNL and INL due to process,
@@ -3513,9 +3592,6 @@ The last significant area contribution is given by the need for a calibration
  This dispersion can be easily compensated in an ASIC, but this is not possible
  on an FPGA; therefore, a calibration procedure is needed, and this leads
  to further area consumption.
- 
-\change_deleted 1469408620 1667033509
-
 \begin_inset Note Note
 status open
 
@@ -3525,8 +3601,6 @@ status open
 
 \end_inset
 
-
-\change_unchanged
 
 \end_layout
 
@@ -3547,9 +3621,19 @@ literal "false"
 \begin_inset Formula $N$
 \end_inset
 
- of buffers and, while the output of the first chain's taps are connected
- to the D-input of the flip-flops, the outputs of the second chain are connected
- to their clock inputs.
+ of buffers 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+prima era Nb adesso è N; possiamo usare lo stesso indice?
+\end_layout
+
+\end_inset
+
+and, while the output of the first chain's taps are connected to the D-input
+ of the flip-flops, the outputs of the second chain are connected to their
+ clock inputs.
  The START signal propagates on the first chain with a propagation delay
  
 \begin_inset Formula $t_{p1}$
@@ -3699,13 +3783,9 @@ noprefix "false"
 \end_inset
 
 
-\change_inserted 1469408620 1667038259
-
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1469408620 1667038369
 The minimum measurable time distance represents the resolution of the VDL,
  and it is equal to:
 \begin_inset Formula 
@@ -3719,8 +3799,6 @@ LSB=t_{p1}-t_{p2}\label{eq:vdl_lsb}
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1469408620 1667038445
 The FSR is instead equal to:
 \begin_inset Formula 
 \begin{equation}
@@ -3730,11 +3808,23 @@ FSR=N\cdot(t_{p1}-t_{p2})\label{eq:vdl_fsr}
 \end_inset
 
 
+\change_inserted 1469408620 1667038445
+
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
 
-\change_inserted 1469408620 1667039329
+\begin_layout Plain Layout
+Rileggi la nota dei cons che ti ho fatto a fine TDL-TDC, non ha senso ripetere
+ le stesse cose; basta dire che il VDL-TDC ha i medesimi difetti del TDL
+ TDC e in più per avere un corretto funzionamento bisogna garantire un alto
+ matching the catena di staty e stop 
+\end_layout
+
+\end_inset
+
 Equations 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -3770,61 +3860,24 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1469408620 1667040207
 Like the TDL-TDC, also this architecture needs a thermometric-to-binary
  converter, and a calibration process to compensate for process, voltage,
  and temperature (PVT) variations, thus requiring specific modules and increasin
 g the area occupation.
- 
-\change_unchanged
-
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 1469408620 1667038623
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-Qui manca tutto:
-\end_layout
-
-\begin_layout Plain Layout
-- tarde off FSR e risoluzione a pari area
-\end_layout
-
-\begin_layout Plain Layout
-- area crese enormemente con il FSR
-\end_layout
-
-\begin_layout Plain Layout
-- alata DNL ed INL che dipendono dalle dispersioni dei tempi di proèagzione
- che sono figlie della PVT e che in FPGA non possono essere compensate in
- alcun modo ma solo calibrate (uso di aura) mentre in ASIC sono posssibili
- sistemi di compensazione.
-\end_layout
-
-\begin_layout Plain Layout
-- necessità di un convertitore tra termoemtico -> binario per estarrre il
- valore ...
- ovvero area
-\end_layout
-
-\begin_layout Plain Layout
-- ricordati di integrare bene nel discoros le formule sotto
+<-
 \end_layout
 
 \end_inset
 
 
-\change_unchanged
-As 
-\change_deleted 1469408620 1667039848
-can be seen from the obtained result
-\change_inserted 1469408620 1667831546
-shown in Equation 
+\end_layout
+
+\begin_layout Standard
+As shown in Equation 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:vdl-timeinterval"
@@ -3834,10 +3887,27 @@ noprefix "false"
 
 \end_inset
 
-
+, the 
+\change_inserted -1129936465 1668074994
+resolution of the VDL-TDC 
+\change_deleted -1129936465 1668074998
+time difference between the START and STOP events is 
 \change_unchanged
-, the time difference between the START and STOP events is dependent on
+dependent
+\change_inserted -1129936465 1668075001
+s
+\change_unchanged
  
+\change_deleted -1129936465 1668075003
+on
+\change_inserted -1129936465 1668075004
+to
+\change_unchanged
+ 
+\change_inserted -1129936465 1668075024
+the mismmatch between 
+\change_unchanged
+
 \begin_inset Formula $t_{p1}$
 \end_inset
 
@@ -3845,16 +3915,45 @@ noprefix "false"
 \begin_inset Formula $t_{p2}$
 \end_inset
 
-, and every fluctuation of their values will directly impact the instrument's
+
+\change_inserted -1129936465 1668075041
+.
+\change_deleted -1129936465 1668075058
+,
+\change_inserted -1129936465 1668075063
+ 
+\change_deleted -1129936465 1668075058
+ and every fluctuation of their values will directly impact the instrument's
  resolution.
- Therefore, this architecture is not so reliable, and the TDL-TDC is the
- most suitable choice for an FPGA.
+
+\change_unchanged
+ Therefore, this architecture is not so reliable 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+per gli FPGA
+\end_layout
+
+\end_inset
+
+, and the TDL-TDC is the most suitable choice for an FPGA.
 \change_inserted 268488506 1666733195
 
 \end_layout
 
 \begin_layout Subsection
 State-of-the-Art
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8820027
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -5423,8 +5522,49 @@ Thesis Goal
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Devi rigirare un attimo le frasi:
+\end_layout
+
+\begin_layout Plain Layout
+- viste le interessanti appliczioni vogliamo realizzare un TIM poiché serve
+ a tanti (rif all'1)
+\end_layout
+
+\begin_layout Plain Layout
+- di consegunza sono state analizzate le FoM (rfi 3) ed individuate quello
+ allo stato dell'arte (qui metti l'elenco dell FOM di NSS) = questo è il
+ target sulle FOM che ci poniamo come obbiettivo di tesi
+\end_layout
+
+\begin_layout Plain Layout
+- Quindi sono state analizzate le varie soluzioni tecnologiche (rif 4) con
+ pro e contro ed abbiamo oprtyato per soddisfare le applicazioni che fittano
+ con il fast-prototyping (IP Core) ed i bassi NRE ovvero le FPGA 
+\end_layout
+
+\begin_layout Plain Layout
+- facendo riferimento a tutte le architetture (rif 5), osservando i pro
+ e cons offerte da ognuna e le relative FoM riportate in 1.6 è stata scelta
+ la TDL come architetture
+\end_layout
+
+\begin_layout Plain Layout
+=> di conseguenza questo sistema verrà descritto nei capitoli 2 e 3 e validato
+ sperimentalmente nel 4
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 The main goal of this thesis work has been to implement a Tapped Delay-Line
- Time-to-Digital Converter (TDL-TDC) characterized by a better time resolution,
+ Time-to-Digital Converter (TDL-TDC) characterized bya better time resolution,
  a better precision, and a better accuracy with respect to the state-of-the-art
  version of this device.
  The system has been implemented at the Digital Electronics Laboratory (DigiLAB)

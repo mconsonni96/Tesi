@@ -126,11 +126,12 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes false
+\tracking_changes true
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\author -1129936465 "Nicola Lusardi"
 \end_header
 
 \begin_body
@@ -150,6 +151,36 @@ titolo da cambiare
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Qui devi riprenedere la parte finale del 1.5.3; ovvero TDL-TDC ha i seguenti
+ problemi:
+\end_layout
+
+\begin_layout Plain Layout
+1) una dipendenza FSR vs LSB
+\end_layout
+
+\begin_layout Plain Layout
+2) una dipendenza tra il nodo tecnologico e tp; fissato un nodo ho un tp
+ minimo sotto al quale non posso sceendere non posso usare la tecnica di
+ VDL in FPGA per aggirare il problema
+\end_layout
+
+\begin_layout Plain Layout
+3) le PVT, soprattutto le P, mi rendono variabile il tp quindi devo poter
+ lavorare calibrato per massimizzare la precisione e la linearità del sistema.
+\end_layout
+
+\begin_layout Plain Layout
+Ne consegue che Nutt risolve 1), sub-Interpolation è la nostra proposta
+ per risolvere 2) e la calibrazione per 3)
+\end_layout
+
+\end_inset
+
 Since the Time-to-Digital Converter employed in our laboratory consists
  of a Tapped Delay-Line architecture, let's describe the main techniques
  used to implement it on the FPGA fabric.
@@ -178,7 +209,21 @@ literal "false"
  This technique composes the time measurement of a Coarse part and a Fine
  one, the former being characterized by high FSR and low resolution, and
  the latter having low FSR and high resolution.
- The time measurement will be the difference between these two parts:
+ 
+\change_inserted -1129936465 1668079812
+If we would to implement a TIMESTAMP-type Nutt-Interpolated system, t
+\change_deleted -1129936465 1668079807
+T
+\change_unchanged
+he time measurement
+\change_inserted -1129936465 1668079826
+ (a.k.a., timestamp 
+\begin_inset Formula $T_{MEAS}$
+\end_inset
+
+)
+\change_unchanged
+ will be the difference between these two parts:
 \end_layout
 
 \begin_layout Standard
@@ -193,22 +238,120 @@ T_{MEAS}=T_{COARSE}-T_{FINE}\label{eq:nutt-composition}
 \end_layout
 
 \begin_layout Standard
-In the TDL context described in Paragraph 1.5.3, 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+qui devi essere conforme a quello che hai detto sulle tipologie START/STOP
+ e TIMESTAMP ho fatto io le mod per darit una idea
+\end_layout
+
+\end_inset
+
+
+\change_inserted -1129936465 1668079611
+How shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Nutt-Interpolation-technique."
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ (left side), the fine measurement (
 \begin_inset Formula $T_{FINE}$
 \end_inset
 
- is equal to the time distance from the START event to the following clock
- edge (i.e., the STOP signal), and it is therefore managed by the TDL itself.
+) is performed by a TDL-TDC (START/STOP-type) instead the coarse one (
+\begin_inset Formula $T_{COARSE}$
+\end_inset
+
+) by a simple counter (TIMESTAMP-type).
+ In order to synchronize 
+\begin_inset Formula $T_{FINE}$
+\end_inset
+
+ to 
+\begin_inset Formula $T_{COARSE}$
+\end_inset
+
+, the STOP of the TDL-TDC is connected to the clock of the counter (with
+ period 
+\begin_inset Formula $T_{CLK}$
+\end_inset
+
+); while the external event is connect to the START of the TDL to the STOP
+ of the counter.
+ 
+\change_deleted -1129936465 1668079346
+In the TDL context described in Paragraph 1.5.3
+\change_inserted -1129936465 1668079552
+In this way
+\change_unchanged
+, 
+\begin_inset Formula $T_{FINE}$
+\end_inset
+
+ is equal to the time distance from the 
+\change_deleted -1129936465 1668079440
+START
+\change_inserted -1129936465 1668079552
+physical
+\change_unchanged
+ event to the following clock edge
+\change_deleted -1129936465 1668079382
+ (i.e., the STOP signal)
+\change_inserted -1129936465 1668079552
+;
+\change_deleted -1129936465 1668079382
+,
+\change_unchanged
+ 
+\change_deleted -1129936465 1668079386
+and 
+\change_inserted -1129936465 1668079552
+instead
+\change_deleted -1129936465 1668079386
+it is therefore managed by the TDL itself.
+
+\change_unchanged
  
 \begin_inset Formula $T_{COARSE}$
 \end_inset
 
- is instead equal to the number 
+ is 
+\change_deleted -1129936465 1668079390
+instead 
+\change_unchanged
+equal to the number 
+\change_deleted -1129936465 1668079396
+
 \begin_inset Formula $N_{COARSE}$
 \end_inset
 
- of clock cycles, elapsed from the power-on of the instrument to the same
- STOP edge used in the Fine measurement, multiplied by the clock period
+ 
+\change_unchanged
+of clock cycles
+\change_inserted -1129936465 1668079552
+ (
+\begin_inset Formula $N_{COARSE}$
+\end_inset
+
+ )
+\change_unchanged
+, elapsed from the power-on of the 
+\change_deleted -1129936465 1668079404
+instrument
+\change_inserted -1129936465 1668079552
+system
+\change_unchanged
+ to the 
+\change_inserted -1129936465 1668079552
+sampled version of the physical event
+\change_deleted -1129936465 1668079570
+same STOP edge used in the Fine measurement, multiplied by the clock period
  
 \begin_inset Formula $T_{CLK}$
 \end_inset
@@ -219,6 +362,8 @@ In the TDL context described in Paragraph 1.5.3,
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted -1129936465 1668079570
 \begin_inset Formula 
 \begin{equation}
 T_{COARSE}=N_{COARSE}\cdot T_{CLK}\label{eq:coarse_part}
@@ -227,10 +372,18 @@ T_{COARSE}=N_{COARSE}\cdot T_{CLK}\label{eq:coarse_part}
 \end_inset
 
 
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
-Finally, combining Equation 
+Finally, 
+\change_deleted -1129936465 1668079579
+combining
+\change_inserted -1129936465 1668079579
+from
+\change_unchanged
+ Equation 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:nutt-composition"
@@ -240,7 +393,9 @@ noprefix "false"
 
 \end_inset
 
- and Equation 
+ 
+\change_deleted -1129936465 1668079584
+and Equation 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:coarse_part"
@@ -250,7 +405,13 @@ noprefix "false"
 
 \end_inset
 
-, we obtain our timestamp measurement:
+
+\change_unchanged
+, we obtain
+\change_deleted -1129936465 1668079589
+ our timestamp measurement
+\change_unchanged
+:
 \end_layout
 
 \begin_layout Standard
@@ -275,7 +436,33 @@ noprefix "false"
 
 \end_inset
 
- graphically explains all these concepts.
+ 
+\change_inserted -1129936465 1668079626
+(right side) 
+\change_unchanged
+graphically explains 
+\change_deleted -1129936465 1668079631
+all these
+\change_inserted -1129936465 1668079632
+the
+\change_unchanged
+ 
+\change_inserted -1129936465 1668079639
+Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:nutt_timestamp"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\change_deleted -1129936465 1668079635
+concepts
+\change_unchanged
+.
 \end_layout
 
 \begin_layout Standard
@@ -289,6 +476,21 @@ status open
 \begin_inset Graphics
 	filename images/nutt.png
 	width 100text%
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+la figura di destra va modificata.
+\end_layout
+
+\begin_layout Plain Layout
+L'ext vent si occupa anche di campionare il counter, mentre TDL su STOP
+ avrà il segnale di clock del counter
+\end_layout
 
 \end_inset
 
@@ -719,26 +921,30 @@ virtual
  Once the CT is built, the Characteristic Curve (CC) of the device can be
  derived.
  The CC is nothing but the integration of the CT, thus representing, for
- each one of the 
-\begin_inset Formula $N$
-\end_inset
-
- bins, the total propagation delay of the asynchronous input signal from
- the first bin up to that specific considered bin.
- Therefore, once the TDL sends in output the thermometric code representing
- the bin that is reached by the input signal in its propagation process,
- it is possible to read from the CC the precise propagation delay up to
- that bin, and the exact Fine measure, in picoseconds, is obtained.
+ each bin, the total propagation delay of the asynchronous input signal
+ up to that considered bin.
+ Therefore, once the TDL provides the thermometric code representing the
+ bin hit by the input signal, it is possible to read from the CC the precise
+ propagation delay up to that bin.
+ In this way, the exact Fine measurement, in picoseconds, is retrieved.
 \end_layout
 
 \begin_layout Standard
-Since in FPGAs there is not the possibility to tailor the chain of buffers
- with the desired precise propagation delays, but a chain of CLBs is adapted
- as a buffer chain, the bins will all have different propagation delays
- and, due to the crossing of different clock regions, some of them can be
- particularly slow.
- The latters are called ultra-bins, as said before.
- In Figure 
+Since in FPGAs there is no possibility to tailor the chain of buffers with
+ the desired propagation delays, but a chain of CLBs is adapted as a buffer
+ chain, the bins will all have different propagation delays and, due to
+ the crossing of different clock regions, some of them can be particularly
+ slow.
+ These last are the so-called 
+\begin_inset Quotes eld
+\end_inset
+
+ultra-bins
+\begin_inset Quotes erd
+\end_inset
+
+, as said before.
+ Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Graphical-representation-of"
@@ -748,8 +954,7 @@ noprefix "false"
 
 \end_inset
 
- is reported a CT and the derived CC, in both the ideal and in the real
- cases.
+ reports a CT and the derived CC, in both the ideal and the real cases.
  
 \end_layout
 

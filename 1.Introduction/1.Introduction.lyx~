@@ -126,7 +126,7 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes true
+\tracking_changes false
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
@@ -2134,43 +2134,9 @@ literal "false"
 
 \begin_layout Subsection
 FPGA vs.
- ASIC 
-\change_deleted 1469408620 1667040878
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-tutto da rivedere, segui le mie note
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 1469408620 1667040883
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Secondo me devi rivedere un attimo il paragrafo mettendo le argomentaizoni
- tutte allo stesso livello per essere una atitmo più sintetico (questo argomento
- è sicuramente chiaro a tutti poiché è genera purpose e non aprla dei TDC
- in generale)
-\end_layout
-
-\begin_layout Plain Layout
-Basta richiamare al tettore gli aspoetti principali
-\end_layout
-
-\end_inset
-
-
+ ASIC
+\change_deleted -1129936465 1668070635
+ 
 \change_unchanged
 
 \end_layout
@@ -2195,19 +2161,6 @@ literal "false"
 \end_inset
 
 .
-\change_deleted 1469408620 1667041553
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-qui riprendi il 1.4.2 partendo dalla descrizione ASIC
-\end_layout
-
-\end_inset
-
-
-\change_inserted 1469408620 1667041825
  An Application Specific Integrated Circuit (ASIC) is a chip designed to
  perform one specific functionality, suited for high-volume production.
  All the resources are placed on a single silicon chip, and the functionality
@@ -2215,25 +2168,70 @@ qui riprendi il 1.4.2 partendo dalla descrizione ASIC
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1469408620 1667042003
-The main advantages of an ASIC are the very high performance and the lower
- power consumption with respect to FPGAs, since the entire design is tailored
- to perform that specific functionality.
+The main advantages of 
+\change_deleted -1129936465 1668071434
+an 
+\change_unchanged
+ASIC
+\change_inserted -1129936465 1668071435
+s
+\change_unchanged
+ 
+\change_inserted -1129936465 1668071439
+with respect to FPGAs 
+\change_unchanged
+are the very high
+\change_inserted -1129936465 1668070647
+-
+\change_deleted -1129936465 1668070646
+ 
+\change_unchanged
+performance
+\change_inserted -1129936465 1668071516
+ (e.g., fast operating frequency),
+\change_unchanged
+ 
+\change_deleted -1129936465 1668071518
+and 
+\change_unchanged
+the lower power consumption
+\change_inserted -1129936465 1668071536
+, and lower area occupancy
+\change_deleted -1129936465 1668071451
+ with respect to FPGAs
+\change_unchanged
+, since the entire design is tailored to perform that specific functionality.
  Moreover, it can host analog and mixed-signal components other than digital
  ones.
+\change_inserted 1469408620 1667042003
+
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1469408620 1667042197
 The main drawback is represented by the impossibility of changing the ASIC's
  functionality; it thus lacks flexibility, due to the fixed nature of the
  design.
  Furthermore, it is characterized by a high time-to-market, in the order
- of months, due to the very long manufacturing process, and by high Non-Recurrin
-g Engineering (NRE) costs for the fabrication, representing a higher entry
- barrier with respect to FPGAs.
+ of 
+\change_deleted -1129936465 1668070695
+months
+\change_inserted -1129936465 1668070696
+years
+\change_unchanged
+, due to the very long manufacturing 
+\change_inserted -1129936465 1668070707
+and design 
+\change_unchanged
+process
+\change_inserted -1129936465 1668070711
+es
+\change_unchanged
+, and by high Non-Recurring Engineering (NRE) costs for the fabrication,
+ representing a higher entry barrier with respect to FPGAs.
+
+\change_inserted -1129936465 1668070883
+ This makes ASIC more suitable for massive production governed by the economy
+ of scale and not compatible with the request of the fast-prototyping.
 \change_deleted 1469408620 1667042233
 
 \end_layout
@@ -2254,24 +2252,96 @@ poi dopo aver sottolineato gli alti NRE degli ASIC e la scarsa flessibilità
 \end_inset
 
 
-\change_inserted 1469408620 1667043535
-For these reasons, another approach, less performant but leaner, is preferred
- in scientific research and for fast-prototyping.
+\change_unchanged
+For these reasons, another approach, less performant 
+\change_inserted -1129936465 1668071007
+in term of FOMs 
+\change_unchanged
+but leaner, is preferred in scientific research 
+\change_inserted -1129936465 1668071261
+( in which cases where few units are requested) 
+\change_unchanged
+and for fast-prototyping.
  This approach consists of using an FPGA, which is a fully-digital electronic
- device that can be configured and re-configured by a designer, after the
- manufacturing process.
+ device that can be configured and re-configured by 
+\change_inserted -1129936465 1668071297
+the
+\change_deleted -1129936465 1668071296
+a
+\change_unchanged
+ designer, after the manufacturing process
+\change_deleted -1129936465 1668071277
+.
  The main advantage of an FPGA is the high flexibility given to the user,
  thanks to the reconfigurable nature of the device.
  This allows fast prototyping and low time-to-market, since it is sufficient
- to modify the Hardware Description Language (HDL) to immediately change
- the hardware configuration of the device.
- Moreover, since there is no need to buy lithographic photomasks, it has
- low Non-Recurring Engineering (NRE) costs and, therefore, a low entry barrier.
+ to
+\change_inserted -1129936465 1668071138
+simply
+\change_unchanged
+ 
+\change_deleted -1129936465 1668071172
+modify
+\change_inserted -1129936465 1668071310
+using
+\change_unchanged
+ the Hardware Description Language (HDL)
+\change_inserted -1129936465 1668071179
+ code
+\change_unchanged
+ 
+\change_inserted -1129936465 1668071351
+that describe the disordered system
+\change_deleted -1129936465 1668071162
+to immediately change the hardware configuration of the device
+\change_unchanged
+.
+ Moreover, 
+\change_inserted -1129936465 1668071339
+if FPGAs are used 
+\change_deleted -1129936465 1668071341
+since 
+\change_unchanged
+there is no need to 
+\change_deleted -1129936465 1668071198
+buy
+\change_inserted -1129936465 1668071198
+produce
+\change_unchanged
+ 
+\change_inserted -1129936465 1668071202
+custom 
+\change_unchanged
+lithographic photomasks, 
+\change_inserted -1129936465 1668071365
+reducing 
+\change_deleted -1129936465 1668071369
+it has low
+\change_inserted -1129936465 1668071369
+the
+\change_unchanged
+ Non-Recurring Engineering (NRE) costs
+\change_deleted -1129936465 1668071382
+ and, therefore, a low entry barrier
+\change_unchanged
+.
+\change_inserted 1469408620 1667043535
+
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
 
-\change_inserted 1469408620 1667043771
+\begin_layout Plain Layout
+Qui ripeti lo stesso concetto 1000 volte frammentandolo, devi raccorpare
+ e dire le cose 1 volta sola
+\end_layout
+
+\end_inset
+
+
+\change_deleted -1129936465 1668071544
 On the other hand, the main drawbacks are the lower operating frequency
  and higher power consumption as compared to ASICs, since FPGAs are not
  optimized for the specific functionality implemented.
@@ -2282,154 +2352,40 @@ On the other hand, the main drawbacks are the lower operating frequency
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted 1469408620 1667043881
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-infine riprendi comparison e richiami la tab di comparazione
+Questa cosa non è vera, siamo noi a voler targettare il nostro sistema x
+ FPGA per renderlo suitable ad applicazioni scientifiche e fast-prototyping;
+ quindi viste che queste sono le applicazioni, dobbiamo garantire le FOM
+ che tali applicazioni richiedono allo stato dell'arte attuale
+\end_layout
+
+\begin_layout Plain Layout
+Questa frase sta bene a conclusione del paragrafo; mettila dove vedi +++->
+\end_layout
+
+\end_inset
+
+Since the applications described in Paragraph 1.1 require features such as
+ low time-to-market, fast-prototyping, low non-recurring engineering (NRE)
+ costs, and high reconfigurability, the FPGA approach is the most suitable
+ choice.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+<-
 \end_layout
 
 \end_inset
 
 
-\change_inserted 1469408620 1667044091
-Since the applications described in Paragraph 1.1 require features such as
- low time-to-market, fast-prototyping, low non-recurring engineering (NRE)
- costs, and high reconfigurability, the FPGA approach is the most suitable
- choice.
-\change_unchanged
-
-\end_layout
-
-\begin_layout Subsubsection
-
-\change_deleted 1469408620 1667042763
-FPGA
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted 1469408620 1667042765
-A Field Programmable Gate Array (FPGA) is a fully-digital electronic device
- that can be configured and re-configured by a designer, after the manufacturing
- process.
-\change_unchanged
-
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 1469408620 1667042935
-FPGAs contain a lot of pre-defined combinational and sequential logic elements
- that can be programmed and connected to produce the desired functionality.
- All these elements are contained in logic blocks called Configurable Logic
- Blocks (CLBs), which are the main logic resources for implementing sequential
- as well as combinatorial circuits, and the connections between them are
- carried out thanks to a programmable switch matrix.
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 1469408620 1667042935
-The CLBs are generally arranged in a regular array inside the FPGA, and
- each one of them connects to the switch matrix, which runs vertically and
- horizontally between the CLB rows and columns.
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 1469408620 1667042935
-Furthermore, FPGAs have dedicated modules to create and manage clocks such
- as Mixed-Mode Clock Manager (MMCM) and a Phase-Locked Loop (PLL) modules.
- In the end, buffers are available to correctly transfer the signals from
- the outside of the chip to the inside (and viceversa) or through different
- clock regions.
-\change_unchanged
-
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 1469408620 1667043115
-The main advantages of an FPGA are: high felixibility given to the user,
- thanks to the reconfigurable nature of the device; fast prototyping and
- low time-to-market, since it is sufficient to modify the Hardware Description
- Language (HDL) to immediately change the hardware configuration of the
- device; low Non-Recurring Engineering (NRE) costs, since there is no need
- to buy litographic photomasks, thus having a low entry barrier.
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 1469408620 1667043115
-The main drawbacks are instead: the lower operating frequency and higher
- power consumption with respect to ASICs, since FPGAs are not optimized
- for the specific functionality implemented; the impossibility to have analog
- or mixed-signal designs, since FPGAs are fully-digital devices.
-\end_layout
-
-\begin_layout Subsubsection
-
-\change_deleted 1469408620 1667041040
-ASIC
-\change_unchanged
-
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 1469408620 1667041081
-An Application Specific Integrated Circuit (ASIC) is a chip designed to
- perform a specific functionality, suited for an high-volume production.
- All the resources are placed on a single silicon chip, and the functionality
- is fixed by the manufacturing process.
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 1469408620 1667041081
-The main advantages of an ASIC are: very high performance and lower power
- consumption with respect to FPGAs, since the entire design is tailored
- to perform the specific functionality; the possibility to have also analog
- and mixed-signal designs other than digital ones.
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 1469408620 1667043826
-The main drawbacks are: the impossibility to change the ASIC's functionality
- and thus the lack of flexibility, given by the fixed nature of the design;
- the high time-to-market, in the order of months, employed in the manufacturing
- process; the high NRE costs for the fabrication, representing an higher
- entry barrier with respect to FPGAs.
-\end_layout
-
-\begin_layout Subsubsection
-
-\change_deleted 1469408620 1667043829
-Comparison
-\change_unchanged
-
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 1469408620 1667044032
-Despite the ASIC being much more power efficient and performant, the FPGA
- approach is the most suitable choice in the scientific research world,
- being characterized by high reconfigurability, fast prototyping, low non-recurr
-ing engineering (NRE) costs, and low time-to-market.
-
-\change_unchanged
- 
-\change_deleted 1469408620 1667043893
-Indeed, these features are acquiring more and more importance, due to the
- requirements of the applications described before.
-
-\change_unchanged
- Table 
+Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:Comparison-between-FPGA"
@@ -2712,28 +2668,29 @@ name "tab:Comparison-between-FPGA"
 
 \end_layout
 
-\begin_layout Subsection
-Architectures
-\change_deleted 1469408620 1666960282
-
+\begin_layout Standard
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-questo non è lo state of the art, ma sono l'elenco delle principali architetttur
-e disponibili
++++
 \end_layout
 
 \end_inset
 
 
-\change_unchanged
+\end_layout
 
+\begin_layout Subsection
+Architectures
 \end_layout
 
 \begin_layout Standard
-In research and industrial worlds, different types of Time-Interval-Meters
- (TIMs) are employed.
+In research and industrial worlds
+\change_deleted -1129936465 1668073928
+,
+\change_unchanged
+ different types of Time-Interval-Meters (TIMs) are employed.
  As generic electronic circuits, also TIMs can be fully analog, fully digital
  (a.k.a.
  TDCs), or mixed-signal.
@@ -2830,7 +2787,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /home/mconsonni/Desktop/tesi_mconsonni/2.State-of-the-Art/images/TAC.png
+	filename 2.State-of-the-Art/images/TAC.png
 	width 100text%
 
 \end_inset
@@ -2917,35 +2874,9 @@ noprefix "false"
 
  that this architecture suffers from a trade-off between resolution and
  Full-Scale Range (FSR).
- 
-\change_deleted 1469408620 1666976133
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-parli di tutte queste non idealità, sarebbe meglio avere anche delle ref
- su di esse ->
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-This trade-off, along with the non-idealities of the current generator and
- 
-\change_deleted 1469408620 1666976187
-of the other
-\change_inserted 1469408620 1666976190
-the mismatches
-\change_unchanged
- 
-\change_inserted 1469408620 1666976193
-of the other 
-\change_unchanged
-components
-\change_inserted 1469408620 1666976250
- due to process and temperature variations 
+ This trade-off, along with the non-idealities of the current generator
+ and the mismatches of the other components due to process and temperature
+ variations 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "2Nicola"
@@ -2953,30 +2884,11 @@ literal "false"
 
 \end_inset
 
-
-\change_unchanged
 , represents a significant drawback and, for this reason, a fully-digital
  approach is usually preferred.
- 
-\change_deleted 1469408620 1666976135
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-<-
-\end_layout
-
-\end_inset
-
-
-\change_inserted 1469408620 1666976296
-
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1469408620 1666977902
 The great advantage of this architecture is the relatively small area occupied.
  On the other hand, a significant drawback is represented by the need to
  continuously charge and discharge the capacitor 
@@ -2984,12 +2896,43 @@ The great advantage of this architecture is the relatively small area occupied.
 \end_inset
 
 , thus making this architecture quite slow, and not suitable for the multi-hit
- capability required by the applications.
- The power consumption depends by the wanted precision; in fact, to lower
- the noise and achieve a better precision, the input current has to be increased
-, thus increasing also the power consumption.
- If instead a greater value of noise can be tolerated, the input current
+ capability required by 
+\change_deleted -1129936465 1668071980
+the
+\change_inserted -1129936465 1668071980
+some
+\change_unchanged
+ applications.
+ The power consumption depends 
+\change_deleted -1129936465 1668072069
+by
+\change_inserted -1129936465 1668072069
+on
+\change_unchanged
+ the wanted precision; in fact, to lower the noise and achieve a better
+ precision, the 
+\change_deleted -1129936465 1668072135
+input
+\change_unchanged
+ current
+\change_inserted -1129936465 1668072139
+ 
+\begin_inset Formula $I$
+\end_inset
+
+
+\change_unchanged
+ has to be increased, thus increasing also the power consumption
+\change_deleted -1129936465 1668072153
+.
+
+\change_unchanged
+ 
+\change_deleted -1129936465 1668072150
+If instead a greater value of noise can be tolerated, the input current
  can be lowered, thus saving power 
+\change_unchanged
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "9333600"
@@ -2998,38 +2941,15 @@ literal "false"
 \end_inset
 
 .
-\change_unchanged
-
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 1469408620 1666976282
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-Prosegui elencando altre pregi/difetti.
-\end_layout
-
-\begin_layout Plain Layout
-- are occupata relativamente poca
-\end_layout
-
-\begin_layout Plain Layout
-- velocità è lenta (devo caricae/scaricae) non è idoeno al multi hit
-\end_layout
-
-\begin_layout Plain Layout
-- pwr dipende dal livello di precisione che voglio avere, se sono disposto
- a tollerare del rumore basta ridurre la corrente a piacimento (metti una
- ref dove spieghi che + corrente = - rumore)
+ixed solo ASIC
 \end_layout
 
 \end_inset
 
-
-\change_inserted 1469408620 1666976286
 
 \end_layout
 
@@ -3038,9 +2958,23 @@ Shift-Clock Fast-Counter TDC
 \end_layout
 
 \begin_layout Standard
-The Shift-Clock Fast-Counter (SCFC) is a TDC architecture (fully digital
- TIM) derived from a simple counter.
- In fact, it is possible to use a simple counter, driven by a clock signal
+The Shift-Clock Fast-Counter (SCFC) is a TDC architecture 
+\change_deleted -1129936465 1668073957
+(fully digital TIM) 
+\change_unchanged
+derived from a simple counter.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+devi essere conforme alla numenclatura che hai dato; il counter è uno timestamp-
+type quindi produce un timestamp
+\end_layout
+
+\end_inset
+
+In fact, it is possible to use a simple counter, driven by a clock signal
  with period 
 \begin_inset Formula $T_{CLK}$
 \end_inset
@@ -3073,6 +3007,16 @@ literal "false"
 \end_inset
 
 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+la misura p ins^2!!!
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3083,6 +3027,17 @@ However, this single-counter implementation is useless for modern applications
 
 , in this case, is just equal to 
 \begin_inset Formula $T_{CLK}$
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+devi dire che il clock può essere dell'ordine dei ns e nel caso delle FPGA
+ al massimo puoi spingerti a poco più di 1 ns
+\end_layout
+
 \end_inset
 
 .
@@ -3101,11 +3056,7 @@ However, this single-counter implementation is useless for modern applications
 
  thanks to a Phase-Locked Loop (PLL).
  This allows having more clock edges acting as intermediate levels in the
- counting process,
-\change_inserted 1469408620 1666978750
- allowing to achieve:
-\change_unchanged
-
+ counting process, allowing to achieve:
 \begin_inset Formula 
 \begin{equation}
 \varDelta t_{LSB}=\frac{T_{CLK}}{N}\label{eq:scfc-lsb}
@@ -3122,27 +3073,17 @@ However, this single-counter implementation is useless for modern applications
 \end_inset
 
 
-\change_inserted 1469408620 1666978871
-
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1469408620 1666978970
 where 
 \begin_inset Formula $n$
 \end_inset
 
  is the number of bits composing the counter.
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted 1469408620 1666979001
-The architecture just described is represented in 
-\change_unchanged
 Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -3153,11 +3094,7 @@ noprefix "false"
 
 \end_inset
 
-
-\change_inserted 1469408620 1666979011
- represents the architecture just described
-\change_unchanged
-.
+ represents the architecture just described.
 \end_layout
 
 \begin_layout Standard
@@ -3200,10 +3137,6 @@ name "fig:Shift-Clock-Fast-Counter-TDC"
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -3235,29 +3168,32 @@ noprefix "false"
  Moreover, the extremely slender architecture minimizes the DNL and INL,
  which are limited only to clock fluctuations.
  
-\change_deleted 1469408620 1666979870
-
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-riferisciti ai lavori di giovanni ticozzi ed il digilab, cercali su IEEE
- xploer->
+sia Asic che FPGA; 
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
 In the case of FPGA implementation, the main drawback is a moderate resolution,
  limited to the maximum achievable clock frequency and the available clock
  lines that the FPGA has.
- Considering 28-nm Xilinx 7-Series FPGAs as a case study, just ten clock
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+dato che poi tu parli della Ultrascale cerca le info anche x quella
+\end_layout
+
+\end_inset
+
+Considering 28-nm Xilinx 7-Series FPGAs as a case study, just ten clock
  lines are available, limiting the resolution to some hundreds of ps.
  Moreover, an increase in terms of resolution is paid with a linear increase
- in area occupancy and greater power consumption
-\change_inserted 1469408620 1666979958
- 
+ in area occupancy and greater power consumption 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "9507865"
@@ -3265,23 +3201,7 @@ literal "false"
 
 \end_inset
 
-
-\change_unchanged
 .
-\change_deleted 1469408620 1666979867
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-<-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
 \end_layout
 
 \begin_layout Subsubsection
@@ -3307,7 +3227,17 @@ bins
 \begin_inset Quotes erd
 \end_inset
 
-, along which the input START and STOP events propagate.
+, along which the input START and STOP events propagate
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+classificalo come TDC START/STOP
+\end_layout
+
+\end_inset
+
+.
  The overall method to calculate the time interval between the two signals
  is to take a snapshot of the Delay-Line as soon as a sampling event occurs,
  thus obtaining the time interval information.
@@ -3365,6 +3295,16 @@ literal "false"
 \begin_inset Formula $\varDelta t_{p}$
 \end_inset
 
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+sarebbe più preciso tp e basta
+\end_layout
+
+\end_inset
+
 ) over the TDL, asserting in sequence the inputs of the flip-flops from
  '0' to '1'; so, when the rising-edge of the STOP occurs (i.e., the following
  rising-edge of the clock signal used to sample the TDL), the status of
@@ -3415,44 +3355,16 @@ name "fig:Tapped-Delay-Line-structure."
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted 1469408620 1667033507
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-Qui manca tutto:
-\end_layout
-
-\begin_layout Plain Layout
-- tarde off FSR e risoluzione a pari area
-\end_layout
-
-\begin_layout Plain Layout
-- area crese enormemente con il FSR
-\end_layout
-
-\begin_layout Plain Layout
-- alata DNL ed INL che dipendono dalle dispersioni dei tempi di proèagzione
- che sono figlie della PVT e che in FPGA non possono essere compensate in
- alcun modo ma solo calibrate (uso di aura) mentre in ASIC sono posssibili
- sistemi di compensazione.
-\end_layout
-
-\begin_layout Plain Layout
-- necessità di un convertitore tra termoemtico -> binario per estarrre il
- valore ...
- ovvero area
-\end_layout
-
-\begin_layout Plain Layout
-- ricordati di integrare bene nel discoros le formule sotto
+non è vero l'LSB è tp; non hai ancora parlato del clock (nutt) mentre FSR
+ è Nb LSB
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
 The resolution (LSB) of this architecture depends on the number of buffers
  (
 \begin_inset Formula $N_{B})$
@@ -3470,6 +3382,32 @@ The resolution (LSB) of this architecture depends on the number of buffers
 \begin{equation}
 LSB=\frac{T_{CLK}}{N_{B}}\label{eq:TDL resolution}
 \end{equation}
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $LSB=t_{p}$
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -3493,7 +3431,43 @@ FSR=T_{CLK}\label{eq:TDL-fullscale}
 
 \end_inset
 
- Therefore, as shown by Equations 
+
+\change_unchanged
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $FSR=N_{B}\cdot t_{p}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\change_inserted 1469408620 1667466768
+ 
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+Therefore, as shown by Equations 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:TDL resolution"
@@ -3513,44 +3487,103 @@ noprefix "false"
 
 \end_inset
 
-, at the same area condition (i.e., the same number of taps 
+, at the same area 
+\change_deleted -1129936465 1668074503
+condition
+\change_inserted -1129936465 1668074504
+occupancy
+\change_unchanged
+ (i.e., the same number of taps 
 \begin_inset Formula $N_{B}$
 \end_inset
 
 ), a trade-off between FSR and LSB arises.
- However, this trade-off can be solved using interpolatory techniques like
- Nutt-Interpolation (as we will see in Section 2).
- 
+ However, this trade-off can be 
+\change_deleted -1129936465 1668074524
+solved
+\change_inserted -1129936465 1668074525
+overome
+\change_unchanged
+ using interpolatory techniques like Nutt-Interpolation (as we will see
+ in Section 2
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ref dinamica
+\end_layout
+
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1469408620 1667039051
-The main drawback of this architecture is the area consumption, due to different
- contributions.
- Firstly, to improve the FSR (after having increased 
+The main drawback of this architecture
+\change_inserted -1129936465 1668074578
+ with respect to others
+\change_unchanged
+ is the 
+\change_inserted -1129936465 1668074563
+high 
+\change_unchanged
+area consumption, due to different contributions.
+ Firstly, to 
+\change_deleted -1129936465 1668074595
+improve
+\change_inserted -1129936465 1668074597
+increase
+\change_unchanged
+ the FSR 
+\change_deleted -1129936465 1668074603
+(after having increased 
 \begin_inset Formula $T_{CLK}$
 \end_inset
 
- already), the number of buffers 
+ already),
+\change_unchanged
+ the number of buffers 
 \begin_inset Formula $N_{B}$
 \end_inset
 
- in the chain must be increased; therefore, the area consumption grows significa
-ntly with the FSR.
+ 
+\change_deleted -1129936465 1668074610
+in the chain
+\change_unchanged
+ must be increased
+\change_deleted -1129936465 1668074622
+; therefore, the area consumption grows significantly with the FSR.
+\change_inserted -1129936465 1668074628
+; secondly, 
+\change_deleted -1129936465 1668074633
+
 \end_layout
 
 \begin_layout Standard
 
-\change_inserted 1469408620 1667034959
-A further increase in the area is given by the need for a thermometric-to-binary
+\change_deleted -1129936465 1668074631
+A 
+\change_inserted -1129936465 1668074632
+a 
+\change_unchanged
+further increase in the area is given by the need for a thermometric-to-binary
  converter, with the scope of extracting a binary value from the thermometric
  code.
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
 
-\change_inserted 1469408620 1667035644
+\begin_layout Plain Layout
+Questo concetto lo devi introdurre con motta calma e dire che è solo presente
+ per le FPGA dove non c'è modo di usare altre tecniche di compensazione.
+ Quindi un mecacnismo di calibrazione rende questi TDC ad high-perfoamce
+ in sist FPGA->
+\end_layout
+
+\end_inset
+
 The last significant area contribution is given by the need for a calibration
  procedure of the TDL.
  In fact, the TDL-TDC suffers from very high DNL and INL due to process,
@@ -3559,9 +3592,6 @@ The last significant area contribution is given by the need for a calibration
  This dispersion can be easily compensated in an ASIC, but this is not possible
  on an FPGA; therefore, a calibration procedure is needed, and this leads
  to further area consumption.
- 
-\change_deleted 1469408620 1667033509
-
 \begin_inset Note Note
 status open
 
@@ -3571,8 +3601,6 @@ status open
 
 \end_inset
 
-
-\change_unchanged
 
 \end_layout
 
@@ -3593,9 +3621,19 @@ literal "false"
 \begin_inset Formula $N$
 \end_inset
 
- of buffers and, while the output of the first chain's taps are connected
- to the D-input of the flip-flops, the outputs of the second chain are connected
- to their clock inputs.
+ of buffers 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+prima era Nb adesso è N; possiamo usare lo stesso indice?
+\end_layout
+
+\end_inset
+
+and, while the output of the first chain's taps are connected to the D-input
+ of the flip-flops, the outputs of the second chain are connected to their
+ clock inputs.
  The START signal propagates on the first chain with a propagation delay
  
 \begin_inset Formula $t_{p1}$
@@ -3745,13 +3783,9 @@ noprefix "false"
 \end_inset
 
 
-\change_inserted 1469408620 1667038259
-
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1469408620 1667038369
 The minimum measurable time distance represents the resolution of the VDL,
  and it is equal to:
 \begin_inset Formula 
@@ -3765,8 +3799,6 @@ LSB=t_{p1}-t_{p2}\label{eq:vdl_lsb}
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1469408620 1667038445
 The FSR is instead equal to:
 \begin_inset Formula 
 \begin{equation}
@@ -3776,11 +3808,23 @@ FSR=N\cdot(t_{p1}-t_{p2})\label{eq:vdl_fsr}
 \end_inset
 
 
+\change_inserted 1469408620 1667038445
+
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
 
-\change_inserted 1469408620 1667039329
+\begin_layout Plain Layout
+Rileggi la nota dei cons che ti ho fatto a fine TDL-TDC, non ha senso ripetere
+ le stesse cose; basta dire che il VDL-TDC ha i medesimi difetti del TDL
+ TDC e in più per avere un corretto funzionamento bisogna garantire un alto
+ matching the catena di staty e stop 
+\end_layout
+
+\end_inset
+
 Equations 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -3816,61 +3860,24 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1469408620 1667040207
 Like the TDL-TDC, also this architecture needs a thermometric-to-binary
  converter, and a calibration process to compensate for process, voltage,
  and temperature (PVT) variations, thus requiring specific modules and increasin
 g the area occupation.
- 
-\change_unchanged
-
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 1469408620 1667038623
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-Qui manca tutto:
-\end_layout
-
-\begin_layout Plain Layout
-- tarde off FSR e risoluzione a pari area
-\end_layout
-
-\begin_layout Plain Layout
-- area crese enormemente con il FSR
-\end_layout
-
-\begin_layout Plain Layout
-- alata DNL ed INL che dipendono dalle dispersioni dei tempi di proèagzione
- che sono figlie della PVT e che in FPGA non possono essere compensate in
- alcun modo ma solo calibrate (uso di aura) mentre in ASIC sono posssibili
- sistemi di compensazione.
-\end_layout
-
-\begin_layout Plain Layout
-- necessità di un convertitore tra termoemtico -> binario per estarrre il
- valore ...
- ovvero area
-\end_layout
-
-\begin_layout Plain Layout
-- ricordati di integrare bene nel discoros le formule sotto
+<-
 \end_layout
 
 \end_inset
 
 
-\change_unchanged
-As 
-\change_deleted 1469408620 1667039848
-can be seen from the obtained result
-\change_inserted 1469408620 1667831546
-shown in Equation 
+\end_layout
+
+\begin_layout Standard
+As shown in Equation 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:vdl-timeinterval"
@@ -3880,10 +3887,27 @@ noprefix "false"
 
 \end_inset
 
-
+, the 
+\change_inserted -1129936465 1668074994
+resolution of the VDL-TDC 
+\change_deleted -1129936465 1668074998
+time difference between the START and STOP events is 
 \change_unchanged
-, the time difference between the START and STOP events is dependent on
+dependent
+\change_inserted -1129936465 1668075001
+s
+\change_unchanged
  
+\change_deleted -1129936465 1668075003
+on
+\change_inserted -1129936465 1668075004
+to
+\change_unchanged
+ 
+\change_inserted -1129936465 1668075024
+the mismmatch between 
+\change_unchanged
+
 \begin_inset Formula $t_{p1}$
 \end_inset
 
@@ -3891,16 +3915,45 @@ noprefix "false"
 \begin_inset Formula $t_{p2}$
 \end_inset
 
-, and every fluctuation of their values will directly impact the instrument's
+
+\change_inserted -1129936465 1668075041
+.
+\change_deleted -1129936465 1668075058
+,
+\change_inserted -1129936465 1668075063
+ 
+\change_deleted -1129936465 1668075058
+ and every fluctuation of their values will directly impact the instrument's
  resolution.
- Therefore, this architecture is not so reliable, and the TDL-TDC is the
- most suitable choice for an FPGA.
+
+\change_unchanged
+ Therefore, this architecture is not so reliable 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+per gli FPGA
+\end_layout
+
+\end_inset
+
+, and the TDL-TDC is the most suitable choice for an FPGA.
 \change_inserted 268488506 1666733195
 
 \end_layout
 
 \begin_layout Subsection
 State-of-the-Art
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8820027
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
