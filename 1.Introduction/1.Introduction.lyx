@@ -126,7 +126,7 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes false
+\tracking_changes true
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
@@ -280,6 +280,8 @@ Concerning the scientific research field, recent years have been characterized
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 1469408620 1668095223
 \begin_inset Note Note
 status open
 
@@ -289,6 +291,8 @@ metti una bella figura in rifereimento a questo capoverso ->
 
 \end_inset
 
+
+\change_unchanged
 The concept of 
 \begin_inset Quotes eld
 \end_inset
@@ -307,36 +311,20 @@ zero
 \end_inset
 
  on the time axis, and the occurrence of a certain event of interest.
- In this case, our measurement is a Timestamp; however, we are usually more
- interested to carry out a 
-\change_inserted -1129936465 1668063889
-t
-\change_deleted -1129936465 1668063888
-T
-\change_unchanged
-ime 
-\change_inserted -1129936465 1668063893
-m
-\change_deleted -1129936465 1668063892
-M
-\change_unchanged
-easurement as the relative 
+ In this case, our measurement is a 
 \begin_inset Quotes eld
 \end_inset
 
+Timestamp
+\begin_inset Quotes erd
+\end_inset
 
-\change_inserted -1129936465 1668063899
-T
-\change_deleted -1129936465 1668063899
-t
-\change_unchanged
-ime 
-\change_deleted -1129936465 1668063902
-d
-\change_inserted -1129936465 1668063902
-D
-\change_unchanged
-istance
+; however, we are usually more interested to carry out a time measurement
+ as the relative 
+\begin_inset Quotes eld
+\end_inset
+
+Time Distance
 \begin_inset Quotes erd
 \end_inset
 
@@ -357,66 +345,19 @@ STOP
 \end_inset
 
  signal.
- Anyhow, 
-\change_deleted 1469408620 1666881007
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-No forme verbali abbreviate->
-\end_layout
-
-\end_inset
-
-
-\change_deleted -1129936465 1668064073
-it is
-\change_deleted 1469408620 1666881015
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-<-
-\end_layout
-
-\end_inset
-
-
-\change_deleted -1129936465 1668064073
- clear that 
-\change_unchanged
-a 
-\change_inserted -1129936465 1668063925
-
+ Anyhow, a 
 \begin_inset Quotes eld
 \end_inset
 
-
-\change_unchanged
 Timestamp
-\change_inserted -1129936465 1668063926
-
 \begin_inset Quotes erd
 \end_inset
 
-
-\change_unchanged
  is nothing but a particular case of time distance between a chosen absolute
  time reference, and the event under study.
+ On the other hand, the time distance between two events is the time difference
+ between their timestamps, each one calculated referencing to a common absolute
  
-\change_deleted -1129936465 1668064061
-Conversely
-\change_inserted -1129936465 1668064061
-On the other hand
-\change_unchanged
-, the time distance between two events is 
-\change_deleted -1129936465 1668064102
-nothing but 
-\change_unchanged
-the time difference between their timestamps, each one calculated referencing
- to a common absolute 
 \begin_inset Quotes eld
 \end_inset
 
@@ -425,6 +366,91 @@ zero
 \end_inset
 
  time origin.
+ 
+\change_inserted 1469408620 1668094545
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Graphical-representation-of-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows the concept just explained.
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+
+\change_inserted 1469408620 1668094565
+\begin_inset Graphics
+	filename images/time.png
+	width 80text%
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1668094494
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1668094537
+Graphical representation of the concepts of 
+\begin_inset Quotes eld
+\end_inset
+
+Timestamp
+\begin_inset Quotes erd
+\end_inset
+
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+Time Distance
+\begin_inset Quotes erd
+\end_inset
+
+.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Graphical-representation-of-1"
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Subsection
@@ -432,6 +458,8 @@ Applications
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 1469408620 1668096572
 \begin_inset Note Note
 status open
 
@@ -467,11 +495,22 @@ TIMs are applied in many different industrial and academic fields, from
 
 \end_inset
 
+
+\change_inserted 1469408620 1668096190
+TIMs are employed in many different industrial and academic fields, from
+ the R&D to the final product, from the most exotic experimental setups
+ to standard test-benches.
+ 
+\change_deleted 1469408620 1668095671
 The applications requiring these kinds of instruments and performances include
  very different fields of scientific research, from biomedical to nuclear.
  Since countless applications belong to these areas, we will describe the
  most relevant ones, used every day.
+
+\change_unchanged
  
+\change_deleted 1469408620 1668095675
+
 \begin_inset Note Note
 status open
 
@@ -482,19 +521,17 @@ Seconda Frase, da legare meglio alla prima
 \end_inset
 
 
-\change_inserted 1469408620 1666890705
-For example, the Time-of-Flight Positron Emission Tomography (TOF-PET) is
- the most relevant application in the biomedical field that requires a Time
- Interval Meter (TIM); on the other hand, Laser Rangefinder techniques for
- 3D imaging applications represent the main example of time-resolved application
-s in the industrial and automotive fields.
- Another kind of important application is the so-called Time Correlated
- Single Photon Counting (TCSPC), which is used in every-day time-resolved
- spectroscopy experiments.
+\change_inserted 1469408620 1668096493
+For example, Time-of-Flight Positron Emission Tomography (TOF-PET) is the
+ most relevant application in the biomedical field that requires using a
+ TIM.
+ Concerning the industrial and automotive fields, instead, Laser Rangefinder
+ techniques for 3D imaging applications represent the main example of time-resol
+ved applications.
+ Another application, used in everyday time-resolved spectroscopy experiments
+ in the nuclear science field, is the so-called Time-Correlated Single Photon
+ Counting (TCSPC).
  Let's now describe these three main applications in detail.
-
-\change_deleted -1129936465 1668064635
- 
 \change_unchanged
 
 \end_layout
@@ -515,22 +552,16 @@ literal "false"
  is a 3D technique used for medical imaging to detect the presence of tumors
  in the human body.
  A substance called 
-\change_inserted -1129936465 1668065999
-
 \begin_inset Quotes eld
 \end_inset
 
-
-\change_unchanged
 radiotracer
-\change_inserted -1129936465 1668066001
-
 \begin_inset Quotes erd
 \end_inset
 
-
-\change_unchanged
 , 
+\change_deleted 1469408620 1668096605
+
 \begin_inset Note Note
 status open
 
@@ -541,36 +572,11 @@ manca sempre il soggeto radiotracer è il complemento oggetto!!!
 \end_inset
 
 
-\change_inserted -1129936465 1668065805
-which is 
 \change_unchanged
-characterized by the capability to release a great number of positrons,
- 
-\change_deleted -1129936465 1668065852
-is bound
-\change_inserted -1129936465 1668065856
-binds
-\change_unchanged
- to
-\change_inserted -1129936465 1668065883
- cankerous
-\change_unchanged
- 
-\change_deleted -1129936465 1668065862
-a 
-\change_unchanged
-molecule
-\change_deleted -1129936465 1668065895
- that has the peculiarity to travel toward the region where the tumor is
- located
-\change_unchanged
-.
+which is characterized by the capability to release a great number of positrons,
+ binds to cankerous molecule.
  Once there, the positrons are emitted by the radioactive decay of the radiotrac
-er and collide with electrons 
-\change_inserted -1129936465 1668064986
-that are presents in the tissues
-\change_unchanged
-.
+er and collide with the electrons present in the tissues.
  When there is a collision between a positron and an electron, characterized
  by the same electrical charge but with opposite sign, the so-called annihilatio
 n process occurs; this results in two 511 keV gamma photons traveling on
@@ -585,6 +591,10 @@ noprefix "false"
 
 \end_inset
 
+
+\change_inserted 1469408620 1668096817
+ (on the left)
+\change_unchanged
 , these two gamma photons arrive with a certain delay (
 \begin_inset Formula $t_{1}$
 \end_inset
@@ -595,6 +605,8 @@ noprefix "false"
 
 ) to the ring of detectors surrounding the patient, and thanks to the TIM
  
+\change_deleted 1469408620 1668096833
+
 \begin_inset Note Note
 status open
 
@@ -605,10 +617,8 @@ Occhio ai soggetti mancanti, to the TIM è complemento di termine!!!
 \end_inset
 
 
-\change_inserted -1129936465 1668065555
-it 
 \change_unchanged
-is possible to measure the delay between the START event (e.g., the photon
+it is possible to measure the delay between the START event (e.g., the photon
  detection on detector 1) and the STOP event (e.g., the photon detection on
  detector 2); in this way, the time distance 
 \begin_inset Formula $\Delta t=t_{2}-t_{1}$
@@ -616,6 +626,8 @@ is possible to measure the delay between the START event (e.g., the photon
 
  can be used to derive the spatial position.
  Therefore, it is possible to retrieve the position of the tumor.
+\change_deleted 1469408620 1668097359
+
 \begin_inset Note Note
 status open
 
@@ -625,6 +637,20 @@ metti una figura della detectiond el tumore stile NSS
 
 \end_inset
 
+
+\change_inserted 1469408620 1668097521
+We can see in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:PET-TOF-working-principle."
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ (on the right) the resulting image from a tumor detection.
+\change_unchanged
 
 \begin_inset Float figure
 wide false
@@ -640,13 +666,76 @@ status open
 \end_inset
 
 
+\change_inserted 1469408620 1668097298
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset Graphics
+	filename images/PET_image.jpg
+	width 23text%
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-TOF-PET working principle.
+TOF-PET working principle
+\change_inserted 1469408620 1668097475
+ (on the left) and resulting image from a tumor detection (on the right)
+\change_unchanged
+.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:PET-TOF-working-principle."
@@ -691,6 +780,10 @@ noprefix "false"
 
 \end_inset
 
+
+\change_inserted 1469408620 1668097722
+ (on the left)
+\change_unchanged
 , the measured quantity is the time distance between the instant at which
  the laser pulse is sent toward the object and the instant at which it is
  detected by the photodiode (located in the same position as the sender)
@@ -736,16 +829,16 @@ The process just described can be repeated an
 \begin_inset Formula $N\cdot M$
 \end_inset
 
- matrix, 
-\change_deleted -1129936465 1668066260
-and
-\change_inserted -1129936465 1668066260
-so
+ matrix, so
+\change_inserted 1469408620 1668097569
+ that
 \change_unchanged
  a 3D image can be obtained.
  The first two dimensions (2D) are nothing but the two axes of the matrix
  itself, while the third dimension is the one given by the time measurements.
  
+\change_deleted 1469408620 1668098170
+
 \begin_inset Note Note
 status open
 
@@ -757,6 +850,29 @@ Di che questo sistima si chiama in generale imaging 3D, metti una bella
 \end_inset
 
 
+\change_inserted 1469408620 1668098106
+The process just explained is called 
+\begin_inset Quotes eld
+\end_inset
+
+3D imaging
+\begin_inset Quotes erd
+\end_inset
+
+.
+ We can see in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Laser-Rangefinder-working"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ (on the right) the resulting 3D image in a LiDAR application.
+\change_unchanged
+
 \begin_inset Float figure
 wide false
 sideways false
@@ -766,10 +882,45 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/laser.png
-	width 50text%
+	width 35text%
 
 \end_inset
 
+
+\change_inserted 1469408620 1668097980
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset Graphics
+	filename images/lidar.jpg
+	width 38text%
+
+\end_inset
+
+
+\change_unchanged
 
 \end_layout
 
@@ -777,7 +928,11 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Laser Rangefinder working principle.
+Laser Rangefinder working principle
+\change_inserted 1469408620 1668098107
+ (on the left) and resulting 3D image in a LiDAR application (on the right)
+\change_unchanged
+.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Laser-Rangefinder-working"
@@ -2787,7 +2942,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename 2.State-of-the-Art/images/TAC.png
+	filename /home/mconsonni/Desktop/tesi_mconsonni/2.State-of-the-Art/images/TAC.png
 	width 100text%
 
 \end_inset
