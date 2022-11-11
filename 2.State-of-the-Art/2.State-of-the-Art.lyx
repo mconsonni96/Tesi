@@ -191,6 +191,13 @@ Since the Time-to-Digital Converter employed in our laboratory consists
 
 \begin_layout Subsection
 Nutt-Interpolation
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Nutt-Interpolation"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard

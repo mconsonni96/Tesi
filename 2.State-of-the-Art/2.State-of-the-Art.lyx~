@@ -1083,9 +1083,14 @@ Calibration
 \end_layout
 
 \begin_layout Standard
-Since each buffer composing the TDL is affected by PVT variations, a periodic
- bin-by-bin calibration process is required, otherwise, the system would
- suffer from very high non-linearities 
+Since each buffer composing the TDL is affected by 
+\change_deleted -1129936465 1668083257
+PVT
+\change_inserted -1129936465 1668083263
+process (P)
+\change_unchanged
+ variations, a periodic bin-by-bin calibration process is required, otherwise,
+ the system would suffer from very high non-linearities 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "8885152"
@@ -1104,28 +1109,60 @@ virtual
 \end_inset
 
  bin, if sub-interpolation is performed) composing the TDL, thus allowing
- us to always know the exact propagation delay of each bin and obtain a
- reliable measurement.
+ us to always know the exact propagation delay of each bin 
+\change_deleted -1129936465 1668083119
+and
+\change_inserted -1129936465 1668083119
+in order to
+\change_unchanged
+ obtain a reliable measurement.
  Without calibration, the propagation delays would have unacceptably dispersed
- values, and a wrong time measurement would be performed.
+ values, and a wrong time measurement would be performed
+\change_inserted -1129936465 1668083159
+ if it is consider constant and equal to the LSB
+\change_unchanged
+.
  It is also necessary that the calibration process has a periodic refresh
  during the entire use of the TDC, in order to update the correct propagation
- delays of each bin.
+ delays of each bin
+\change_deleted -1129936465 1668083226
+.
  This is mandatory since the working conditions change a lot during the
  use of the device and, therefore, PVT variations would corrupt again the
- linearity of the system.
+ linearity of the system
+\change_inserted -1129936465 1668083271
+ compensating the voltage and temperature (VT) fluctuations
+\change_unchanged
+.
  Once the CT is built, the Characteristic Curve (CC) of the device can be
  derived.
  The CC is nothing but the integration of the CT, thus representing, for
- each bin, the total propagation delay of the asynchronous input signal
- up to that considered bin.
+ each bin, the 
+\change_inserted -1129936465 1668083323
+corresponding time measurement in picoseconds.
+\change_deleted -1129936465 1668083387
+total propagation delay of the asynchronous input signal up to that considered
+ bin.
  Therefore, once the TDL provides the thermometric code representing the
  bin hit by the input signal, it is possible to read from the CC the precise
  propagation delay up to that bin.
  In this way, the exact Fine measurement, in picoseconds, is retrieved.
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+già detto prima che l'unica arma è calibrare in FPGA
+\end_layout
+
+\end_inset
+
+
+\change_deleted -1129936465 1668083456
 Since in FPGAs there is no possibility to tailor the chain of buffers with
  the desired propagation delays, but a chain of CLBs is adapted as a buffer
  chain, the bins will all have different propagation delays and, due to
@@ -1139,7 +1176,9 @@ ultra-bins
 \begin_inset Quotes erd
 \end_inset
 
-, as said before.
+, as said before
+\change_unchanged
+.
  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1152,6 +1191,27 @@ noprefix "false"
 
  reports a CT and the derived CC, in both the ideal and the real cases.
  
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+manca tutta la questione matematica del cdt e di come ottieni la CT in ps
+ e relativa nomralizzazione
+\end_layout
+
+\begin_layout Plain Layout
+Poi a questo punto mettereri qui la def di ultra-bin (max della CT) direi
+ che è dovuto a quello detto 2 righe sopra e che ti ho cancellator (Since
+ in FPGAs there is no possibility to tailor the chain of buffers with the
+ desired propagation delays, but a chain of CLBs is adapted as a buffer
+ chain, the bins will all have different propagation delays and, due to
+ the crossing of different clock regions, some of them can be particularly
+ slow)
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
