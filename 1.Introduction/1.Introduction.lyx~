@@ -267,6 +267,8 @@ name "sec:Introduction"
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 1469408620 1668270701
 \begin_inset Note Note
 status open
 
@@ -276,11 +278,33 @@ metti delle ref sensate a questa frase ->
 
 \end_inset
 
+
+\change_unchanged
 Concerning the scientific research field, recent years have been characterized
  by continuous growth in the study of temporal evolution in chemical-physical
- phenomena; this has led to the need of employing high-performance instruments
- called Time Interval Meters (TIMs), with the task of measuring very small
- time intervals, with increasing precision and resolution.
+ phenomena
+\change_inserted 1469408620 1668270938
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "NONELL200037"
+literal "false"
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "doi:10.1146/annurev.bi.54.070185.000355"
+literal "false"
+
+\end_inset
+
+
+\change_unchanged
+; this has led to the need of employing high-performance instruments called
+ Time Interval Meters (TIMs), with the task of measuring very small time
+ intervals, with increasing precision and resolution.
  Nowadays, the events under study in these applications are characterized
  by a very high repetition rate and by a temporal resolution in the order
  of the picoseconds.
@@ -1498,7 +1522,7 @@ If a system capable of measuring
 \end_inset
 
  output events are triggered.
-\change_unchanged
+\change_deleted 1469408620 1668191615
 
 \begin_inset Note Note
 status open
@@ -1509,6 +1533,8 @@ status open
 
 \end_inset
 
+
+\change_unchanged
 
 \end_layout
 
@@ -1619,7 +1645,7 @@ Dopo devi sottolineare le relazioni tra le 2 architetture; un TIM START/STOP
 \end_inset
 
 
-\change_unchanged
+\change_inserted 1469408620 1668191580
 
 \end_layout
 
@@ -1628,6 +1654,8 @@ In this thesis work, a fully-digital TIMESTAMP-type Time-Interval-Meter,
  a.k.a.
  TIMESTAMP-type Time-to-Digital Converter (hereinafter simply called TDC),
  implemented in Field Programmable Gate Array (FPGA) will be presented.
+\change_deleted 1469408620 1668191646
+
 \begin_inset Note Note
 status open
 
@@ -1639,10 +1667,26 @@ qui metti che il TDC converte l'intervallo temporale misurato in un numero
 \end_inset
 
 
+\change_inserted 1469408620 1668191761
+A TIMESTAMP-type TDC, just like a START/STOP-type TDC, converts the measured
+ time interval into a digital output code.
+\change_unchanged
+
 \end_layout
 
 \begin_layout Subsection
 Figures Of Merit (FOMs)
+\change_inserted 1469408620 1668249456
+
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Figures-Of-Merit"
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -2357,6 +2401,17 @@ literal "false"
 \begin_layout Subsection
 FPGA vs.
  ASIC
+\change_inserted 1469408620 1668250318
+
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:FPGA-vs.-ASIC"
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -2812,6 +2867,17 @@ noprefix "false"
 
 \begin_layout Subsection
 Architectures
+\change_inserted 1469408620 1668250943
+
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Architectures"
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -3518,6 +3584,17 @@ literal "false"
 
 \begin_layout Paragraph
 Tapped Delay-Line TDC, TDL-TDC
+\change_inserted 1469408620 1668253893
+
+\begin_inset CommandInset label
+LatexCommand label
+name "par:Tapped-Delay-Line-TDC,"
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -4440,6 +4517,15 @@ status open
 \begin_layout Plain Layout
 https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8820027
 \end_layout
+
+\end_inset
+
+
+\change_inserted 1469408620 1668250955
+
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:State-of-the-Art"
 
 \end_inset
 
@@ -6369,6 +6455,8 @@ Thesis Goal
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 1469408620 1668251212
 \begin_inset Note Note
 status open
 
@@ -6377,26 +6465,42 @@ Devi rigirare un attimo le frasi:
 \end_layout
 
 \begin_layout Plain Layout
+
+\change_deleted 1469408620 1668250132
 - viste le interessanti appliczioni vogliamo realizzare un TIM poiché serve
  a tanti (rif all'1)
+\change_unchanged
+
 \end_layout
 
 \begin_layout Plain Layout
+
+\change_deleted 1469408620 1668250188
 - di consegunza sono state analizzate le FoM (rfi 3) ed individuate quello
  allo stato dell'arte (qui metti l'elenco dell FOM di NSS) = questo è il
  target sulle FOM che ci poniamo come obbiettivo di tesi
+\change_unchanged
+
 \end_layout
 
 \begin_layout Plain Layout
+
+\change_deleted 1469408620 1668250751
 - Quindi sono state analizzate le varie soluzioni tecnologiche (rif 4) con
  pro e contro ed abbiamo oprtyato per soddisfare le applicazioni che fittano
- con il fast-prototyping (IP Core) ed i bassi NRE ovvero le FPGA 
+ con il fast-prototyping (IP Core) ed i bassi NRE ovvero le FPGA
+\change_unchanged
+ 
 \end_layout
 
 \begin_layout Plain Layout
+
+\change_deleted 1469408620 1668251202
 - facendo riferimento a tutte le architetture (rif 5), osservando i pro
  e cons offerte da ognuna e le relative FoM riportate in 1.6 è stata scelta
  la TDL come architetture
+\change_unchanged
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -6407,16 +6511,142 @@ Devi rigirare un attimo le frasi:
 \end_inset
 
 
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
+
+\change_inserted 1469408620 1668251975
+To satisfy the applications described in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Applications"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, the implementation of a TIM has been undertaken in this thesis work.
+ Then, after having analyzed the FoMs in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Figures-Of-Merit"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, the ones required by State-of-the-Art TIMs have been identified:
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted 1469408620 1668249978
+Resolution (LSB);
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted 1469408620 1668249986
+Full-Scale Range (FSR);
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted 1469408620 1668250008
+Single-Shot Precision;
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted 1469408620 1668250015
+Linearity;
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted 1469408620 1668250022
+Measure Rate;
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted 1469408620 1668250026
+Dead-Time.
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 1469408620 1668252083
+Therefore, the achievement of these FoMs has been set as the main target
+ for this thesis.
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 1469408620 1668252503
+After that, two different technological solutions have been considered in
+ Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:FPGA-vs.-ASIC"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, analyzing their pros and cons.
+ To cope with those applications fitting with fast-prototyping and NRE costs,
+ the FPGA approach has been preferred, and a fully-digital TIM, a.k.a.
+ TDC, has been selected for the design process.
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 1469408620 1668252836
+Finally, by considering the different TDC architectures (Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Architectures"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) and their achieved FoMs in several State-of-the-Art implementations (Section
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:State-of-the-Art"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+), the TDL architecture has been chosen.
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 1469408620 1668251428
 The main goal of this thesis work has been to implement a Tapped Delay-Line
  Time-to-Digital Converter (TDL-TDC) characterized bya better time resolution,
  a better precision, and a better accuracy with respect to the state-of-the-art
  version of this device.
- The system has been implemented at the Digital Electronics Laboratory (DigiLAB)
- at Politecnico di Milano, fully on FPGA as a tunable, plug-and-play, Intellectu
-al Property Core (IP-Core) 
+ 
+\change_unchanged
+The system has been implemented at the Digital Electronics Laboratory (DigiLAB)
+ at Politecnico di Milano
+\change_deleted 1469408620 1668251452
+, fully on FPGA
+\change_unchanged
+ as a tunable, plug-and-play, Intellectual Property Core (IP-Core) 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "9452098"
@@ -6426,17 +6656,63 @@ literal "false"
 
 .
  The IP-Core is a package containing the firmware and the parameters of
- all the blocks composing the TDC, and it is characterized by an high portabilit
-y.
- The high portability is due to the fact that it can be used as a simple
- drag-and-drop unique block, thus allowing to test it very easily and promptly
- on different FPGA devices.
- This IP-Core approach has been preferred due to another great advantage,
- which is the high tunability given to the architecture.
- Indeed, all the TDC's parameters such as FSR, resolution, and number of
- channels, can be set by the user in the instantiation stage, by simply
- choosing their value on the IP-Core's Graphical User Interface (GUI).
+ all the blocks composing the TDC, and it is characterized by a high portability.
  
+\change_inserted 1469408620 1668253069
+The latter comes from the fact it can be used as a simple drag-and-drop
+ unique block, thus allowing it to be promptly tested on different FPGA
+ devices.
+
+\change_unchanged
+ 
+\change_inserted 1469408620 1668251498
+Another advantage of the
+\change_deleted 1469408620 1668251499
+This
+\change_unchanged
+ IP-Core approach
+\change_deleted 1469408620 1668251507
+ has been preferred due to another great advantage, which
+\change_unchanged
+ is the high tunability given to the system.
+ Indeed, all the TDC's parameters such as FSR, resolution, and number of
+ channels, can be set by the user in the instantiation stage by simply choosing
+ their value on the IP-Core's Graphical User Interface (GUI).
+ 
+\change_inserted 1469408620 1668251635
+The implemented system will be described in detail in Chapters 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Techniques-(?)"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Main-Work"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and experimentally validated in Chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Measurements"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\change_unchanged
+
 \end_layout
 
 \end_body

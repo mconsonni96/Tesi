@@ -126,18 +126,18 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes false
+\tracking_changes true
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
-\author -1129936465 "Nicola Lusardi"
+\author 1469408620 "Mattia Consonni"
 \end_header
 
 \begin_body
 
 \begin_layout Section
-Techniques (
+Techniques to improve the FoMs of the TDC (
 \begin_inset Note Note
 status open
 
@@ -148,9 +148,18 @@ titolo da cambiare
 \end_inset
 
 ?)
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Techniques-(?)"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 1469408620 1668254906
 \begin_inset Note Note
 status open
 
@@ -187,10 +196,115 @@ Since the Time-to-Digital Converter employed in our laboratory consists
  These techniques aim to improve as much as possible some of the Figures
  Of Merit (FOMs) already mentioned and break the LSB-FSR trade-off the TDL-TDC
  suffers from.
+\change_inserted 1469408620 1668254084
+As shown in Paragraph 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "par:Tapped-Delay-Line-TDC,"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, the TDL-TDC suffers from three main problems:
+\end_layout
+
+\begin_layout Enumerate
+
+\change_inserted 1469408620 1668254732
+a trade-off between LSB and FSR is present;
+\begin_inset CommandInset label
+LatexCommand label
+name "enu:a-trade-off-between"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\change_inserted 1469408620 1668255003
+if the TDC is implemented in a certain technological node, there is a minimum
+ possible 
+\begin_inset Formula $t_{P}$
+\end_inset
+
+ that limits the resolution;
+\begin_inset CommandInset label
+LatexCommand label
+name "enu:if-the-TDC"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\change_inserted 1469408620 1668255152
+PVT variations cause dispersion in the 
+\begin_inset Formula $t_{P}$
+\end_inset
+
+ value, thus requiring working in a calibrated mode to maximize the precision
+ and the linearity of the system.
+\begin_inset CommandInset label
+LatexCommand label
+name "enu:PVT-variations-cause"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 1469408620 1668255232
+In this Chapter, we will describe the proposed solutions to solve each problem:
+ Nutt-Interpolation, to solve 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "enu:a-trade-off-between"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+; Sub-Interpolation, to solve 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "enu:if-the-TDC"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+; Calibration, to solve 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "enu:PVT-variations-cause"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection
 Nutt-Interpolation
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Nutt-Interpolation"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -209,21 +323,12 @@ literal "false"
  This technique composes the time measurement of a Coarse part and a Fine
  one, the former being characterized by high FSR and low resolution, and
  the latter having low FSR and high resolution.
- 
-\change_inserted -1129936465 1668079812
-If we would to implement a TIMESTAMP-type Nutt-Interpolated system, t
-\change_deleted -1129936465 1668079807
-T
-\change_unchanged
-he time measurement
-\change_inserted -1129936465 1668079826
- (a.k.a., timestamp 
+ If we would to implement a TIMESTAMP-type Nutt-Interpolated system, the
+ time measurement (a.k.a., timestamp 
 \begin_inset Formula $T_{MEAS}$
 \end_inset
 
-)
-\change_unchanged
- will be the difference between these two parts:
+) will be the difference between these two parts:
 \end_layout
 
 \begin_layout Standard
@@ -238,6 +343,8 @@ T_{MEAS}=T_{COARSE}-T_{FINE}\label{eq:nutt-composition}
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 1469408620 1668255670
 \begin_inset Note Note
 status open
 
@@ -249,8 +356,8 @@ qui devi essere conforme a quello che hai detto sulle tipologie START/STOP
 \end_inset
 
 
-\change_inserted -1129936465 1668079611
-How shown in Figure 
+\change_unchanged
+As shown in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Nutt-Interpolation-technique."
@@ -264,7 +371,7 @@ noprefix "false"
 \begin_inset Formula $T_{FINE}$
 \end_inset
 
-) is performed by a TDL-TDC (START/STOP-type) instead the coarse one (
+) is performed by a TDL-TDC (START/STOP-type) and the coarse one (
 \begin_inset Formula $T_{COARSE}$
 \end_inset
 
@@ -282,108 +389,27 @@ noprefix "false"
 \begin_inset Formula $T_{CLK}$
 \end_inset
 
-); while the external event is connect to the START of the TDL to the STOP
+), while the external event is connect to the START of the TDL and the STOP
  of the counter.
- 
-\change_deleted -1129936465 1668079346
-In the TDL context described in Paragraph 1.5.3
-\change_inserted -1129936465 1668079552
-In this way
-\change_unchanged
-, 
+ In this way, 
 \begin_inset Formula $T_{FINE}$
 \end_inset
 
- is equal to the time distance from the 
-\change_deleted -1129936465 1668079440
-START
-\change_inserted -1129936465 1668079552
-physical
-\change_unchanged
- event to the following clock edge
-\change_deleted -1129936465 1668079382
- (i.e., the STOP signal)
-\change_inserted -1129936465 1668079552
-;
-\change_deleted -1129936465 1668079382
-,
-\change_unchanged
- 
-\change_deleted -1129936465 1668079386
-and 
-\change_inserted -1129936465 1668079552
-instead
-\change_deleted -1129936465 1668079386
-it is therefore managed by the TDL itself.
-
-\change_unchanged
- 
+ is equal to the time distance from the physical event to the following
+ clock edge; instead, 
 \begin_inset Formula $T_{COARSE}$
 \end_inset
 
- is 
-\change_deleted -1129936465 1668079390
-instead 
-\change_unchanged
-equal to the number 
-\change_deleted -1129936465 1668079396
-
+ is equal to the number of clock cycles (
 \begin_inset Formula $N_{COARSE}$
 \end_inset
 
- 
-\change_unchanged
-of clock cycles
-\change_inserted -1129936465 1668079552
- (
-\begin_inset Formula $N_{COARSE}$
-\end_inset
-
- )
-\change_unchanged
-, elapsed from the power-on of the 
-\change_deleted -1129936465 1668079404
-instrument
-\change_inserted -1129936465 1668079552
-system
-\change_unchanged
- to the 
-\change_inserted -1129936465 1668079552
-sampled version of the physical event
-\change_deleted -1129936465 1668079570
-same STOP edge used in the Fine measurement, multiplied by the clock period
- 
-\begin_inset Formula $T_{CLK}$
-\end_inset
-
-.
- The Coarse measurement is managed by a module called Coarse Counter.
- Therefore, we have:
+) elapsed from the power-on of the system to the sampled version of the
+ physical event.
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted -1129936465 1668079570
-\begin_inset Formula 
-\begin{equation}
-T_{COARSE}=N_{COARSE}\cdot T_{CLK}\label{eq:coarse_part}
-\end{equation}
-
-\end_inset
-
-
-\change_unchanged
-
-\end_layout
-
-\begin_layout Standard
-Finally, 
-\change_deleted -1129936465 1668079579
-combining
-\change_inserted -1129936465 1668079579
-from
-\change_unchanged
- Equation 
+Finally, from Equation 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:nutt-composition"
@@ -393,25 +419,7 @@ noprefix "false"
 
 \end_inset
 
- 
-\change_deleted -1129936465 1668079584
-and Equation 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:coarse_part"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-
-\change_unchanged
-, we obtain
-\change_deleted -1129936465 1668079589
- our timestamp measurement
-\change_unchanged
-:
+, we obtain:
 \end_layout
 
 \begin_layout Standard
@@ -436,19 +444,7 @@ noprefix "false"
 
 \end_inset
 
- 
-\change_inserted -1129936465 1668079626
-(right side) 
-\change_unchanged
-graphically explains 
-\change_deleted -1129936465 1668079631
-all these
-\change_inserted -1129936465 1668079632
-the
-\change_unchanged
- 
-\change_inserted -1129936465 1668079639
-Equation 
+ (right side) graphically explains Equation 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:nutt_timestamp"
@@ -458,10 +454,6 @@ noprefix "false"
 
 \end_inset
 
-
-\change_deleted -1129936465 1668079635
-concepts
-\change_unchanged
 .
 \end_layout
 
@@ -480,6 +472,8 @@ status open
 \end_inset
 
 
+\change_deleted 1469408620 1668257307
+
 \begin_inset Note Note
 status open
 
@@ -494,6 +488,8 @@ L'ext vent si occupa anche di campionare il counter, mentre TDL su STOP
 
 \end_inset
 
+
+\change_unchanged
 
 \end_layout
 
@@ -561,46 +557,10 @@ Sub-Interpolation
 
 \begin_layout Standard
 The Sub-Interpolation is a technique used to reduce the quantization error
-\change_inserted -1129936465 1668079891
- (i.e., improving the resolution)
-\change_unchanged
- of the 
-\change_inserted -1129936465 1668079883
-TDL-
-\change_unchanged
-TDC
-\change_deleted -1129936465 1668079895
-, thus improving its resolution
-\change_unchanged
-.
- 
-\change_inserted -1129936465 1668079983
-In this seance, i
-\change_deleted -1129936465 1668079983
-I
-\change_unchanged
-t exploits redundancy in the measurement
-\change_inserted -1129936465 1668079997
- process
-\change_deleted -1129936465 1668079993
-s 
-\change_inserted -1129936465 1668079999
- 
-\change_unchanged
-to lower the LSB
-\change_deleted -1129936465 1668080033
- 
-\change_inserted -1129936465 1668080082
- 
-\change_unchanged
-as much as desired
-\change_deleted -1129936465 1668080085
- 
-\change_inserted -1129936465 1668080085
- delay beyond the minimum propagation delay offered by the technological
- node 
-\change_unchanged
-
+ (i.e., improving the resolution) of the TDL-TDC.
+ In this sense, it exploits redundancy in the measurement process to lower
+ the LSB as much as the desired delay beyond the minimum one offered by
+ the technological node 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Sub"
@@ -609,34 +569,30 @@ literal "false"
 \end_inset
 
 .
- The 
-\change_inserted -1129936465 1668080109
-proposed Sub-Interpolated 
-\change_unchanged
-TDL-TDC 
-\change_deleted -1129936465 1668080117
-implemented in our laboratory 
-\change_unchanged
-exploits spatial redundancy, i.e.
-\change_inserted -1129936465 1668080134
-,
-\change_unchanged
- the Super Wave Union (SuperWU)
-\change_deleted -1129936465 1668080130
- sub-interpolation algorithm
-\change_unchanged
-, characterized by the use of more physical TDLs placed in parallel.
+ The proposed Sub-Interpolated TDL-TDC exploits spatial redundancy, i.e.,
+ the Super Wave Union (SuperWU), characterized by the use of more physical
+ TDLs placed in parallel.
  If we have 
 \begin_inset Formula $N$
 \end_inset
 
  TDLs in parallel, each one with a real number 
+\change_inserted 1469408620 1668257914
+
+\begin_inset Formula $N_{B}$
+\end_inset
+
+
+\change_deleted 1469408620 1668257918
+
 \begin_inset Formula $N_{R}$
 \end_inset
 
+
+\change_unchanged
  of buffers (taps), we obtain the so-called Virtual Tapped Delay-Line (V-TDL),
  composed of 
-\begin_inset Formula $N_{V}=N_{R}\cdot N$
+\begin_inset Formula $N_{V}=N_{B}\cdot N$
 \end_inset
 
  
@@ -652,6 +608,8 @@ virtual
 \end_inset
 
 -time faster propagation delay.
+\change_deleted 1469408620 1668257933
+
 \begin_inset Note Note
 status open
 
@@ -662,6 +620,8 @@ qui usi Nr e prima in cap1 usavi Nb ...
 
 \end_inset
 
+
+\change_unchanged
 
 \end_layout
 
@@ -675,39 +635,11 @@ In practice, let's consider
 \begin_inset Formula $N$
 \end_inset
 
- TDL 
-\change_inserted -1129936465 1668080221
-in parallel 
-\change_unchanged
-with 
-\begin_inset Formula $n_{R}\in[1;N_{R}]$
+ TDLs in parallel with 
+\begin_inset Formula $n_{B}\in[1;N_{B}]$
 \end_inset
 
- 
-\change_deleted -1129936465 1668080234
-
-\begin_inset Formula $\epsilon$
-\end_inset
-
- [1;
-\begin_inset Formula $N_{R}$
-\end_inset
-
-]
-\change_unchanged
- real bins
-\change_inserted -1129936465 1668080245
- per TDL
-\change_unchanged
- characterized by 
-\change_deleted -1129936465 1668080301
-the
-\change_inserted -1129936465 1668080301
-a
-\change_unchanged
- 
-\change_inserted -1129936465 1668080400
-real 
+ real bins each, characterized by a real 
 \begin_inset Quotes eld
 \end_inset
 
@@ -715,26 +647,10 @@ bin-by-bin
 \begin_inset Quotes erd
 \end_inset
 
- 
-\change_unchanged
-propagation delays 
-\change_deleted -1129936465 1668080305
-
-\begin_inset Formula $t_{R}$
+ propagation delay 
+\begin_inset Formula $t_{B}[n_{B}]$
 \end_inset
 
-[n
-\begin_inset Formula $_{R}$
-\end_inset
-
-]
-\change_inserted -1129936465 1668080305
-
-\begin_inset Formula $t_{R}[n_{R}]$
-\end_inset
-
-
-\change_unchanged
  and FSR 
 \begin_inset Formula $T_{FSR}$
 \end_inset
@@ -742,30 +658,10 @@ propagation delays
 .
  In this situation, the sub–interpolation process generates a Virtual Tapped
  Delay–Line (V–TDL) composed of 
-\change_deleted -1129936465 1668080320
-n
-\begin_inset Formula $_{V}$
-\end_inset
-
- 
-\begin_inset Formula $\epsilon$
-\end_inset
-
- [1;N
-\begin_inset Formula $_{V}$
-\end_inset
-
- ]
-\change_inserted -1129936465 1668080320
-
 \begin_inset Formula $n_{V}\in[1;N_{V}]$
 \end_inset
 
-
-\change_unchanged
- “virtual bins” with 
-\change_inserted -1129936465 1668080422
-a virtual 
+ “virtual bins” with a virtual 
 \begin_inset Quotes eld
 \end_inset
 
@@ -773,26 +669,10 @@ bin-by-bin
 \begin_inset Quotes erd
 \end_inset
 
- 
-\change_deleted -1129936465 1668080379
-t
-\begin_inset Formula $_{V}$
-\end_inset
-
-[n
-\begin_inset Formula $_{V}$
-\end_inset
-
-]
-\change_unchanged
- propagation delays
-\change_inserted -1129936465 1668080445
- 
+ propagation delays 
 \begin_inset Formula $t_{V}[n_{V}]$
 \end_inset
 
-
-\change_unchanged
 , where:
 \end_layout
 
@@ -800,8 +680,8 @@ t
 \begin_inset Formula 
 \begin{equation}
 \begin{cases}
-t_{V}[n_{V}]=\frac{1}{N}\sum_{n=1}^{n=N}t_{R}[n_{R}[n]]\\
-n_{V}=\sum_{n=1}^{n=N}n_{R}[n]
+t_{V}[n_{V}]=\frac{1}{N}\sum_{n=1}^{n=N}t_{B}[n_{B}[n]]\\
+n_{V}=\sum_{n=1}^{n=N}n_{B}[n]
 \end{cases}\label{eq:subint-1}
 \end{equation}
 
@@ -811,8 +691,6 @@ n_{V}=\sum_{n=1}^{n=N}n_{R}[n]
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -1129936465 1668080737
 Referring to Equation 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -832,7 +710,7 @@ literal "false"
 \end_inset
 
 , we can demonstrate that 
-\begin_inset Formula $N_{V}=N_{R}\cdot N$
+\begin_inset Formula $N_{V}=N_{B}\cdot N$
 \end_inset
 
 ; therefore, the LSB of the V-TDL is 
@@ -840,147 +718,14 @@ literal "false"
 \end_inset
 
  times smaller than the one of a single real TDL.
- In general, each propagation delays of the real-bins of different TDLs
- are averaged each other reducing the propagation delays of the virtual-bins.
-\change_unchanged
-
+ In general, the propagation delays of the real-bins belonging to the different
+ TDLs get averaged each other, reducing the propagation delays of the virtual-bi
+ns.
 \end_layout
 
 \begin_layout Standard
 
-\change_deleted -1129936465 1668080591
-Therefore, we can see that the sub–interpolation technique operates as a
- “bin–by–bin” averaging that reduces the delay of the real bins, obtaining
- 
-\begin_inset Quotes eld
-\end_inset
-
-virtual
-\begin_inset Quotes erd
-\end_inset
-
- bins whose width is in average 
-\begin_inset Formula $N$
-\end_inset
-
- time smaller than the one of the “real
-\begin_inset Quotes erd
-\end_inset
-
- bins.
- Thanks to this process, the LSB is improved, and it is equal to:
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted -1129936465 1668080586
-\begin_inset Formula 
-\begin{equation}
-LSB=\frac{T_{CLK}}{N_{V}}\label{eq:virtual-resolution}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted -1129936465 1668080586
-where 
-\begin_inset Formula $N_{V}=N_{R}\cdot N$
-\end_inset
-
-.
- Therefore, the LSB is 
-\begin_inset Formula $N$
-\end_inset
-
- times smaller than the one of a single TDL.
-\change_unchanged
-
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted -1129936465 1668080653
-Another important reason for using sub-interpolation is due to the phenomenon
- of the 
-\begin_inset Quotes eld
-\end_inset
-
-ultra-bin
-\begin_inset Quotes erd
-\end_inset
-
-.
- As we said earlier, the buffers in the cascade don't have equal propagation
- delays, but a phenomenon of dispersion of their values is present due to
- PVT variations.
- Furthermore, there is the possibility to have particularly slow bins due
- to the crossing of two different clock regions.
- These particular bins are called 
-\begin_inset Quotes eld
-\end_inset
-
-ultra-bins
-\begin_inset Quotes erd
-\end_inset
-
- and harm the single-shot precision of the measurements; in fact, when the
- START signal occurs, the probability that it falls on an 
-\begin_inset Quotes eld
-\end_inset
-
-ultra-bin
-\begin_inset Quotes erd
-\end_inset
-
- rather than the other ones is very high, thus giving an unreliable measurement.
- This is where the sub-interpolation technique becomes useful, since, as
- we can see from Equation 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:subint-1"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-, the 
-\begin_inset Quotes eld
-\end_inset
-
-ultra-bin
-\begin_inset Quotes erd
-\end_inset
-
- is split into 
-\begin_inset Formula $N$
-\end_inset
-
- 
-\begin_inset Formula $N$
-\end_inset
-
--times faster 
-\begin_inset Quotes eld
-\end_inset
-
-virtual
-\begin_inset Quotes erd
-\end_inset
-
- bins.
- In this way, a V-TDL characterized by more homogeneous bins' propagation
- delays is obtained, and the single-shot precision of the measurement is
- improved.
-\change_unchanged
-
-\end_layout
-
-\begin_layout Standard
+\change_deleted 1469408620 1668262955
 \begin_inset Note Note
 status open
 
@@ -992,14 +737,34 @@ Qui fai un discorso più generale che le repliche devono essere non correlate
 
 \end_inset
 
+
+\change_inserted 1469408620 1668262728
+To obtain an effective reduction of the propagation delays on the virtual-bins,
+ the replicas of the TDLs should be as uncorrelated as possible.
+ For this reason, the START signal is 
+\change_deleted 1469408620 1668262652
 Let's see the SuperWU algorithm in detail.
  The 
 \begin_inset Formula $N$
 \end_inset
 
- TDLs are arranged in parallel, and the START signal is increasingly delayed
- on each one of them in order to have a minimum probability that it falls
- on the 
+ TDLs are arranged in parallel, and the START signal is 
+\change_unchanged
+increasingly delayed on each one of the
+\change_deleted 1469408620 1668262667
+m
+\change_inserted 1469408620 1668262675
+ 
+\begin_inset Formula $N$
+\end_inset
+
+ TDLs
+\change_unchanged
+ to have a minimum probability that it falls on 
+\change_inserted 1469408620 1668262823
+similar real-bins.
+\change_deleted 1469408620 1668262829
+the 
 \begin_inset Quotes eld
 \end_inset
 
@@ -1016,10 +781,22 @@ ultra-bins
 \end_inset
 
 .
- This parallel architecture is very suitable for FPGA's spatial-computing
- structures; moreover, the delay introduced on the START signal comes for
- free, since the routing process creates different paths that the signal
- has to cross moving towards each TDL (the so-called 'skew' time).
+
+\change_unchanged
+ 
+\change_deleted 1469408620 1668262861
+This parallel architecture
+\change_inserted 1469408620 1668262867
+ The parallel
+\change_unchanged
+ 
+\change_inserted 1469408620 1668262937
+architecture resulting from the SuperWU algorithm 
+\change_unchanged
+is very suitable for FPGA's spatial-computing structures; moreover, the
+ delay introduced on the START signal comes for free, since the routing
+ process creates different paths the signal has to cross moving towards
+ each TDL (the so-called 'skew' time).
  We can see a Super Wave Union implementation of order 
 \begin_inset Formula $N=3$
 \end_inset
@@ -1083,14 +860,9 @@ Calibration
 \end_layout
 
 \begin_layout Standard
-Since each buffer composing the TDL is affected by 
-\change_deleted -1129936465 1668083257
-PVT
-\change_inserted -1129936465 1668083263
-process (P)
-\change_unchanged
- variations, a periodic bin-by-bin calibration process is required, otherwise,
- the system would suffer from very high non-linearities 
+Since each buffer composing the TDL is affected by process (P) variations,
+ a periodic bin-by-bin calibration process is required, otherwise, the system
+ would suffer from very high non-linearities 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "8885152"
@@ -1109,77 +881,160 @@ virtual
 \end_inset
 
  bin, if sub-interpolation is performed) composing the TDL, thus allowing
- us to always know the exact propagation delay of each bin 
-\change_deleted -1129936465 1668083119
-and
-\change_inserted -1129936465 1668083119
-in order to
-\change_unchanged
- obtain a reliable measurement.
+ us to always know the exact propagation delay 
+\begin_inset Formula $t_{P}$
+\end_inset
+
+ of each bin in order to obtain a reliable measurement.
  Without calibration, the propagation delays would have unacceptably dispersed
- values, and a wrong time measurement would be performed
-\change_inserted -1129936465 1668083159
- if it is consider constant and equal to the LSB
-\change_unchanged
-.
+ values, and a wrong time measurement would be performed if 
+\begin_inset Formula $t_{P}$
+\end_inset
+
+ is considered constant and equal to the LSB.
  It is also necessary that the calibration process has a periodic refresh
  during the entire use of the TDC, in order to update the correct propagation
- delays of each bin
-\change_deleted -1129936465 1668083226
-.
- This is mandatory since the working conditions change a lot during the
- use of the device and, therefore, PVT variations would corrupt again the
- linearity of the system
-\change_inserted -1129936465 1668083271
- compensating the voltage and temperature (VT) fluctuations
-\change_unchanged
-.
- Once the CT is built, the Characteristic Curve (CC) of the device can be
- derived.
- The CC is nothing but the integration of the CT, thus representing, for
- each bin, the 
-\change_inserted -1129936465 1668083323
-corresponding time measurement in picoseconds.
-\change_deleted -1129936465 1668083387
-total propagation delay of the asynchronous input signal up to that considered
- bin.
- Therefore, once the TDL provides the thermometric code representing the
- bin hit by the input signal, it is possible to read from the CC the precise
- propagation delay up to that bin.
- In this way, the exact Fine measurement, in picoseconds, is retrieved.
-\change_unchanged
+ delays of each bin compensating voltage and temperature (VT) fluctuations.
+ 
+\change_inserted 1469408620 1668268041
+The CT is built by performing a Code Density Test (CDT) on the portion of
+ the V-TDL where the clock window (which is 
+\begin_inset Formula $T_{CLK}$
+\end_inset
+
+-wide), selected by the STOP signal, is centered.
+ The CDT consists of sending a set of random signals to the V-TDL and counting
+ how many samples fall on each virtual-bin.
+ Finally, a propagation delay, in picoseconds, is assigned to each bin.
+ This conversion from bin-counts to picoseconds is done in this way: let's
+ suppose that 
+\begin_inset Formula $N$
+\end_inset
+
+ bins of the V-TDL are involved in the CDT and let's call 
+\begin_inset Formula $n_{X}$
+\end_inset
+
+ the number of samples counted on the 
+\begin_inset Formula $x$
+\end_inset
+
+-th bin (
+\begin_inset Formula $x=1,2,...,N$
+\end_inset
+
+); the propagation delay of each bin is obtained with this proportionality:
+\begin_inset Formula 
+\begin{equation}
+t_{X}=\frac{n_{X}}{\sum_{x=1}^{N}n_{X}}\cdot T_{CLK,ps}\ ,\ x=1,2,...,N\label{eq:CT}
+\end{equation}
+
+\end_inset
+
 
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
+
+\change_inserted 1469408620 1668266534
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:CDT-performed-by"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ graphically explains the procedure just described.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 1469408620 1668266496
+\begin_inset Float figure
+wide false
+sideways false
 status open
 
 \begin_layout Plain Layout
-già detto prima che l'unica arma è calibrare in FPGA
+\align center
+
+\change_inserted 1469408620 1668266614
+\begin_inset Graphics
+	filename images/CDT_CT.png
+	width 100text%
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1668266496
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1668267391
+CDT and resulting CT, in the example case with 
+\begin_inset Formula $N=4$
+\end_inset
+
+ and 
+\begin_inset Formula $T_{CLK}=2000\ ps$
+\end_inset
+
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:CDT-performed-by"
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \end_inset
 
 
-\change_deleted -1129936465 1668083456
-Since in FPGAs there is no possibility to tailor the chain of buffers with
- the desired propagation delays, but a chain of CLBs is adapted as a buffer
- chain, the bins will all have different propagation delays and, due to
- the crossing of different clock regions, some of them can be particularly
- slow.
- These last are the so-called 
-\begin_inset Quotes eld
-\end_inset
-
-ultra-bins
-\begin_inset Quotes erd
-\end_inset
-
-, as said before
 \change_unchanged
-.
- Figure 
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 1469408620 1668267532
+Since in FPGAs there is no possibility to tailor the chain of buffers with
+ the desired propagation delays, but a chain of Configurable Logic Blocks
+ (CLBs) is adapted as a buffer chain, the bins will all have different propagati
+on delays and, due to the crossing of different clock regions, some of them
+ can be particularly slow.
+ These bins, characterized by the maximum value of the CT, will be referred
+ to as “ultra-bins” and are responsible for worsening the single-shot precision
+ of the TDC.
+ 
+\change_unchanged
+Once the CT is built, the Characteristic Curve (CC) of the device can be
+ derived.
+ The CC is nothing but the integration of the CT, thus representing, for
+ each bin, the corresponding time measurement in picoseconds.
+\end_layout
+
+\begin_layout Standard
+Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Graphical-representation-of"
@@ -1189,8 +1044,10 @@ noprefix "false"
 
 \end_inset
 
- reports a CT and the derived CC, in both the ideal and the real cases.
+ reports a CT and the derived CC.
  
+\change_deleted 1469408620 1668266481
+
 \begin_inset Note Note
 status open
 
@@ -1212,6 +1069,8 @@ Poi a questo punto mettereri qui la def di ultra-bin (max della CT) direi
 \end_inset
 
 
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -1224,8 +1083,8 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename images/CTCC.png
-	width 80text%
+	filename images/CC.png
+	width 100text%
 
 \end_inset
 
@@ -1236,10 +1095,8 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Graphical representation of the Calibration Table (CT) and the Characteristic
- Curve (CC) in the ideal case (at the top) and in the real case (at the
- bottom).
- In the real case, the presence of an ultra-bin is highlighted.
+Graphical representation of the Calibration Table (CT) and the derived Character
+istic Curve (CC).
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Graphical-representation-of"
