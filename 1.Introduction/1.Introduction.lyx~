@@ -283,7 +283,7 @@ metti delle ref sensate a questa frase ->
 Concerning the scientific research field, recent years have been characterized
  by continuous growth in the study of temporal evolution in chemical-physical
  phenomena
-\change_inserted 1469408620 1668270938
+\change_inserted 1469408620 1668271445
  
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -296,6 +296,14 @@ literal "false"
 \begin_inset CommandInset citation
 LatexCommand cite
 key "doi:10.1146/annurev.bi.54.070185.000355"
+literal "false"
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "doi:10.1073/pnas.85.14.4971"
 literal "false"
 
 \end_inset
@@ -1154,9 +1162,10 @@ noprefix "false"
 \end_inset
 
 , the START signal of the TIM is the excitation laser pulse, while the STOP
- signals are the photons emitted by fluorescence.In this way, the photon
- arrivals per time can be collected in a histogram that represents the so
- called Probability Density Function (PDF) of the time decay profile (
+ signals are the photons emitted by fluorescence.
+ In this way, the photon arrivals per time can be collected in a histogram
+ that represents the so called Probability Density Function (PDF) of the
+ time decay profile (
 \begin_inset Formula $T_{DECAY}$
 \end_inset
 
@@ -1867,7 +1876,7 @@ literal "false"
 
 \end_inset
 
-)the Full-Width at Half-Maximum (FWHM) and the Full-Width at Tenth-Maximum
+) the Full-Width at Half-Maximum (FWHM) and the Full-Width at Tenth-Maximum
  (FWTM) are taken as the index of precision.
  
 \begin_inset Float figure

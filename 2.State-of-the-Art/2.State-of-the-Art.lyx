@@ -887,11 +887,12 @@ virtual
 
  of each bin in order to obtain a reliable measurement.
  Without calibration, the propagation delays would have unacceptably dispersed
- values, and a wrong time measurement would be performed if 
+ values, and a wrong time measurement would be performed by considering
+ 
 \begin_inset Formula $t_{P}$
 \end_inset
 
- is considered constant and equal to the LSB.
+ constant and equal to the LSB.
  It is also necessary that the calibration process has a periodic refresh
  during the entire use of the TDC, in order to update the correct propagation
  delays of each bin compensating voltage and temperature (VT) fluctuations.
@@ -908,7 +909,7 @@ The CT is built by performing a Code Density Test (CDT) on the portion of
  Finally, a propagation delay, in picoseconds, is assigned to each bin.
  This conversion from bin-counts to picoseconds is done in this way: let's
  suppose that 
-\begin_inset Formula $N$
+\begin_inset Formula $N_{C}$
 \end_inset
 
  bins of the V-TDL are involved in the CDT and let's call 
@@ -920,13 +921,13 @@ The CT is built by performing a Code Density Test (CDT) on the portion of
 \end_inset
 
 -th bin (
-\begin_inset Formula $x=1,2,...,N$
+\begin_inset Formula $x=1,2,...,N_{C}$
 \end_inset
 
 ); the propagation delay of each bin is obtained with this proportionality:
 \begin_inset Formula 
 \begin{equation}
-t_{X}=\frac{n_{X}}{\sum_{x=1}^{N}n_{X}}\cdot T_{CLK,ps}\ ,\ x=1,2,...,N\label{eq:CT}
+t_{X}=\frac{n_{X}}{\sum_{x=1}^{N_{C}}n_{X}}\cdot T_{CLK,ps}\ ,\ x=1,2,...,N_{C}\label{eq:CT}
 \end{equation}
 
 \end_inset
@@ -983,7 +984,7 @@ status open
 
 \change_inserted 1469408620 1668267391
 CDT and resulting CT, in the example case with 
-\begin_inset Formula $N=4$
+\begin_inset Formula $N_{C}=4$
 \end_inset
 
  and 

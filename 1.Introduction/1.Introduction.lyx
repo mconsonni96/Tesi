@@ -1162,9 +1162,10 @@ noprefix "false"
 \end_inset
 
 , the START signal of the TIM is the excitation laser pulse, while the STOP
- signals are the photons emitted by fluorescence.In this way, the photon
- arrivals per time can be collected in a histogram that represents the so
- called Probability Density Function (PDF) of the time decay profile (
+ signals are the photons emitted by fluorescence.
+ In this way, the photon arrivals per time can be collected in a histogram
+ that represents the so called Probability Density Function (PDF) of the
+ time decay profile (
 \begin_inset Formula $T_{DECAY}$
 \end_inset
 
@@ -1875,7 +1876,7 @@ literal "false"
 
 \end_inset
 
-)the Full-Width at Half-Maximum (FWHM) and the Full-Width at Tenth-Maximum
+) the Full-Width at Half-Maximum (FWHM) and the Full-Width at Tenth-Maximum
  (FWTM) are taken as the index of precision.
  
 \begin_inset Float figure
@@ -1923,8 +1924,8 @@ Linearity
 \end_layout
 
 \begin_layout Standard
-In TDC the non-linearity is represented by meas of Differential Non-Linearity
- (DNL) and Integral Non-Linearity (INL).
+In a TDC the non-linearity is represented by measuring its Differential
+ Non-Linearity (DNL) and Integral Non-Linearity (INL).
  The DNL represents the dispersion in time between consecutive digital codes
  with respect to the nominal one (i.e., the LSB).
  Instead, the INL is the integral of the DNL and represents the difference
@@ -2033,12 +2034,12 @@ Conversion Time
 
 \begin_layout Standard
 The Conversion Time 
-\change_inserted 1469408620 1668157806
+\change_inserted 1469408620 1668418216
 (
 \begin_inset Formula $T_{CONV}$
 \end_inset
 
-)
+) 
 \change_unchanged
 is the time required by the TDC to produce a valid output measurement, given
  an input time interval.

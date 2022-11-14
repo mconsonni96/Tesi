@@ -887,16 +887,17 @@ virtual
 
  of each bin in order to obtain a reliable measurement.
  Without calibration, the propagation delays would have unacceptably dispersed
- values, and a wrong time measurement would be performed if 
+ values, and a wrong time measurement would be performed by considering
+ 
 \begin_inset Formula $t_{P}$
 \end_inset
 
- is considered constant and equal to the LSB.
+ constant and equal to the LSB.
  It is also necessary that the calibration process has a periodic refresh
  during the entire use of the TDC, in order to update the correct propagation
  delays of each bin compensating voltage and temperature (VT) fluctuations.
  
-\change_inserted 1469408620 1668268041
+\change_inserted 1469408620 1668268129
 The CT is built by performing a Code Density Test (CDT) on the portion of
  the V-TDL where the clock window (which is 
 \begin_inset Formula $T_{CLK}$
@@ -904,7 +905,7 @@ The CT is built by performing a Code Density Test (CDT) on the portion of
 
 -wide), selected by the STOP signal, is centered.
  The CDT consists of sending a set of random signals to the V-TDL and counting
- how many samples fall on each virtual-bin.
+ how many samples fall into each virtual-bin.
  Finally, a propagation delay, in picoseconds, is assigned to each bin.
  This conversion from bin-counts to picoseconds is done in this way: let's
  suppose that 

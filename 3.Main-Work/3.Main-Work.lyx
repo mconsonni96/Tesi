@@ -3223,11 +3223,9 @@ name "fig:Graphical-explanation-of"
 \end_layout
 
 \begin_layout Standard
-Once the CT is obtained, it is integrated to obtain the Characteristic Curve
- (CC) of the TDC.
- The latter represents, for each one of the three bins, the total propagation
- delay of the asynchronous input signal from the first bin of the clock
- window up to that specific bin.
+The latter represents, for each bin, the total propagation delay of the
+ asynchronous input signal from the first bin of the clock window up to
+ that specific bin.
  Once the CEC sends the 
 \begin_inset Quotes eld
 \end_inset
