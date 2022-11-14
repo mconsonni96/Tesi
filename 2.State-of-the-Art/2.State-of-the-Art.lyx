@@ -520,11 +520,7 @@ name "fig:Nutt-Interpolation-technique."
 \begin_layout Standard
 Thanks to the counting of the elapsed clock cycles, the FSR is greatly improved;
  in fact, considering a Coarse Counter with a BIT_COARSE bit-length, the
- FSR of the TDC is no more given by 
-\begin_inset Formula $T_{CLK}$
-\end_inset
-
-, but it is instead equal to:
+ FSR of the TDC is equal to:
 \end_layout
 
 \begin_layout Standard
@@ -539,7 +535,7 @@ FSR=(2^{BIT\_COARSE}-1)\cdot T_{CLK}\label{eq:nutt_FSR}
 \end_layout
 
 \begin_layout Standard
-On the other hand, the LSB is still equal to 
+On the other hand, the LSB is equal to 
 \begin_inset Formula $\frac{T_{CLK}}{N_{B}}$
 \end_inset
 
