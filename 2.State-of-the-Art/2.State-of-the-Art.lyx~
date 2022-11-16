@@ -465,8 +465,13 @@ status open
 \begin_inset Formula $N_{COARSE}$
 \end_inset
 
-) elapsed from the power-on of the system to the sampled version of the
- physical event.
+) elapsed from the power-on of the system to the 
+\change_inserted 1469408620 1668614688
+sampling
+\change_deleted 1469408620 1668614690
+sampled version
+\change_unchanged
+ of the physical event.
 \end_layout
 
 \begin_layout Standard
