@@ -137,6 +137,13 @@
 
 \begin_layout Section
 Measurements
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Measurements"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -594,10 +601,19 @@ real
  elapsing between the events on the two channels; the x-axis of the histogram
  represents the time difference, in ps, while the y-axis represents the
  number of occurrences of that specific time measurement.
- Therefore, as explained in Paragraph 1.3.3, if a Gaussian curve is fitted
- on this histogram, we will consider as a highly-precise time measurement
- the one providing an as narrow as possible Gaussian curve, meaning that
- the uncertainty of the measurement is low.
+ Therefore, as explained in Paragraph 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Precision"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, if a Gaussian curve is fitted on this histogram, we will consider as a
+ highly-precise time measurement the one providing an as narrow as possible
+ Gaussian curve, meaning that the uncertainty of the measurement is low.
  The standard deviation 
 \begin_inset Formula $\sigma_{r.m.s.}$
 \end_inset
@@ -1877,6 +1893,13 @@ Anyway, as said before, achieving a 70 ps-faster "ultra-bin", using the
 Study of the trade-off between single-shot precision and hardware utilization
  in a fully-CARRY-based V-TDL vs.
  a mixed-CARRY-DSP V-TDL 
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Study-of-the"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard

@@ -192,12 +192,32 @@ The old version of the Time-To-Digital Converter, implemented at the Digital
  based TDC (TDL-TDC).
  Besides, it is a TIMESTAMP-type TDC, thus being composed of as many channels
  as the number of physical events to detect.
- As described in Paragraph 1.2, by considering two of the channels composing
- the TDC, the time distance between the two respective input signals is
- computed as the difference between the timestamps provided by each channel.
+ As described in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Typical-measurement-setup"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, by considering two of the channels composing the TDC, the time distance
+ between the two respective input signals is computed as the difference
+ between the timestamps provided by each channel.
  The processing chain inside each channel starts with the Virtual Tapped
  Delay-Line (V-TDL), which provides a thermometric code in output, representing
- the Fine part of the timestamp, as explained in Paragraph 2.1.
+ the Fine part of the timestamp, as explained in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Nutt-Interpolation"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
  The thermometric code is then converted into a binary one by a Decoder.
  Once the binary code of the Fine measurement is obtained, Nutt-Interpolation
  is implemented by a module called Coarse Extension Core (CEC).
@@ -209,7 +229,17 @@ The old version of the Time-To-Digital Converter, implemented at the Digital
  of the system.
  The following block in the processing chain is the Calibrator, in charge
  of performing a bin-by-bin calibration to compensate PVT variations of
- the TDL's taps, as explained in Paragraph 2.3.
+ the TDL's taps, as explained in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Calibration"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
  Finally, an Overflow Counter further extends the FSR of the TDC by counting
  the overflows of the Coarse Counter present in the CEC.
  Figure 
@@ -370,8 +400,18 @@ Histogrammer
  will perform a repeated set of measurements of the time difference between
  two of those channels, and it will thus provide a Gaussian distribution
  characterized by a mean value and a certain standard deviation.
- As described in Paragraph 1.3.3, the standard deviation will be used as the
- index of the single-shot precision of the TDC.
+ As described in Paragraph 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Precision"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, the standard deviation will be used as the index of the single-shot precision
+ of the TDC.
  
 \end_layout
 
@@ -386,9 +426,18 @@ Old Version
 \begin_layout Standard
 This module is in charge of performing the Fine measurement of the timestamp.
  Let's see in detail how it is structured.
- As explained in Paragraph 1.5.3, the TDL is nothing but a sequence of buffers
- connected in series, and it has been obtained by cascading Xilinx's CARRY
- primitives.
+ As explained in Paragraph 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "par:Tapped-Delay-Line-TDC,"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, the TDL is nothing but a sequence of buffers connected in series, and
+ it has been obtained by cascading Xilinx's CARRY primitives.
  In the old version of the V-TDL, implemented on the Xilinx 7-Series (X7S)
  technology node, the elementary block used to create the chain structure
  is the CARRY4 primitive.
@@ -571,9 +620,18 @@ In the following description, the words written in italic capital letters
  refer to the Hardware Description Language (HDL) generics used in the code,
  which are settable by the IP-Core's Graphical User Interface (GUI).
  This allows having a highly-tunable TDL.
- As explained in Paragraph 2.2, if a SuperWU Sub-Interpolation is performed,
- a Virtual Tapped Delay-Line (V-TDL), composed of more TDLs in parallel,
- is obtained.
+ As explained in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Sub-Interpolation"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, if a SuperWU Sub-Interpolation is performed, a Virtual Tapped Delay-Line
+ (V-TDL), composed of more TDLs in parallel, is obtained.
  The V-TDL is composed of 
 \shape italic
 NUMBER_OF_TDL
@@ -754,9 +812,18 @@ name "fig:Concept-of-decimated"
 \end_layout
 
 \begin_layout Standard
-In Paragraph 1.5.3, we have said that the STOP signal, which saves the output
- of the TDL in the FFs, is the rising clock-edge following the arrival of
- the START event.
+In Paragraph 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "par:Tapped-Delay-Line-TDC,"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, we have said that the STOP signal, which saves the output of the TDL in
+ the FFs, is the rising clock-edge following the arrival of the START event.
  That was a general case, whereas the TDL implemented in our laboratory
  relies on a 
 \begin_inset Quotes eld
@@ -1455,7 +1522,7 @@ XUS-TDL structure
 
 \begin_layout Standard
 In analogy with the X7S version of the TDL, a single CARRY8 block implements
- eight buffers (or taps) of the TDL and, as before, more carry-chains are
+ eight buffers (or taps) of the TDL and, as before, more primitives are
  cascaded by connecting the last carry-out (CO(7)) of the previous primitive
  with the carry-in (CI) of the following one.
  As before, by choosing the value of the generic 
@@ -1596,8 +1663,18 @@ NUMBER_OF_DSP_CHAINS
 \end_inset
 
 0).
- We will see in Section 4 the usefulness of a DSP-based TDL, and why a SuperWU
- Sub-Interpolation combining both types of TDL is the most powerful one.
+ We will see in Chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Measurements"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ the usefulness of a DSP-based TDL, and why a SuperWU Sub-Interpolation
+ combining both types of TDL is the most powerful one.
 \end_layout
 
 \begin_layout Paragraph
@@ -1761,9 +1838,18 @@ Finally, it is worth saying that the DSP48E2 has three different working
  48-bit ALU (i.e.
  the first, default, working mode) also supports dual 24-bit (i.e., the second
  working mode) or quad 12-bit (i.e., the third working mode) arithmetic operations.
- Based on the experimental results that will be shown in Paragraph 4.3, the
- dual 24-bit SIMD mode has been used in this thesis work, thus having a
- single 48-bit ALU that works as two, independent, 24-bit ALUs in parallel.
+ Based on the experimental results that will be shown in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Study-of-the"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, the dual 24-bit SIMD mode has been used in this thesis work, thus having
+ a single 48-bit ALU that works as two, independent, 24-bit ALUs in parallel.
  
 \end_layout
 
@@ -2176,15 +2262,34 @@ The main advantage of this type of TDL is that a more compact structure
  path from one DSP slice to another introduces a huge propagation delay
  and therefore the presence of a very high “ultra-bin” in the chain.
  The recurring presence of “ultra-bins” along the DSP-chain is the main
- drawback of this architecture since, as explained in Paragraph 2.3, it worsens
- the single-shot precision of the TDC.
+ drawback of this architecture since, as explained in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Calibration"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, it worsens the single-shot precision of the TDC.
 \end_layout
 
 \begin_layout Standard
-As we will see in Section 4, when the experimental results will be shown,
- the combination of the CARRY-based TDL and the DSP-based TDL creates a
- “hybrid” V-TDL which, thanks to the SuperWU Sub-Interpolation algorithm,
- exploits the best features of both the two architectures.
+As we will see in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Measurements"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, when the experimental results will be shown, the combination of the CARRY-base
+d TDL and the DSP-based TDL creates a “hybrid” V-TDL which, thanks to the
+ SuperWU Sub-Interpolation algorithm, exploits the best features of both
+ the two architectures.
  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2906,6 +3011,13 @@ name "tab:Selection-of-the"
 
 \begin_layout Subsection
 Coarse Extension Core
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Coarse-Extension-Core"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2927,8 +3039,18 @@ BIT_COARSE_CEC
  elapsed from the power-on instant of the system up to the generation of
  the Fine measure, accomplished by the V-TDL.
  Overflow-detection is also implemented and will be used by one of the following
- modules (i.e., the Overflow Counter) to extend even more the FSR (see Paragraph
- 3.6).
+ modules (i.e., the Overflow Counter) to extend even more the FSR (see Section
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Overflow-Counter"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
  The aforementioned overflow-detection is performed by a sub-module called
  TreeComparator, working in a Pipeline structure, which compares the value
  of the Coarse-Counter with a reference value equal to:
@@ -3059,7 +3181,17 @@ equal to 4 rather than 8.
  of the CEC.
  Unfortunately, this leads the Coarse-Counter to experience more overflows
  than before, but this will be managed by the Overflow Counter module, as
- we will see in Paragraph 3.6.
+ we will see in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Overflow-Counter"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection
@@ -3077,8 +3209,18 @@ literal "false"
 \end_inset
 
 .
- As explained in Paragraph 2.3, it performs calibration by creating a Calibration
- Table (CT) and a Characteristic Curve (CC).
+ As explained in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Calibration"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, it performs calibration by creating a Calibration Table (CT) and a Characteris
+tic Curve (CC).
  
 \begin_inset Note Note
 status open
@@ -3327,10 +3469,24 @@ name "fig:Calibrator-working-principle."
 
 \begin_layout Subsection
 Overflow Counter
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Overflow-Counter"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
 Old Version
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Old-Version"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3440,7 +3596,17 @@ New Version
 \begin_layout Standard
 In this thesis work, the OC has been improved to cope with the change done
  in the generic of the CEC module.
- In fact, we said in Paragraph 3.4 that the generic 
+ In fact, we said in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Coarse-Extension-Core"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ that the generic 
 \shape italic
 BIT_COARSE_CEC
 \shape default
@@ -3482,8 +3648,18 @@ Since the
 \end_inset
 
  case behaves exactly as in the older version of the OC, described in Paragraph
- 3.6.1, and since we just said that it would cause problems to the channel's
- management of the data, we will now describe just the 
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Old-Version"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, and since we just said that it would cause problems to the channel's managemen
+t of the data, we will now describe just the 
 \begin_inset Formula $BIT\_COARSE\_CEC<BIT\_COARSE$
 \end_inset
 
