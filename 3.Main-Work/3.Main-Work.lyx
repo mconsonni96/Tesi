@@ -1005,8 +1005,11 @@ di che questo decoder limita la freq massima del sistema in quando è molto
  by a Coarse Counter sub-module that can be internal to the CEC or external.
  Furthermore, the CEC performs a Clock-Domain Crossing (CDC), meaning that
  the system goes from a faster clock to a slower one, allowing the data
- processing on all the following blocks to respect all the timing constraints
- of the system.
+ processing on all the following blocks to respect
+\change_deleted 1469408620 1668716880
+ all
+\change_unchanged
+ the timing constraints of the system.
  The following block in the processing chain is the Calibrator
 \change_inserted 1469408620 1668701251
 , which exploits storage mechanisms to store the CT and the CC.
@@ -1081,11 +1084,11 @@ a generic channel of
 \change_unchanged
 the TDC, composed of all the aforementioned modules.
  Since this thesis work consisted in modifying the internal blocks, the
- macroscopic structure of the TDC
-\change_inserted 1469408620 1668682555
-'s channel
-\change_deleted 1469408620 1668682559
-
+ macroscopic structure of the 
+\change_inserted 1469408620 1668717006
+channel
+\change_deleted 1469408620 1668717023
+TDC
 \begin_inset Note Note
 status open
 
@@ -1095,8 +1098,6 @@ devi dire che questo è la struttura di un solo canale NOTA 3
 
 \end_inset
 
-
-\change_unchanged
 , reported in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1107,7 +1108,9 @@ noprefix "false"
 
 \end_inset
 
-, has been maintained.
+,
+\change_unchanged
+ has been maintained.
 
 \change_inserted 1469408620 1668682832
  We can see from Figure 
@@ -1459,12 +1462,12 @@ Ricordati di dire che la TDL deve essere fatta con la logica più abbondante
 \end_inset
 
 
-\change_inserted 1469408620 1668688630
+\change_inserted 1469408620 1668717235
 The core of this thesis work relies on the migration of the V-TDL from the
  X7S to the XUS/XUS+ technology.
- The TDL has been obtained by using the carry chains of the adders, which
- are the more abundant and fast resources on the FPGA for this kind of implement
-ation.
+ The TDL has been obtained by cascading the carry chains of the adders,
+ which are the more abundant and fast resources on the FPGA for this kind
+ of implementation.
 \change_unchanged
 
 \end_layout
@@ -2121,7 +2124,7 @@ ones
  a flip-flop (FF), used to sample the logic value of that specific tap,
  when the STOP signal occurs.
 
-\change_inserted 1469408620 1668693865
+\change_inserted 1469408620 1668717464
  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2133,7 +2136,8 @@ noprefix "false"
 \end_inset
 
  shows the used resources of the CARRY4 primitive.
- The CO and the O outputs can not be sampled at the same time.
+ It is worth saying that the CO and the O outputs can not be sampled at
+ the same time.
 \begin_inset Float figure
 wide false
 sideways false
@@ -2187,7 +2191,7 @@ name "fig:CARRY4-primitive-used"
 \end_inset
 
 
-\change_deleted 1469408620 1668696907
+\change_deleted 1469408620 1668712367
 
 \begin_inset Note Note
 status open
@@ -2202,8 +2206,6 @@ metti una IMG della slice dove evidenze il carri ed i FF che campiona CO
 
 .
  
-\change_unchanged
-
 \begin_inset Note Note
 status open
 
@@ -2230,8 +2232,102 @@ Qui devi essere più specifico; prima devi dare un ordine di grandezza di
 
 \end_inset
 
-The STOP signal is a user-chosen rising-edge of a clock signal with period
- 
+
+\change_inserted 1469408620 1668716351
+Let's now give an order of magnitude for the TDL length, based on the descriptio
+n given in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Nutt-Interpolation"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ In an implementation exploiting the Nutt-Interpolation, the number 
+\begin_inset Formula $N$
+\end_inset
+
+ of bins (or 
+\begin_inset Quotes eld
+\end_inset
+
+virtual
+\begin_inset Quotes erd
+\end_inset
+
+ bins) is such that 
+\begin_inset Formula $N\geq\frac{T_{CLK}}{t_{p}}$
+\end_inset
+
+.
+ In the X7S technology, the available clock can run at most at 628 MHz in
+ the Artix-7 FPGAs 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "X7S_DC-AC"
+literal "false"
+
+\end_inset
+
+ and 741 MHz in Kintex-7 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kintex_DC-AC"
+literal "false"
+
+\end_inset
+
+ and Virtex-7 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Virtex_DC-AC"
+literal "false"
+
+\end_inset
+
+.
+ However, due to the big dimension of the Decoder, the minimum clock period
+ is limited to be 
+\begin_inset Formula $>2.4\,ns$
+\end_inset
+
+ in order to satisfy the timing constraints of the system.
+ The typical minimum value for 
+\begin_inset Formula $t_{p}$
+\end_inset
+
+ is instead equal to 16 ps in X7S FPGAs 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "9452098"
+literal "false"
+
+\end_inset
+
+, leading to a minimum value for 
+\begin_inset Formula $N$
+\end_inset
+
+ equal to 150.
+ Obviously, a faster clock would lead to a shorter TDL, allowing achieving
+ a more compact architecture with a smaller Decoder and a smaller Calibrator.
+\end_layout
+
+\begin_layout Standard
+The STOP signal 
+\change_inserted 1469408620 1668712302
+of the TDL 
+\change_unchanged
+is a user-chosen rising-edge of 
+\change_deleted 1469408620 1668712348
+a
+\change_inserted 1469408620 1668712348
+the
+\change_unchanged
+ clock signal with period 
 \begin_inset Formula $>2.4\,ns$
 \end_inset
 
@@ -2256,7 +2352,13 @@ noprefix "false"
 
 \end_inset
 
- graphically shows the structure of the TDL.
+ graphically shows the 
+\change_inserted 1469408620 1668717643
+propagation mechanism
+\change_deleted 1469408620 1668717645
+structure
+\change_unchanged
+ of the TDL.
 
 \change_deleted 1469408620 1668689460
  
@@ -2285,7 +2387,19 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-CARRY4-based Tapped Delay-Line structure.
+CARRY4-based T
+\change_inserted 1469408620 1668717650
+DL
+\change_deleted 1469408620 1668717653
+apped Delay-Line
+\change_unchanged
+ 
+\change_inserted 1469408620 1668717657
+propagation mechanism
+\change_deleted 1469408620 1668717658
+structure
+\change_unchanged
+.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:CARRY4-based-Tapped-Delay-Line"
@@ -2545,7 +2659,11 @@ VALID
 \end_inset
 
  mechanism that, if it is '1', signals to the next module that the thermometric
- code presents on TDATA is the Fine measurement.
+ code present
+\change_deleted 1469408620 1668717958
+s
+\change_unchanged
+ on TDATA is the Fine measurement.
  The TVALID is generated by the 
 \begin_inset Formula $0\rightarrow1$
 \end_inset
@@ -3030,7 +3148,13 @@ In this thesis work, the portability of the V
 irtual Tapped Delay-Line
 \change_unchanged
  has been improved, making it compatible also with 20-nm Xilinx Ultrascale
- (XUS) and 16-nm Ultrascale+ (XUS+) technology nodes.
+ (XUS) and 16-nm Ultrascale+ (XUS+) technolog
+\change_inserted 1469408620 1668718320
+ical
+\change_deleted 1469408620 1668718318
+y
+\change_unchanged
+ nodes.
  
 \change_deleted 1469408620 1668698755
 These are more scaled technologies than the 28-nm Xilinx 7-Series (X7S),
@@ -3101,8 +3225,11 @@ in
 \shape default
 Thanks to this generic, 
 \change_unchanged
-the user can choose, in the instantiation stage, the technology node of
- the 
+the user can choose, in the instantiation stage, the technology 
+\change_deleted 1469408620 1668718480
+node 
+\change_unchanged
+of the 
 \change_inserted 1469408620 1668698860
 V-
 \change_unchanged
@@ -3379,15 +3506,22 @@ Number of FFs in a single slice
 \end_layout
 
 \begin_layout Standard
-As we can see, in XUS/XUS+ technology two independent slices are now combined
- in a single, bigger slice, in order to have better efficiency in the routing
- process on the FPGA's fabric.
+As we can see, in
+\change_inserted 1469408620 1668718584
+ the
+\change_unchanged
+ XUS/XUS+ technology two independent slices are now combined in a single,
+ bigger slice, in order to have better efficiency in the routing process
+ on the FPGA's fabric.
  In particular, the carry logic is extended from 4 bits to 8 bits, achieving
  better routing and faster arithmetic functions.
  One single 8-bit carry-chain is present in a CLB.
- This is why XUS/XUS+ technology is compatible with the CARRY8 primitive
- to perform arithmetic functions rather than the CARRY4 of the previous
- generation.
+ This is why 
+\change_inserted 1469408620 1668718489
+the 
+\change_unchanged
+XUS/XUS+ technology is compatible with the CARRY8 primitive to perform arithmeti
+c functions rather than the CARRY4 of the previous generation.
  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -3944,7 +4078,13 @@ noprefix "false"
 
 \end_inset
 
- shows the structure of the TDL.
+ shows the 
+\change_inserted 1469408620 1668718758
+propagation mechanism
+\change_deleted 1469408620 1668718761
+structure
+\change_unchanged
+ of the TDL.
 \end_layout
 
 \begin_layout Standard
@@ -3956,7 +4096,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename images/carry8_tdl.png
+	filename images/carrichain.png
 	width 100text%
 
 \end_inset
@@ -3968,7 +4108,19 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-CARRY8-based Tapped Delay-Line structure.
+CARRY8-based T
+\change_deleted 1469408620 1668710089
+apped Delay-Line
+\change_inserted 1469408620 1668710090
+DL
+\change_unchanged
+ 
+\change_deleted 1469408620 1668718766
+structure
+\change_inserted 1469408620 1668718769
+propagation mechanism
+\change_unchanged
+.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:CARRY8-based-Tapped-Delay-Line"
@@ -4921,8 +5073,19 @@ dei 400 MHz vs 500 MHz devi già averlo detto in quando parli delle max freq
 
 
 \change_unchanged
-Since this module hasn't been modified in this thesis work, its older version
- will be described in the following.
+Since this module has
+\change_inserted 1469408620 1668718883
+ not
+\change_deleted 1469408620 1668718883
+n't
+\change_unchanged
+ been modified in this thesis work, its 
+\change_deleted 1469408620 1668718914
+older
+\change_inserted 1469408620 1668718915
+only
+\change_unchanged
+ version will be described in the following.
  
 \change_deleted 1469408620 1668691450
 The only difference is that, thanks to the migration to the XUS technology
@@ -4951,7 +5114,15 @@ The Decoder has the task of converting the
 \shape italic
 BIT_UNDECO
 \shape default
--wide thermometric codes (one for each 
+-wide thermometric code
+\change_deleted 1469408620 1668719181
+s
+\change_unchanged
+ (
+\change_inserted 1469408620 1668719091
+coming from the V-TDL
+\change_deleted 1469408620 1668719094
+one for each 
 \begin_inset Quotes eld
 \end_inset
 
@@ -4959,7 +5130,9 @@ real
 \begin_inset Quotes erd
 \end_inset
 
- TDL composing the V-TDL; i.e.,
+ TDL composing the V-TDL
+\change_unchanged
+; i.e.,
 \change_inserted 1469408620 1668691358
  
 \shape italic
@@ -4987,11 +5160,23 @@ insomma esplicita i 2 generic
 
 
 \change_unchanged
-) into 
+) into
+\change_inserted 1469408620 1668719186
+ a
+\change_unchanged
+ 
 \shape italic
 BIT_SUBINT
 \shape default
--wide as many binary codes 
+-wide 
+\change_deleted 1469408620 1668719191
+as many 
+\change_unchanged
+binary code
+\change_deleted 1469408620 1668719193
+s
+\change_unchanged
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "4529581"
@@ -5713,9 +5898,9 @@ In this way, as soon as the Coarse-Counter reaches its maximum value (i.e.,
 \begin_inset Formula $2^{BIT\_COARSE\_CEC}-1$
 \end_inset
 
-), an overflow condition is reported on the next clock
-\change_deleted 1469408620 1668691601
- cycle that correspond to the overflow (i.e; 0)
+), an overflow condition is reported on the next clock cycle
+\change_deleted 1469408620 1668719383
+ that correspond to the overflow (i.e; 0)
 \change_unchanged
 .
  The subtraction of 
@@ -5830,8 +6015,12 @@ _C
 \change_inserted 1469408620 1668701289
 c
 \change_unchanged
-lock domain (i.e., the same clock feeding in the V-TDL and the Decoder), while
- the reading process is done under the SYS
+lock domain (i.e., the same clock feeding
+\change_deleted 1469408620 1668719531
+ in
+\change_unchanged
+ the V-TDL and the Decoder), while the reading process is done under the
+ SYS
 \change_inserted 1469408620 1668701292
 -
 \change_deleted 1469408620 1668701294
@@ -6044,7 +6233,13 @@ BIT_CALIBRATION
 BIT_RESOLUTION
 \shape default
  is instead the length of the calibrated Fine measurement, in picoseconds,
- that is exposed at the output of the Calibrator.
+ that is exposed at the output of the
+\change_inserted 1469408620 1668719657
+ module
+\change_deleted 1469408620 1668719659
+ Calibrator
+\change_unchanged
+.
  The calibration on the Fine data is performed only if FID='1', which means
  that a valid measure is coming from the CEC; otherwise, if FID='0', it
  means that an overflow is coming from the CEC, and the data is passed unaltered
@@ -6373,7 +6568,7 @@ value
 
 ).
 
-\change_deleted 1469408620 1668703426
+\change_deleted 1469408620 1668719867
  
 \begin_inset Note Note
 status open
@@ -6396,13 +6591,7 @@ status open
 \end_inset
 
  to solve the timing errors and improve the Worst Negative Slack (WNS).
-\change_inserted 1469408620 1668704194
-The desired FSR will thus be set by the OC.
-
-\change_unchanged
- 
-\change_deleted 1469408620 1668704656
-However, this choice leads the CEC to signal way more overflows.
+ However, this choice leads the CEC to signal way more overflows.
  
 \begin_inset Note Note
 status open
@@ -6416,8 +6605,8 @@ Qui devi dire che: occhio che se teniamo BIT_COARSE_CEC basso (ovvero FSR
 \end_inset
 
 
-\change_inserted 1469408620 1668704371
-However, a problem arises since, by having 
+\change_inserted 1469408620 1668719869
+ However, a problem arises since, by having 
 \shape italic
 BIT_COARSE_CEC
 \shape default
@@ -6791,11 +6980,19 @@ Exploration of a new TDL solution
 
 \begin_layout Standard
 
-\change_inserted 1469408620 1668700290
+\change_inserted 1469408620 1668716515
 A new solution for implementing the V-TDL has been explored in this thesis
  work.
  This solution exploits Digital Signal Processor (DSP) blocks to create
- the TDL structure rather than the usual carry primitives.
+ the TDL structure rather than the usual carry primitives 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "KWIATKOWSKI2021109267"
+literal "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection
@@ -7028,8 +7225,8 @@ P=Z-(W+X+Y+CIN)\label{eq:alu}
 
 \begin_layout Standard
 
-\change_inserted 1469408620 1668690859
-where CIN is set by CARRYINSEL to be the direct CARRYIN signal, and it is
+\change_inserted 1469408620 1668720498
+where CIN is set by CARRYINSEL to be the direct CARRYIN signal, which is
  put equal to zero.
  Z, W, X, and Y are the input signals, multiplexed by OPMODE.
  The selection is such that:
@@ -7062,10 +7259,10 @@ Y transmits a constant vector of zeroes to the ALU.
 
 \begin_layout Standard
 
-\change_inserted 1469408620 1668690859
+\change_inserted 1469408620 1668720605
 The A:B vector is the one containing the asynchronous input signal (AsyncInput)
- the TDC has to measure, while the C port is assigned a constant vector
- of zeroes.
+ the TDC has to measure, while a constant vector of zeroes is assigned to
+ the C port.
 \end_layout
 
 \begin_layout Standard
@@ -7170,10 +7367,10 @@ name "fig:AsyncInput-connection-to"
 
 \begin_layout Standard
 
-\change_inserted 1469408620 1668690859
+\change_inserted 1469408620 1668720817
 Finally, at the P output, the internal register of the DSP48E2 block is
- used to sample the TDL; therefore, external FFs are not required, as was
- in the CARRY-based TDL.
+ used to sample the TDL; therefore, external FFs are not required, as it
+ was in the CARRY-based TDL.
  We can see in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -7277,7 +7474,7 @@ P=0-AsyncInput\label{eq:sub-formula}
 
 \begin_layout Standard
 
-\change_inserted 1469408620 1668690859
+\change_inserted 1469408620 1668720958
 Therefore, until AsyncInput stays at '0', P is a 24-bit wide vector of zeroes;
  then, as soon as AsyncInput transits from '0' to '1', an underflow takes
  place, causing propagation of 
@@ -7291,7 +7488,11 @@ ones
  from the least-significant bit to the most-significant bit of P.
  This behavior is the same as in the CARRY-based TDL, where the bits of
  the P output are the taps of the TDL and the underflow-carry propagates
- with a certain propagation delay on each one of them.
+ with a certain propagation delay 
+\begin_inset Formula $t_{p}$
+\end_inset
+
+ on each one of them.
  
 \end_layout
 
@@ -7313,7 +7514,7 @@ noprefix "false"
 
 \end_inset
 
- better shows the propagation mechanism of the DSP-chain.
+ shows the propagation mechanism of the DSP-chain.
 \end_layout
 
 \begin_layout Standard
@@ -7453,8 +7654,8 @@ Advantages and drawbacks of the DSP-based TDL
 
 \begin_layout Standard
 
-\change_inserted 1469408620 1668690859
-The main advantage of this type of TDL is that a more compact structure
+\change_inserted 1469408620 1668721181
+The main advantage of this architecture is that a more compact structure
  is obtained, since long CARRY chains, hindering the routing across different
  regions of the FPGA, are avoided.
  Furthermore, it allows a relaxation in the hardware utilization, since
@@ -7480,8 +7681,8 @@ noprefix "false"
 
 \begin_layout Standard
 
-\change_inserted 1469408620 1668700086
-As we will see in Section 
+\change_inserted 1469408620 1668721413
+As we will see in Chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Measurements"
@@ -7533,8 +7734,8 @@ NUM_TAP_PRE_TDL
  NUM_TAP_TDL
 \shape default
 )-tap long.
- This adds even more versatility to the IP-Core since it allows to have
- a V-TDL either made by CARRY-based TDLs only (if 
+ This adds even more versatility to the IP-Core since it allows having a
+ V-TDL either made by CARRY-based TDLs only (if 
 \shape italic
 NUMBER_OF_DSP_CHAINS
 \shape default
