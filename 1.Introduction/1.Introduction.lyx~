@@ -1476,6 +1476,13 @@ noprefix "false"
 
 \begin_layout Subsubsection
 Maximum Rate
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Maximum-Rate"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1526,6 +1533,13 @@ stations, used to store and/or process the information.
 
 \begin_layout Subsubsection
 Dead-Time
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Dead-Time"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1752,9 +1766,14 @@ The main drawback is represented by the impossibility of changing the ASIC's
 \change_inserted 1469408620 1668612534
  
 \change_unchanged
-For these reasons, another approach, less performant in terms of FOMs but
- leaner, is preferred in scientific research (in those cases where few units
- are requested) and for fast-prototyping.
+For these reasons, another approach, less performant in terms of F
+\change_inserted 1469408620 1668614262
+o
+\change_deleted 1469408620 1668614263
+O
+\change_unchanged
+Ms but leaner, is preferred in scientific research (in those cases where
+ few units are requested) and for fast-prototyping.
  This method consists of using an FPGA, which is a fully-digital electronic
  device that can be configured and re-configured by the designer, after
  the manufacturing process, simply using the Hardware Description Language
