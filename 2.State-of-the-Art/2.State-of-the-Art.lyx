@@ -126,43 +126,19 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes true
+\tracking_changes false
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
-\author 268488506 "nicol"
+\author -1129936465 "Nicola Lusardi"
 \author 1469408620 "Mattia Consonni"
 \end_header
 
 \begin_body
 
 \begin_layout Section
-
-\change_inserted 1469408620 1668606163
-TDL-TDC Design rules
-\change_deleted 1469408620 1668600901
-Techniques to improve the FoMs of the TDC
-\change_unchanged
- 
-\change_deleted 1469408620 1668600730
-(
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-titolo da cambiare
-\change_inserted 268488506 1668593110
- => direi proprio di si
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-?)
-\change_unchanged
-
+TDL-TDC Design rules 
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Techniques-(?)"
@@ -239,27 +215,16 @@ name "enu:if-the-TDC"
 \end_layout
 
 \begin_layout Enumerate
-moreover, PVTs have to be compensated in order 
-\change_inserted 1469408620 1668602026
-not 
-\change_unchanged
-to 
-\change_deleted 1469408620 1668602032
-cause
-\change_inserted 1469408620 1668602032
-let
-\change_unchanged
- the dispersion of the 
+moreover, PVTs have to be compensated in order not to let the dispersion
+ of the 
 \begin_inset Formula $t_{P}$
 \end_inset
 
  
-\change_deleted 1469408620 1668602012
-ruining
-\change_inserted 1469408620 1668602013
- ruin
+\change_deleted -1129936465 1668762972
+ 
 \change_unchanged
- the linearity.
+ruin the linearity.
  Thus, in the case of FPGA implementation, the calibration of the TDL is
  mandatory
 \begin_inset CommandInset label
@@ -390,22 +355,7 @@ noprefix "false"
 \end_inset
 
 ) by a simple counter (TIMESTAMP-type).
- 
-\change_deleted 1469408620 1668610053
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-non è vero; STOP di TDL è connesso alla versione di Phisical Event campionata
- dal clock del contatore così come lo stop del contatore; aggiorna ->
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-In order to synchronize 
+ In order to synchronize 
 \begin_inset Formula $T_{FINE}$
 \end_inset
 
@@ -413,45 +363,15 @@ In order to synchronize
 \begin_inset Formula $T_{COARSE}$
 \end_inset
 
-, 
-\change_inserted 1469408620 1668610116
-the physical event is connected to the START of the TDL-TDC, while 
-\change_unchanged
-the STOP
-\change_inserted 1469408620 1668614501
-s
-\change_unchanged
- of the TDL-TDC 
-\change_inserted 1469408620 1668614507
-and the counter are
-\change_deleted 1469408620 1668614507
-is
-\change_unchanged
- connected to the 
-\change_inserted 1469408620 1668614601
-sampled version of the physical event.
- The latter is obtained by sampling the external event using the same 
-\change_unchanged
-clock of the counter (with period 
+, the physical event is connected to the START of the TDL-TDC, while the
+ STOPs of the TDL-TDC and the counter are connected to the sampled version
+ of the physical event.
+ The latter is obtained by sampling the external event using the same clock
+ of the counter (with period 
 \begin_inset Formula $T_{CLK}$
 \end_inset
 
-)
-\change_deleted 1469408620 1668610051
-, while the external event is connect to the START of the TDL and the STOP
- of the counter
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-<-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-.
+).
  In this way, 
 \begin_inset Formula $T_{FINE}$
 \end_inset
@@ -465,13 +385,8 @@ status open
 \begin_inset Formula $N_{COARSE}$
 \end_inset
 
-) elapsed from the power-on of the system to the 
-\change_inserted 1469408620 1668614688
-sampling
-\change_deleted 1469408620 1668614690
-sampled version
-\change_unchanged
- of the physical event.
+) elapsed from the power-on of the system to the sampling of the physical
+ event.
 \end_layout
 
 \begin_layout Standard
@@ -573,61 +488,16 @@ Thanks to the counting of the elapsed clock cycles, the FSR is greatly improved;
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-FSR=(2^{BIT\_COARSE}-1)\cdot T_{CLK}\label{eq:nutt_FSR}
+FSR=2^{BIT\_COARSE}\cdot T_{CLK}\label{eq:nutt_FSR}
 \end{equation}
 
 \end_inset
 
 
-\change_deleted 1469408620 1668602559
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-NONONO 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-
-\begin_inset Formula $FSR=(2^{BIT\_COARSE}-1)\cdot T_{CLK}$
-\end_inset
-
- ATTENTO cavolo!
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted 1469408620 1668602737
-While, t
-\change_inserted 1469408620 1668602647
-T
-\change_unchanged
-he LSB is
-\change_inserted 1469408620 1668602651
- instead
-\change_unchanged
- fixed by the TDL and
-\change_deleted 1469408620 1668602656
- it
-\change_unchanged
- is equal to:
+The LSB is instead fixed by the TDL and is equal to:
 \end_layout
 
 \begin_layout Standard
@@ -642,41 +512,17 @@ LSB=t_{p}
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted 1469408620 1668602756
-T
-\change_inserted 1469408620 1668602756
-t
-\change_unchanged
-hus solving the FSR vs
-\change_inserted 1469408620 1668602752
-.
-
-\change_unchanged
+thus solving the FSR vs.
  LSB trade-off.
  Moreover, we have to consider that the FSR of the TDL (i.e, 
 \begin_inset Formula $N_{B}\cdot t_{p}$
 \end_inset
 
-) ha
-\change_inserted 1469408620 1668602865
-s
-\change_deleted 1469408620 1668602864
-ve
-\change_unchanged
- to cover the range of 
+) has to cover the range of 
 \begin_inset Formula $T_{CLK}$
 \end_inset
 
-; a
-\change_inserted 1469408620 1668605571
-s a
-\change_unchanged
- consequence of that, the TDL must
-\change_deleted 1469408620 1668605625
- to
-\change_unchanged
- have a number of buffers 
+; as a consequence of that, the TDL must have a number of buffers 
 \begin_inset Formula $N_{B}\geq T_{CLK}/t_{p}$
 \end_inset
 
@@ -685,8 +531,6 @@ s a
 
 \begin_layout Subsection
 Sub-Interpolation
-\change_inserted 1469408620 1668613488
-
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Sub-Interpolation"
@@ -694,24 +538,9 @@ name "subsec:Sub-Interpolation"
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted 1469408620 1668606174
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-vedi nota *** in calibrazione
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
 The Sub-Interpolation is a technique used to reduce the quantization error
  (i.e., improving the resolution) of the TDL-TDC.
  In this sense, it exploits redundancy in the measurement process to lower
@@ -729,57 +558,10 @@ literal "false"
  the Super Wave Union (SuperWU), characterized by the use of more physical
  TDLs placed in parallel.
  If we have 
-\change_inserted 1469408620 1668605989
-
 \begin_inset Formula $M$
 \end_inset
 
-
-\change_deleted 1469408620 1668605994
-
-\begin_inset Formula $N$
-\end_inset
-
-
-\change_unchanged
- TDLs in parallel
-\change_deleted 1469408620 1668606177
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-*** hai tantissime N in giro, se cambi N con un altra lettera ...
- per esempio la M di Mattia, potrai usare la N per indicare in generale
- in numerod dei tap.
-\end_layout
-
-\begin_layout Plain Layout
-Infatti hai 
-\begin_inset Formula $N_{B}$
-\end_inset
-
- per i tap fisici, 
-\begin_inset Formula $N_{V}$
-\end_inset
-
- per quelli virtuali (
-\begin_inset Formula $N_{V}=M\cdot N_{B}$
-\end_inset
-
-) e poi con 
-\begin_inset Formula $N$
-\end_inset
-
- potrai indicare generalmente il numero di bin (virtual o real) che siano
- per essere generico in calibrazione
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-, each one with a real number of buffers (taps) 
+ TDLs in parallel, each one with a real number of buffers (taps) 
 \begin_inset Formula $N_{B}$
 \end_inset
 
@@ -801,81 +583,18 @@ virtual
 \end_inset
 
 -time faster propagation delay.
-\change_deleted 1469408620 1668257933
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-qui usi Nr e prima in cap1 usavi Nb ...
- normalizza un po' il tutto.
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
-In practice, let's consider
-\change_inserted 1469408620 1668606214
- 
+In practice, let's consider 
 \begin_inset Formula $m\in[1;M]$
 \end_inset
 
-
-\change_unchanged
+ replicas of the measurement of the same time interval, performed using
  
-\change_deleted 1469408620 1668606349
-
-\begin_inset Formula $n\in[1;N]$
-\end_inset
-
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-\begin_inset Formula $m\in[1;M]$
-\end_inset
-
-***
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-replicas of the measurement of the same time interval, performed using
-\change_deleted 1469408620 1668606236
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-M***
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
- 
-\change_inserted 1469408620 1668606241
-
 \begin_inset Formula $M$
 \end_inset
 
-
-\change_deleted 1469408620 1668606245
-
-\begin_inset Formula $N$
-\end_inset
-
-
-\change_unchanged
  TDLs in parallel with 
 \begin_inset Formula $n_{B}\in[1;N_{B}]$
 \end_inset
@@ -888,78 +607,14 @@ bin-by-bin
 \begin_inset Quotes erd
 \end_inset
 
- propagation delay
-\change_inserted 1469408620 1668606281
- 
+ propagation delay 
 \begin_inset Formula $t_{p,B}[n_{B}]$
 \end_inset
 
-
-\change_deleted 1469408620 1668606302
- 
-\begin_inset Formula $t_{B}[n_{B}]$
-\end_inset
-
-
-\change_unchanged
- 
-\change_deleted 1469408620 1668606269
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-*** se usi 
-\begin_inset Formula $t_{p}$
-\end_inset
-
- per il generico tempo di propgazione chiama 
-\begin_inset Formula $t_{p,B}$
-\end_inset
-
- quello del bin reale e 
-\begin_inset Formula $t_{p,V}$
-\end_inset
-
- quello del virtuale così potrai continuare a chiamare 
-\begin_inset Formula $t_{p}$
-\end_inset
-
- il generico x la calibrazione
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-and FSR
-\change_inserted 1469408620 1668606323
- 
+ and FSR 
 \begin_inset Formula $T_{FSR}=\sum t_{p,B}$
 \end_inset
 
-
-\change_deleted 1469408620 1668606354
- 
-\begin_inset Formula $T_{FSR}=\sum t_{B}$
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-***
-\begin_inset Formula $T_{FSR}=\sum t_{p.B}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
 .
  In this situation, the sub–interpolation process generates a V-TDL composed
  of 
@@ -974,22 +629,10 @@ bin-by-bin
 \begin_inset Quotes erd
 \end_inset
 
- propagation delay
-\change_deleted 1469408620 1668606990
-s
-\change_inserted 1469408620 1668606380
- 
+ propagation delay 
 \begin_inset Formula $t_{p,V}[n_{V}]$
 \end_inset
 
-
-\change_deleted 1469408620 1668606398
- 
-\begin_inset Formula $t_{V}[n_{V}]$
-\end_inset
-
-
-\change_unchanged
 , where:
 \end_layout
 
@@ -1004,20 +647,6 @@ n_{V}=\sum_{m=1}^{m=M}n_{B}[m]
 
 \end_inset
 
-
-\change_deleted 1469408620 1668606405
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-*** mod come fa nota
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
 
 \end_layout
 
@@ -1048,83 +677,24 @@ literal "false"
 \begin_inset Formula $T_{FSR}=\sum t_{p,V}$
 \end_inset
 
-
-\change_deleted 1469408620 1668606524
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-***
-\begin_inset Formula $N_{V}=M\cdot N_{B}$
-\end_inset
-
- e 
-\begin_inset Formula $T_{FSR}=\sum t_{p.V}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-; therefore, the LSB of the V-TDL is
-\change_inserted 1469408620 1668606533
- 
+; therefore, the LSB of the V-TDL is 
 \begin_inset Formula $M$
 \end_inset
 
-
-\change_deleted 1469408620 1668606540
- 
-\begin_inset Formula $N$
-\end_inset
-
- 
-\change_inserted 1469408620 1668606544
- 
-\change_unchanged
-times smaller than the one of a single real TDL.
+ times smaller than the one of a single real TDL.
  In general, the propagation delays of the real-bins belonging to the different
  TDLs get averaged each other, reducing the propagation delays of the virtual-bi
 ns.
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted 1469408620 1668262955
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Qui fai un discorso più generale che le repliche devono essere non correlate
- e su queste introduci il ritardo.
- NON hai caora parlato di ulta bin, questo verra dopo la calib
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
 To obtain an effective reduction of the propagation delays on the virtual-bins,
  the replicas of the TDLs should be as uncorrelated as possible.
  For this reason, the START signal is increasingly delayed on each one of
  the 
-\change_inserted 1469408620 1668606571
-
 \begin_inset Formula $M$
 \end_inset
 
-
-\change_deleted 1469408620 1668606575
-
-\begin_inset Formula $N$
-\end_inset
-
-
-\change_unchanged
  TDLs to have a minimum probability that it falls on similar real-bins.
  The parallel architecture resulting from the SuperWU algorithm is very
  suitable for FPGA's spatial-computing structures; moreover, the delay introduce
@@ -1139,30 +709,10 @@ skew
 \end_inset
 
  time).
- We can see a Super Wave Union implementation of order
-\change_inserted 1469408620 1668606603
- 
+ We can see a Super Wave Union implementation of order 
 \begin_inset Formula $M=3$
 \end_inset
 
-
-\change_deleted 1469408620 1668606613
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-*** M=3
-\end_layout
-
-\end_inset
-
- 
-\begin_inset Formula $N=3$
-\end_inset
-
-
-\change_unchanged
  in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1304,12 +854,22 @@ poiché quello è il ritardo di propagazione della mia tecnologia e mi trovo
 \end_inset
 
 
-\change_inserted 1469408620 1668611125
+\change_unchanged
 Since in FPGAs there is no possibility to tailor a 
 \begin_inset Formula $N$
 \end_inset
 
--taps-long buffer-chain with constant propagation delays 
+-taps-long buffer-chain
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+qi che questo N rapresenta Nb o Nv a seconda se sub-int o no
+\end_layout
+
+\end_inset
+
+ with constant propagation delays 
 \begin_inset Formula $t_{p}(n)$
 \end_inset
 
@@ -1317,8 +877,38 @@ Since in FPGAs there is no possibility to tailor a
 \begin_inset Formula $n\in[1;N]$
 \end_inset
 
-), but a chain of Configurable Logic Blocks (CLBs) is adapted as a buffer
- chain, the bins will all have dispersed 
+)
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+qi che questo tp rapresenta tpb o tpv a seconda se sub-int o no
+\end_layout
+
+\end_inset
+
+, but a chain of 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+non hai ancora detto cosa è una CBL, stai generale e di per la struttura
+ della FPGA->
+\end_layout
+
+\end_inset
+
+Configurable Logic Blocks (CLBs)
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+<-
+\end_layout
+
+\end_inset
+
+ is adapted as a buffer chain, the bins will all have dispersed 
 \begin_inset Formula $t_{p}(n)$
 \end_inset
 
@@ -1329,12 +919,9 @@ Since in FPGAs there is no possibility to tailor a
 
  from their ideal constant value is present, we will refer to the aforementioned
  dispersion as process (P) variation.
- Due to the P variations affecting each buffer
-\change_deleted 1469408620 1668611033
-Since each buffer composing the TDL is affected by process (P) variations
-\change_unchanged
-, a periodic bin-by-bin calibration process is required, otherwise, the
- system would suffer from very high non-linearities 
+ Due to the P variations affecting each buffer, a periodic bin-by-bin calibratio
+n process is required, otherwise, the system would suffer from very high
+ non-linearities 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "8885152"
@@ -1342,79 +929,17 @@ literal "false"
 
 \end_inset
 
-
-\change_deleted 1469408620 1668611000
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-<-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
 .
  This process consists of the creation of a Calibration Table (CT) listing
  all the propagation delays 
-\change_inserted 1469408620 1668607321
-
 \begin_inset Formula $t_{p}(n)$
 \end_inset
 
- 
-\change_deleted 1469408620 1668607274
-(
-\begin_inset Formula $t_{p}[n_{bin}]$
-\end_inset
-
-) 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-*** 
-\begin_inset Formula $t_{p}(n)$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-of each bin
-\change_inserted 1469408620 1668607347
- 
+ of each bin 
 \begin_inset Formula $n$
 \end_inset
 
- 
-\change_deleted 1469408620 1668607336
- 
-\begin_inset Formula $n_{bin}$
-\end_inset
-
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-***
-\begin_inset Formula $n$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-(or 
+ (or 
 \begin_inset Quotes eld
 \end_inset
 
@@ -1430,154 +955,40 @@ virtual
 \end_inset
 
  constant and equal to the LSB.
- Moreover, due to the impossibility 
-\change_inserted 1469408620 1668607945
-of implementing
-\change_deleted 1469408620 1668607947
-to implement
-\change_unchanged
- inside the FPGA analog hardware architectures for the voltage and temperature
- (VT) fluctuations, it is also necessary that the calibration process has
- a periodic refresh during the entire use of the TDC
-\change_deleted 1469408620 1668607835
-, in order
-\change_unchanged
- to update the correct propagation delay
-\change_deleted 1469408620 1668607847
-s
-\change_unchanged
- of each bin 
-\change_inserted 1469408620 1668607850
-and 
-\change_unchanged
-compensat
-\change_inserted 1469408620 1668607852
-e
-\change_deleted 1469408620 1668607852
-ing
-\change_unchanged
- the VTs.
+ Moreover, due to the impossibility of implementing inside the FPGA analog
+ hardware architectures for the voltage and temperature (VT) fluctuations,
+ it is also necessary that the calibration process has a periodic refresh
+ during the entire use of the TDC to update the correct propagation delay
+ of each bin and compensate the VTs.
 \end_layout
 
 \begin_layout Standard
-The CT is built by performing a Code Density Test (CDT) on the TDL (or V-TDL)
-\change_inserted 1469408620 1668608078
-, which
-\change_deleted 1469408620 1668608080
- that
-\change_unchanged
- is 
+The CT is built by performing a Code Density Test (CDT) on the TDL (or V-TDL),
+ which is 
 \begin_inset Formula $T_{CLK}$
 \end_inset
 
--wide i
-\change_inserted 1469408620 1668608002
-f
-\change_deleted 1469408620 1668608002
-n
-\change_unchanged
- the Nutt-Interpolation is implemented and composed 
-\change_inserted 1469408620 1668608113
-of
-\change_deleted 1469408620 1668608113
-by
-\change_unchanged
- a total of 
-\change_inserted 1469408620 1668608207
-
+-wide if the Nutt-Interpolation is implemented and composed of a total of
+ 
 \begin_inset Formula $N$
 \end_inset
 
-
-\change_deleted 1469408620 1668608210
-
-\begin_inset Formula $N_{bin}$
-\end_inset
-
-
-\change_unchanged
- real (o
-\change_inserted 1469408620 1668608120
-r
-\change_unchanged
- virtual) bins.
+ real (or virtual) bins.
  The CDT consists of sending a set of random signals (
 \begin_inset Formula $N_{C}$
 \end_inset
 
- in total), characterize
-\change_inserted 1469408620 1668608241
-d
-\change_unchanged
- by a uniform distribution, to the TDL (or V-TDL) and counting how many
- samples
-\change_inserted 1469408620 1668608252
- 
+ in total), characterized by a uniform distribution, to the TDL (or V-TDL)
+ and counting how many samples 
 \begin_inset Formula $N_{X}(n)$
 \end_inset
 
-
-\change_deleted 1469408620 1668608265
- 
-\begin_inset Formula $N_{X}(n_{bin})$
-\end_inset
-
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-*** 
-\begin_inset Formula $N_{X}(n)$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\change_inserted 1469408620 1668608266
- 
-\change_unchanged
-fall into each real (or virtual) bin.
- Finally, the
-\change_inserted 1469408620 1668608355
- 
+ fall into each real (or virtual) bin.
+ Finally, the 
 \begin_inset Formula $t_{p}(n)$
 \end_inset
 
-
-\change_deleted 1469408620 1668608368
- 
-\begin_inset Formula $t_{p}(n_{bin})$
-\end_inset
-
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-*** 
-\begin_inset Formula $t_{p}(n)$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\change_inserted 1469408620 1668608369
- 
-\change_unchanged
-of each bin is obtained 
-\change_inserted 1469408620 1668608416
-thanks to
-\change_deleted 1469408620 1668608417
-by
-\change_unchanged
- a normalization to 
+ of each bin is obtained thanks to a normalization to 
 \begin_inset Formula $T_{CLK}$
 \end_inset
 
@@ -1589,44 +1000,6 @@ t_{p}(n)=\frac{N_{X}(n)}{N_{C}}\cdot T_{CLK}\ ,\ n\in[1;N]\label{eq:CT}
 
 \end_inset
 
-
-\change_deleted 1469408620 1668608157
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-*** aggiusta con
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 1469408620 1668608528
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-\begin_inset Formula 
-\begin{equation}
-t_{X}=\frac{n_{X}}{\sum_{x=1}^{N_{C}}n_{X}}\cdot T_{CLK,ps}\ ,\ x=1,2,...,N_{C}\label{eq:CT-1}
-\end{equation}
-
-\end_inset
-
- OCCHIO E' sbagliata la formula, cervello = on!!!!!!
-\end_layout
-
-\end_inset
-
-
-\change_inserted 1469408620 1668268129
 
 \end_layout
 
@@ -1641,21 +1014,7 @@ noprefix "false"
 
 \end_inset
 
- graphically explains the procedure just described
-\change_deleted 1469408620 1668608538
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-rendi i nomi della figura coerenti con quelli del paragrafo
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-.
+ graphically explains the procedure just described.
 \end_layout
 
 \begin_layout Standard
@@ -1705,49 +1064,30 @@ name "fig:CDT-performed-by"
 \end_inset
 
 
-\change_inserted 1469408620 1668266496
-
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted 1469408620 1668610255
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-QUESTO va integrato in XXX, li va detto non qui sotto INtehra con quello
- che to ho detto in xxx->
-\end_layout
-
-\end_inset
-
-Since in FPGAs there is no possibility to tailor the chain of buffers with
- the desired propagation delays, but a chain of Configurable Logic Blocks
- (CLBs) is adapted as a buffer chain, the bins will all have different propagati
-on delays and, due to the crossing of different clock regions, some of them
- can be particularly slow.
- These bins, characterized by the maximum value of the CT, will be referred
- to as “ultra-bins” and are responsible for worsening the single-shot precision
- of the TDC.
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-<-
-\end_layout
-
-\end_inset
-
-
-\change_inserted 1469408620 1668611233
 Due to the crossing of different clock regions, some bins can be particularly
  slow.
  These bins, characterized by the maximum value of the CT, will be referred
  to as “ultra-bins” and are responsible for worsening the single-shot precision
  of the TDC.
-\change_unchanged
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+riporta un po di dati dei bin delle tecnologi xilinx che consideri; ovvero
+ ultra bin (1TDL sola) in X7S ed US e valore del bin minimo (no zero) e
+ medio (no zero) delle TDL
+\end_layout
+
+\begin_layout Plain Layout
+Sarebbe bellissima la dist che hai fatto x nss sulla dispersione dei bin,
+ una per 7XS ed una per US+.
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
@@ -1756,25 +1096,8 @@ Once the CT is built, the Characteristic Curve (CC) of the device can be
  derived.
  The CC is nothing but the integration of the CT, thus representing, for
  each bin, the corresponding time measurement in picoseconds.
-
-\change_inserted 1469408620 1668611341
  In this way, by addressing the CC, the value in ps can be retrieved without
  performing the CT integration for each measurement.
-\change_deleted 1469408620 1668611341
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-devi dire che in questo modod indirizzanod la CC potrai estarre il valore
- in ps senza dover svolgere l'integrazione della CT per ogni misura 
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
@@ -1826,10 +1149,6 @@ name "fig:Graphical-representation-of"
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 

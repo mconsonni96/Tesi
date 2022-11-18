@@ -150,129 +150,40 @@ name "sec:Main-Work"
 \end_layout
 
 \begin_layout Standard
-The main goal of this thesis work has been to push even more the Time-to-Digital
- Converter performances, obtaining a drag-and-drop, tunable IP-Core, compatible
- with
-\change_inserted 1469408620 1668688162
- 20 nm
+The main goal of this thesis work has been to push even more the 
+\change_deleted -1129936465 1668763397
+Time-to-Digital Converter
+\change_inserted -1129936465 1668763398
+TDC
 \change_unchanged
- Xilinx Ultrascale (
-\change_inserted 1469408620 1668688167
-XUS
-\change_deleted 1469408620 1668688168
-20 nm
+ performances, obtaining a drag-and-drop, tunable IP-Core, compatible with
+ 20 nm Xilinx Ultrascale (XUS) and 16 nm Xilinx Ultrascale+ (XUS+) FPGAs.
+ This TDC has been designed starting from an already existing implementation
+ in 
+\change_deleted -1129936465 1668763512
+the 28 nm Xilinx 7-Series (
 \change_unchanged
-) and 
-\change_inserted 1469408620 1668688188
-16 nm Xilinx 
-\change_unchanged
-Ultrascale+ (
-\change_inserted 1469408620 1668688194
-XUS+
-\change_deleted 1469408620 1668688195
-16 nm
-\change_unchanged
-) FPGAs.
- 
-\change_deleted 1469408620 1668676263
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-NOTA 1
-\end_layout
-
-\begin_layout Plain Layout
-qui parli di migrazione ad una nuovo nodo tecnologico rispetto alla serie-7.
- Secondo te; come fa il rev ad intuire che sei partito dalla Serie-7 leggendo
- questa frase?->
-\end_layout
-
-\end_inset
-
-
-\change_inserted 1469408620 1668688206
-This TDC has been designed starting from an already existing implementation
- in the 28 nm Xilinx 7-Series (X7S) technological node.
- 
-\change_unchanged
-The migration to
-\change_inserted 1469408620 1668688225
- XUS/XUS+
-\change_deleted 1469408620 1668676415
- a new technology,
-\change_inserted 1469408620 1668676420
-, which is
-\change_unchanged
- characterized by an improved scaling than 
-\change_deleted 1469408620 1668676426
-Xilinx 
-\change_inserted 1469408620 1668688237
 X7S
-\change_deleted 1469408620 1668688239
-7-Series
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-<-
-\end_layout
-
-\end_inset
-
-
+\change_deleted -1129936465 1668763513
+)
 \change_unchanged
-, has allowed 
-\change_deleted 1469408620 1668676976
-pushing
-\change_inserted 1469408620 1668676978
-increasing
-\change_unchanged
+ technological node
+\change_inserted -1129936465 1668763642
  
-\change_deleted 1469408620 1668676768
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-->
-\end_layout
+\begin_inset CommandInset citation
+LatexCommand cite
+key "9452098"
+literal "false"
 
 \end_inset
 
 
 \change_unchanged
-the frequency of the clock involved in the time measurements
-\change_inserted 1469408620 1668677001
- by an amount equal to one hundred MHz
-\change_deleted 1469408620 1668676772
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-<-di che prdine parlaimo, se non ricordo male il clk TDC non è migliorato
- molto tu usi un 500 MHz al posto del 416 MHz, quindi diciamo un 100 MHz
- massiamo? Indicalo anche perché in sez 1 quando parli del SCFC dici che
- il vantaggio principale tra 7-Series e Ultrascale non è tanto lo speedup
- del clock (che per una architettura TDC rimane sempre nel 100aio di MHz,
- come del resto è) ma dal fatto che hai molte più net di clk.
- I discrosi delle varie sez devono essere tutti voerenti.
-\end_layout
-
-\begin_layout Plain Layout
-Nota che stai scrivendo 30pag ed il contro rel le leggerà tutte di fila,
- non puui contraddirti.
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-, resulting in a TDC with lower Dead-Time
-\change_inserted 1469408620 1668677258
- (see Paragraph 
+.
+ The migration to XUS/XUS+, which is characterized by an improved scaling
+ than X7S, has allowed increasing the frequency of the clock involved in
+ the time measurements by an amount equal to one hundred MHz, resulting
+ in a TDC with lower Dead-Time (see Paragraph 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Dead-Time"
@@ -283,8 +194,9 @@ noprefix "false"
 \end_inset
 
 ).
-\change_deleted 1469408620 1668677072
-, and better Resolution (see Eqution 
+ The scaling is also beneficial for the resolution since the propagation
+ delays of the bins are lower than their X7S counterparts (see Equation
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:TDL resolution"
@@ -294,64 +206,7 @@ noprefix "false"
 
 \end_inset
 
-).
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Io non ho ancora sentito la parola ultra-bin nei capitoli precedenti evi
- introdurre il concetto ...
- c'è un ultra-bin nella nota xxx della sez 2.3 nel caso riprendi qui la ref
- alla tua sez ma cerca di dare un contesto.
- Vedi anche NOTA 6->
-\end_layout
-
-\end_inset
-
-
-\change_inserted 1469408620 1668677076
- 
-\change_unchanged
-The scaling is also beneficial for the 
-\change_inserted 1469408620 1668677146
-resolution since the propagation delays of the bins are
-\change_deleted 1469408620 1668677151
-
-\begin_inset Quotes eld
-\end_inset
-
-ultra-bins
-\begin_inset Quotes erd
-\end_inset
-
- phenomenon since they are faster
-\change_inserted 1469408620 1668677153
- lower
-\change_unchanged
- than their 
-\change_inserted 1469408620 1668688250
-X7S
-\change_deleted 1469408620 1668688251
-7-Series
-\change_unchanged
- counterparts
-\change_inserted 1469408620 1668677181
- (see Equation 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:TDL resolution"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-)
-\change_unchanged
-; 
-\change_inserted 1469408620 1668677616
-moreover, for the same reason, the 
+); moreover, for the same reason, the 
 \begin_inset Quotes eld
 \end_inset
 
@@ -369,49 +224,15 @@ noprefix "false"
 
 \end_inset
 
-, is slightly improved, resulting
-\change_deleted 1469408620 1668677312
-this results 
-\change_inserted 1469408620 1668677327
- 
-\change_unchanged
-in an overall improvement of the 
-\change_deleted 1469408620 1668677647
-measurements' 
-\change_unchanged
-single-shot precision
-\change_inserted 1469408620 1668677652
- of the TDC
-\change_deleted 1469408620 1668677333
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-<-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-.
+, is slightly improved, resulting in an overall improvement of the single-shot
+ precision of the TDC.
  Firstly, let's briefly describe the blocks composing the main core of the
-\change_deleted 1469408620 1668677760
- older version of the
-\change_unchanged
- TDC
-\change_deleted 1469408620 1668677766
-, which was implemented on Xilinx 7-Series technology
-\change_unchanged
-; then, each one of them will be described in detail, highlighting the improveme
-nts done in this thesis work.
+ TDC; then, each one of them will be described in detail, highlighting the
+ improvements done in this thesis work.
 \end_layout
 
 \begin_layout Subsection
 Main blocks of the TDC
-\change_inserted 1469408620 1668700631
-
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Main-blocks-of"
@@ -419,57 +240,14 @@ name "subsec:Main-blocks-of"
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
+The 
+\change_deleted -1129936465 1668763677
+older
+\change_inserted -1129936465 1668763677
 
-\change_deleted 1469408620 1668679458
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-NOTA 1 devi dire anche le performance di questa old version ...
- poi non è una old versione è la versione x serie-7
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-The old
-\change_inserted 1469408620 1668678324
-er
-\change_unchanged
- version of the T
-\change_inserted 1469408620 1668678330
-DC
-\change_deleted 1469408620 1668678333
-ime-To-Digital Converter
-\change_unchanged
-, implemented at the Digital Electronics Laboratory (DigiLAB) at Politecnico
- di Milano, 
-\change_deleted 1469408620 1668678556
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-è un TDC x serie-7 (https://ieeexplore.ieee.org/abstract/document/9452098)
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-has been implemented on 
-\change_inserted 1469408620 1668688271
-the 28 nm X7S
-\change_deleted 1469408620 1668688275
-Xilinx 7-Series (28 nm)
-\change_inserted 1469408620 1668678391
- technological node 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "9452098"
@@ -477,31 +255,24 @@ literal "false"
 
 \end_inset
 
-, mainly in
+,
 \change_unchanged
+ version of the TDC, implemented at the Digital Electronics Laboratory (DigiLAB)
+ at Politecnico di Milano, has been implemented on the 28
+\change_deleted -1129936465 1668763680
  
-\change_deleted 1469408620 1668678561
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-principalemnte in Artix-7 = https://ieeexplore.ieee.org/abstract/document/9525418,
- https://ieeexplore.ieee.org/abstract/document/9855502?casa_token=Z0UiUU8qfq8AAAAA
-:Pqd72XcC3etZyz6MFe-09h3czRa-ntOpxCe9Ecog7RzJ2J56wlPeUQYY1uT2H1PjTfZ07Dk
-\end_layout
+\change_inserted -1129936465 1668763681
+-
+\change_unchanged
+nm X7S technological node 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "9452098"
+literal "false"
 
 \end_inset
 
-
-\change_unchanged
-Artix-7 FPGA
-\change_inserted 1469408620 1668678366
-s
-\change_unchanged
-, and it is a TDL-based TDC (TDL-TDC)
-\change_inserted 1469408620 1668678553
- 
+, mainly in Artix-7 FPGAs, and it is a TDL-based TDC (TDL-TDC) 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "9525418"
@@ -517,11 +288,7 @@ literal "false"
 
 \end_inset
 
-
-\change_unchanged
 .
-
-\change_inserted 1469408620 1668679449
  Table 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -548,8 +315,6 @@ status open
 
 \begin_layout Plain Layout
 \align center
-
-\change_inserted 1469408620 1668678959
 \begin_inset Tabular
 <lyxtabular version="3" rows="9" columns="2">
 <features tabularvalignment="middle">
@@ -561,12 +326,8 @@ status open
 
 \begin_layout Plain Layout
 
-\change_inserted 1469408620 1668679105
-
 \series bold
 Feature
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -576,12 +337,8 @@ Feature
 
 \begin_layout Plain Layout
 
-\change_inserted 1469408620 1668679121
-
 \series bold
 Artix-7 implementation
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -592,11 +349,7 @@ Artix-7 implementation
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668679147
 Resolution
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -605,11 +358,11 @@ Resolution
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668679151
-366 fs
+36
+\change_inserted -1129936465 1668763707
+.
 \change_unchanged
-
+6 fs
 \end_layout
 
 \end_inset
@@ -620,11 +373,7 @@ Resolution
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668679155
 Precision
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -633,11 +382,7 @@ Precision
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668679163
 8.0 ps r.m.s.
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -648,11 +393,7 @@ Precision
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668679170
 Full-Scale Range
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -661,11 +402,7 @@ Full-Scale Range
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668679174
 10.3 s
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -676,11 +413,7 @@ Full-Scale Range
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668679177
 DNL
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -689,11 +422,7 @@ DNL
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668679183
 0.25 ps
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -704,11 +433,7 @@ DNL
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668679186
 INL
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -717,11 +442,7 @@ INL
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668679190
 2.5 ps
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -732,11 +453,7 @@ INL
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668679200
 Number of Chs
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -745,11 +462,7 @@ Number of Chs
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668679205
 16
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -760,11 +473,7 @@ Number of Chs
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668679211
 Channel Rate
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -773,11 +482,7 @@ Channel Rate
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668679214
 150 MHz
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -788,11 +493,7 @@ Channel Rate
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668679221
 Dead-Time
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -801,11 +502,7 @@ Dead-Time
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668679227
 5 ns
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -819,13 +516,9 @@ Dead-Time
 \end_layout
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668678752
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668679436
 Performances of the Xilinx 7-Series TDC, implemented in an Artix-7 FPGA.
 \begin_inset CommandInset label
 LatexCommand label
@@ -834,55 +527,18 @@ name "tab:Performances-of-the"
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
 
-\change_unchanged
-
-\end_layout
-
-\begin_layout Plain Layout
-
 \end_layout
 
 \end_inset
 
-
-\change_deleted 1469408620 1668680065
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-NOTA 2
-\end_layout
-
-\begin_layout Plain Layout
-Qui devi dire che in rif al cap2 usa la nutt interpolation, sub-interpolato
- con la super wu e ha un algoritmo di caligrazione e riferiti qui alle varie
- sez prec altrimenti fai casino (sotto in fatti vedrai le tue ref alla tesi
- modificate)
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
- 
-\change_deleted 1469408620 1668679532
-Besides, i
-\change_inserted 1469408620 1668679530
-I
-\change_unchanged
-t is a TIMESTAMP-type TDC, thus being composed of as many channels as the
- number of physical events to detect
-\change_inserted 1469408620 1668688295
-; besides, to break the trade-off between FSR and LSB, it exploits Nutt-Interpol
-ation (see Section 
+ It is a TIMESTAMP-type TDC, thus being composed of as many channels as
+ the number of physical events to detect; besides, to break the trade-off
+ between FSR and LSB, it exploits Nutt-Interpolation (see Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Nutt-Interpolation"
@@ -917,13 +573,9 @@ noprefix "false"
 
 \end_inset
 
-)
-\change_unchanged
-.
+).
  The processing chain inside each channel starts with the V-TDL, which provides
- a thermometric code in output
-\change_inserted 1469408620 1668679929
-, as shown in Paragraph 
+ a thermometric code in output, as shown in Paragraph 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "par:Tapped-Delay-Line-TDC,"
@@ -933,25 +585,9 @@ noprefix "false"
 
 \end_inset
 
- 
-\change_deleted 1469408620 1668680629
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-semmai qui uo riferiti al paragrafo della TDL dove dici che l'output di
- un TDl-TDC è termometrico
-\end_layout
-
-\end_inset
-
-, representing the Fine part of the timestamp
-\change_unchanged
-.
- The thermometric code is then converted into a binary one by a Decoder
-\change_inserted 1469408620 1668696117
-, which is a very cumbersome module having a 
+ .
+ The thermometric code is then converted into a binary one by a Decoder,
+ which is a very cumbersome module having a 
 \begin_inset Formula $N$
 \end_inset
 
@@ -982,38 +618,25 @@ noprefix "false"
 \end_inset
 
 ); for this reason, this module limits the maximum frequency of the system.
-\change_deleted 1469408620 1668680962
+\change_inserted -1129936465 1668763774
 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-di che questo decoder limita la freq massima del sistema in quando è molto
- grosso poiche ha in input gli N bin e riduce a log2....
- non credo che hai espresso questo concetto in Architectures.
- Se vuoi puoi sempre inserire il concetto di questa nota in Architetctures
- e poi richiamarlo ui sotto.
 \end_layout
 
-\end_inset
+\begin_layout Standard
 
-.
-
+\change_deleted -1129936465 1668763774
+ 
 \change_unchanged
- Once the binary code of the Fine measurement is obtained, Nutt-Interpolation
+Once the binary code of the Fine measurement is obtained, Nutt-Interpolation
  is implemented by a module called Coarse Extension Core (CEC).
  This block attaches the Fine part to a Coarse part, the latter provided
  by a Coarse Counter sub-module that can be internal to the CEC or external.
  Furthermore, the CEC performs a Clock-Domain Crossing (CDC), meaning that
  the system goes from a faster clock to a slower one, allowing the data
- processing on all the following blocks to respect
-\change_deleted 1469408620 1668716880
- all
-\change_unchanged
- the timing constraints of the system.
- The following block in the processing chain is the Calibrator
-\change_inserted 1469408620 1668701251
-, which exploits storage mechanisms to store the CT and the CC.
+ processing on all the following blocks to respect the timing constraints
+ of the system.
+ The following block in the processing chain is the Calibrator, which exploits
+ storage mechanisms to store the CT and the CC.
  For this reason, this module can not work at the same frequency as the
  V-TDL, showing that the CDC performed by the CEC is mandatory.
  The CDC is done using a FIFO, which is written with the same clock controlling
@@ -1030,40 +653,17 @@ noprefix "false"
 \end_inset
 
 .
+ Finally, a module called Overflow Counter further extends the FSR of the
+ TDC by counting the overflows of the Coarse Counter present in the CEC.
 
+\change_deleted -1129936465 1668763852
+ 
 \change_unchanged
- Finally, a
-\change_inserted 1469408620 1668682468
- module
-\change_deleted 1469408620 1668682469
-n
-\change_inserted 1469408620 1668682471
- called
-\change_unchanged
- Overflow Counter further extends the FSR of the TDC by counting the overflows
- of the Coarse Counter present in the CEC
-\change_inserted 1469408620 1668682113
-.
-\change_deleted 1469408620 1668682115
 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-qui devi dire che il sistema di calibrazione è compresso (usa delle memorie
- per salvare la CT e la CC) di conseguenza non può lavorare allo stesso
- clock della TDL; è necessario un CDC.
- CDC che facciamo con una FIFO in ottica di minimizzare il dead-time quando
- la fifo è vuoto in riferitmo a quello detto nelle FoM (riferisciti proprio
- a quella sezione)
 \end_layout
 
-\end_inset
-
-.
-
-\change_unchanged
- Figure 
+\begin_layout Standard
+Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Schematic-of-the"
@@ -1073,47 +673,10 @@ noprefix "false"
 
 \end_inset
 
- shows 
-\change_deleted 1469408620 1668682525
-a
-\change_inserted 1469408620 1668682526
-the
-\change_unchanged
- block diagram of 
-\change_inserted 1469408620 1668682535
-a generic channel of 
-\change_unchanged
-the TDC, composed of all the aforementioned modules.
+ shows the block diagram of a generic channel of the TDC, composed of all
+ the aforementioned modules.
  Since this thesis work consisted in modifying the internal blocks, the
- macroscopic structure of the 
-\change_inserted 1469408620 1668717006
-channel
-\change_deleted 1469408620 1668717023
-TDC
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-devi dire che questo è la struttura di un solo canale NOTA 3
-\end_layout
-
-\end_inset
-
-, reported in Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Schematic-of-the"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-,
-\change_unchanged
- has been maintained.
-
-\change_inserted 1469408620 1668682832
+ macroscopic structure of the channel has been maintained.
  We can see from Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1134,23 +697,6 @@ FIFO+Pipeline
 
  structure since all the modules work in Pipeline and the CEC contains a
  FIFO that allows buffering at TDC-clock.
- 
-\change_deleted 1469408620 1668682904
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Devi rimarcare il fatto che il tuo TDC ha una struttura FIFO + Pipeline
- poiché tutti i modulli lavorano in pipeline e il CEC possiede una FIFO
- nel cambio di dominio di clock in modo da gantire un buffering a TDC clock
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
@@ -1168,34 +714,13 @@ status open
 \end_inset
 
 
-\change_deleted 1469408620 1668683117
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-metti la FIFO in CEC e togli i 400 MHz e 200 MHz; questi sono i numeri del
- X7S e lascere questa fi generale 
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
 \end_layout
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Schematic of the structure of 
-\change_inserted 1469408620 1668688351
-a generic channel
-\change_deleted 1469408620 1668688353
-the older version
-\change_unchanged
- of the TDC.
+Schematic of the structure of a generic channel of the TDC.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Schematic-of-the"
@@ -1213,7 +738,6 @@ name "fig:Schematic-of-the"
 \end_inset
 
 The communication between all the blocks is done using the AXI4-Stream protocol
-\change_inserted 1469408620 1668683597
  
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -1222,20 +746,6 @@ literal "false"
 
 \end_inset
 
-
-\change_deleted 1469408620 1668683600
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-devi mettere una ref
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
 .
  This protocol consists of a flux of data from the output of a module, called
  “master”, to the input of the following one, called “slave”.
@@ -1314,31 +824,7 @@ name "fig:AXI4Stream-protocol."
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted 1469408620 1668684243
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-semma di in nota 3 che tutti i moduli sono degli IP-core connessi tra di
- loro in axis e organizzati in unoico hierachical (insisme di IP) ricordandoti
- di fare le opprtune ref alla doc xilinx e di indicare rapidamente cosa
- è uno hier (gruppo di IP).
- L'IP core se non ricordo male lo hai citato in Thesis goal quindi credo
- basti una ref a quella sezione.->
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-All the 
-\change_deleted 1469408620 1668683722
-presented 
-\change_unchanged
-blocks 
-\change_inserted 1469408620 1668684166
-in Figure 
+All the blocks in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Schematic-of-the"
@@ -1360,11 +846,7 @@ noprefix "false"
 
 ) connected to each other in the AXI4-Stream protocol, which are organized
  inside a Hierarchical IP-Core.
- 
-\change_deleted 1469408620 1668684172
-are connected inside a hierarchical IP-Core,
-\change_inserted 1469408620 1668684714
-The latter is nothing but a set of IP-Cores 
+ The latter is nothing but a set of IP-Cores 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "HIER"
@@ -1374,64 +856,10 @@ literal "false"
 
 , and, with a simple drag-and-drop operation, an entire channel of the TDC
  can be promptly tested on different FPGAs.
-
-\change_deleted 1469408620 1668684241
- which is nothing but a channel of the TDC.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-<-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
  Since we are usually interested in the relative time distance between physical
  events, the TDC will be characterized by more than one channel, each one
  providing the respective timestamp with respect to a common absolute time
  reference (i.e., the power-on instant of the device).
-\change_deleted 1469408620 1668684763
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Non ha assolutamente senso parlarne qui, ora stai parlando di come è organizzato
- il TDC vecchio ->
-\end_layout
-
-\end_inset
-
-
-\change_deleted 268488506 1668603160
- Then, an external module called 
-\begin_inset Quotes eld
-\end_inset
-
-Histogrammer
-\begin_inset Quotes erd
-\end_inset
-
- will perform a repeated set of measurements of the time difference between
- two of those channels, and it will thus provide a Gaussian distribution
- characterized by a mean value and a certain standard deviation.
- As described in Paragraph 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Precision"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-, the standard deviation will be used as the index of the single-shot precision
- of the TDC.
- 
-\change_unchanged
-
 \end_layout
 
 \begin_layout Subsection
@@ -1439,62 +867,26 @@ Virtual Tapped Delay-Line (V-TDL)
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted 1469408620 1668688560
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-NOTA 5
-\end_layout
-
-\begin_layout Plain Layout
-Visto che al 3.1 hai introdotto com'è la struttura del TDC devi un'attimo
- dire che qui risiede il grosso: la TDL e qui sta il grosso del tuo lavoro
- di adattamento per il passaggio.
-\end_layout
-
-\begin_layout Plain Layout
-Ricordati di dire che la TDL deve essere fatta con la logica più abbondante
- e veloce dell'FPGA.
- Quindi la scelta cade sulle catene di carry dei sommatori
-\end_layout
-
-\end_inset
-
-
-\change_inserted 1469408620 1668717235
 The core of this thesis work relies on the migration of the V-TDL from the
  X7S to the XUS/XUS+ technology.
  The TDL has been obtained by cascading the carry chains of the adders,
  which are the more abundant and fast resources on the FPGA for this kind
- of implementation.
-\change_unchanged
-
-\end_layout
-
-\begin_layout Subsubsection
-
-\change_inserted 1469408620 1668688672
-X7S
-\change_deleted 1469408620 1668688674
-Old
-\change_unchanged
- Version
-\change_deleted 1469408620 1668688676
-
+ of implementation
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-Serie-7 non old e aggiorna in tutta la tesi
+metti una ref su qualche articolo di TDC in FPAG Che dice che x fare le
+ TDL si usano le carry block, usa paper vecchi
 \end_layout
 
 \end_inset
 
+.
+\end_layout
 
-\change_inserted 1469408620 1668698884
-
+\begin_layout Subsubsection
+X7S Version
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:X7S-Version"
@@ -1502,76 +894,11 @@ name "subsec:X7S-Version"
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted 1469408620 1668688767
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-NOta 5 integrerà questo concetto generale, quindi questa frase sparirà da
- qui
-\end_layout
-
-\end_inset
-
-This module is in charge of performing the Fine measurement of the timestamp.
- Let's see in detail how it is structured.
- As explained in Paragraph 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Delay-Line-TDC"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-, the TDL is nothing but a sequence of buffers connected in series, and
- it has been obtained by cascading Xilinx's CARRY primitives.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-<-
-\end_layout
-
-\end_inset
-
- 
-\change_unchanged
-In the X7S version of the V-TDL
-\change_deleted 1469408620 1668688781
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-definirai prima questo acronimo X7S così smetterai di usare old e new-
-\end_layout
-
-\end_inset
-
-, implemented on the Xilinx 7-Series (X7S) technology node,
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-<-
-\end_layout
-
-\end_inset
-
-
-\change_inserted 1469408620 1668688784
-,
-\change_unchanged
- the elementary block used to create the chain structure is the CARRY4 primitive
- 
+In the X7S version of the V-TDL, the elementary block used to create the
+ chain structure is the CARRY4 primitive 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "XlinxUG474"
@@ -1590,19 +917,8 @@ noprefix "false"
 
 \end_inset
 
- shows 
-\change_deleted 1469408620 1668688933
-the
-\change_inserted 1469408620 1668688936
-its
-\change_unchanged
- internal structure
-\change_inserted 1469408620 1668688970
- (at the top) and Port descriptions (at the bottom)
-\change_deleted 1469408620 1668688967
- of the CARRY4 primitive
-\change_unchanged
-.
+ shows its internal structure (at the top) and Port descriptions (at the
+ bottom).
 \end_layout
 
 \begin_layout Standard
@@ -2036,20 +1352,17 @@ Carry cascade input
 \end_inset
 
 
-\change_deleted 1469408620 1668689103
+\change_unchanged
 
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-metti questa seconda pag (O; CO; DI ...) in una tabella a parte non si leggerà
- nulla sul PDF se fai così
+metti la tabella in un box tabella
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
 
 \end_layout
 
@@ -2114,18 +1427,10 @@ ones
 \end_inset
 
 '0' transition on each O output, which is nothing but the inverted and delayed
- CO output) with
-\change_inserted 1469408620 1668689525
- slightly
-\change_deleted 1469408620 1668689534
- little
-\change_unchanged
- different propagation delays.
+ CO output) with slightly different propagation delays.
  Each output (CO or O) of the chain is then connected to the D-input of
  a flip-flop (FF), used to sample the logic value of that specific tap,
  when the STOP signal occurs.
-
-\change_inserted 1469408620 1668717464
  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2146,8 +1451,6 @@ status open
 
 \begin_layout Plain Layout
 \align center
-
-\change_inserted 1469408620 1668695703
 \begin_inset Graphics
 	filename images/carry4_internal.png
 	width 60text%
@@ -2158,13 +1461,9 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668693809
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668700471
 Resources employed in the CARRY4 primitive to correctly propagate the START
  signal.
 \begin_inset CommandInset label
@@ -2174,67 +1473,15 @@ name "fig:CARRY4-primitive-used"
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
 
-\change_unchanged
-
-\end_layout
-
-\begin_layout Plain Layout
-
 \end_layout
 
 \end_inset
 
-
-\change_deleted 1469408620 1668712367
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-metti una IMG della slice dove evidenze il carri ed i FF che campiona CO
- e quelli che campionano O e l'ingresso di clock così chiudi il discorso.
- Specifica che CO e O non possono essere campionati assieme.
-\end_layout
-
-\end_inset
-
-.
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Qui devi essere più specifico; prima devi dare un ordine di grandezza di
- quanto è lunga una TDL, ovvero dalla 28-nm ti aspetti un tempo di propagazione
- minimo di circa 16 ps e metti una ref, essendo il carry fatto per andare
- il più veloce possibile ti aspetti il minimo tempo di propagazione.
- Dopo devi dire che la serie-7 ha un clock che non può superare certi massimi
- (600 MHz nella Artix e 800 MHz in Virtex e Kintex,metti sempre una ref).
- Inoltre la struttura di decoding a valle della TDL (lavorando sotto lo
- stesso dominio di clock) limita il periodo minimo di clcokd isponibile.
- Questo si traduce in un range >2.4 ns ...
- ovviamente + rapido è il clock, + la TDL e corta e più alrchitettura è
- compatta (decoder e calibratore + piccolo) quindi minor consumo ed area
- occupata.
- IN 3.1 ti ho inserito dei discorsi sul decoder che qui puoi riprendere.
-\end_layout
-
-\begin_layout Plain Layout
-...
- ora puoi proseguire nel discorso
-\end_layout
-
-\end_inset
-
-
-\change_inserted 1469408620 1668716351
 Let's now give an order of magnitude for the TDL length, based on the descriptio
 n given in Section 
 \begin_inset CommandInset ref
@@ -2318,17 +1565,8 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-The STOP signal 
-\change_inserted 1469408620 1668712302
-of the TDL 
-\change_unchanged
-is a user-chosen rising-edge of 
-\change_deleted 1469408620 1668712348
-a
-\change_inserted 1469408620 1668712348
-the
-\change_unchanged
- clock signal with period 
+The STOP signal of the TDL is a user-chosen rising-edge of the clock signal
+ with period 
 \begin_inset Formula $>2.4\,ns$
 \end_inset
 
@@ -2353,18 +1591,7 @@ noprefix "false"
 
 \end_inset
 
- graphically shows the 
-\change_inserted 1469408620 1668717643
-propagation mechanism
-\change_deleted 1469408620 1668717645
-structure
-\change_unchanged
- of the TDL.
-
-\change_deleted 1469408620 1668689460
- 
-\change_unchanged
-
+ graphically shows the propagation mechanism of the TDL.
 \end_layout
 
 \begin_layout Standard
@@ -2388,19 +1615,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-CARRY4-based T
-\change_inserted 1469408620 1668717650
-DL
-\change_deleted 1469408620 1668717653
-apped Delay-Line
-\change_unchanged
- 
-\change_inserted 1469408620 1668717657
-propagation mechanism
-\change_deleted 1469408620 1668717658
-structure
-\change_unchanged
-.
+CARRY4-based TDL propagation mechanism.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:CARRY4-based-Tapped-Delay-Line"
@@ -2485,32 +1700,11 @@ NUM_TAP_TDL
  In the latter case, hardware resources are saved, but a thermometric code
  composed of a lower number of bits is generated; hence, the resolution
  (LSB) is worsened.
-\change_deleted 1469408620 1668690320
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Indica che la decimazione è stata concessa per poter consentire un TDC TDL
- che occupa meno area con peggiore risoluzione, ovviamente la decimazione
- si utilizza senza sub-interpolazione.
-\end_layout
-
-\end_inset
-
-
-\change_inserted 1469408620 1668690325
  This decimation process has been provided to allow the implementation of
  a TDL-TDC characterized by lower area occupancy at the expense of a lower
  resolution.
-
-\change_unchanged
- 
-\change_inserted 1469408620 1668690304
-Obviously, this feature has to be used without Sub-Interpolation.
- 
-\change_unchanged
-The sampling of the V-TDL is also managed by the generics 
+ Obviously, this feature has to be used without Sub-Interpolation.
+ The sampling of the V-TDL is also managed by the generics 
 \shape italic
 TYPE_TDL_i
 \shape default
@@ -2660,11 +1854,7 @@ VALID
 \end_inset
 
  mechanism that, if it is '1', signals to the next module that the thermometric
- code present
-\change_deleted 1469408620 1668717958
-s
-\change_unchanged
- on TDATA is the Fine measurement.
+ code present on TDATA is the Fine measurement.
  The TVALID is generated by the 
 \begin_inset Formula $0\rightarrow1$
 \end_inset
@@ -2672,23 +1862,7 @@ s
  transition of one tap of the TDL, which is selectable by the user.
  Thanks to this mechanism, it is possible to compensate skews introduced
  by the automatic place&route process.
- 
-\change_deleted 1469408620 1668697447
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-ok ma centrare il clock è un gergo nostro colloquila che nessun rev capirebbe...
- prova a riformulare dicendo che l'intervallo fine misurato (che al massimo
- è Tclk in nuna NUT) sarà tutto contenutoi nella TDL nonc reando saturazione->
-\end_layout
-
-\end_inset
-
-
-\change_inserted 1469408620 1668698610
-As we saw in Section 
+ As we saw in Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Nutt-Interpolation"
@@ -2723,25 +1897,14 @@ VALID
 \end_inset
 
 -wide parts of the TDL.
- 
-\change_unchanged
-If the user decides to select the TVALID assertion on one of the first taps,
- 
-\change_deleted 1469408620 1668698069
-it is equivalent to centering the clock period 
-\change_inserted 1469408620 1668698050
-a 
+ If the user decides to select the TVALID assertion on one of the first
+ taps, a 
 \begin_inset Formula $T_{CLK}$
 \end_inset
 
--wide portion 
-\change_unchanged
-at the beginning of the TDL
-\change_inserted 1469408620 1668698164
- will be sampled to retrieve the Fine measurement
-\change_unchanged
-; therefore, the output TDATA (i.e., the thermometric code) will be composed
- of just a few 
+-wide portion at the beginning of the TDL will be sampled to retrieve the
+ Fine measurement; therefore, the output TDATA (i.e., the thermometric code)
+ will be composed of just a few 
 \begin_inset Quotes eld
 \end_inset
 
@@ -2752,21 +1915,12 @@ ones
  since the asynchronous input signal still has not propagated that much
  along the chain.
  On the other hand, if the user selects the TVALID assertion on the last
- few taps, 
-\change_inserted 1469408620 1668698123
-a 
+ few taps, a 
 \begin_inset Formula $T_{CLK}$
 \end_inset
 
--wide portion 
-\change_deleted 1469408620 1668698132
-the clock period will be centered 
-\change_unchanged
-at the very end of the buffer-chain
-\change_inserted 1469408620 1668698160
- will be sampled
-\change_unchanged
-, and the thermometric code will be composed mostly of 
+-wide portion at the very end of the buffer-chain will be sampled, and the
+ thermometric code will be composed mostly of 
 \begin_inset Quotes eld
 \end_inset
 
@@ -2811,17 +1965,8 @@ noprefix "false"
 
 \end_inset
 
- shows the concepts just explained, highlighting the
-\change_inserted 1469408620 1668698225
- different sampled
-\change_unchanged
- 
-\change_inserted 1469408620 1668698208
-portions of TDL 
-\change_deleted 1469408620 1668698244
-different positions of the clock period with respect to the TDL
-\change_inserted 1469408620 1668698264
-chosen by the 
+ shows the concepts just explained, highlighting the different sampled portions
+ of TDL chosen by the 
 \begin_inset Quotes eld
 \end_inset
 
@@ -2829,44 +1974,12 @@ VALID
 \begin_inset Quotes erd
 \end_inset
 
- mechanism
-\change_unchanged
-.
- Th
-\change_deleted 1469408620 1668698271
-e “VALID”
-\change_inserted 1469408620 1668698271
-is
-\change_unchanged
- mechanism allows the TVALID signal to have a high logical value for just
- one clock period, whose rising-edge is nothing but the STOP signal.
- The great usefulness given by the “VALID” mechanism is being able to 
-\change_inserted 1469408620 1668698316
-sample a convenient portion of the TDL
-\change_deleted 1469408620 1668698321
-center the period of the clock signal in a convenient spot of the TDL
-\change_unchanged
-, 
-\change_deleted 1469408620 1668698325
-without
-\change_inserted 1469408620 1668698328
-which is free from
-\change_unchanged
- “ultra-bins” and therefore capable of providing highly-precise measurements.
-\change_deleted 1469408620 1668698333
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-<-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
+ mechanism.
+ This mechanism allows the TVALID signal to have a high logical value for
+ just one clock period, whose rising-edge is nothing but the STOP signal.
+ The great usefulness given by the “VALID” mechanism is being able to sample
+ a convenient portion of the TDL, which is free from “ultra-bins” and therefore
+ capable of providing highly-precise measurements.
 \end_layout
 
 \begin_layout Standard
@@ -3117,132 +2230,27 @@ FILE_PATH_NAME_CO_DELAY,
 \end_layout
 
 \begin_layout Subsubsection
-
-\change_inserted 1469408620 1668689016
-XUS/XUS+
-\change_deleted 1469408620 1668689010
-New
-\change_unchanged
- Version
+XUS/XUS+ Version
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted 1469408620 1668698756
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-NOTA 6 Questa cosa deovresti ià averla detta in 3, infatti la ai detta ma
- un po frettolosoamente.
- Integra queste frasi con sopra per dire le cose 1 volta sola->
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-In this thesis work, the portability of the V
-\change_inserted 1469408620 1668698724
--TDL
-\change_deleted 1469408620 1668698727
-irtual Tapped Delay-Line
-\change_unchanged
- has been improved, making it compatible also with 20-nm Xilinx Ultrascale
- (XUS) and 16-nm Ultrascale+ (XUS+) technolog
-\change_inserted 1469408620 1668718320
-ical
-\change_deleted 1469408620 1668718318
-y
-\change_unchanged
- nodes.
- 
-\change_deleted 1469408620 1668698755
-These are more scaled technologies than the 28-nm Xilinx 7-Series (X7S),
- leading to lower power consumption and better performances such as higher
- measure rate, better resolution, lower ultra-bins, and, as a consequence,
- better single-shot precision.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-<-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
- 
-\change_deleted 1469408620 1668699068
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-fai risaltare che XUS la hai tutta fatta te e resa compatibile con la precedente
- X7S quindi prosegui->
-\end_layout
-
-\end_inset
-
-
-\change_inserted 1469408620 1668698824
-The XUS/XUS+ V-TDL has been entirely implemented in this work and
-\change_deleted 1469408620 1668699193
-Thanks to the
-\change_inserted 1469408620 1668699195
- a new
-\change_unchanged
- generic
-\change_inserted 1469408620 1668699198
-,
-\change_unchanged
- 
+In this thesis work, the portability of the V-TDL has been improved, making
+ it compatible also with 20-nm Xilinx Ultrascale (XUS) and 16-nm Ultrascale+
+ (XUS+) technological nodes.
+ The XUS/XUS+ V-TDL has been entirely implemented in this work and a new
+ generic, 
 \shape italic
-XUS_VS_X7S
-\change_inserted 1469408620 1668699204
-,
-\change_unchanged
- 
-\change_inserted 1469408620 1668699249
-
+XUS_VS_X7S, 
 \shape default
-has been added to
-\change_deleted 1469408620 1668699249
-in
-\change_unchanged
- the IP-Core GUI
-\change_inserted 1469408620 1668699222
-
+has been added to the IP-Core GUI
 \shape italic
 .
-\change_deleted 1469408620 1668699223
-,
-\change_unchanged
  
-\change_inserted 1469408620 1668699231
-
 \shape default
-Thanks to this generic, 
-\change_unchanged
-the user can choose, in the instantiation stage, the technology 
-\change_deleted 1469408620 1668718480
-node 
-\change_unchanged
-of the 
-\change_inserted 1469408620 1668698860
-V-
-\change_unchanged
-TDL
-\change_deleted 1469408620 1668699145
- that will be implemented, thus further improving the portability of this
- structure on different systems
-\change_unchanged
-.
- We already described the TDL structure for the X7S technology
-\change_inserted 1469408620 1668698905
- in Paragraph 
+Thanks to this generic, the user can choose, in the instantiation stage,
+ the technology of the V-TDL.
+ We already described the TDL structure for the X7S technology in Paragraph
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:X7S-Version"
@@ -3252,23 +2260,7 @@ noprefix "false"
 
 \end_inset
 
-
-\change_unchanged
 ; we will now focus on the XUS/XUS+ version.
-\change_deleted 1469408620 1668698909
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-<-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
 \end_layout
 
 \begin_layout Paragraph
@@ -3507,22 +2499,15 @@ Number of FFs in a single slice
 \end_layout
 
 \begin_layout Standard
-As we can see, in
-\change_inserted 1469408620 1668718584
- the
-\change_unchanged
- XUS/XUS+ technology two independent slices are now combined in a single,
- bigger slice, in order to have better efficiency in the routing process
- on the FPGA's fabric.
+As we can see, in the XUS/XUS+ technology two independent slices are now
+ combined in a single, bigger slice, in order to have better efficiency
+ in the routing process on the FPGA's fabric.
  In particular, the carry logic is extended from 4 bits to 8 bits, achieving
  better routing and faster arithmetic functions.
  One single 8-bit carry-chain is present in a CLB.
- This is why 
-\change_inserted 1469408620 1668718489
-the 
-\change_unchanged
-XUS/XUS+ technology is compatible with the CARRY8 primitive to perform arithmeti
-c functions rather than the CARRY4 of the previous generation.
+ This is why the XUS/XUS+ technology is compatible with the CARRY8 primitive
+ to perform arithmetic functions rather than the CARRY4 of the previous
+ generation.
  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -3533,11 +2518,8 @@ noprefix "false"
 
 \end_inset
 
- shows the internal structure of the CARRY8 primitive
-\change_inserted 1469408620 1668693434
- (at the top) and its Port descriptions (at the bottom)
-\change_unchanged
-.
+ shows the internal structure of the CARRY8 primitive (at the top) and its
+ Port descriptions (at the bottom).
 \end_layout
 
 \begin_layout Standard
@@ -3970,20 +2952,17 @@ Carry-MUX select line.
 \end_inset
 
 
-\change_deleted 1469408620 1668692951
+\change_unchanged
 
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-metti questa seconda pag (O; CO; DI ...) in una tabella a parte non si leggerà
- nulla sul PDF se fai così
+metti la tabella in un box tabella
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
 
 \end_layout
 
@@ -4035,23 +3014,8 @@ noprefix "false"
 , the CARRY8 primitive can be configured either as a single 8-bit carry-chain
  or as two independent 4-bit carry-chains; the first option has been chosen
  in this thesis work.
-\change_deleted 1469408620 1668692905
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-fai notare che in XUS puoi campionare C ed O contemporaneamente
-\end_layout
-
-\end_inset
-
-
-\change_inserted 1469408620 1668692901
  In the XUS/XUS+ technology, the CO and the O outputs can be sampled at
  the same time.
-\change_unchanged
-
 \end_layout
 
 \begin_layout Paragraph
@@ -4079,13 +3043,7 @@ noprefix "false"
 
 \end_inset
 
- shows the 
-\change_inserted 1469408620 1668718758
-propagation mechanism
-\change_deleted 1469408620 1668718761
-structure
-\change_unchanged
- of the TDL.
+ shows the propagation mechanism of the TDL.
 \end_layout
 
 \begin_layout Standard
@@ -4109,19 +3067,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-CARRY8-based T
-\change_deleted 1469408620 1668710089
-apped Delay-Line
-\change_inserted 1469408620 1668710090
-DL
-\change_unchanged
- 
-\change_deleted 1469408620 1668718766
-structure
-\change_inserted 1469408620 1668718769
-propagation mechanism
-\change_unchanged
-.
+CARRY8-based TDL propagation mechanism.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:CARRY8-based-Tapped-Delay-Line"
@@ -4136,10 +3082,6 @@ name "fig:CARRY8-based-Tapped-Delay-Line"
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -4147,49 +3089,12 @@ name "fig:CARRY8-based-Tapped-Delay-Line"
 
 \begin_layout Standard
 The sampling process is managed in the same way as before, with the possibility
- of decimating the FFs along the chain and 
-\change_deleted 1469408620 1668699411
-of 
-\change_unchanged
-putting an initial offset in their positioning.
+ of decimating the FFs along the chain and putting an initial offset in
+ their positioning.
  The same “VALID” mechanism for choosing the clock period in which the snapshot
  of the TDL will be done has also been maintained.
- 
-\change_deleted 1469408620 1668699590
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-non ho ideal del clock MAX dela US, sarà sempre sui 800 - 1000 MHz, devi
- dire che però ora il decoder può essere portato su in frequenza quindi
- il clock del TDC aumentato a 500 MHz ->
-\end_layout
-
-\end_inset
-
-
-\change_inserted 1469408620 1668699685
-Thanks to the benefits of the scaling, the Decoder has been pushed in its
+ Thanks to the benefits of the scaling, the Decoder has been pushed in its
  operating frequency, thus allowing the TDC-clock to run up to 500 MHz.
-\change_deleted 1469408620 1668699587
-The clock signal used to sample the TDL has been pushed to 500 MHz.
- This was possible thanks to the improved scaling of the XUS/XUS+ technology
- node with respect to X7S, and it has improved the LSB and the Dead-Time
- of the TDC.
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-<-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
@@ -4209,8 +3114,6 @@ Qua ci vorrà una Par 3.2.3 di integrazione hw tra 3.2.1 e 3.2.2; dove fai veder
 
 \begin_layout Subsection
 Decoder
-\change_inserted 1469408620 1668696061
-
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Decoder"
@@ -4218,59 +3121,11 @@ name "subsec:Decoder"
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted 1469408620 1668691453
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-dei 400 MHz vs 500 MHz devi già averlo detto in quando parli delle max freq
- dei vari clock->
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-Since this module has
-\change_inserted 1469408620 1668718883
- not
-\change_deleted 1469408620 1668718883
-n't
-\change_unchanged
- been modified in this thesis work, its 
-\change_deleted 1469408620 1668718914
-older
-\change_inserted 1469408620 1668718915
-only
-\change_unchanged
- version will be described in the following.
- 
-\change_deleted 1469408620 1668691450
-The only difference is that, thanks to the migration to the XUS technology
- node, the operating frequency of this module has been pushed from 400 MHz
- to 500 MHz as the V-TDL, thus lowering the Dead-Time (i.e., 
-\begin_inset Formula $2\ ns$
-\end_inset
-
-) and increasing the multi-hit capability of the system.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-<-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
+Since this module has not been modified in this thesis work, its only version
+ will be described in the following.
 \end_layout
 
 \begin_layout Standard
@@ -4278,27 +3133,7 @@ The Decoder has the task of converting the
 \shape italic
 BIT_UNDECO
 \shape default
--wide thermometric code
-\change_deleted 1469408620 1668719181
-s
-\change_unchanged
- (
-\change_inserted 1469408620 1668719091
-coming from the V-TDL
-\change_deleted 1469408620 1668719094
-one for each 
-\begin_inset Quotes eld
-\end_inset
-
-real
-\begin_inset Quotes erd
-\end_inset
-
- TDL composing the V-TDL
-\change_unchanged
-; i.e.,
-\change_inserted 1469408620 1668691358
- 
+-wide thermometric code (coming from the V-TDL; i.e., 
 \shape italic
 NUMBER_OF_TDL
 \shape default
@@ -4309,38 +3144,12 @@ NUMBER_OF_TDL
 
 \shape italic
 BIT_SMP_TDL
-\change_deleted 1469408620 1668691389
-
 \shape default
- NUMBER_OF_TDL * NUMBER_OF_SMP_BIN
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-insomma esplicita i 2 generic
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-) into
-\change_inserted 1469408620 1668719186
- a
-\change_unchanged
- 
+) into a 
 \shape italic
 BIT_SUBINT
 \shape default
--wide 
-\change_deleted 1469408620 1668719191
-as many 
-\change_unchanged
-binary code
-\change_deleted 1469408620 1668719193
-s
-\change_unchanged
- 
+-wide binary code 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "4529581"
@@ -4349,11 +3158,6 @@ literal "false"
 \end_inset
 
 .
-
-\change_deleted 1469408620 1668691272
- 
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
@@ -4379,26 +3183,6 @@ BIT\_SUBINT=\left\lfloor \log_{2}(BIT\_UNDECO)\right\rfloor +1\label{eq:decoder_
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted 1469408620 1668691412
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-\begin_inset Formula 
-\begin{equation}
-BIT\_SUBINT=\log_{2}(BIT\_UNDECO)+1\label{eq:decoder_eq-1}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
 Table 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -5152,9 +3936,7 @@ The CEC also performs Clock Domain Crossing (CDC), meaning that the system
  Indeed, it contains a FIFO that prevents losing consecutive measurements,
  and correctly manages the case in which a valid measure and an overflow
  occur concurrently.
- 
-\change_inserted 1469408620 1668700662
-As said in Section 
+ As said in Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Main-blocks-of"
@@ -5164,53 +3946,14 @@ noprefix "false"
 
 \end_inset
 
-, 
-\change_deleted 1469408620 1668700663
-T
-\change_inserted 1469408620 1668700663
-t
-\change_unchanged
-he FIFO is written and read under two different clock domains; the writing
- process is done under the TDC
-\change_inserted 1469408620 1668701284
--
-\change_deleted 1469408620 1668701289
-_C
-\change_inserted 1469408620 1668701289
-c
-\change_unchanged
-lock domain (i.e., the same clock feeding
-\change_deleted 1469408620 1668719531
- in
-\change_unchanged
+, the FIFO is written and read under two different clock domains; the writing
+ process is done under the TDC-clock domain (i.e., the same clock feeding
  the V-TDL and the Decoder), while the reading process is done under the
- SYS
-\change_inserted 1469408620 1668701292
--
-\change_deleted 1469408620 1668701294
-_C
-\change_inserted 1469408620 1668701294
-c
-\change_unchanged
-lock domain, which has a lower frequency that is constrained by the Calibrator.
+ SYS-clock domain, which has a lower frequency that is constrained by the
+ Calibrator.
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted 1469408620 1668701641
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Qui devi dire che il CEC così come strutturato garantisce un rate pari a
- Fclksys-Fclk,tdc/2^BIT_COARSE_CEC; dove Fclk,tdc/2^BIT_COARSE_CEC è il
- rate degli overflow gestiti
-\end_layout
-
-\end_inset
-
-
-\change_inserted 1469408620 1668701877
 This CEC implementation guarantees a maximum channel-rate equal to:
 \begin_inset Formula 
 \begin{equation}
@@ -5223,15 +3966,11 @@ MaximumChRate=f_{SYSclock}-\frac{f_{TDCclock}}{2^{BIT\_COARSE\_CEC}}\label{eq:CE
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1469408620 1668701637
 where 
 \begin_inset Formula $\frac{f_{TDCclock}}{2^{BIT\_COARSE\_CEC}}$
 \end_inset
 
  is the rate of the managed overflows.
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
@@ -5346,28 +4085,9 @@ Fine
 \begin_inset Quotes erd
 \end_inset
 
- field (uncalibrated) of the CEC is used to address the CC in the Calibrator
-\change_inserted 1469408620 1668691918
-,
-\change_unchanged
- 
-\change_inserted 1469408620 1668691920
-thus 
-\change_unchanged
-obtain
-\change_inserted 1469408620 1668691927
-ing
-\change_deleted 1469408620 1668691927
-ed
-\change_unchanged
- the value in picoseconds.
- 
-\change_inserted 1469408620 1668691983
-Therefore,
-\change_deleted 1469408620 1668691988
-So, in output
-\change_unchanged
- a 
+ field (uncalibrated) of the CEC is used to address the CC in the Calibrator,
+ thus obtaining the value in picoseconds.
+ Therefore, a 
 \begin_inset Quotes eld
 \end_inset
 
@@ -5375,13 +4095,7 @@ Fine
 \begin_inset Quotes erd
 \end_inset
 
- calibrated field is 
-\change_inserted 1469408620 1668691996
-provided at the output
-\change_deleted 1469408620 1668691998
-present
-\change_unchanged
-.
+ calibrated field is provided at the output.
  Let's briefly describe the generics of this module.
  
 \shape italic
@@ -5397,13 +4111,7 @@ BIT_CALIBRATION
 BIT_RESOLUTION
 \shape default
  is instead the length of the calibrated Fine measurement, in picoseconds,
- that is exposed at the output of the
-\change_inserted 1469408620 1668719657
- module
-\change_deleted 1469408620 1668719659
- Calibrator
-\change_unchanged
-.
+ that is exposed at the output of the module.
  The calibration on the Fine data is performed only if FID='1', which means
  that a valid measure is coming from the CEC; otherwise, if FID='0', it
  means that an overflow is coming from the CEC, and the data is passed unaltered
@@ -5478,13 +4186,7 @@ name "subsec:Overflow-Counter"
 \end_layout
 
 \begin_layout Subsubsection
-
-\change_inserted 1469408620 1668688702
-X7S
-\change_deleted 1469408620 1668688703
-Old
-\change_unchanged
- Version
+X7S Version
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Old-Version"
@@ -5595,13 +4297,7 @@ name "fig:Timing-Diagram-of"
 \end_layout
 
 \begin_layout Subsubsection
-
-\change_inserted 1469408620 1668689039
-XUS/XUS+
-\change_deleted 1469408620 1668689040
-New
-\change_unchanged
- Version
+XUS/XUS+ Version
 \end_layout
 
 \begin_layout Standard
@@ -5620,34 +4316,7 @@ qui direi le cose che sono sopra in NOTA7così si capisce perché hai dovuto
 \end_inset
 
 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-NOTA 7
-\end_layout
-
-\begin_layout Plain Layout
-FORSE queste frasi + la nota hanno maggior senso nel paragrafo dell'OC
-\end_layout
-
-\begin_layout Plain Layout
-di solo che più piccolo è la parola la far passare dalla FIFO, migliore
- è il timimng e maggiore sarà la freq del TDC con decoder più piccoli, rate
- + alti e dead-time più corti (ovvero vantaggi) Di conseguenza, visto che
- BIT_UNCAL è fissato principalemnte dalla sub-int (ovvero BIT_UNCAL = BIT_SUB_IN
-T) e dall'LSB che voglaimo ottenere è buona norma avere un COARSE_CEC piccolo
- e poi gestire gli overflow dopo con l'OC:
-\end_layout
-
-\begin_layout Plain Layout
-Sottolinea che questa cosa è nuova e fatta da ta.
-\end_layout
-
-\end_inset
-
-
-\change_inserted 1469408620 1668703130
+\change_unchanged
 A new solution for the OC has been implemented in this thesis work to improve
  the timing performance (i.e., the Worst Negative Slack, WNS) of the TDC.
  Referring to Figure 
@@ -5687,42 +4356,11 @@ BIT_SUBINT
 BIT_COARSE_CEC
 \shape default
 .
-\change_deleted 1469408620 1668702840
-
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 1469408620 1668702840
-In this thesis work, the OC has been improved to cope with the change done
- in the generic of the CEC module.
-
-\change_unchanged
  In fact, 
-\change_deleted 1469408620 1668703223
-we said in Section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Coarse-Extension-Core"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- that the generic 
-\change_unchanged
-
 \shape italic
 BIT_COARSE_CEC
 \shape default
- is now used with a 
-\change_inserted 1469408620 1668703680
-lower 
-\change_unchanged
-value
-\change_inserted 1469408620 1668704152
- than the one (i.e., 
+ is now used with a lower value than the one (i.e., 
 \begin_inset Formula $BIT\_COARSE\_CEC_{old}$
 \end_inset
 
@@ -5731,45 +4369,6 @@ value
 \end_inset
 
 ).
-
-\change_deleted 1469408620 1668719867
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-minore del FSR desiderato ...
- il FSR verrà osì settatao da OC ->
-\end_layout
-
-\end_inset
-
-of 4, instead of 8,
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-<-
-\end_layout
-
-\end_inset
-
- to solve the timing errors and improve the Worst Negative Slack (WNS).
- However, this choice leads the CEC to signal way more overflows.
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Qui devi dire che: occhio che se teniamo BIT_COARSE_CEC basso (ovvero FSR
- < 2^BIT_COARSE_CEC * Tclk) non abbiamo un oferlow ogni FSR ma molto + frequente
- quindi il TDC avrà una banda di rate ridotta!!!
-\end_layout
-
-\end_inset
-
-
-\change_inserted 1469408620 1668719869
  However, a problem arises since, by having 
 \shape italic
 BIT_COARSE_CEC
@@ -5797,29 +4396,9 @@ noprefix "false"
 \end_inset
 
 ).
- 
-\change_deleted 1469408620 1668704390
-These continuous transactions represent a big problem since, as we saw experimen
-tally, they can lead to the saturation of the TDC channel and, as a consequence,
- to the loss of valid measurements.
- 
-\change_unchanged
-The new version of the OC, developed in this thesis work, aims to solve
+ The new version of the OC, developed in this thesis work, aims to solve
  this issue, by introducing an output Coarse field with a different bit-length
  to the input Coarse field.
-\change_deleted 1469408620 1668704521
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-<-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
  The generic for selecting the coarse bit-length of the input data is the
  same as the previous modules (i.e., 
 \shape italic
@@ -6056,84 +4635,8 @@ Overflow_cnt
 AuxiliaryCounter
 \shape default
  overflows, there are fewer FID='0' output transactions than the input ones.
- The 
-\change_inserted 1469408620 1668704547
-lower 
-\change_unchanged
-channel
-\change_inserted 1469408620 1668704552
--rate
-\change_deleted 1469408620 1668704554
- saturation
-\change_unchanged
- problem is thus solved, 
-\change_deleted 1469408620 1668704594
-along
-\change_inserted 1469408620 1668704595
-together
-\change_unchanged
- with the
-\change_inserted 1469408620 1668704598
- initial
-\change_unchanged
- timing errors the CEC 
-\change_deleted 1469408620 1668704581
-had
-\change_inserted 1469408620 1668704585
-suffered from
-\change_unchanged
-.
- 
-\change_deleted 1469408620 1668691742
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Questo lo metterei + in misure->
-\end_layout
-
-\end_inset
-
-In the OC implemented in this thesis work, 
-\shape italic
-BIT_COARSE_CEC
-\shape default
-=4 and 
-\shape italic
-BIT_COARSE
-\shape default
-=16 have been used.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-<-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 1469408620 1668690868
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Qui aggiungerei un nuovo capitolo doe parli dell'esporazioni di nuove TDL
- ed inserirei tutta la questione dei DSP NOTA A
-\end_layout
-
-\end_inset
-
-
-\change_inserted 1469408620 1668690803
-
+ The lower channel-rate problem is thus solved, together with the initial
+ timing errors the CEC suffered from.
 \end_layout
 
 \begin_layout Section
