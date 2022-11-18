@@ -126,11 +126,12 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes true
+\tracking_changes false
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\author -1129936465 "Nicola Lusardi"
 \author 268488506 "nicol"
 \author 1469408620 "Mattia Consonni"
 \end_header
@@ -4192,854 +4193,17 @@ status open
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted 1469408620 1668690853
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-NOTA A (vedi ultima nota)
-\end_layout
-
-\begin_layout Plain Layout
-Qui mi stai andando in gamba tesa con il DSP mentre parli della TDL con
- i carry forse sposterei questo discorso in un altro paragrafo per evitare
- casino ...
- così avrai il tempo di dire perché hai provato ad usare i DSP ->
+Qua ci vorrà una Par 3.2.3 di integrazione hw tra 3.2.1 e 3.2.2; dove fai vedere
+ uno Tuo vecchio IP in cui hai integrato la X7S e la US+ in un unico IP-Core
+ in modo da avere un IP compatibile con tutte le fam Xilinx
 \end_layout
 
 \end_inset
 
-The other major change to the V-TDL, introduced in this thesis work, is
- the possibility to perform the SuperWU Sub-Interpolation by instantiating
- Digital Signal Processor (DSP)-based TDLs, in parallel to the CARRY-based
- ones.
- This is managed by two new generics,
-\shape italic
- NUMBER_OF_CARRY_CHAINS
-\shape default
- and 
-\shape italic
-NUMBER_OF_DSP_CHAINS
-\shape default
-, introduced in substitution of 
-\shape italic
-NUMBER_OF_TDL
-\shape default
-.
- The resulting V-TDL is composed of (
-\shape italic
-NUMBER_OF_CARRY_CHAINS
-\shape default
- +
-\shape italic
- NUMBER_OF_DSP_CHAINS
-\shape default
-) TDLs in parallel, where each one is (
-\shape italic
-NUM_TAP_PRE_TDL
-\shape default
- +
-\shape italic
- NUM_TAP_TDL
-\shape default
-)-tap long.
- This adds even more versatility to the IP-Core since it allows to have
- a V-TDL either made by CARRY-based TDLs only (if 
-\shape italic
-NUMBER_OF_DSP_CHAINS
-\shape default
-=0), or by DSP-based TDLs only (if 
-\shape italic
-NUMBER_OF_CARRY_CHAINS
-\shape default
-=0), or by a combination of them (if 
-\shape italic
-NUMBER_OF_CARRY_CHAINS
-\shape default
-
-\begin_inset Formula $\neq$
-\end_inset
-
-0, 
-\shape italic
-NUMBER_OF_DSP_CHAINS
-\shape default
-
-\begin_inset Formula $\neq$
-\end_inset
-
-0).
- We will see in Chapter 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Measurements"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- the usefulness of a DSP-based TDL, and why a SuperWU Sub-Interpolation
- combining both types of TDL is the most powerful one.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-<-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Paragraph
-
-\change_deleted 1469408620 1668690853
-Xilinx Digital Signal Processor (DSP)
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 1469408620 1668690853
-FPGAs are suitable for Digital Signal Processing applications since they
- can implement custom, fully-parallel algorithms.
- The basic operation performed by DSPs is the MAC (Multiply and Accumulate),
- which consists of the product between two numbers, and its addition in
- the accumulator.
- In hardware, it is implemented as a multiplier followed by an adder and
- a register; however, in FPGA, such implementation employs a lot of resources
- and has a low processing speed.
- For this reason, Xilinx decided to place dedicated DSP blocks on the FPGA
- fabric.
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 1469408620 1668690853
-X7S technology uses the DSP48E1 slice as DSP primitive 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "XILINX_7_SERIES"
-literal "false"
-
-\end_inset
-
-, while XUS/XUS+ uses the DSP48E2 slice 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "XUS_DSP"
-literal "false"
-
-\end_inset
-
-.
- Since there are minor differences between the two aforementioned blocks,
- not relevant for this thesis work, we will refer just to the DSP48E2 block
- to describe both.
- Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:DSP48E2-structure."
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- shows the internal structure of the DSP48E2 slice, consisting of a 27-bit
- pre-adder, a 27 x 18 multiplier, and a flexible 48-bit Arithmetic Logic
- Unit (ALU) that serves as a post-adder/subtracter, accumulator, or logic
- unit.
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 1469408620 1668690853
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename images/DSP48E2.png
-	width 90text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-DSP48E2 structure.
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:DSP48E2-structure."
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 1469408620 1668690853
-We can see from Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:DSP48E2-structure."
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- that there are four direct inputs (i.e., A, B, C, D) and a 48-bit-wide direct
- output (i.e., P), which is the result of the operation performed by the ALU.
- An input carry (i.e., CARRYIN) and an output one (i.e., CARRYOUT) are also
- present, along with an output port for pattern detection (i.e., PATTERNDETECT/PAT
-TERNBDETECT) and the output of a XOR gate (i.e., XOR OUT).
- Furthermore, five input (i.e., ACIN, BCIN, PCIN, CARRYCASCIN, MULTSIGNIN)
- and output ports (i.e., ACOUT, BCOUT, PCOUT, CARRYCASCOUT, MULTSIGNOUT) are
- present, with the function of cascading more DSP slices.
- All the remaining inputs are control signals:
-\end_layout
-
-\begin_layout Itemize
-
-\change_deleted 1469408620 1668690853
-ALUMODE: it controls the operation performed by the ALU, which can be either
- a sum, a subtraction, or a logic operation;
-\end_layout
-
-\begin_layout Itemize
-
-\change_deleted 1469408620 1668690853
-CARRYINSEL: it decides whether the direct carry-in or the cascaded one is
- fed to the ALU;
-\end_layout
-
-\begin_layout Itemize
-
-\change_deleted 1469408620 1668690853
-OPMODE: it contains fields for W, X, Y, and Z multiplexer selects.
- Therefore, this signal decides which input signals are used as the factors
- for the ALU operation;
-\end_layout
-
-\begin_layout Itemize
-
-\change_deleted 1469408620 1668690853
-INMODE: it controls the functionality of the pre-adder.
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 1469408620 1668690853
-These control signals require a specific bit-mask to perform all the different
- functionalities, as can be seen in the DSP48E2 User Guide 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "XUS_DSP"
-literal "false"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 1469408620 1668690853
-Finally, it is worth saying that the DSP48E2 has three different working
- modes.
- Indeed, thanks to the Single-Instruction-Multiple-Data (SIMD) mode, the
- 48-bit ALU (i.e.
- the first, default, working mode) also supports dual 24-bit (i.e., the second
- working mode) or quad 12-bit (i.e., the third working mode) arithmetic operations.
- Based on the experimental results that will be shown in Section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Study-of-the"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-, the dual 24-bit SIMD mode has been used in this thesis work, thus having
- a single 48-bit ALU that works as two, independent, 24-bit ALUs in parallel.
- 
-\end_layout
-
-\begin_layout Paragraph
-
-\change_deleted 1469408620 1668690853
-DSP-based TDL
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 1469408620 1668690853
-The propagation mechanism of the START along the DSP's output bits (i.e.,
- the taps of the TDL) relies on the subtraction operation performed by the
- ALU.
- Let's see more in detail the ports and the control signals involved.
- The dual A and B registers, along with the pre-adder and the multiplier,
- are not involved in this implementation; therefore, they are bypassed by
- all the signals.
- Besides, the D input signal and the INMODE control are not used.
- The ALUMODE signal is set to make the ALU perform the following operation:
-\begin_inset Formula 
-\begin{equation}
-P=Z-(W+X+Y+CIN)\label{eq:alu}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 1469408620 1668690853
-where CIN is set by CARRYINSEL to be the direct CARRYIN signal, and it is
- put equal to zero.
- Z, W, X, and Y are the input signals, multiplexed by OPMODE.
- The selection is such that:
-\end_layout
-
-\begin_layout Itemize
-
-\change_deleted 1469408620 1668690853
-Z transmits the C input signal to the ALU;
-\end_layout
-
-\begin_layout Itemize
-
-\change_deleted 1469408620 1668690853
-W transmits a constant vector of zeroes to the ALU;
-\end_layout
-
-\begin_layout Itemize
-
-\change_deleted 1469408620 1668690853
-X transmits the concatenated A and B input signals (i.e., A:B) to the ALU;
- 
-\end_layout
-
-\begin_layout Itemize
-
-\change_deleted 1469408620 1668690853
-Y transmits a constant vector of zeroes to the ALU.
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 1469408620 1668690853
-The A:B vector is the one containing the asynchronous input signal (AsyncInput)
- the TDC has to measure, while the C port is assigned a constant vector
- of zeroes.
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 1469408620 1668690853
-The signals P, C, A:B and the vectors of zeroes are all 48-bit wide, but,
- since in this work the DSP is used in dual 24-bit SIMD mode, it is like
- having a single DSP slice containing two independent ALUs working in parallel,
- where each one of them has 24-bit wide P, C, A:B signals, and 24-bit wide
- vectors of zeroes.
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 1469408620 1668690853
-To create a long DSP-based TDL, more DSP slices have to be cascaded, and
- this is done by connecting the ACOUT and BCOUT ports of the previous slice
- to the ACIN and BCIN of the following one.
- Therefore, the AsyncInput is connected to the direct A and B input ports
- of the first DSP block.
- Then, on the following ones, it propagates along the cascade passing through
- the ACIN and ACOUT inputs; here, the direct A and B inputs are not used
- anymore.
- Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:AsyncInput-connection-to"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- shows the data assignment on the A:B vector.
- It is shown that, since A is 30-bit-wide and B is 18-bit-wide, the AsyncInput
- signal must be assigned both to the 
-\begin_inset Formula $0$
-\end_inset
-
--th bit of B and to the 
-\begin_inset Formula $6$
-\end_inset
-
--th bit of A, thus having our signal of interest on the least-significant
- bit of each 24-bit half of the A:B vector.
- In this way, in both the two 24-bit ALUs, the decimal value of the factor
- coming from the X multiplexer is equal to 0 when AsyncInput = '0', and
- it increases to 1 as soon as AsyncInput makes a '0'
-\begin_inset Formula $\rightarrow$
-\end_inset
-
-'1' transition.
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 1469408620 1668690853
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename images/asyncinput.png
-	width 100text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-AsyncInput connection to A and B ports of the DSP slice.
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:AsyncInput-connection-to"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 1469408620 1668690853
-Finally, at the P output, the internal register of the DSP48E2 block is
- used to sample the TDL; therefore, external FFs are not required, as was
- in the CARRY-based TDL.
- We can see in Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Internal-operation-of"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- all the internal resources and the signals involved in the DSP setup.
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 1469408620 1668690853
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename images/internal_dsp.png
-	width 100text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Internal operation of the DSP48E2 block.
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Internal-operation-of"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 1469408620 1668690853
-By taking Equation 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:alu"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- and substituting the values assigned to all the signals in the instantiation
- stage of the DSP48E2, we obtain the following equation:
-\begin_inset Formula 
-\begin{equation}
-P=0-(0+AsyncInput+0+0)\label{eq:mid-formula}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 1469408620 1668690853
-which leads to the following subtraction:
-\begin_inset Formula 
-\begin{equation}
-P=0-AsyncInput\label{eq:sub-formula}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 1469408620 1668690853
-Therefore, until AsyncInput stays at '0', P is a 24-bit wide vector of zeroes;
- then, as soon as AsyncInput transits from '0' to '1', an underflow takes
- place, causing propagation of 
-\begin_inset Quotes eld
-\end_inset
-
-ones
-\begin_inset Quotes erd
-\end_inset
-
- from the least-significant bit to the most-significant bit of P.
- This behavior is the same as in the CARRY-based TDL, where the bits of
- the P output are the taps of the TDL and the underflow-carry propagates
- with a certain propagation delay on each one of them.
- 
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 1469408620 1668690853
-The DSP-based TDL relies on the same “VALID” mechanism of the CARRY-based
- counterpart, and the selected clock period for the TVALID assertion is
- the STOP signal taking a snapshot of the TDL's state.
- Since a single DSP48E2 is used in dual 24-bit mode, two thermometric codes
- are generated in parallel, instead of one.
- Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Propagation-mechanism-along"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- better shows the propagation mechanism of the DSP-chain.
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 1469408620 1668690853
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename images/dsp-propagation.png
-	width 100text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Propagation mechanism along the DSP-based TDL.
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Propagation-mechanism-along"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 1469408620 1668690853
-The generic 
-\shape italic
-NUMBER_OF_DSP_CHAINS 
-\shape default
-decides how many 
-\begin_inset Quotes eld
-\end_inset
-
-active
-\begin_inset Quotes erd
-\end_inset
-
- ALUs perform the subtraction operation in parallel.
- For example, in both cases where 
-\shape italic
-NUMBER_OF_DSP_CHAINS
-\shape default
- = 1 or 
-\shape italic
-NUMBER_OF_DSP_CHAINS
-\shape default
- = 2, the hardware TDL is composed of a single DSP-chain; however, since
- every DSP48E2 is used in dual 24-bit SIMD mode, the difference is the following
- one: in the second case, both the 24-bit ALUs perform the operation, and
- two thermometric codes are generated in output; instead, in the first case,
- both ALUs still perform the operation, but one single thermometric code
- is provided, while the other is discarded.
- Since, in both cases, the same amount of hardware resources are exploited
- and since, thanks to the Sub-Interpolation, having two thermometric codes
- is more beneficial than having just a single one, choosing an even number
- for 
-\shape italic
-NUMBER_OF_DSP_CHAINS
-\shape default
- is always more convenient.
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 1469408620 1668690853
-Moreover, the generic 
-\shape italic
-XUS_VS_X7S 
-\shape default
-allows
-\shape italic
- 
-\shape default
-to choose the technology node of the DSP block, as for the CARRY primitive.
- If 
-\shape italic
-XUS_VS_X7S = 
-\shape default
-
-\begin_inset Quotes eld
-\end_inset
-
-X7S
-\begin_inset Quotes erd
-\end_inset
-
-, only DSP48E1 primitives are instantiated; on the other hand, if 
-\shape italic
-XUS_VS_X7S = 
-\shape default
-
-\begin_inset Quotes eld
-\end_inset
-
-XUS
-\begin_inset Quotes erd
-\end_inset
-
-, only DSP48E2 primitives are implemented.
- 
-\end_layout
-
-\begin_layout Paragraph
-
-\change_deleted 1469408620 1668690853
-Advantages and drawbacks of the DSP-based TDL
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 1469408620 1668690853
-The main advantage of this type of TDL is that a more compact structure
- is obtained, since long CARRY chains, hindering the routing across different
- regions of the FPGA, are avoided.
- Furthermore, it allows a relaxation in the hardware utilization, since
- the sampling of the TDL is made with the P-register integrated with the
- DSP itself, thus not requiring the use of external FFs as in the CARRY-based
- approach.
- However, the DSP-chains suffer from a relevant problem, since the cascade
- path from one DSP slice to another introduces a huge propagation delay
- and therefore the presence of a very high “ultra-bin” in the chain.
- The recurring presence of “ultra-bins” along the DSP-chain is the main
- drawback of this architecture since, as explained in Section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Calibration"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-, it worsens the single-shot precision of the TDC.
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 1469408620 1668690853
-As we will see in Section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Measurements"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-, when the experimental results will be shown, the combination of the CARRY-base
-d TDL and the DSP-based TDL creates a “hybrid” V-TDL which, thanks to the
- SuperWU Sub-Interpolation algorithm, exploits the best features of both
- the two architectures.
- Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Virtual-Tapped-Delay-Line"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- shows the V-TDL IP-Core.
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 1469408620 1668690853
-\begin_inset Float figure
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename images/V-TDL_IP.png
-	width 100text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-V-TDL IP-Core.
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Virtual-Tapped-Delay-Line"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Fine NOTA A
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
 
 \end_layout
 
@@ -6973,14 +6137,10 @@ Qui aggiungerei un nuovo capitolo doe parli dell'esporazioni di nuove TDL
 \end_layout
 
 \begin_layout Section
-
-\change_inserted 1469408620 1668699933
 Exploration of a new TDL solution
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1469408620 1668716515
 A new solution for implementing the V-TDL has been explored in this thesis
  work.
  This solution exploits Digital Signal Processor (DSP) blocks to create
@@ -6993,17 +6153,15 @@ literal "false"
 \end_inset
 
 .
+\change_inserted 1469408620 1668716515
+
 \end_layout
 
 \begin_layout Subsection
-
-\change_inserted 1469408620 1668690859
 Xilinx Digital Signal Processor (DSP)
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1469408620 1668690859
 FPGAs are suitable for Digital Signal Processing applications since they
  can implement custom, fully-parallel algorithms.
  The basic operation performed by DSPs is the MAC (Multiply and Accumulate),
@@ -7014,11 +6172,11 @@ FPGAs are suitable for Digital Signal Processing applications since they
  and has a low processing speed.
  For this reason, Xilinx decided to place dedicated DSP blocks on the FPGA
  fabric.
+\change_inserted 1469408620 1668690859
+
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1469408620 1668690859
 X7S technology uses the DSP48E1 slice as DSP primitive 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -7037,8 +6195,13 @@ literal "false"
 
 .
  Since there are minor differences between the two aforementioned blocks,
- not relevant for this thesis work, we will refer just to the DSP48E2 block
- to describe both.
+ not relevant for 
+\change_deleted -1129936465 1668760243
+this thesis work
+\change_inserted -1129936465 1668760248
+TDL implementation
+\change_unchanged
+, we will refer just to the DSP48E2 block to describe both.
  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -7051,13 +6214,16 @@ noprefix "false"
 
  shows the internal structure of the DSP48E2 slice, consisting of a 27-bit
  pre-adder, a 27 x 18 multiplier, and a flexible 48-bit Arithmetic Logic
- Unit (ALU) that serves as a post-adder/subtracter, accumulator, or logic
- unit.
+ Unit (ALU) that serves as a post-adder/
+\change_deleted -1129936465 1668760268
+subtracter
+\change_inserted -1129936465 1668760289
+subtractor
+\change_unchanged
+, accumulator, or logic unit.
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1469408620 1668690859
 \begin_inset Float figure
 wide false
 sideways false
@@ -7065,8 +6231,6 @@ status open
 
 \begin_layout Plain Layout
 \align center
-
-\change_inserted 1469408620 1668690859
 \begin_inset Graphics
 	filename images/DSP48E2.png
 	width 90text%
@@ -7077,13 +6241,9 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668690859
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668690859
 DSP48E2 structure.
 \begin_inset CommandInset label
 LatexCommand label
@@ -7102,11 +6262,11 @@ name "fig:DSP48E2-structure."
 \end_inset
 
 
+\change_inserted 1469408620 1668690859
+
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1469408620 1668690859
 We can see from Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -7129,36 +6289,26 @@ TERNBDETECT) and the output of a XOR gate (i.e., XOR OUT).
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted 1469408620 1668690859
 ALUMODE: it controls the operation performed by the ALU, which can be either
  a sum, a subtraction, or a logic operation;
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted 1469408620 1668690859
 CARRYINSEL: it decides whether the direct carry-in or the cascaded one is
  fed to the ALU;
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted 1469408620 1668690859
 OPMODE: it contains fields for W, X, Y, and Z multiplexer selects.
  Therefore, this signal decides which input signals are used as the factors
  for the ALU operation;
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted 1469408620 1668690859
 INMODE: it controls the functionality of the pre-adder.
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1469408620 1668690859
 These control signals require a specific bit-mask to perform all the different
  functionalities, as can be seen in the DSP48E2 User Guide 
 \begin_inset CommandInset citation
@@ -7172,8 +6322,6 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1469408620 1668690859
 Finally, it is worth saying that the DSP48E2 has three different working
  modes.
  Indeed, thanks to the Single-Instruction-Multiple-Data (SIMD) mode, the
@@ -7192,18 +6340,29 @@ noprefix "false"
 
 , the dual 24-bit SIMD mode has been used in this thesis work, thus having
  a single 48-bit ALU that works as two, independent, 24-bit ALUs in parallel.
- 
 \end_layout
 
 \begin_layout Subsection
-
-\change_inserted 1469408620 1668690859
 DSP-based TDL
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
 
-\change_inserted 1469408620 1668690859
+\begin_layout Plain Layout
+METTI in evidenza che hai usato la mod 2 ALU in parallelo da 24-bit => 1DSP
+ sono 2 TDL in parallelo per lo stesso segnale di start da 24 tap, ho capito
+ giusto?
+\end_layout
+
+\begin_layout Plain Layout
+Inoltre questa sceltra andrà motivata rispetto all'utilizzo di 1 ALU con
+ tutti i 48 bit in serie ....
+\end_layout
+
+\end_inset
+
 The propagation mechanism of the START along the DSP's output bits (i.e.,
  the taps of the TDL) relies on the subtraction operation performed by the
  ALU.
@@ -7224,8 +6383,6 @@ P=Z-(W+X+Y+CIN)\label{eq:alu}
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1469408620 1668720498
 where CIN is set by CARRYINSEL to be the direct CARRYIN signal, which is
  put equal to zero.
  Z, W, X, and Y are the input signals, multiplexed by OPMODE.
@@ -7233,41 +6390,28 @@ where CIN is set by CARRYINSEL to be the direct CARRYIN signal, which is
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted 1469408620 1668690859
 Z transmits the C input signal to the ALU;
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted 1469408620 1668690859
 W transmits a constant vector of zeroes to the ALU;
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted 1469408620 1668690859
 X transmits the concatenated A and B input signals (i.e., A:B) to the ALU;
- 
 \end_layout
 
 \begin_layout Itemize
-
-\change_inserted 1469408620 1668690859
 Y transmits a constant vector of zeroes to the ALU.
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1469408620 1668720605
 The A:B vector is the one containing the asynchronous input signal (AsyncInput)
  the TDC has to measure, while a constant vector of zeroes is assigned to
  the C port.
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1469408620 1668690859
 The signals P, C, A:B and the vectors of zeroes are all 48-bit wide, but,
  since in this work the DSP is used in dual 24-bit SIMD mode, it is like
  having a single DSP slice containing two independent ALUs working in parallel,
@@ -7276,13 +6420,24 @@ The signals P, C, A:B and the vectors of zeroes are all 48-bit wide, but,
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1469408620 1668690859
 To create a long DSP-based TDL, more DSP slices have to be cascaded, and
  this is done by connecting the ACOUT and BCOUT ports of the previous slice
  to the ACIN and BCIN of the following one.
- Therefore, the AsyncInput is connected to the direct A and B input ports
- of the first DSP block.
+ Therefore, the 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Occhio che prima nella tesi hai sempre parlato di START o Physical Even
+ non di AsyncInput che è il nome dell'IP-Core che hai fatto.
+ Miraccomando rileggi bene il tutto ed assicuratiti che nonn accada (stesso
+ err anche nella Fig 41)
+\end_layout
+
+\end_inset
+
+AsyncInput is connected to the direct A and B input ports of the first DSP
+ block.
  Then, on the following ones, it propagates along the cascade passing through
  the ACIN and ACOUT inputs; here, the direct A and B inputs are not used
  anymore.
@@ -7307,7 +6462,19 @@ noprefix "false"
 \end_inset
 
 -th bit of A, thus having our signal of interest on the least-significant
- bit of each 24-bit half of the A:B vector.
+ bit of each 24-bit half of the A:B vector
+\change_inserted -1129936465 1668761232
+ (i.e.; 
+\begin_inset Formula $30-6=24$
+\end_inset
+
+ for A and 
+\begin_inset Formula $18+6=24$
+\end_inset
+
+ for B)
+\change_unchanged
+.
  In this way, in both the two 24-bit ALUs, the decimal value of the factor
  coming from the X multiplexer is equal to 0 when AsyncInput = '0', and
  it increases to 1 as soon as AsyncInput makes a '0'
@@ -7318,16 +6485,12 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1469408620 1668690859
 \begin_inset Float figure
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668690859
 \begin_inset Graphics
 	filename images/asyncinput.png
 	width 100text%
@@ -7338,13 +6501,9 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668690859
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668690859
 AsyncInput connection to A and B ports of the DSP slice.
 \begin_inset CommandInset label
 LatexCommand label
@@ -7366,8 +6525,6 @@ name "fig:AsyncInput-connection-to"
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1469408620 1668720817
 Finally, at the P output, the internal register of the DSP48E2 block is
  used to sample the TDL; therefore, external FFs are not required, as it
  was in the CARRY-based TDL.
@@ -7385,8 +6542,6 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1469408620 1668690859
 \begin_inset Float figure
 wide false
 sideways false
@@ -7394,8 +6549,6 @@ status open
 
 \begin_layout Plain Layout
 \align center
-
-\change_inserted 1469408620 1668690859
 \begin_inset Graphics
 	filename images/internal_dsp.png
 	width 100text%
@@ -7406,13 +6559,9 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668690859
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668690859
 Internal operation of the DSP48E2 block.
 \begin_inset CommandInset label
 LatexCommand label
@@ -7434,8 +6583,6 @@ name "fig:Internal-operation-of"
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1469408620 1668690859
 By taking Equation 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -7459,8 +6606,6 @@ P=0-(0+AsyncInput+0+0)\label{eq:mid-formula}
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1469408620 1668690859
 which leads to the following subtraction:
 \begin_inset Formula 
 \begin{equation}
@@ -7473,8 +6618,6 @@ P=0-AsyncInput\label{eq:sub-formula}
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1469408620 1668720958
 Therefore, until AsyncInput stays at '0', P is a 24-bit wide vector of zeroes;
  then, as soon as AsyncInput transits from '0' to '1', an underflow takes
  place, causing propagation of 
@@ -7493,12 +6636,9 @@ ones
 \end_inset
 
  on each one of them.
- 
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1469408620 1668690859
 The DSP-based TDL relies on the same “VALID” mechanism of the CARRY-based
  counterpart, and the selected clock period for the TVALID assertion is
  the STOP signal taking a snapshot of the TDL's state.
@@ -7518,8 +6658,6 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1469408620 1668690859
 \begin_inset Float figure
 wide false
 sideways false
@@ -7527,8 +6665,6 @@ status open
 
 \begin_layout Plain Layout
 \align center
-
-\change_inserted 1469408620 1668690859
 \begin_inset Graphics
 	filename images/dsp-propagation.png
 	width 100text%
@@ -7539,13 +6675,9 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668690859
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668690859
 Propagation mechanism along the DSP-based TDL.
 \begin_inset CommandInset label
 LatexCommand label
@@ -7567,8 +6699,28 @@ name "fig:Propagation-mechanism-along"
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
 
-\change_inserted 1469408620 1668690859
+\begin_layout Plain Layout
+Fai un Sez nuova di integrazione con la V-TDL fatta in CARRY4/8 in modo
+\end_layout
+
+\begin_layout Plain Layout
+Quindi inserisci giusto 2 riche dicendo che l'opzione DSP è stata integrata
+ nell'IP presentato in 3.2
+\end_layout
+
+\begin_layout Plain Layout
+Avreai quindi aggiunot deiu nuovi generic, sotto riportati in conrsibo
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 The generic 
 \shape italic
 NUMBER_OF_DSP_CHAINS 
@@ -7607,8 +6759,15 @@ NUMBER_OF_DSP_CHAINS
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
 
-\change_inserted 1469408620 1668690859
+\begin_layout Plain Layout
+Quindi posso usare il DSP sia sualla XUS che sulla X7S come la CARY4/8 giusto?->
+\end_layout
+
+\end_inset
+
 Moreover, the generic 
 \shape italic
 XUS_VS_X7S 
@@ -7643,18 +6802,15 @@ XUS
 \end_inset
 
 , only DSP48E2 primitives are implemented.
- 
+\change_inserted 1469408620 1668690859
+
 \end_layout
 
 \begin_layout Subsection
-
-\change_inserted 1469408620 1668690859
 Advantages and drawbacks of the DSP-based TDL
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1469408620 1668721181
 The main advantage of this architecture is that a more compact structure
  is obtained, since long CARRY chains, hindering the routing across different
  regions of the FPGA, are avoided.
@@ -7677,11 +6833,13 @@ noprefix "false"
 \end_inset
 
 , it worsens the single-shot precision of the TDC.
+\change_inserted 1469408620 1668721181
+
 \end_layout
 
 \begin_layout Standard
 
-\change_inserted 1469408620 1668721305
+\change_inserted 1469408620 1668721413
 As we will see in Chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -7734,8 +6892,8 @@ NUM_TAP_PRE_TDL
  NUM_TAP_TDL
 \shape default
 )-tap long.
- This adds even more versatility to the IP-Core since it allows to have
- a V-TDL either made by CARRY-based TDLs only (if 
+ This adds even more versatility to the IP-Core since it allows having a
+ V-TDL either made by CARRY-based TDLs only (if 
 \shape italic
 NUMBER_OF_DSP_CHAINS
 \shape default
