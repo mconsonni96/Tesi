@@ -126,7 +126,7 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes false
+\tracking_changes true
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
@@ -860,6 +860,22 @@ Since in FPGAs there is no possibility to tailor a
 \end_inset
 
 -taps-long buffer-chain
+\change_inserted 1469408620 1668771598
+ (where 
+\begin_inset Formula $N$
+\end_inset
+
+ refers to 
+\begin_inset Formula $N_{B}$
+\end_inset
+
+ if Sub-Interpolation is not performed or to 
+\begin_inset Formula $N_{V}$
+\end_inset
+
+ if Sub-Interpolation is performed) 
+\change_deleted 1469408620 1668771600
+
 \begin_inset Note Note
 status open
 
@@ -869,6 +885,8 @@ qi che questo N rapresenta Nb o Nv a seconda se sub-int o no
 
 \end_inset
 
+
+\change_unchanged
  with constant propagation delays 
 \begin_inset Formula $t_{p}(n)$
 \end_inset
@@ -878,6 +896,22 @@ qi che questo N rapresenta Nb o Nv a seconda se sub-int o no
 \end_inset
 
 )
+\change_inserted 1469408620 1668771675
+ (where 
+\begin_inset Formula $t_{p}$
+\end_inset
+
+ represents 
+\begin_inset Formula $t_{p,B}$
+\end_inset
+
+ if Sub-Interpolation is not performed or 
+\begin_inset Formula $t_{p,V}$
+\end_inset
+
+ if Sub-Interpolation is performed)
+\change_deleted 1469408620 1668771686
+
 \begin_inset Note Note
 status open
 
@@ -887,7 +921,13 @@ qi che questo tp rapresenta tpb o tpv a seconda se sub-int o no
 
 \end_inset
 
-, but a chain of 
+
+\change_unchanged
+, but 
+\change_inserted 1469408620 1668772388
+its internal structural blocks
+\change_deleted 1469408620 1668772396
+a chain of 
 \begin_inset Note Note
 status open
 
@@ -908,7 +948,15 @@ status open
 
 \end_inset
 
- is adapted as a buffer chain, the bins will all have dispersed 
+
+\change_unchanged
+ 
+\change_deleted 1469408620 1668772438
+is
+\change_inserted 1469408620 1668772506
+get
+\change_unchanged
+ adapted as a buffer chain, the bins will all have dispersed 
 \begin_inset Formula $t_{p}(n)$
 \end_inset
 
@@ -1077,8 +1125,8 @@ status open
 
 \begin_layout Plain Layout
 riporta un po di dati dei bin delle tecnologi xilinx che consideri; ovvero
- ultra bin (1TDL sola) in X7S ed US e valore del bin minimo (no zero) e
- medio (no zero) delle TDL
+ ultra bin (1TDL sola) in X7S (BIN MIN 1 PS, MEDIO = 12, MAX=70) ed US e
+ valore del bin minimo (no zero) e medio (no zero) delle TDL
 \end_layout
 
 \begin_layout Plain Layout

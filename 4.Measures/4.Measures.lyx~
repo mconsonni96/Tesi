@@ -132,6 +132,7 @@
 \html_css_as_file 0
 \html_be_strict false
 \author -1129936465 "Nicola Lusardi"
+\author 1469408620 "Mattia Consonni"
 \end_header
 
 \begin_body
@@ -148,7 +149,11 @@ name "sec:Measurements"
 \end_layout
 
 \begin_layout Standard
-The experimental results obtained by the 
+The experimental results obtained by the
+\change_inserted 1469408620 1668793385
+ 
+\change_deleted 1469408620 1668793378
+ 
 \begin_inset Note Note
 status open
 
@@ -160,12 +165,10 @@ occhio nuovo e vacchio non sonon bellid a usare, vedi nmote passate Main
 \end_inset
 
 
-\change_deleted -1129936465 1668765319
-new
-\change_inserted -1129936465 1668765320
-US+
+\change_inserted 1469408620 1668793395
+XUS/X
 \change_unchanged
- TDC implementation will now be shown.
+US+ TDC implementation will now be shown.
  All the performances of the TDC have been tested on the KCU105 Evaluation
  Board by Xilinx 
 \begin_inset CommandInset citation
@@ -175,11 +178,8 @@ literal "false"
 
 \end_inset
 
-, which is a development kit hosting a 
-\change_inserted -1129936465 1668765367
-20-nm 
-\change_unchanged
-Kintex-UltraScale™ FPGA (xcku040-ffva1156-2-e).
+, which is a development kit hosting a 20-nm Kintex-UltraScale™ FPGA (xcku040-ff
+va1156-2-e).
  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -265,6 +265,26 @@ TDC_Calib
 
  in Figure).
  The most relevant are the Memory Management Engine (MME)
+\change_inserted 1469408620 1668793680
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "9841570"
+literal "false"
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "9507844"
+literal "false"
+
+\end_inset
+
+
+\change_deleted 1469408620 1668793685
+
 \begin_inset Note Note
 status open
 
@@ -275,8 +295,22 @@ ocument/9507844
 
 \end_inset
 
+
+\change_unchanged
 , which manages the communication of the time measurements to the PC, and
  the Histogrammer
+\change_inserted 1469408620 1668793744
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "9762330"
+literal "false"
+
+\end_inset
+
+
+\change_deleted 1469408620 1668793746
+
 \begin_inset Note Note
 status open
 
@@ -286,6 +320,8 @@ https://ieeexplore.ieee.org/abstract/document/9762330
 
 \end_inset
 
+
+\change_unchanged
  (i.e., 
 \begin_inset Quotes eld
 \end_inset
@@ -355,17 +391,12 @@ Start-Stop Generator
 \end_inset
 
  module, in charge of producing the AsyncInput signals.
- It is 
-\change_deleted -1129936465 1668765635
-a module developed by my Tutor, 
+ It
+\change_inserted 1469408620 1668794831
+m
 \change_unchanged
-consist
-\change_deleted -1129936465 1668765639
-ing
-\change_inserted -1129936465 1668765639
-s
-\change_unchanged
- of an internal Ring Oscillator that produces a periodic square wave.
+ consists of an internal Ring Oscillator that produces a periodic square
+ wave.
  The produced square wave is directly sent at the START output, while at
  the STOP output its delayed version is sent, with a delay equal to 
 \begin_inset Formula $t_{Delay}$
@@ -883,11 +914,11 @@ qui dovresti fare un confronto rispetto alla X7S dove la catena ha solo
  256 x 4 bin (fattore 2) che si traduce in un occupazione hw maggiore ->
  Fai una tabella simile alla 7 in cui metti i valori della serie 7 e confrontati
  (li il 
-\begin_inset Formula $\overline{t_{p,R}}=12$
+\begin_inset Formula $\overline{t_{p,B}}=12$
 \end_inset
 
  e 
-\begin_inset Formula $\overline{t_{p,R}}=3$
+\begin_inset Formula $\overline{t_{p,V}}=3$
 \end_inset
 
  con M=4; le sigma invece è 12 ps)
@@ -1684,6 +1715,13 @@ name "tab:Achievable-performances-of-1"
 \begin_layout Subsection
 Preliminary studies about the introduction of DSP-chains in the Super Wave
  Union Sub-Interpolation
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Preliminary-studies-about"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1711,7 +1749,7 @@ status open
 
 \begin_layout Plain Layout
 ripeti questi temini full ed half dsp dove parli del DSP se non lo hai fatto
- e fai esplicitamente rif al paragrafo
+ e fai esplicitamente rif al paragrafo (come nel cap 4)
 \end_layout
 
 \end_inset
@@ -1732,6 +1770,8 @@ ioned compactness of the architecture and, most of all, the saving of external
  This allows to implement a greater number of channels, which is a very
  useful feature in applications requiring the detection of a great number
  of physical events.
+\change_deleted 1469408620 1668793325
+
 \begin_inset Note Note
 status open
 
@@ -1740,11 +1780,16 @@ di inioltre che le carry-chain tagliano la fpga per la loro lunghezza limitando
  polto ill place and route; il dsp invece ha hw dedicato nn rompendo le
  scatoler ...
  in virtù di questo sarebbe bello uno screan shot di una reg della FPGA
- dove mostri una catena in DSP ed una in carry
+ dove mostri una catena in DSP ed una in carry NELL ULTIMO PAR AL CAP 4
+ .
+ NON QUI.
+ FOTO FLOORPLAN.
 \end_layout
 
 \end_inset
 
+
+\change_unchanged
  However, the drawback of the DSP-chain is the presence of huge 
 \begin_inset Quotes eld
 \end_inset
@@ -1932,42 +1977,6 @@ name "fig:Comparison-between-the-1"
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -1129936465 1668767581
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -1129936465 1668767585
-OCCUPAzione d'are
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\change_inserted -1129936465 1668767571
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -1129936465 1668767575
-NUOVO PAR
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
 Since both these cases exploit the same hardware resources (i.e., the same
  DSP48E2 blocks), and, since there is a benefit on the 
 \begin_inset Quotes eld
@@ -1980,6 +1989,29 @@ ultra-bin
  in the second case, there are no reasons not to always use the FULL-DSP-chain
  in practical contexts.
  
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+riporta le occupazioni d'ared come la tab 7
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Fai un paragrafo nuovo, è un nuovo arg
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2269,6 +2301,7 @@ status open
 Qui oltre la CT sub int riporterei la statistica dei bin metti esplicitamente
  che 49 si confronta con 43 top e poi di conseguenza le statistiche dei
  bin.
+ (TABELLA).
 \end_layout
 
 \end_inset
@@ -2421,8 +2454,9 @@ status open
 
 \begin_layout Plain Layout
 Qui oltre la CT sub int riporterei la statistica dei bin metti esplicitamente
- che 51 si confronta con 45 top e poi di conseguenza le statistiche dei
- bin.
+ che 51 si confronta con 43 e 45 top e poi di conseguenza le statistiche
+ dei bin.
+ (TABELLA, 3 COLONNE STA VOLTA)
 \end_layout
 
 \end_inset
@@ -2559,6 +2593,7 @@ status open
 Qui oltre la CT sub int riporterei la statistica dei bin metti esplicitamente
  che 53 si confronta con 45 top e poi di conseguenza le statistiche dei
  bin.
+ (TABELLA)
 \end_layout
 
 \end_inset
@@ -2719,7 +2754,8 @@ status open
 
 \begin_layout Plain Layout
 ripotta anche le statistiche dei bin e di queste curce a che si confrontano
- con nla 43 e 45 top e relative statistiche
+ con nla 43 e 45 top e relative statistiche (TABELLA, con 1 carry, 2 carry,
+ 4 carry, half dsp, 1 full dsp, 1 carry + full dsp).
 \end_layout
 
 \end_inset
@@ -3446,7 +3482,7 @@ dnl_{Rel}[n]=\frac{h_{CD}[n]-N_{CD}}{N_{CD}}\label{eq:dnl_rel}
 \end_layout
 
 \begin_layout Standard
-By normalizing the relative DNL to the LSB of the histogram, the absolute
+By multiplying the relative DNL by the LSB of the histogram, the absolute
  DNL is obtained:
 \begin_inset Formula 
 \begin{equation}
@@ -3595,6 +3631,23 @@ name "fig:Experimental-Setup-used"
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+riferisciti a 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "9539161"
+literal "false"
+
+\end_inset
+
+ dove spieghiamo la cosa di questa tecnica
+\end_layout
+
+\end_inset
+
 The signal on channel 1 is a square wave with a frequency 
 \begin_inset Formula $f_{1}$
 \end_inset
@@ -4077,6 +4130,20 @@ The TDC using 4 CARRY-chains in parallel is characterized by the most linear
 \end_inset
 
 ).
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+aggiungi una tabella dove fai un riassulto dei risultati sui INL ed DNL
+ solo sui 4 firmware
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body

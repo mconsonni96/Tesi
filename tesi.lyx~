@@ -286,11 +286,9 @@ DO NOT TOUCH! this inset generates the background image
 
 \end_layout
 
-\begin_layout Standard
-
-\size largest
-\color blue
-Title
+\begin_layout Title
+High-Performance Time-to-Digital Converter IP-Core for Xilinx Ultrascale/Ultrasc
+ale+ FPGAs
 \end_layout
 
 \begin_layout Standard
