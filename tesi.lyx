@@ -227,11 +227,12 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes false
+\tracking_changes true
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\author 1469408620 "Mattia Consonni"
 \end_header
 
 \begin_body
@@ -515,43 +516,67 @@ status open
 Abstract: 
 \series default
 \color black
-Here goes the Abstract in English of your thesis (in article format) followed
- by a list of keywords.
- The Abstract is a concise summary of the content of the thesis (single
- page of text) and a guide to the most important contributions included
- in your thesis.
- The Abstract is the very last thing you write.
- It should be a self-contained text and should be clear to someone who hasn’t
- (yet) read the whole manuscript.
- The Abstract should contain the answers to the main research questions
- that have been addressed in your thesis.
- It needs to summarize the motivations and the adopted approach as well
- as the findings of your work and their relevance and impact.
- The Abstract is the part appearing in the record of your thesis inside
- POLITesi, the Digital Archive of PhD and Master Theses (Laurea Magistrale)
- of Politecnico di Milano.
- The Abstract will be followed by a list of four to six keywords.
- Keywords are a tool to help indexers and search engines to find relevant
- documents.
- To be relevant and effective, keywords must be chosen carefully.
- They should represent the content of your work and be specific to your
- field or sub-field.
- Keywords may be a single word or two to four words.
-\end_layout
-
-\begin_layout Plain Layout
-
-\size footnotesize
-\color black
-some citations to check bibliography 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "AXI_ref_guide"
-literal "false"
-
+The increasing demand for very precise time measurement in scientific research
+ applications, ranging from the biomedical field to the industrial one,
+ has led to the need for high-resolution Time Interval Meters (TIMs).
+ Several solutions for TIMs are already present in the literature, implemented
+ both in Application Specific Integrated Circuits (ASICs) and Field Programmable
+ Gate Arrays (FPGAs).
+ To cope with features such as fast-prototyping and low time-to-market,
+ the FPGA approach has been chosen for this work, and a fully-digital TIM,
+ a.k.a.
+ Time-to-Digital Converter (TDC) has been implemented.
+ In this thesis work, we present the implementation of a tunable, high-performan
+ce, and multi-channel Tapped Delay-Line (TDL) based TDC IP-Core for Xilinx
+ Ultrascale/Ultrascale+ FPGAs.
+ The concept of tunability refers to the user-friendly graphical user interface
+ (GUI) of the IP-Core, which allows to easily set the resolution (LSB),
+ the Full-Scale Range (FSR), and the number of channels of the device.
+ In particular, we can tune the LSB up to hundreds of femtoseconds and the
+ FSR up to some days.
+ Moreover, the TDC presents a maximum measurement rate of 200 Msps per channel,
+ satisfying the high count-rate capability requirement of state-of-the-art
+ detectors.
+ It also achieves a single-shot precision of up to 2.8 ps, with very good
+ linearity (i.e., negligible DNL and INL < 13 ps).
+ To achieve such a high-resolution over a wide FSR, the measurement is performed
+ according to the Nutt-Interpolation technique, in which the timestamp of
+ each channel is composed of a Coarse part and a Fine part.
+ The high-resolution given by the Fine part is obtained from the Super Wave
+ Union (SuperWU) Sub-Interpolation algorithm, which implements a tunable
+ number of TDLs working in parallel, each one with a tunable number of taps.
+ This generates a Virtual-TDL (V-TDL) composed of 
+\begin_inset Quotes eld
 \end_inset
 
+virtual
+\begin_inset Quotes erd
+\end_inset
 
+ taps, whose propagation delays are faster than the real ones of the single
+ TDL.
+ From the design point of view, the TDC has been implemented and fully tested
+ on a Kintex Ultrascale FPGA, hosted in the KCU105 Evaluation Board, where
+ the TDLs have been obtained by cascading CARRY8 primitives or Digital Signal
+ Processor (DSP) primitives (i.e., DSP48E2) available into the fabric of the
+ Xilinx device.
+ A trade-off between a pure CARRY-based V-TDL and a 
+\begin_inset Quotes eld
+\end_inset
+
+hybrid
+\begin_inset Quotes erd
+\end_inset
+
+ one (i.e., it exploits also DSP resources) has been studied.
+ The experimental results have shown that the first architecture achieves
+ the highest single-shot precision (i.e., 2.8 ps) with a greater hardware occupancy
+ (i.e., maximum number of channels = 62), making it more suitable for those
+ applications requiring very high-precision; on the other hand, the second
+ architecture achieves worse single-shot precision (i.e., 3.8 ps) but it is
+ more compact and power/hardware-saving (i.e., maximum number of channels
+ = 74), making it more suitable for those applications requiring the detection
+ of a high number of physical events.
 \end_layout
 
 \end_inset
@@ -600,7 +625,8 @@ status open
 \series bold
 Key-words:
 \series default
- insert keword list 
+ Time-to-Digital Converter (TDC), Tapped Delay-Line (TDL), Digital Signal
+ Processor (DSP), Field-Programmable-Gate-Array (FPGA)
 \end_layout
 
 \end_inset
@@ -733,7 +759,8 @@ status open
 \series bold
 Parole chiave:
 \series default
- inserisci lista di parole chiave
+ Convertitore Tempo-Digitale (TDC), Tapped Delay-Line (TDL), Digital Signal
+ Processor (DSP), Field-Programmable-Gate-Array (FPGA)
 \end_layout
 
 \end_inset
@@ -759,12 +786,16 @@ filename "*Acknowledgements/*Acknowledgements.lyx"
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 1469408620 1668873312
 \begin_inset CommandInset include
 LatexCommand input
 filename "*Guide/guide_to_lyx_for_polimi_thesis.lyx"
 
 \end_inset
 
+
+\change_unchanged
 
 \end_layout
 

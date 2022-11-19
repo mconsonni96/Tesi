@@ -15,9 +15,9 @@
 \usepackage{titlesec}
 \usepackage{color}
 % PACKAGES FOR LANGUAGE AND FONT
+\usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage[english]{babel}
-\usepackage[T1]{fontenc} % Font encoding
+\usepackage[english]{babel}% Font encoding
 
 % PACKAGES FOR IMAGES
 \usepackage{graphicx}
@@ -137,6 +137,240 @@
 
 \begin_layout Section*
 Abstract in lingua italiana
+\end_layout
+
+\begin_layout Standard
+La crescente richiesta di misurazioni temporali ad alta precisione nelle
+ applicazioni scientifiche (le quali spaziano dal campo biomedico a quello
+ industriale), ha portato al bisogno di Misuratori di Intervalli di Tempo
+ (TIMs) ad alta risoluzione.
+ Diverse soluzioni per i TIM sono presenti nella letteratura scientifica,
+ implementate sia in ASIC che in FPGA.
+ Per soddisfare bisogni come una veloce prototipazione e un veloce tempo
+ di sviluppo, in questo lavoro abbiamo scelto l' approccio FPGA, implementando
+ un TIM interamente digitale che prende il nome di Convertitore Tempo-Digitale
+ (TDC).
+ In questo lavoro di tesi presenteremo l' implementazione di un TDC a pi
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+'u
+\end_layout
+
+\end_inset
+
+ canali e ad alta performance basato su una struttura a Tapped Delay-Line
+ (TDL), sottoforma di IP-Core regolabile dall' utilizzatore.
+ Il concetto di regolabilit
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+'a
+\end_layout
+
+\end_inset
+
+ si riferisce alla possibilit
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+'a
+\end_layout
+
+\end_inset
+
+ data all' utilizzatore di regolare la risoluzione (LSB), il Full-Scale
+ Range (FSR), e il numero di canali del dispositivo, grazie all' interfaccia
+ grafica dell' IP-Core.
+ In particolare, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+'e
+\end_layout
+
+\end_inset
+
+ possibile regolare l' LSB fino a qualche centinaia di femtosecondi e il
+ FSR fino a qualche giorno.
+ Inoltre, il TDC presenta un rate di misura di 200 Msps, soddisfacendo cos
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+'i
+\end_layout
+
+\end_inset
+
+ il bisogno di un alto rate richiesto dai detector allo stato dell' arte.
+ Il device raggiunge anche una precisione di 2.8 ps, con un' ottima linearit
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+'a
+\end_layout
+
+\end_inset
+
+ (DNL e INL trascurabili, < 13 ps).
+ Per ottenere una cos
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+'i
+\end_layout
+
+\end_inset
+
+  alta risoluzione su un ampio FSR, le misurazioni sono attuate usando la
+ tecnica di Nutt-Interpolation, che consiste nel comporre il timestamp di
+ ciascun canale da una parte Coarse e da una parte Fine.
+ L' alta risoluzione data dalla parte Fine 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+'e
+\end_layout
+
+\end_inset
+
+ ottenuta dall' algoritmo di Sub-Interpolazione Super Wave Union (SuperWU),
+ il quale implementa un numero regolabile di TDL in parallelo, ciascuna
+ composta da un numero regolabile di tap.
+ Questo genera una TDL Virtuale (V-TDL) composta da tap 
+\begin_inset Quotes eld
+\end_inset
+
+virtuali
+\begin_inset Quotes erd
+\end_inset
+
+, i cui ritardi di propagazione sono minori rispetto a quelli dei tap reali
+ della singola TDL.
+ Dal punto di vista della progettazione, il TDC 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+'e
+\end_layout
+
+\end_inset
+
+ stato implementato e interamente testato su una Kintex-Ultrascale FPGA,
+ contenuta in una KCU105 Evaluation Board, dove le TDL sono state ottenute
+ mettendo in cascata delle primitive CARRY8 o delle primitive di Digital
+ Signal Processing (DSP) (nonch
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+'e
+\end_layout
+
+\end_inset
+
+ le primitive DSP48E2) disponibili sul fabric dell' FPGA di Xilinx.
+ E' stato studiato un trade-off tra una V-TDL composta solamente da primitive
+ CARRY e una V-TDL ibrida (cio
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+'e
+\end_layout
+
+\end_inset
+
+ che sfrutta anche risorse DSP).
+ I risultati sperimentali hanno mostrato che la prima architettura raggiunge
+ la migliore precisione (pari a 2.8 ps) con una maggiore occupazione di area
+ (il che risulta in un massimo numero concesso di canali pari a 62), rendendola
+ adatta per quelle applicazioni che richiedono soprattutto una precisione
+ molto alta; la seconda architettura, invece, raggiunge una precisione pi
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+'u
+\end_layout
+
+\end_inset
+
+ bassa (pari a 3.8 ps) ma 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+'e
+\end_layout
+
+\end_inset
+
+ pi
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+'u
+\end_layout
+
+\end_inset
+
+ compatta e caratterizzata da un consumo minore di potenza e di risorse
+ hardware (il che risulta in un massimo numero concesso di canali pari a
+ 74), rendendola adatta per quelle applicazioni che richiedono il rilevamento
+ di un alto numero di eventi fisici.
 \end_layout
 
 \end_body

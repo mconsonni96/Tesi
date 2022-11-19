@@ -391,11 +391,7 @@ Start-Stop Generator
 \end_inset
 
  module, in charge of producing the AsyncInput signals.
- It
-\change_inserted 1469408620 1668794831
-m
-\change_unchanged
- consists of an internal Ring Oscillator that produces a periodic square
+ It consists of an internal Ring Oscillator that produces a periodic square
  wave.
  The produced square wave is directly sent at the START output, while at
  the STOP output its delayed version is sent, with a delay equal to 
@@ -2098,11 +2094,8 @@ literal "false"
  propagation delays) we would like the two involved TDLs to be as different
  as possible, concerning their taps' propagation delays.
  The degree of dissimilarity between the two TDLs has been calculated by
- performing the cross-correlation function between the CTs of each 
-\change_inserted -1129936465 1668766953
-real 
-\change_unchanged
-TDL.
+ performing the cross-correlation function between the CTs of each real
+ TDL.
  The cross-correlation function is a measure of similarity between two signals.
  By calling 
 \begin_inset Formula $CT_{1}$
@@ -3315,9 +3308,22 @@ In conclusion, each implementation studied in this experiment showed its
  strengths: the one with a fully-CARRY-based V-TDL has a single-shot precision
  in the order of 3 ps, thus being the most suitable choice for those application
 s requiring very high precision in the time measurement; conversely, the
- one with a mixed-CARRY-DSP-based V-TDL
-\change_inserted -1129936465 1668767539
- or a full-CARRY-DSP-based V-TDL
+\change_inserted 1469408620 1668795652
+ 
+\begin_inset Quotes eld
+\end_inset
+
+hybrid
+\begin_inset Quotes erd
+\end_inset
+
+
+\change_unchanged
+ one 
+\change_inserted 1469408620 1668795673
+(i.e., 2 CARRY-chains + 1 FULL-DSP-chain)
+\change_deleted 1469408620 1668795677
+with a mixed-CARRY-DSP-based V-TDL
 \change_unchanged
  saves a lot of FFs resources and power, and is more suitable for those
  applications requiring a higher number of channels to detect a higher number

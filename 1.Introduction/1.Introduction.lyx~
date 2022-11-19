@@ -131,9 +131,6 @@
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
-\author -1129936465 "Nicola Lusardi"
-\author 268488506 "nicol"
-\author 1469408620 "Mattia Consonni"
 \end_header
 
 \begin_body
@@ -1378,50 +1375,20 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668599675
-Graphical representation of 
-\change_unchanged
-DNL
-\change_inserted 1469408620 1668600187
-, which is 
-\change_deleted 1469408620 1668599845
- and
-\change_inserted 1469408620 1668600244
-the dispersion in time between consecutive digital codes (in red) with respect
- to 
+Graphical representation of DNL, which is the dispersion in time between
+ consecutive digital codes (in red) with respect to 
 \begin_inset Formula $LSB_{id}$
 \end_inset
 
 , and INL, which is the integral of the DNL and represents the difference
  in time between the ideal time interval (in blue) and the measured one
  (in red).
-
-\change_deleted 1469408620 1668599840
- INL.
-\change_unchanged
-
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:DNL-and-INL."
 
 \end_inset
 
-
-\change_deleted 1469408620 1668599845
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-vasi avantoi un minimo conla descrizione DNL quanto ogni lsb è sbagliato
- e inl il suo integrale e riferisciti alla
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
 
 \end_layout
 
@@ -1519,16 +1486,8 @@ noprefix "false"
  shows the concept of Maximum Channel Rate (in green).
  Concerning the Maximum Measurement Rate of multi-channel TDC systems, the
  bottleneck is usually given by the communication link between the TDC and
- the device, such as Personal Computers (PCs) or work
-\change_deleted -1129936465 1668523493
- 
-\change_unchanged
-stations, used to store and/or process the information.
-
-\change_deleted -1129936465 1668523384
- 
-\change_unchanged
-
+ the device, such as Personal Computers (PCs) or workstations, used to store
+ and/or process the information.
 \end_layout
 
 \begin_layout Subsubsection
@@ -1729,16 +1688,8 @@ literal "false"
 \end_inset
 
 .
- An 
-\change_deleted 1469408620 1668612420
-Application Specific Integrated Circuit (
-\change_unchanged
-ASIC
-\change_deleted 1469408620 1668612422
-)
-\change_unchanged
- is a chip designed to perform one specific functionality, suited for high-volum
-e production.
+ An ASIC) is a chip designed to perform one specific functionality, suited
+ for high-volume production.
  All the resources are placed on a single silicon chip, and the functionality
  is fixed by the manufacturing process.
 \end_layout
@@ -1762,26 +1713,15 @@ The main drawback is represented by the impossibility of changing the ASIC's
  a higher entry barrier with respect to FPGAs.
  This makes ASICs more suitable for massive production governed by the economy
  of scale and not compatible with the request of fast-prototyping.
-
-\change_inserted 1469408620 1668612534
- 
-\change_unchanged
-For these reasons, another approach, less performant in terms of F
-\change_inserted 1469408620 1668614262
-o
-\change_deleted 1469408620 1668614263
-O
-\change_unchanged
-Ms but leaner, is preferred in scientific research (in those cases where
- few units are requested) and for fast-prototyping.
+ For these reasons, another approach, less performant in terms of FoMs but
+ leaner, is preferred in scientific research (in those cases where few units
+ are requested) and for fast-prototyping.
  This method consists of using an FPGA, which is a fully-digital electronic
  device that can be configured and re-configured by the designer, after
  the manufacturing process, simply using the Hardware Description Language
  (HDL) code that describes the system.
  Moreover, if FPGAs are used, there is no need to produce custom lithographic
  photomasks, reducing the Non-Recurring Engineering (NRE) costs.
-\change_inserted 1469408620 1667043535
-
 \end_layout
 
 \begin_layout Standard
@@ -2159,14 +2099,9 @@ literal "false"
 \end_inset
 
 .
- More precisely, its working principle consists 
-\change_inserted 1469408620 1668612750
-of
-\change_deleted 1469408620 1668612750
-in
-\change_unchanged
- building a voltage ramp that starts synchronously with the START event,
- and stops when the STOP event occurs.
+ More precisely, its working principle consists of building a voltage ramp
+ that starts synchronously with the START event, and stops when the STOP
+ event occurs.
  In this way, a voltage level proportional to the measured time interval
  is obtained.
  Then, an ADC converts the measured voltage level into a digital code.
@@ -2228,10 +2163,6 @@ name "fig:Conventional-structure-of"
 
 \end_inset
 
-
-\change_deleted 1469408620 1666960578
- 
-\change_unchanged
 
 \end_layout
 
@@ -2767,9 +2698,7 @@ Unlike ASICs, FPGAs do not allow self compensation techniques to overcome
  process, voltage, and temperature (PVT) variations that lead to dispersion
  in the propagation delays on the TDL.
  Therefore, a calibration process is mandatory to obtain a high-performance
- TDC in an FPGA, leading to further area consumption
-\change_inserted 1469408620 1668613564
- (see Section 
+ TDC in an FPGA, leading to further area consumption (see Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Calibration"
@@ -2779,23 +2708,7 @@ noprefix "false"
 
 \end_inset
 
-)
-\change_unchanged
-.
-\change_deleted 1469408620 1668596482
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-metti il ref a dove ne parlerai nella tesi
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
+).
 \end_layout
 
 \begin_layout Paragraph
@@ -3023,8 +2936,6 @@ noprefix "false"
 Furthermore, in comparison to TDL, the VDL requires a good matching between
  the START-chain and the STOP-chain.
  In fact, as shown in Equation 
-\change_inserted 1469408620 1668613785
-
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:vdl_lsb"
@@ -3034,20 +2945,6 @@ noprefix "false"
 
 \end_inset
 
-
-\change_deleted 1469408620 1668613771
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:vdl-timeinterval"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-
-\change_unchanged
 , the resolution of the VDL-TDC depends on 
 \begin_inset Formula $t_{p1}$
 \end_inset
@@ -3057,27 +2954,9 @@ noprefix "false"
 \end_inset
 
 .
- For this reason, 
-\change_inserted 1469408620 1668596774
-due to the impossibility of achieving an accurate matching in FPGAs, 
-\change_deleted 1469408620 1668596638
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-considerando l'impossibilità di un metching accurato in FPGA
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-this architecture is unreliable
-\change_deleted 1469408620 1668596789
- in FPGAs
-\change_unchanged
-, and the TDL-TDC is the most suitable choice.
+ For this reason, due to the impossibility of achieving an accurate matching
+ in FPGAs, this architecture is unreliable, and the TDL-TDC is the most
+ suitable choice.
 \end_layout
 
 \begin_layout Paragraph
@@ -3318,1527 +3197,10 @@ noprefix "false"
 \begin_inset Float table
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
-
-\change_deleted 1469408620 1668598663
-\begin_inset Tabular
-<lyxtabular version="3" rows="14" columns="11">
-<features tabularvalignment="middle">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Ref.
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Technology
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Architecture
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Application
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-LSB
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Precision
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-DNL
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-INL
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-FSR
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Dead-Time
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Power
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Unit
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
--
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
--
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
--
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-ps
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-ps r.m.s.
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-LSB
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-LSB
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-ns
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-ns
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-mW
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multicolumn="1" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-ASIC TDCs
-\end_layout
-
-\end_inset
-</cell>
-<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset CommandInset citation
-LatexCommand cite
-key "8303944"
-literal "false"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-180 nm
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-RDL
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-TOF measurements in space applications
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-201
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-N.A.
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-[-0.18:0.05]
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-N.A.
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-6.8e+06
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-N.A.
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.3155
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset CommandInset citation
-LatexCommand cite
-key "8463513"
-literal "false"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-180 nm
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-RDL
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Jitter measurements
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-2
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-1.44
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-[-1:1]
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-[-1:1.3]
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-130
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-303
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-18
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset CommandInset citation
-LatexCommand cite
-key "6716036"
-literal "false"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-350 nm
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-RDL
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Laser Range-finding
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-40
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-2.2
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-N.A.
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-[-0.6:0.6]
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-22
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-1e+08
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.0016
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Wang_2018"
-literal "false"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-130 nm
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-SCFC
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Time-resolved Spectroscopy
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-781
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-300
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-[-0.05:0.05]
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-[-0.05_0.05]
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-N.A.
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-N.A.
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-6.5
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Perktold_2014"
-literal "false"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-130 nm
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-SCFC
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Particle tracking in physics experiments
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-5
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-2.5
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-[-0.8:0.6]
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-[-1.2:0.4]
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-N.A.
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-N.A.
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-43
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multicolumn="1" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-FPGA TDCs
-\end_layout
-
-\end_inset
-</cell>
-<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset CommandInset citation
-LatexCommand cite
-key "7520401"
-literal "false"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Kintex-7
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-SCFC
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Medical imaging
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-89.3
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-56.2
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-[0.44:0.87]
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-[0.44:0.82]
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-N.A.
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-4.3
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-N.A.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset CommandInset citation
-LatexCommand cite
-key "6661408"
-literal "false"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Kintex-7
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-TDL
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-TOF-PET
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-22.7
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-85.7
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-<3
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-<4
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-5.24e+03
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-30
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-N.A.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset CommandInset citation
-LatexCommand cite
-key "article1"
-literal "false"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Actel
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-VDL
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Nuclear science
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-42
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-16.4
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-[-1:0.9]
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-[-1:3.5]
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-6.553e+05
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-100
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-N.A.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset CommandInset citation
-LatexCommand cite
-key "7931684"
-literal "false"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Artix-7
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-TDL
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-TOF experiments
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-33
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-12.86
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-[-0.6:0.6]
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-[-0.8:0.8]
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-N.A.
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-10
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-N.A.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset CommandInset citation
-LatexCommand cite
-key "7111361"
-literal "false"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Virtex-6
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-TDL
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-TOF-PET
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-1.7
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-4.2
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-[-1:4]
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-[-9.8:6.2]
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-6.25
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-N.A.
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-N.A.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\change_inserted 1469408620 1668596847
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-
-\change_inserted 1469408620 1668598775
 \begin_inset Tabular
 <lyxtabular version="3" rows="11" columns="6">
 <features tabularvalignment="middle">
@@ -4854,12 +3216,8 @@ N.A.
 
 \begin_layout Plain Layout
 
-\change_inserted 1469408620 1668597900
-
 \series bold
 ASIC TDCs
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -4868,8 +3226,6 @@ ASIC TDCs
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597253
 \begin_inset CommandInset citation
 LatexCommand cite
 key "8303944"
@@ -4878,8 +3234,6 @@ literal "false"
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -4888,8 +3242,6 @@ literal "false"
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597258
 \begin_inset CommandInset citation
 LatexCommand cite
 key "8463513"
@@ -4898,8 +3250,6 @@ literal "false"
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -4908,8 +3258,6 @@ literal "false"
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597263
 \begin_inset CommandInset citation
 LatexCommand cite
 key "6716036"
@@ -4918,8 +3266,6 @@ literal "false"
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -4928,8 +3274,6 @@ literal "false"
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597267
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Wang_2018"
@@ -4937,8 +3281,6 @@ literal "false"
 
 \end_inset
 
-
-\change_unchanged
 
 \end_layout
 
@@ -4948,8 +3290,6 @@ literal "false"
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597276
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Perktold_2014"
@@ -4968,11 +3308,7 @@ literal "false"
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597304
 Technology
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -4981,11 +3317,7 @@ Technology
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597409
 180 nm
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -4994,11 +3326,7 @@ Technology
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597413
 180 nm
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5007,11 +3335,7 @@ Technology
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597416
 350 nm
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5020,11 +3344,7 @@ Technology
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597419
 130 nm
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5033,8 +3353,6 @@ Technology
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597423
 130 nm
 \end_layout
 
@@ -5046,11 +3364,7 @@ Technology
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597309
 Architecture
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5059,11 +3373,7 @@ Architecture
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597432
 RDL
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5072,11 +3382,7 @@ RDL
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597434
 RDL
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5085,11 +3391,7 @@ RDL
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597436
 RDL
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5098,11 +3400,7 @@ RDL
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597438
 SCFC
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5111,8 +3409,6 @@ SCFC
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597440
 SCFC
 \end_layout
 
@@ -5124,11 +3420,7 @@ SCFC
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597314
 Application
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5137,11 +3429,7 @@ Application
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597914
 TOF in space
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5150,11 +3438,7 @@ TOF in space
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597924
 Jitter meas.
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5163,8 +3447,6 @@ Jitter meas.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598931
 \begin_inset space \space{}
 \end_inset
 
@@ -5173,8 +3455,6 @@ Laser Range F.
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5183,11 +3463,7 @@ Laser Range F.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597950
 Spectroscopy
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5196,8 +3472,6 @@ Spectroscopy
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597957
 Particle tracking
 \end_layout
 
@@ -5209,11 +3483,7 @@ Particle tracking
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597328
 LSB [ps]
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5222,11 +3492,7 @@ LSB [ps]
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597504
 201
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5235,11 +3501,7 @@ LSB [ps]
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597507
 2
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5248,11 +3510,7 @@ LSB [ps]
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597509
 40
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5261,11 +3519,7 @@ LSB [ps]
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597515
 781
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5274,8 +3528,6 @@ LSB [ps]
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597520
 5
 \end_layout
 
@@ -5287,11 +3539,7 @@ LSB [ps]
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597349
 Precision [ps r.m.s.]
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5300,11 +3548,7 @@ Precision [ps r.m.s.]
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597526
 N.A.
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5313,11 +3557,7 @@ N.A.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597532
 1.44
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5326,11 +3566,7 @@ N.A.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597534
 2.2
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5339,11 +3575,7 @@ N.A.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597536
 300
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5352,8 +3584,6 @@ N.A.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597542
 2.5
 \end_layout
 
@@ -5365,11 +3595,7 @@ N.A.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597370
 DNL [LSB]
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5378,11 +3604,7 @@ DNL [LSB]
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597555
 [-0.18:0.05]
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5391,11 +3613,7 @@ DNL [LSB]
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597561
 [-1:1]
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5404,11 +3622,7 @@ DNL [LSB]
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597567
 N.A.
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5417,11 +3631,7 @@ N.A.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597579
 [-0.05:0.05]
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5430,8 +3640,6 @@ N.A.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597597
 [-0.8:0.6]
 \end_layout
 
@@ -5443,11 +3651,7 @@ N.A.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597375
 INL [LSB]
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5456,11 +3660,7 @@ INL [LSB]
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597605
 N.A.
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5469,11 +3669,7 @@ N.A.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597614
 [-1:1.3]
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5482,11 +3678,7 @@ N.A.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597628
 [-0.6:0.6]
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5495,11 +3687,7 @@ N.A.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597639
 [-0.05:0.05]
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5508,8 +3696,6 @@ N.A.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597649
 [-1.2:0.4]
 \end_layout
 
@@ -5521,11 +3707,7 @@ N.A.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597389
 FSR [ns]
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5534,11 +3716,7 @@ FSR [ns]
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597664
 6.8e+06
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5547,11 +3725,7 @@ FSR [ns]
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597669
 130
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5560,11 +3734,7 @@ FSR [ns]
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597671
 22
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5573,11 +3743,7 @@ FSR [ns]
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597673
 N.A.
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5586,8 +3752,6 @@ N.A.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597676
 N.A.
 \end_layout
 
@@ -5599,11 +3763,7 @@ N.A.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597396
 Dead-Time [ns]
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5612,11 +3772,7 @@ Dead-Time [ns]
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597686
 N.A.
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5625,11 +3781,7 @@ N.A.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597691
 303
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5638,11 +3790,7 @@ N.A.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597697
 1e+08
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5651,11 +3799,7 @@ N.A.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597702
 N.A.
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5664,8 +3808,6 @@ N.A.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597705
 N.A.
 \end_layout
 
@@ -5677,11 +3819,7 @@ N.A.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597402
 Power [mW]
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5690,11 +3828,7 @@ Power [mW]
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597711
 0.3155
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5703,11 +3837,7 @@ Power [mW]
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597714
 18
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5716,11 +3846,7 @@ Power [mW]
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597720
 0.0016
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5729,11 +3855,7 @@ Power [mW]
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597723
 6.5
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5742,8 +3864,6 @@ Power [mW]
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668597725
 43
 \end_layout
 
@@ -5758,8 +3878,6 @@ Power [mW]
 \end_layout
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598783
 \begin_inset VSpace defskip
 \end_inset
 
@@ -5768,8 +3886,6 @@ Power [mW]
 
 \begin_layout Plain Layout
 \align center
-
-\change_inserted 1469408620 1668598209
 \begin_inset Tabular
 <lyxtabular version="3" rows="11" columns="6">
 <features tabularvalignment="middle">
@@ -5785,12 +3901,8 @@ Power [mW]
 
 \begin_layout Plain Layout
 
-\change_inserted 1469408620 1668598220
-
 \series bold
 FPGA TDCs
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5799,8 +3911,6 @@ FPGA TDCs
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598234
 \begin_inset CommandInset citation
 LatexCommand cite
 key "7520401"
@@ -5809,8 +3919,6 @@ literal "false"
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5819,8 +3927,6 @@ literal "false"
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598241
 \begin_inset CommandInset citation
 LatexCommand cite
 key "6661408"
@@ -5829,8 +3935,6 @@ literal "false"
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5839,8 +3943,6 @@ literal "false"
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598246
 \begin_inset CommandInset citation
 LatexCommand cite
 key "article1"
@@ -5849,8 +3951,6 @@ literal "false"
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5859,8 +3959,6 @@ literal "false"
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598251
 \begin_inset CommandInset citation
 LatexCommand cite
 key "7931684"
@@ -5869,8 +3967,6 @@ literal "false"
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5879,8 +3975,6 @@ literal "false"
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598256
 \begin_inset CommandInset citation
 LatexCommand cite
 key "7111361"
@@ -5889,8 +3983,6 @@ literal "false"
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5901,11 +3993,7 @@ literal "false"
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598265
 Technology
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5914,11 +4002,7 @@ Technology
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598327
 Kintex-7
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5927,11 +4011,7 @@ Kintex-7
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598331
 Kintex-7
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5940,11 +4020,7 @@ Kintex-7
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598335
 Actel
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5953,11 +4029,7 @@ Actel
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598339
 Artix-7
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5966,11 +4038,7 @@ Artix-7
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598344
 Virtex-6
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5981,11 +4049,7 @@ Virtex-6
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598269
 Architecture
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5994,11 +4058,7 @@ Architecture
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598350
 SCFC
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6007,11 +4067,7 @@ SCFC
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598352
 TDL
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6020,11 +4076,7 @@ TDL
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598355
 VDL
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6033,11 +4085,7 @@ VDL
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598357
 TDL
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6046,11 +4094,7 @@ TDL
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598359
 TDL
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6061,11 +4105,7 @@ TDL
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598273
 Application
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6074,11 +4114,7 @@ Application
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598412
 Medical imaging
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6087,11 +4123,7 @@ Medical imaging
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598374
 TOF-PET
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6100,11 +4132,7 @@ TOF-PET
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598378
 Nuclear science
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6113,11 +4141,7 @@ Nuclear science
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598400
 TOF experiments
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6126,11 +4150,7 @@ TOF experiments
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598395
 TOF-PET
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6141,11 +4161,7 @@ TOF-PET
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598276
 LSB [ps]
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6154,11 +4170,7 @@ LSB [ps]
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598424
 89.3
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6167,11 +4179,7 @@ LSB [ps]
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598427
 22.7
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6180,11 +4188,7 @@ LSB [ps]
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598429
 42
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6193,11 +4197,7 @@ LSB [ps]
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598431
 33
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6206,11 +4206,7 @@ LSB [ps]
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598433
 1.7
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6221,11 +4217,7 @@ LSB [ps]
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598280
 Precision [ps r.m.s.]
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6234,11 +4226,7 @@ Precision [ps r.m.s.]
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598437
 56.2
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6247,11 +4235,7 @@ Precision [ps r.m.s.]
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598451
 85.7
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6260,11 +4244,7 @@ Precision [ps r.m.s.]
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598455
 16.4
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6273,11 +4253,7 @@ Precision [ps r.m.s.]
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598458
 12.86
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6286,11 +4262,7 @@ Precision [ps r.m.s.]
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598461
 4.2
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6301,11 +4273,7 @@ Precision [ps r.m.s.]
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598285
 DNL [LSB]
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6314,11 +4282,7 @@ DNL [LSB]
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598475
 [0.44:0.87]
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6327,11 +4291,7 @@ DNL [LSB]
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598485
 <3
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6340,11 +4300,7 @@ DNL [LSB]
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598496
 [-1:0.9]
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6353,11 +4309,7 @@ DNL [LSB]
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598507
 [-0.6:0.6]
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6366,11 +4318,7 @@ DNL [LSB]
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598513
 [-1:4]
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6381,11 +4329,7 @@ DNL [LSB]
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598288
 INL [LSB]
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6394,11 +4338,7 @@ INL [LSB]
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598524
 [0.44:0.82]
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6407,11 +4347,7 @@ INL [LSB]
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598529
 <4
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6420,11 +4356,7 @@ INL [LSB]
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598536
 [-1:3.5]
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6433,11 +4365,7 @@ INL [LSB]
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598544
 [-0.8:0.8]
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6446,11 +4374,7 @@ INL [LSB]
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598555
 [-9.8:6.2]
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6461,11 +4385,7 @@ INL [LSB]
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598292
 FSR [ns]
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6474,11 +4394,7 @@ FSR [ns]
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598563
 N.A.
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6487,11 +4403,7 @@ N.A.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598571
 5.24e+03
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6500,11 +4412,7 @@ N.A.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598583
 6.553e+05
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6513,11 +4421,7 @@ N.A.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598589
 N.A.
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6526,11 +4430,7 @@ N.A.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598595
 6.25
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6541,11 +4441,7 @@ N.A.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598316
 Dead-Time [ns]
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6554,11 +4450,7 @@ Dead-Time [ns]
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598599
 4.3
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6567,11 +4459,7 @@ Dead-Time [ns]
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598601
 30
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6580,11 +4468,7 @@ Dead-Time [ns]
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598605
 100
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6593,11 +4477,7 @@ Dead-Time [ns]
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598607
 10
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6606,11 +4486,7 @@ Dead-Time [ns]
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598611
 N.A.
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6621,11 +4497,7 @@ N.A.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598319
 Power [mW]
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6634,11 +4506,7 @@ Power [mW]
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598616
 N.A.
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6647,11 +4515,7 @@ N.A.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598618
 N.A.
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6660,11 +4524,7 @@ N.A.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598623
 N.A.
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6673,11 +4533,7 @@ N.A.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598625
 N.A.
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6686,11 +4542,7 @@ N.A.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668598629
 N.A.
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6701,19 +4553,14 @@ N.A.
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Comparison of different TDC solutions
-\change_inserted 1469408620 1668598652
-, both in ASIC (at the top) and FPGA (at the bottom)
-\change_unchanged
-.
+Comparison of different TDC solutions, both in ASIC (at the top) and FPGA
+ (at the bottom).
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:Comparison-of-different"
@@ -6734,24 +4581,6 @@ name "tab:Comparison-of-different"
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted 1469408620 1668596842
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-La Tab è larghissima.
- Andrà spezzata in qualche modo.
-\change_inserted 268488506 1668592223
-=> fallo!
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
 We can see good resolutions and single-shot precisions are achieved in the
  ASIC implementations, alongside an overall low power consumption.
  On the other hand, we can see how, in the FPGA approach, the TDL architectures
@@ -6760,77 +4589,12 @@ We can see good resolutions and single-shot precisions are achieved in the
 
 \begin_layout Subsection
 Thesis Goal
-\change_inserted 1469408620 1668683706
-
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Thesis-Goal"
 
 \end_inset
 
-
-\change_unchanged
-
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 1469408620 1668251212
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Devi rigirare un attimo le frasi:
-\end_layout
-
-\begin_layout Plain Layout
-
-\change_deleted 1469408620 1668250132
-- viste le interessanti appliczioni vogliamo realizzare un TIM poiché serve
- a tanti (rif all'1)
-\change_unchanged
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\change_deleted 1469408620 1668250188
-- di consegunza sono state analizzate le FoM (rfi 3) ed individuate quello
- allo stato dell'arte (qui metti l'elenco dell FOM di NSS) = questo è il
- target sulle FOM che ci poniamo come obbiettivo di tesi
-\change_unchanged
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\change_deleted 1469408620 1668250751
-- Quindi sono state analizzate le varie soluzioni tecnologiche (rif 4) con
- pro e contro ed abbiamo oprtyato per soddisfare le applicazioni che fittano
- con il fast-prototyping (IP Core) ed i bassi NRE ovvero le FPGA
-\change_unchanged
- 
-\end_layout
-
-\begin_layout Plain Layout
-
-\change_deleted 1469408620 1668251202
-- facendo riferimento a tutte le architetture (rif 5), osservando i pro
- e cons offerte da ognuna e le relative FoM riportate in 1.6 è stata scelta
- la TDL come architetture
-\change_unchanged
-
-\end_layout
-
-\begin_layout Plain Layout
-=> di conseguenza questo sistema verrà descritto nei capitoli 2 e 3 e validato
- sperimentalmente nel 4
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
 
 \end_layout
 
@@ -6902,12 +4666,8 @@ noprefix "false"
 
 , analyzing their pros and cons.
  In this way, to cope with those applications fitting with fast-prototyping
- and 
-\change_inserted 1469408620 1668614027
-low 
-\change_unchanged
-NRE costs, the FPGA approach has been chosen; as a consequence of that,
- a fully-digital TIM, a.k.a.
+ and low NRE costs, the FPGA approach has been chosen; as a consequence
+ of that, a fully-digital TIM, a.k.a.
  TDC, has been selected for the design process.
  In this way, an high tunability of the system is allowed.
 \end_layout

@@ -2317,7 +2317,15 @@ VALID
 \end_inset
 
  position is statically chosen by the generic 
+\change_inserted 1469408620 1668872759
+
 \shape italic
+
+\begin_inset Newline newline
+\end_inset
+
+
+\change_unchanged
 VALID_POSITION_TAP_INIT, 
 \shape default
 which is a value between 0 and 
@@ -2395,7 +2403,15 @@ DEBUG_MODE
 MIN_VALID_TAP_POS
 \shape default
  = 0, 
+\change_inserted 1469408620 1668872870
+
 \shape italic
+
+\begin_inset Newline newline
+\end_inset
+
+
+\change_unchanged
 MAX_VALID_TAP_POS
 \shape default
  = 4,
@@ -2403,9 +2419,17 @@ MAX_VALID_TAP_POS
  STEP_VALID_TAP_POS
 \shape default
  = 2.
- Since, if we use the SuperWU Sub-Interpolation algorithm, there are more
- TDLs in parallel, we must select one single TDL among them in which the
- aforementioned "VALID" selection process is performed.
+ Since, if we use the SuperWU 
+\change_inserted 1469408620 1668872958
+
+\begin_inset Newline newline
+\end_inset
+
+
+\change_unchanged
+Sub-Interpolation algorithm, there are more TDLs in parallel, we must select
+ one single TDL among them in which the aforementioned "VALID" selection
+ process is performed.
  This is done statically by the generic 
 \shape italic
 VALID_NUMBER_OF_TDL_INIT
@@ -3652,7 +3676,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename images/carrichain.png
+	filename images/carrychain.png
 	width 100text%
 
 \end_inset
@@ -5137,7 +5161,15 @@ To correctly manage the counting of the overflows, an
 \shape italic
 AuxiliaryCounter
 \shape default
- signal, which is (BIT_COARSE_DIFFERENCE = 
+ signal, which is 
+\change_inserted 1469408620 1668873081
+
+\begin_inset Newline newline
+\end_inset
+
+
+\change_unchanged
+(BIT_COARSE_DIFFERENCE = 
 \shape italic
 BIT_COARSE - BIT_COARSE_CEC
 \shape default
@@ -6109,7 +6141,15 @@ active
 
  ALUs perform the subtraction operation in parallel.
  For example, in both cases where 
+\change_inserted 1469408620 1668873177
+
 \shape italic
+
+\begin_inset Newline newline
+\end_inset
+
+
+\change_unchanged
 NUMBER_OF_DSP_CHAINS
 \shape default
  = 1 or 
