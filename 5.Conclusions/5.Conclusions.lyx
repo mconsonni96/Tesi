@@ -172,8 +172,8 @@ ns in parallel.
 \end_layout
 
 \begin_layout Itemize
-an LSB of 0.98 ps has been achieved for both implementations, along with
- a FSR of some days;
+an LSB of hundreds of picoseconds has been achieved for both implementations,
+ along with a FSR of some days;
 \end_layout
 
 \begin_layout Itemize

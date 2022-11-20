@@ -329,11 +329,7 @@ Resolution
 \begin_inset Text
 
 \begin_layout Plain Layout
-36
-\change_inserted -1129936465 1668763707
-.
-\change_unchanged
-6 fs
+36.6 fs
 \end_layout
 
 \end_inset
@@ -5989,8 +5985,15 @@ Nuova sez di integrazioine
 \end_inset
 
 
-\change_inserted 1469408620 1668787513
+\change_inserted 1469408620 1668982731
 IP-Core Integration of both DSP-based and CARRY-based TDLs
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:IP-Core-Integration-of-1"
+
+\end_inset
+
+
 \change_unchanged
 
 \end_layout
@@ -6159,24 +6162,47 @@ NUMBER_OF_DSP_CHAINS
  = 2, the hardware TDL is composed of a single DSP-chain; however, since
  every DSP48E2 is used in dual 24-bit SIMD mode, the difference is the following
  one: in the second case, both the 24-bit ALUs perform the operation, and
- two thermometric codes are generated in output; instead, in the first case,
- both ALUs still perform the operation, but one single thermometric code
- is provided, while the other is discarded.
+ two thermometric codes are generated in output
+\change_inserted 1469408620 1668982718
+ (we will refer to it as 
+\begin_inset Quotes eld
+\end_inset
+
+FULL-DSP-chain
+\begin_inset Quotes erd
+\end_inset
+
+)
+\change_unchanged
+; instead, in the first case, both ALUs still perform the operation, but
+ one single thermometric code is provided, while the other is discarded
+\change_inserted 1469408620 1668982721
+ (we will refer to it as 
+\begin_inset Quotes eld
+\end_inset
+
+HALF-DSP-chain
+\begin_inset Quotes erd
+\end_inset
+
+)
+\change_unchanged
+.
  Since, in both cases, the same amount of hardware resources 
 \change_deleted 1469408620 1668788119
 are
-\change_inserted 1469408620 1668788119
+\change_inserted 1469408620 1668982672
 is
 \change_unchanged
  exploited and since, thanks to the Sub-Interpolation, having two thermometric
  codes is more beneficial than having just a single 
-\change_inserted 1469408620 1668788134
+\change_inserted 1469408620 1668982672
 code
 \change_deleted 1469408620 1668788134
 one
 \change_unchanged
 , choosing an even 
-\change_inserted 1469408620 1668788149
+\change_inserted 1469408620 1668982672
 value
 \change_deleted 1469408620 1668788150
 number
@@ -6424,6 +6450,17 @@ status open
 
 \begin_layout Subsection
 Advantages and drawbacks of the DSP-based TDL
+\change_inserted 1469408620 1668982877
+
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Advantages-and-drawbacks"
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
