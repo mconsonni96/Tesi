@@ -2272,6 +2272,17 @@ literal "false"
 
 \begin_layout Subsubsection
 Shift-Clock Fast-Counter TDC
+\change_inserted 1469408620 1669062785
+
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Shift-Clock-Fast-Counter-TDC"
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -2726,6 +2737,17 @@ noprefix "false"
 
 \begin_layout Paragraph
 Vernier Delay-Line TDC, VDL-TDC
+\change_inserted 1469408620 1669064151
+
+\begin_inset CommandInset label
+LatexCommand label
+name "par:Vernier-Delay-Line-TDC,"
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -2974,6 +2996,17 @@ noprefix "false"
 
 \begin_layout Paragraph
 Ring Delay-Line TDC, RDL-TDC
+\change_inserted 1469408620 1669064093
+
+\begin_inset CommandInset label
+LatexCommand label
+name "par:Ring-Delay-Line-TDC,"
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -3202,15 +3235,47 @@ noprefix "false"
 
 \end_inset
 
- summarizes the performances of all the TDC architectures we found in the
- literature.
+ 
+\change_inserted 1469408620 1669061791
+reports
+\change_deleted 1469408620 1669061792
+summarizes
+\change_inserted 1469408620 1669062081
+ some of the existing academic TDC solutions found in the literature, with
+ their relative technology nodes, performances (i.e., the achieved FoMs described
+ in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Figures-Of-Merit"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+), architectures (i.e., the ones described in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Architectures"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+), and applications.
+
+\change_deleted 1469408620 1669061857
+ the performances of all the TDC architectures we found in the literature.
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float table
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -3894,6 +3959,14 @@ Power [mW]
 \begin_inset VSpace defskip
 \end_inset
 
+
+\change_inserted 1469408620 1669034845
+
+\begin_inset VSpace defskip
+\end_inset
+
+
+\change_unchanged
 
 \end_layout
 
@@ -4594,10 +4667,198 @@ name "tab:Comparison-of-different"
 \end_layout
 
 \begin_layout Standard
+
+\change_inserted 1469408620 1669066368
+We can see from Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Comparison-of-different"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ that all the ASIC solutions are characterized by low power consumption
+ (i.e., in the order of some mW), low non-linearities (i.e., DNL, INL 
+\begin_inset Formula $\leq$
+\end_inset
+
+ 1 LSB), and good precision (i.e., 
+\begin_inset Formula $\sigma_{r.m.s.}$
+\end_inset
+
+ in the order of some picoseconds).
+ In fact, as explained in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:FPGA-vs.-ASIC"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, in the ASIC it is possible to perfectly tailor the TDC and maximize its
+ performances, at the expense of a higher time-to-market (i.e., years).
+ It is also worth noting that the RDL-TDC is present only in the ASIC technology
+ due to the need of compensating PVT variations of the ring oscillator (see
+ Paragraph 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "par:Ring-Delay-Line-TDC,"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+), which is not possible in an FPGA.
+ Referring to the FPGA solutions, the 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "7520401"
+literal "false"
+
+\end_inset
+
+ implementation reported in the Table relies on the SCFC architecture described
+ in Paragraph 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Shift-Clock-Fast-Counter-TDC"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, showing a limited resolution (i.e., in the order of one hundred picoseconds);
+ this is due to the already mentioned limited number of available clock
+ lines on the Kintex-7 FPGA fabric (i.e., 12).
+ Regarding instead the implementations based on a VDL, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "article1"
+literal "false"
+
+\end_inset
+
+ represents an academic solution; anyhow, as mentioned in Paragraph 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "par:Vernier-Delay-Line-TDC,"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, VDL-TDCs are generally not easy to find for FPGAs due to their mismatches
+ between the START chain and the STOP one, which lead to low resolutions
+ and unreliable measurements.
+ The TDL thus represents the best architectural solution for a TDC in FPGA.
+ We can see from the implementations reported in the Table (i.e., 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "6661408"
+literal "false"
+
+\end_inset
+
+, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "7931684"
+literal "false"
+
+\end_inset
+
+, and 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "7111361"
+literal "false"
+
+\end_inset
+
+) that the achieved LSBs and single-shot precisions are quite good (i.e.,
+ in the order of tens of picoseconds), alongside good linear behaviors (i.e.,
+ DNL, INL < 10 LSBs).
+ This is achieved thanks to the bin-by-bin calibration procedure to overcome
+ PVT variations, which will be described in detail in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Calibration"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ However, as said in Paragraph 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "par:Tapped-Delay-Line-TDC,"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, the TDL-TDC suffers from a trade-off between FSR and LSB.
+ For example, we can see in the 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "7111361"
+literal "false"
+
+\end_inset
+
+ implementation that the achieved resolution is very good (i.e., 1.7 ps), but
+ it is paid with a low FSR (i.e., 6.25 ns).
+ The 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "6661408"
+literal "false"
+
+\end_inset
+
+ implementation shows instead a better FSR (i.e., 5.24e+03 ns), which has been
+ achieved using a technique that composes the time measurement of a Fine
+ part (i.e., the one calculated by the TDL as shown in Paragraph 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "par:Tapped-Delay-Line-TDC,"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) and of a Coarse part (i.e., the count of the elapsed clock cycles from the
+ power-on of the TDC up to the generation of the time measurement).
+ This technique has been adopted also in this thesis work and will be described
+ in detail in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Nutt-Interpolation"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\change_deleted 1469408620 1669065547
 We can see good resolutions and single-shot precisions are achieved in the
  ASIC implementations, alongside an overall low power consumption.
  On the other hand, we can see how, in the FPGA approach, the TDL architectures
  are the ones characterized by the higher resolution.
+\change_unchanged
+
 \end_layout
 
 \begin_layout Subsection
