@@ -685,14 +685,25 @@ literal "false"
 \begin_inset Formula $T_{FSR}=\sum t_{p,V}$
 \end_inset
 
-; therefore, the LSB of the V-TDL is 
+; therefore
+\change_deleted 1469408620 1669037619
+, the LSB of the V-TDL is 
 \begin_inset Formula $M$
 \end_inset
 
  times smaller than the one of a single real TDL.
- In general, the propagation delays of the real-bins belonging to the different
- TDLs get averaged each other, reducing the propagation delays of the virtual-bi
-ns.
+ In general,
+\change_unchanged
+ the propagation delays of the real-bins belonging to the different TDLs
+ get averaged each other, reducing the propagation delays of the virtual-bins
+\change_inserted 1469408620 1669037649
+ of a factor 
+\begin_inset Formula $M$
+\end_inset
+
+
+\change_unchanged
+.
 \end_layout
 
 \begin_layout Standard
@@ -1169,7 +1180,7 @@ ultra-bin
 
 \begin_layout Standard
 
-\change_inserted 1469408620 1668857892
+\change_inserted 1469408620 1669037471
 On the other hand, in a Xilinx Ultrascale FPGA, the achieved minimum bin
  is equal to 1 ps, the maximum bin (i.e., the 
 \begin_inset Quotes eld
@@ -1179,7 +1190,7 @@ ultra-bin
 \begin_inset Quotes erd
 \end_inset
 
-) is equal to 19 ps, and the mean bin is equal to 5.1 ps.
+) is equal to 19 ps, and the mean bin is equal to 4.8 ps.
  
 \change_unchanged
 

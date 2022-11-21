@@ -131,11 +131,14 @@
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\author 1469408620 "Mattia Consonni"
 \end_header
 
 \begin_body
 
 \begin_layout Standard
+
+\change_deleted 1469408620 1668862887
 \begin_inset Note Note
 status open
 
@@ -171,6 +174,8 @@ Vedi NOTA 2 come esempio negativo da correggere
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 1469408620 1668862885
 \begin_inset Note Note
 status open
 
@@ -185,6 +190,8 @@ Verifica bene in tutta la tesi che tutte le ref siano coerenti (vedi NOTA1
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 1469408620 1668862883
 \begin_inset Note Note
 status open
 
@@ -201,6 +208,8 @@ Ingloba meglio lw figure nel corpo dello scritto, esse se sono continuamente
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 1469408620 1668862882
 \begin_inset Note Note
 status open
 
@@ -224,6 +233,8 @@ VANNO ASSOLUTAMENTI EVITATI (vedi NOTA4 come esempio negativo da correggere)
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 1469408620 1668862880
 \begin_inset Note Note
 status open
 
@@ -245,6 +256,8 @@ Usa bene l divisione in paragrafi:
 
 \end_inset
 
+
+\change_unchanged
 
 \end_layout
 
@@ -392,7 +405,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/time.png
-	width 80text%
+	width 65text%
 
 \end_inset
 
@@ -1180,7 +1193,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/lsb.png
-	width 50text%
+	width 40text%
 
 \end_inset
 
@@ -1283,7 +1296,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/precision.png
-	width 50text%
+	width 40text%
 
 \end_inset
 
@@ -2377,7 +2390,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/scfc.png
-	width 50text%
+	width 44text%
 
 \end_inset
 
@@ -2579,7 +2592,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/tdl.png
-	width 90text%
+	width 80text%
 
 \end_inset
 
@@ -2780,7 +2793,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/vdl.png
-	width 90text%
+	width 80text%
 
 \end_inset
 
@@ -3127,7 +3140,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/asic.png
-	width 85text%
+	width 77text%
 
 \end_inset
 

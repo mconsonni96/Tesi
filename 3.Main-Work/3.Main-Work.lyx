@@ -235,15 +235,7 @@ literal "false"
 
  version of the TDC, implemented at the Digital Electronics Laboratory (DigiLAB)
  at Politecnico di Milano, has been implemented on the 28-nm X7S technological
- node 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "9452098"
-literal "false"
-
-\end_inset
-
-, mainly in Artix-7 FPGAs, and it is a TDL-based TDC (TDL-TDC) 
+ node, mainly in Artix-7 FPGAs, and it is a TDL-based TDC (TDL-TDC) 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "9525418"
@@ -670,7 +662,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename ../2.State-of-the-Art/images/oldtdc.png
-	width 75text%
+	width 70text%
 
 \end_inset
 
@@ -751,9 +743,10 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename images/axi4stream.png
-	width 85text%
+	width 75text%
 
 \end_inset
 
@@ -1878,7 +1871,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/carry-tdl.png
-	width 90text%
+	width 83text%
 
 \end_inset
 
@@ -2070,7 +2063,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/offset.png
-	width 60text%
+	width 50text%
 
 \end_inset
 
@@ -4621,7 +4614,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/CEC.png
-	width 100text%
+	width 75text%
 
 \end_inset
 
@@ -5117,7 +5110,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/OC_IP.png
-	width 100text%
+	width 85text%
 
 \end_inset
 
@@ -5810,7 +5803,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/internal_dsp.png
-	width 100text%
+	width 90text%
 
 \end_inset
 

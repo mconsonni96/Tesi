@@ -8,8 +8,8 @@ x_axis = [1:1:length(A)]';
 figure;
 plot(x_axis,CalibTable,'LineWidth',2);
 yticks([0 10 20])
-xticks([0 250 500])
-xlim([0 512])
+xticks([0 1024 2048])
+xlim([0 2048])
 ylim([-1 20])
 % yline(0,'-k')
 title('Calibration Table', FontSize=22)

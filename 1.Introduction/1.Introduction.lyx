@@ -405,7 +405,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/time.png
-	width 80text%
+	width 65text%
 
 \end_inset
 
@@ -1193,7 +1193,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/lsb.png
-	width 50text%
+	width 40text%
 
 \end_inset
 
@@ -1296,7 +1296,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/precision.png
-	width 50text%
+	width 40text%
 
 \end_inset
 
@@ -2390,7 +2390,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/scfc.png
-	width 50text%
+	width 44text%
 
 \end_inset
 
@@ -2592,7 +2592,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/tdl.png
-	width 90text%
+	width 80text%
 
 \end_inset
 
@@ -2793,7 +2793,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/vdl.png
-	width 90text%
+	width 80text%
 
 \end_inset
 
@@ -3140,7 +3140,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/asic.png
-	width 85text%
+	width 77text%
 
 \end_inset
 
@@ -3210,7 +3210,7 @@ noprefix "false"
 \begin_inset Float table
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -3894,6 +3894,14 @@ Power [mW]
 \begin_inset VSpace defskip
 \end_inset
 
+
+\change_inserted 1469408620 1669034845
+
+\begin_inset VSpace defskip
+\end_inset
+
+
+\change_unchanged
 
 \end_layout
 

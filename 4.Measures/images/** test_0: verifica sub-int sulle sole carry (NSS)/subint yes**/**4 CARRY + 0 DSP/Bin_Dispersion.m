@@ -17,7 +17,7 @@ end
 total = sum(count);
 y_axis = (count./total).*100;
 figure;
-plot(x_axis,y_axis,'r-', 'LineWidth',3);
+plot(x_axis,y_axis,'r-', 'LineWidth',5);
 grid on;
 % yticks([0 10 20])
 % xticks([0 250 500])

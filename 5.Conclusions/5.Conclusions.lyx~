@@ -163,17 +163,12 @@ op action on the IP-Core.
  Two different TDCs have been implemented, both using the Super Wave Union
  (SuperWU) Sub-Interpolation algorithm with four Tapped Delay-Lines (TDLs)
  to improve the LSB and the single-shot precision of the TDC.
- The first implementation consists of a V-TDL made with 4 CARRY-chains in
+ The first implementation consists of a V-TDL made of 4 CARRY-chains in
  parallel, the second of a V-TDL resulting from 2 CARRY-chains + 1 FULL-DSP-chai
 ns in parallel.
  Both implementations have been tested on Xilinx's KCU105 Evaluation Board,
  hosting a Kintex-UltraScale™ FPGA (xcku040-ffva1156-2-e).
  The following experimental results have been obtained:
-\end_layout
-
-\begin_layout Itemize
-an LSB of 0.98 ps has been achieved for both implementations, along with
- a FSR of some days;
 \end_layout
 
 \begin_layout Itemize
