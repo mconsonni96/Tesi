@@ -193,8 +193,8 @@ lower power consumption and hardware occupancy have been achieved on the
 
 \begin_layout Itemize
 both implementations have negligible non-linearity since the DNLs are equal
- to 0.22 ps and 0.3 ps for the first and the second implementation, respectively.
- 
+ to 0.22 ps and 0.3 ps for the first and the second implementation, respectively,
+ and the INLs are equal to 5.8 ps and 12 ps, respectively.
 \end_layout
 
 \end_body

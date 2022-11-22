@@ -131,6 +131,7 @@
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\author -1129936465 "Nicola Lusardi"
 \end_header
 
 \begin_body
@@ -157,15 +158,39 @@ op action on the IP-Core.
  further increasing its portability, and exploiting more scaled and performant
  technologies.
  By simply choosing an option from the GUI, the user can implement the TDC
- either on Xilinx 7-Series technology (X7S) or on Xilinx Ultrascale/Ultrascale+
- (XUS/XUS+) technology, the latter pushing even more the TDC's performances
- thanks to the scaling.
+ either on 
+\change_inserted -1129936465 1669120393
+28-nm
+\change_unchanged
+ Xilinx 7-Series technology (X7S) or on
+\change_inserted -1129936465 1669120406
+ 20/16-nm
+\change_unchanged
+ Xilinx Ultrascale/Ultrascale+ (XUS/XUS+) technolog
+\change_inserted -1129936465 1669120413
+ies
+\change_deleted -1129936465 1669120412
+y
+\change_unchanged
+, the latter pushing even more the TDC's performances thanks to the scaling.
  Two different TDCs have been implemented, both using the Super Wave Union
  (SuperWU) Sub-Interpolation algorithm with four Tapped Delay-Lines (TDLs)
  to improve the LSB and the single-shot precision of the TDC.
- The first implementation consists of a V-TDL made of 4 CARRY-chains in
- parallel, the second of a V-TDL resulting from 2 CARRY-chains + 1 FULL-DSP-chai
-ns in parallel.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+di che hai fatto varie pensate sui trade off performance/are a performace/power
+ ed hai deciso cponvergere su 2 implementazioni tipo 4 CARRY-chains =hi
+ performance e 2 CARRY-chains + 1 FULL-DSP-chains per rilassare area e power
+\end_layout
+
+\end_inset
+
+The first implementation consists of a V-TDL made of 4 CARRY-chains in parallel,
+ the second of a V-TDL resulting from 2 CARRY-chains + 1 FULL-DSP-chains
+ in parallel.
  Both implementations have been tested on Xilinx's KCU105 Evaluation Board,
  hosting a Kintex-UltraScale™ FPGA (xcku040-ffva1156-2-e).
  The following experimental results have been obtained:
@@ -174,27 +199,90 @@ ns in parallel.
 \begin_layout Itemize
 a higher clock frequency, equal to 500 MHz, has been reached in both implementat
 ions thanks to the improved scaling of the XUS technology, allowing it to
- lower the Dead-Time and improve the multi-hit capability of the TDC;
+ lower the Dead-Time
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+numero
+\end_layout
+
+\end_inset
+
+ and improve the multi-hit capability of the TDC;
 \end_layout
 
 \begin_layout Itemize
-a better single-shot precision has been achieved on the first implementation
- (i.e., 2.8 ps) than on the second one (i.e., 3.8 ps), making the former more
- suitable for those applications requiring very high precision;
+a better single-shot precision has been achieved on the 
+\change_deleted -1129936465 1669120484
+first
+\change_inserted -1129936465 1669120484
+4 CARRY-chains
+\change_unchanged
+ implementation (i.e., 2.8 ps) than on the 
+\change_deleted -1129936465 1669120494
+second
+\change_inserted -1129936465 1669120494
+2 CARRY-chains + 1 FULL-DSP-chains
+\change_unchanged
+ one (i.e., 3.8 ps), making the former more suitable for those applications
+ requiring very high precision;
 \end_layout
 
 \begin_layout Itemize
-lower power consumption and hardware occupancy have been achieved on the
- second implementation than in the first, allowing the former to have a
- greater number of channels.
+lower power consumption and hardware occupancy have been achieved 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+numero
+\end_layout
+
+\end_inset
+
+on the 
+\change_deleted -1129936465 1669120501
+second
+\change_inserted -1129936465 1669120501
+2 CARRY-chains + 1 FULL-DSP-chains
+\change_unchanged
+ implementation than in the 
+\change_deleted -1129936465 1669120507
+first
+\change_inserted -1129936465 1669120507
+4 CARRY-chains
+\change_unchanged
+, allowing the former to have a greater number of channels
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+numero
+\end_layout
+
+\end_inset
+
+.
  It is thus more suitable for those applications requiring a higher number
  of physical events to be detected;
 \end_layout
 
 \begin_layout Itemize
 both implementations have negligible non-linearity since the DNLs are equal
- to 0.22 ps and 0.3 ps for the first and the second implementation, respectively,
- and the INLs are equal to 5.8 ps and 12 ps, respectively.
+ to 0.22 ps and 0.3 ps for the 
+\change_deleted -1129936465 1669120528
+first
+\change_inserted -1129936465 1669120528
+4 CARRY-chains
+\change_unchanged
+ and the 
+\change_deleted -1129936465 1669120545
+second
+\change_inserted -1129936465 1669120545
+2 CARRY-chains + 1 FULL-DSP-chains
+\change_unchanged
+ implementation, respectively, and the INLs are equal to 5.8 ps and 12 ps,
+ respectively.
 \end_layout
 
 \end_body

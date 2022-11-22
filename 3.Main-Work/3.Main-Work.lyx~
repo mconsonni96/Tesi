@@ -126,7 +126,7 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes true
+\tracking_changes false
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
@@ -235,15 +235,7 @@ literal "false"
 
  version of the TDC, implemented at the Digital Electronics Laboratory (DigiLAB)
  at Politecnico di Milano, has been implemented on the 28-nm X7S technological
- node 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "9452098"
-literal "false"
-
-\end_inset
-
-, mainly in Artix-7 FPGAs, and it is a TDL-based TDC (TDL-TDC) 
+ node, mainly in Artix-7 FPGAs, and it is a TDL-based TDC (TDL-TDC) 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "9525418"
@@ -831,9 +823,7 @@ Virtual Tapped Delay-Line (V-TDL)
 \begin_layout Standard
 The core of this thesis work relies on the migration of the V-TDL from the
  X7S to the XUS/XUS+ technology.
- The TDL has been obtained by cascading the carry chains of the adders
-\change_inserted 1469408620 1668773481
- 
+ The TDL has been obtained by cascading the carry chains of the adders 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "7448918"
@@ -841,25 +831,8 @@ literal "false"
 
 \end_inset
 
-
-\change_unchanged
 , which are the more abundant and fast resources on the FPGA for this kind
- of implementation
-\change_deleted 1469408620 1668773384
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-metti una ref su qualche articolo di TDC in FPAG Che dice che x fare le
- TDL si usano le carry block, usa paper vecchi
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-.
+ of implementation.
 \end_layout
 
 \begin_layout Subsubsection
@@ -894,9 +867,7 @@ noprefix "false"
 
 \end_inset
 
- shows its internal structure
-\change_inserted 1469408620 1668773573
-, while Table 
+ shows its internal structure, while Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:CARRY4-primitive-Port"
@@ -907,11 +878,6 @@ noprefix "false"
 \end_inset
 
  reports its Port descriptions.
-
-\change_deleted 1469408620 1668773533
- (at the top) and Port descriptions (at the bottom).
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
@@ -929,321 +895,6 @@ status open
 
 \end_inset
 
-
-\change_deleted 1469408620 1668689261
-
-\begin_inset Graphics
-	filename images/Carry4.png
-	width 60text%
-
-\end_inset
-
-
-\change_inserted 1469408620 1668689078
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-
-\change_deleted 1469408620 1668773605
-\begin_inset Tabular
-<lyxtabular version="3" rows="7" columns="4">
-<features tabularvalignment="middle">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Port
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Direction
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Width
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Function
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-O
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Output
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-4
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Carry chain XOR general data out
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-CO
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Output
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-4
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Carry-out of each stage of the carry chain
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-DI
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Input
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-4
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Carry-MUX data input
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-S
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Input
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-4
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Carry-MUX select line
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-CYINIT
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Input
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-1
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Carry-in initialization input
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-CI
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Input
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-1
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Carry cascade input
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-metti la tabella in un box tabella
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
 
 \end_layout
 
@@ -1269,13 +920,9 @@ name "fig:CARRY4-primitive-truth"
 \end_inset
 
 
-\change_inserted 1469408620 1668773540
-
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1469408620 1668773544
 \begin_inset Float table
 wide false
 sideways false
@@ -1283,8 +930,6 @@ status open
 
 \begin_layout Plain Layout
 \align center
-
-\change_inserted 1469408620 1668773596
 \begin_inset Tabular
 <lyxtabular version="3" rows="7" columns="4">
 <features tabularvalignment="middle">
@@ -1298,8 +943,6 @@ status open
 
 \begin_layout Plain Layout
 
-\change_inserted 1469408620 1668773596
-
 \series bold
 Port
 \end_layout
@@ -1310,8 +953,6 @@ Port
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668773596
 
 \series bold
 Direction
@@ -1324,8 +965,6 @@ Direction
 
 \begin_layout Plain Layout
 
-\change_inserted 1469408620 1668773596
-
 \series bold
 Width
 \end_layout
@@ -1336,8 +975,6 @@ Width
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668773596
 
 \series bold
 Function
@@ -1351,8 +988,6 @@ Function
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668773596
 O
 \end_layout
 
@@ -1362,8 +997,6 @@ O
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668773596
 Output
 \end_layout
 
@@ -1373,8 +1006,6 @@ Output
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668773596
 4
 \end_layout
 
@@ -1384,8 +1015,6 @@ Output
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668773596
 Carry chain XOR general data out
 \end_layout
 
@@ -1397,8 +1026,6 @@ Carry chain XOR general data out
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668773596
 CO
 \end_layout
 
@@ -1408,8 +1035,6 @@ CO
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668773596
 Output
 \end_layout
 
@@ -1419,8 +1044,6 @@ Output
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668773596
 4
 \end_layout
 
@@ -1430,8 +1053,6 @@ Output
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668773596
 Carry-out of each stage of the carry chain
 \end_layout
 
@@ -1443,8 +1064,6 @@ Carry-out of each stage of the carry chain
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668773596
 DI
 \end_layout
 
@@ -1454,8 +1073,6 @@ DI
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668773596
 Input
 \end_layout
 
@@ -1465,8 +1082,6 @@ Input
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668773596
 4
 \end_layout
 
@@ -1476,8 +1091,6 @@ Input
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668773596
 Carry-MUX data input
 \end_layout
 
@@ -1489,8 +1102,6 @@ Carry-MUX data input
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668773596
 S
 \end_layout
 
@@ -1500,8 +1111,6 @@ S
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668773596
 Input
 \end_layout
 
@@ -1511,8 +1120,6 @@ Input
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668773596
 4
 \end_layout
 
@@ -1522,8 +1129,6 @@ Input
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668773596
 Carry-MUX select line
 \end_layout
 
@@ -1535,8 +1140,6 @@ Carry-MUX select line
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668773596
 CYINIT
 \end_layout
 
@@ -1546,8 +1149,6 @@ CYINIT
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668773596
 Input
 \end_layout
 
@@ -1557,8 +1158,6 @@ Input
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668773596
 1
 \end_layout
 
@@ -1568,8 +1167,6 @@ Input
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668773596
 Carry-in initialization input
 \end_layout
 
@@ -1581,8 +1178,6 @@ Carry-in initialization input
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668773596
 CI
 \end_layout
 
@@ -1592,8 +1187,6 @@ CI
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668773596
 Input
 \end_layout
 
@@ -1603,8 +1196,6 @@ Input
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668773596
 1
 \end_layout
 
@@ -1614,8 +1205,6 @@ Input
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668773596
 Carry cascade input
 \end_layout
 
@@ -1627,18 +1216,12 @@ Carry cascade input
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668773544
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668773564
 CARRY4 primitive Port descriptions.
 \begin_inset CommandInset label
 LatexCommand label
@@ -1647,25 +1230,15 @@ name "tab:CARRY4-primitive-Port"
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
 
-\change_unchanged
-
-\end_layout
-
-\begin_layout Plain Layout
-
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
 
 \end_layout
 
@@ -2530,8 +2103,6 @@ FILE_PATH_NAME_CO_DELAY,
 
 \begin_layout Subsubsection
 XUS/XUS+ Version
-\change_inserted 1469408620 1668780987
-
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:XUS/XUS+-Version"
@@ -2539,45 +2110,14 @@ name "subsec:XUS/XUS+-Version"
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
 In this thesis work, the portability of the V-TDL has been improved, making
  it compatible also with 20-nm Xilinx Ultrascale (XUS) and 16-nm Ultrascale+
  (XUS+) technological nodes.
- 
-\change_inserted 1469408620 1668782917
-Let's describe this new version of the V-TDL, which has been entirely implemente
-d in this work.
-\change_deleted 1469408620 1668780633
-The XUS/XUS+ V-TDL has been entirely implemented in this work and a new
- generic, 
-\shape italic
-XUS_VS_X7S, 
-\shape default
-has been added to the IP-Core GUI
-\shape italic
-.
- 
-\shape default
-Thanks to this generic, the user can choose, in the instantiation stage,
- the technology of the V-TDL.
- We already described the TDL structure for the X7S technology in Paragraph
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:X7S-Version"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-; we will now focus on the XUS/XUS+ version.
-\change_unchanged
-
+ Let's describe this new version of the V-TDL, which has been entirely implement
+ed in this work.
 \end_layout
 
 \begin_layout Paragraph
@@ -2835,9 +2375,7 @@ noprefix "false"
 
 \end_inset
 
- shows the internal structure of the CARRY8 primitive
-\change_inserted 1469408620 1668773726
-, while Table 
+ shows the internal structure of the CARRY8 primitive, while Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:CARRY8-primitive-Port"
@@ -2847,11 +2385,7 @@ noprefix "false"
 
 \end_inset
 
- reports its Port descriptions
-\change_deleted 1469408620 1668773687
- (at the top) and its Port descriptions (at the bottom)
-\change_unchanged
-.
+ reports its Port descriptions.
 \end_layout
 
 \begin_layout Standard
@@ -2869,334 +2403,13 @@ status open
 \end_inset
 
 
-\change_deleted 1469408620 1668692951
-
-\begin_inset Graphics
-	filename images/carry8.png
-	width 60text%
-
-\end_inset
-
-
-\change_inserted 1469408620 1668692953
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-
-\change_deleted 1469408620 1668773750
-\begin_inset Tabular
-<lyxtabular version="3" rows="7" columns="4">
-<features tabularvalignment="middle">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Port
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Direction
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Width
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Function
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-CI
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Input
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-1
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Carry input for 8-bit carry or lower portion of 4-bit carry.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-CI_TOP
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Input
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-1
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Upper carry input when CARRY_TYPE=DUAL_CY4.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-CO<7:0>
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Output
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-8
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Carry-out of each stage of the carry chain.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-DI<7:0>
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Input
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-8
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Carry-MUX data input.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-O<7:0>
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Output
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-8
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Carry chain XOR general data out.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-S<7:0>
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Input
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-8
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Carry-MUX select line.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-metti la tabella in un box tabella
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
 \end_layout
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-\change_deleted 1469408620 1668693400
-Structure of the CARRY8 primitive.
-\change_inserted 1469408620 1668693403
 CARRY8 primitive structure.
-\change_unchanged
-
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:CARRY8-primitive-structure."
@@ -3211,20 +2424,12 @@ name "fig:CARRY8-primitive-structure."
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
-
-\change_inserted 1469408620 1668773694
 
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1469408620 1668773697
 \begin_inset Float table
 wide false
 sideways false
@@ -3232,8 +2437,6 @@ status open
 
 \begin_layout Plain Layout
 \align center
-
-\change_inserted 1469408620 1668773752
 \begin_inset Tabular
 <lyxtabular version="3" rows="7" columns="4">
 <features tabularvalignment="middle">
@@ -3247,8 +2450,6 @@ status open
 
 \begin_layout Plain Layout
 
-\change_inserted 1469408620 1668773752
-
 \series bold
 Port
 \end_layout
@@ -3259,8 +2460,6 @@ Port
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668773752
 
 \series bold
 Direction
@@ -3273,8 +2472,6 @@ Direction
 
 \begin_layout Plain Layout
 
-\change_inserted 1469408620 1668773752
-
 \series bold
 Width
 \end_layout
@@ -3285,8 +2482,6 @@ Width
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668773752
 
 \series bold
 Function
@@ -3300,8 +2495,6 @@ Function
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668773752
 CI
 \end_layout
 
@@ -3311,8 +2504,6 @@ CI
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668773752
 Input
 \end_layout
 
@@ -3322,8 +2513,6 @@ Input
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668773752
 1
 \end_layout
 
@@ -3333,8 +2522,6 @@ Input
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668773752
 Carry input for 8-bit carry or lower portion of 4-bit carry.
 \end_layout
 
@@ -3346,8 +2533,6 @@ Carry input for 8-bit carry or lower portion of 4-bit carry.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668773752
 CI_TOP
 \end_layout
 
@@ -3357,8 +2542,6 @@ CI_TOP
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668773752
 Input
 \end_layout
 
@@ -3368,8 +2551,6 @@ Input
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668773752
 1
 \end_layout
 
@@ -3379,8 +2560,6 @@ Input
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668773752
 Upper carry input when CARRY_TYPE=DUAL_CY4.
 \end_layout
 
@@ -3392,8 +2571,6 @@ Upper carry input when CARRY_TYPE=DUAL_CY4.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668773752
 CO<7:0>
 \end_layout
 
@@ -3403,8 +2580,6 @@ CO<7:0>
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668773752
 Output
 \end_layout
 
@@ -3414,8 +2589,6 @@ Output
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668773752
 8
 \end_layout
 
@@ -3425,8 +2598,6 @@ Output
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668773752
 Carry-out of each stage of the carry chain.
 \end_layout
 
@@ -3438,8 +2609,6 @@ Carry-out of each stage of the carry chain.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668773752
 DI<7:0>
 \end_layout
 
@@ -3449,8 +2618,6 @@ DI<7:0>
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668773752
 Input
 \end_layout
 
@@ -3460,8 +2627,6 @@ Input
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668773752
 8
 \end_layout
 
@@ -3471,8 +2636,6 @@ Input
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668773752
 Carry-MUX data input.
 \end_layout
 
@@ -3484,8 +2647,6 @@ Carry-MUX data input.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668773752
 O<7:0>
 \end_layout
 
@@ -3495,8 +2656,6 @@ O<7:0>
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668773752
 Output
 \end_layout
 
@@ -3506,8 +2665,6 @@ Output
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668773752
 8
 \end_layout
 
@@ -3517,8 +2674,6 @@ Output
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668773752
 Carry chain XOR general data out.
 \end_layout
 
@@ -3530,8 +2685,6 @@ Carry chain XOR general data out.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668773752
 S<7:0>
 \end_layout
 
@@ -3541,8 +2694,6 @@ S<7:0>
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668773752
 Input
 \end_layout
 
@@ -3552,8 +2703,6 @@ Input
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668773752
 8
 \end_layout
 
@@ -3563,8 +2712,6 @@ Input
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668773752
 Carry-MUX select line.
 \end_layout
 
@@ -3576,18 +2723,12 @@ Carry-MUX select line.
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668773697
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668773713
 CARRY8 primitive Port descriptions.
 \begin_inset CommandInset label
 LatexCommand label
@@ -3596,25 +2737,15 @@ name "tab:CARRY8-primitive-Port"
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
 
-\change_unchanged
-
-\end_layout
-
-\begin_layout Plain Layout
-
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
 
 \end_layout
 
@@ -3715,28 +2846,7 @@ The sampling process is managed in the same way as before, with the possibility
  operating frequency, thus allowing the TDC-clock to run up to 500 MHz.
 \end_layout
 
-\begin_layout Standard
-
-\change_deleted 1469408620 1668780913
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Qua ci vorrà una Par 3.2.3 di integrazione hw tra 3.2.1 e 3.2.2; dove fai vedere
- uno Tuo vecchio IP in cui hai integrato la X7S e la US+ in un unico IP-Core
- in modo da avere un IP compatibile con tutte le fam Xilinx
-\end_layout
-
-\end_inset
-
-
-\change_inserted 1469408620 1668780652
-
-\end_layout
-
 \begin_layout Subsubsection
-
-\change_inserted 1469408620 1668787587
 IP-Core Integration of both V-TDL versions
 \begin_inset CommandInset label
 LatexCommand label
@@ -3748,8 +2858,6 @@ name "subsec:IP-Core-Integration-of"
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1469408620 1668781714
 The X7S V-TDL described in Paragraph 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -3797,16 +2905,12 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1469408620 1668781637
 \begin_inset Float figure
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668782568
 \begin_inset Graphics
 	filename images/V-TDL_first_IP.png
 	width 100col%
@@ -3817,14 +2921,20 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668781637
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+V-TDL IP-Core
+\begin_inset Note Note
+status open
 
-\change_inserted 1469408620 1668781695
-V-TDL IP-Core.
+\begin_layout Plain Layout
+evidenzia nella didascalia il parametro XUS vs X7S
+\end_layout
+
+\end_inset
+
+.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:V-TDL-IP-Core."
@@ -3832,25 +2942,15 @@ name "fig:V-TDL-IP-Core."
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
 
-\change_unchanged
-
-\end_layout
-
-\begin_layout Plain Layout
-
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
 
 \end_layout
 

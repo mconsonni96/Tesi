@@ -126,11 +126,12 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes true
+\tracking_changes false
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\author -1129936465 "Nicola Lusardi"
 \author 1469408620 "Mattia Consonni"
 \end_header
 
@@ -327,6 +328,16 @@ In this thesis work, a fully-digital TIM, a.k.a.
  benefits of the scaling and achieving high resolution, excellent measurement
  precision, and high sampling rates.
 \change_unchanged
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+riprendi dall'abstract anche la questione delle 2 TDL e dei trade-offs
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
@@ -1118,7 +1129,7 @@ TDC
 \change_unchanged
 , implemented in 
 \change_inserted 1469408620 1669111642
-an FPGA.
+FPGA.
  
 \change_deleted 1469408620 1669111635
 Field Programmable Gate Array (FPGA) will be presented.
@@ -3273,15 +3284,9 @@ noprefix "false"
 
 \end_inset
 
- 
-\change_inserted 1469408620 1669061791
-reports
-\change_deleted 1469408620 1669061792
-summarizes
-\change_inserted 1469408620 1669062081
- some of the existing academic TDC solutions found in the literature, with
- their relative technology nodes, performances (i.e., the achieved FoMs described
- in Section 
+ reports some of the existing academic TDC solutions found in the literature,
+ with their relative technology nodes, performances (i.e., the achieved FoMs
+ described in Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Figures-Of-Merit"
@@ -3301,12 +3306,25 @@ noprefix "false"
 
 \end_inset
 
-), and applications.
-
-\change_deleted 1469408620 1669061857
- the performances of all the TDC architectures we found in the literature.
+), and applications
+\change_inserted -1129936465 1669116654
+ (i.e., describe in Section
 \change_unchanged
+ 
+\begin_inset Note Note
+status open
 
+\begin_layout Plain Layout
+REF DINAMICA
+\end_layout
+
+\end_inset
+
+
+\change_inserted -1129936465 1669116654
+)
+\change_unchanged
+.
 \end_layout
 
 \begin_layout Standard
@@ -3907,6 +3925,16 @@ N.A.
 
 \begin_layout Plain Layout
 1e+08
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+sicuro? 0.1 sec di dead-time?
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -4145,6 +4173,16 @@ Kintex-7
 
 \begin_layout Plain Layout
 Actel
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+130-nm
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -4677,6 +4715,22 @@ N.A.
 \end_inset
 
 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nessuna power trovato in FPGA? magari cita un nostro lavoro che è riportata
+ giusto per avere un indice.
+\end_layout
+
+\begin_layout Plain Layout
+Indica anche i nm ...
+ per esempio Actel che nodo tecnologico ha?
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -4697,6 +4751,16 @@ name "tab:Comparison-of-different"
 \end_inset
 
 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+A queste tabelle manca il num di canali
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -4705,8 +4769,6 @@ name "tab:Comparison-of-different"
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1469408620 1669066418
 We can see from Table 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -4727,7 +4789,13 @@ noprefix "false"
 \end_inset
 
  in the order of some picoseconds).
- In fact, as explained in Section 
+ 
+\change_deleted -1129936465 1669117064
+In fact, a
+\change_inserted -1129936465 1669117064
+A
+\change_unchanged
+s explained in Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:FPGA-vs.-ASIC"
@@ -4737,9 +4805,46 @@ noprefix "false"
 
 \end_inset
 
-, in the ASIC it is possible to perfectly tailor the TDC and maximize its
- performances, at the expense of a higher time-to-market (i.e., years).
- It is also worth noting that the RDL-TDC is present only in the ASIC technology
+, 
+\change_deleted -1129936465 1669117069
+in the 
+\change_unchanged
+ASIC
+\change_inserted -1129936465 1669117075
+s
+\change_unchanged
+ 
+\change_inserted -1129936465 1669117086
+make 
+\change_unchanged
+it 
+\change_deleted -1129936465 1669117093
+is 
+\change_unchanged
+possible to perfectly tailor the TDC and maximize 
+\change_deleted -1129936465 1669117100
+its
+\change_inserted -1129936465 1669117101
+the
+\change_unchanged
+ performance
+\change_deleted -1129936465 1669117104
+s
+\change_unchanged
+, at the expense of a higher time-to-market (i.e., years).
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+-> sottolinea che è il + preciso ed ha un consmo pratiamente nulla
+\end_layout
+
+\end_inset
+
+I
+\change_inserted 1469408620 1669066418
+t is also worth noting that the RDL-TDC is present only in the ASIC technology
  due to the need of compensating PVT variations of the ring oscillator (see
  Paragraph 
 \begin_inset CommandInset ref
@@ -4751,8 +4856,37 @@ noprefix "false"
 
 \end_inset
 
-), which is not possible in an FPGA.
- Referring to the FPGA solutions, the 
+), which is not possible in an FPGA
+\change_unchanged
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+<-
+\end_layout
+
+\end_inset
+
+
+\change_inserted 1469408620 1669066418
+.
+ 
+\change_unchanged
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Qui sottolinea che però puoi mettere tabnti canali (avrai aggiunto il num
+ ch come linea della tabella quidni pu fare il paragoner)->
+\end_layout
+
+\end_inset
+
+
+\change_inserted 1469408620 1669066418
+Referring to the FPGA solutions, the 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "7520401"
@@ -4774,6 +4908,31 @@ noprefix "false"
 , showing a limited resolution (i.e., in the order of one hundred picoseconds);
  this is due to the already mentioned limited number of available clock
  lines on the Kintex-7 FPGA fabric (i.e., 12).
+\change_unchanged
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+<-
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Qui devi far notare che la Actel è una 130-nm e meno la tecnologia è scalata
+ e più i mismatch sono ridotti quindi la VDL possibile cosa che non è con
+ le attuali <28-nm!->
+\end_layout
+
+\end_inset
+
+
+\change_inserted 1469408620 1669066418
  Regarding instead the implementations based on a VDL, 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -4795,6 +4954,17 @@ noprefix "false"
 , VDL-TDCs are generally not easy to find for FPGAs due to their mismatches
  between the START chain and the STOP one, which lead to low resolutions
  and unreliable measurements.
+\change_unchanged
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+<-
+\end_layout
+
+\end_inset
+
  The TDL thus represents the best architectural solution for a TDC in FPGA.
  We can see from the implementations reported in the Table (i.e., 
 \begin_inset CommandInset citation
@@ -4835,7 +5005,9 @@ noprefix "false"
 \end_inset
 
 .
- However, as said in Paragraph 
+ 
+\change_inserted 1469408620 1669066418
+However, as said in Paragraph 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "par:Tapped-Delay-Line-TDC,"

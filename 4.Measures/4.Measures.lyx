@@ -126,7 +126,7 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes true
+\tracking_changes false
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
@@ -149,32 +149,8 @@ name "sec:Measurements"
 \end_layout
 
 \begin_layout Standard
-The experimental results 
-\change_inserted 1469408620 1669039733
-achieved
-\change_deleted 1469408620 1669039731
-obtained
-\change_unchanged
- by the
-\change_inserted 1469408620 1668793385
- 
-\change_deleted 1469408620 1668793378
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-occhio nuovo e vacchio non sonon bellid a usare, vedi nmote passate Main
- Work
-\end_layout
-
-\end_inset
-
-
-\change_inserted 1469408620 1668793395
-XUS/X
-\change_unchanged
-US+ TDC implementation will now be shown.
+The experimental results achieved by the XUS/XUS+ TDC implementation will
+ now be shown.
  All the performances of the TDC have been tested on the KCU105 Evaluation
  Board by Xilinx 
 \begin_inset CommandInset citation
@@ -270,9 +246,7 @@ TDC_Calib
 \end_inset
 
  in Figure).
- The most relevant are the Memory Management Engine (MME)
-\change_inserted 1469408620 1668793680
- 
+ The most relevant are the Memory Management Engine (MME) 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "9841570"
@@ -288,25 +262,8 @@ literal "false"
 
 \end_inset
 
-
-\change_deleted 1469408620 1668793685
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-https://ieeexplore.ieee.org/abstract/document/9841570, https://ieeexplore.ieee.org/d
-ocument/9507844 
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
 , which manages the communication of the time measurements to the PC, and
- the Histogrammer
-\change_inserted 1469408620 1668793744
- 
+ the Histogrammer 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "9762330"
@@ -314,20 +271,6 @@ literal "false"
 
 \end_inset
 
-
-\change_deleted 1469408620 1668793746
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-https://ieeexplore.ieee.org/abstract/document/9762330
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
  (i.e., 
 \begin_inset Quotes eld
 \end_inset
@@ -501,23 +444,21 @@ The experiments that have been carried out are the following ones:
 
 \begin_layout Itemize
 Verification of the benefits given by SuperWU Sub-Interpolation, in a V-TDL
- is composed of CARRY-chains only: the 
-\change_inserted 1469408620 1669038822
-mean bins' propagation delay (
+ is composed of CARRY-chains only: the mean bins' propagation delay (
 \begin_inset Formula $\overline{t_{p,V}}$
 \end_inset
 
-)
-\change_deleted 1469408620 1669038350
-Resolution (LSB)
-\change_unchanged
-, the single-shot precision (
+), the single-shot precision (
 \begin_inset Formula $\sigma_{r.m.s.}$
 \end_inset
 
 ), and the hardware utilization have been measured, in the two cases where
  the V-TDL is composed of either a single TDL or 4 TDLs in parallel.
+
+\change_deleted -1129936465 1669118931
  
+\change_unchanged
+
 \end_layout
 
 \begin_layout Itemize
@@ -564,21 +505,6 @@ noprefix "false"
 \end_inset
 
  shows the obtained results.
-\change_deleted 1469408620 1668975194
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-riporta anche la statistica (istogramma dei bin non zero) delle CT per far
- balzare meglio all'occhio i benefici della sub-Int
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
@@ -630,18 +556,12 @@ name "fig:Comparison-of-the"
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1469408620 1668975466
 We can also see in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -658,8 +578,6 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1469408620 1669040371
 \begin_inset Float figure
 wide false
 sideways false
@@ -667,8 +585,6 @@ status open
 
 \begin_layout Plain Layout
 \align center
-
-\change_inserted 1469408620 1669024310
 \begin_inset Graphics
 	filename images/** test_0: verifica sub-int sulle sole carry (NSS)/subint no**/Bin-Dispersion.png
 	width 50text%
@@ -683,18 +599,12 @@ status open
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668975275
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669040710
 Comparison between the dispersion of the bins' propagation delays in the
  case without Sub-Interpolation (on the left) and with Sub-Interpolation
  (on the right).
@@ -705,25 +615,15 @@ name "fig:Comparison-between-the-2"
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
 
-\change_unchanged
-
-\end_layout
-
-\begin_layout Plain Layout
-
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
 The implementation using Sub-Interpolation produces a four-times wider CT
  than the one without Sub-Interpolation.
  This is because the SuperWU algorithm produces 
@@ -787,51 +687,7 @@ real
  elapsing between the events on the two channels; the x-axis of the histogram
  represents the time difference, in ps, while the y-axis represents the
  number of occurrences of that specific time measurement.
- 
-\change_deleted 1469408620 1668976457
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Occhio che la sigma della gaussiana sta considerando quella del ch1 e del
- che; 
-\begin_inset Formula $\sigma_{r.m.s.}=\sqrt{\sigma_{CH1}^{2}+\sigma_{CH2}^{2}}$
-\end_inset
-
- essendo i 2 cananli simili puoi assumere 
-\begin_inset Formula $\sigma_{CH1}\backsimeq\sigma_{CH2}$
-\end_inset
-
-ovvero 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-
-\begin_inset Formula $\sigma_{CH}$
-\end_inset
-
- quindi la risoluzione di un solo canale è all'incirca stimabile come 
-\begin_inset Formula $\sigma_{CH}\backsimeq\sigma_{r.m.s.}/\sqrt{2}$
-\end_inset
-
-per cui riviedi le misure dividendo quando richiesto perr sqrt(2)
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-Therefore, as explained in Paragraph 
+ Therefore, as explained in Paragraph 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Precision"
@@ -850,8 +706,6 @@ noprefix "false"
 
  of the fitted Gaussian curve will be used as the FoM of the single-shot
  precision of the TDC.
-
-\change_inserted 1469408620 1668976235
  Since the time measurement is carried out between two channels, the following
  relation holds:
 \begin_inset Formula 
@@ -865,8 +719,6 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1469408620 1668976306
 where 
 \begin_inset Formula $\sigma_{CH}$
 \end_inset
@@ -875,8 +727,6 @@ where
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1469408620 1668976406
 Since the two channels are very similar, we can assume that 
 \begin_inset Formula $\sigma_{CH1}\simeq\sigma_{CH2}$
 \end_inset
@@ -943,37 +793,24 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Comparison between the single-shot precision extracted 
-\change_deleted 1469408620 1669041661
-by
-\change_inserted 1469408620 1669041662
-from
-\change_unchanged
- the Histograms representing the time measurement, in the case without Sub-Inter
-polation (on the left
-\change_inserted 1469408620 1669040729
-, i.e., 
-\begin_inset Formula $\sigma_{r.m.s.}=5.13~ps,$
+Comparison between the single-shot precision extracted from the Histograms
+ representing the time measurement, in the case without Sub-Interpolation
+ (on the left, i.e., 
+\begin_inset Formula $\sigma_{r.m.s.}=5.13~ps\,r.m.s.,$
 \end_inset
 
  
-\begin_inset Formula $\sigma_{CH}=3.6~ps$
+\begin_inset Formula $\sigma_{CH}=3.6~ps\,r.m.s.$
 \end_inset
 
-
-\change_unchanged
-) and with Sub-Interpolation (on the right
-\change_inserted 1469408620 1669040734
-, i.e., 
-\begin_inset Formula $\sigma_{r.m.s.}=2.8~ps,$
+) and with Sub-Interpolation (on the right, i.e., 
+\begin_inset Formula $\sigma_{r.m.s.}=2.8~ps\,r.m.s.,$
 \end_inset
 
  
-\begin_inset Formula $\sigma_{CH}=1.98~ps$
+\begin_inset Formula $\sigma_{CH}=1.98~ps\,r.m.s.$
 \end_inset
 
-
-\change_unchanged
 ).
 \begin_inset CommandInset label
 LatexCommand label
@@ -981,21 +818,6 @@ name "fig:Comparison-between-the"
 
 \end_inset
 
-
-\change_deleted 1469408620 1668977389
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-nelle fig va bene lascare 5 e 2 ps come rms ma riporta nella caption che
- significa 5/sqrt(2) e 2/sqrt(2) per un canale del TDC
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
 
 \end_layout
 
@@ -1014,8 +836,6 @@ nelle fig va bene lascare 5 e 2 ps come rms ma riporta nella caption che
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1469408620 1669041889
 It is possible to retrieve from the CT in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1031,48 +851,15 @@ noprefix "false"
 \end_inset
 
 ) of the TDL, resulting in 4.8 ps.
- 
-\change_unchanged
-The 
-\change_deleted 1469408620 1669038309
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-più che LSB è il bin medio, LSB è dato da Tclk/2^BIT_RESOLUTION ma non starei
- a speigare questa cosa
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
- mean propagation delay of the virtual bin
-\change_inserted 1469408620 1669021957
-s
-\change_unchanged
- (
+ The mean propagation delay of the virtual bins (
 \begin_inset Formula $\overline{t_{p,V}}$
 \end_inset
 
-) of the 
-\change_inserted 1469408620 1669026412
-V-
-\change_unchanged
-TDL is 
-\change_deleted 1469408620 1669022004
-also
-\change_inserted 1469408620 1669022004
-instead
-\change_unchanged
- improved by a factor of 
+) of the V-TDL is instead improved by a factor of 
 \begin_inset Formula $M=4$
 \end_inset
 
  thanks to the Sub-Interpolation, and it is equal to:
-\change_inserted 1469408620 1668981406
-
 \begin_inset Formula 
 \begin{equation}
 \overline{t_{p,V}}=\frac{\overline{t_{p,B}}}{M}=\frac{4.8~ps}{4}=1.2~ps\label{eq:meanvirtual}
@@ -1081,59 +868,39 @@ instead
 \end_inset
 
 
-\change_unchanged
-
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 1469408620 1668977607
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-Esplicita i conti di 
-\begin_inset Formula $\overline{t_{p,V}}$
-\end_inset
-
- con i bin che hai utilkizzato
+fai lo stesso ragionamento dei benefici di un fattore M per l'ultra-bin
 \end_layout
 
 \end_inset
 
-
-\change_inserted 1469408620 1668977608
 
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted 1469408620 1668983915
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-
-\change_deleted 1469408620 1668978800
-qui dovresti fare un confronto rispetto alla X7S dove la catena ha solo
- 256 x 4 bin (fattore 2) che si traduce in un occupazione hw maggiore 
-\change_unchanged
--> Fai una tabella simile alla 7 in cui metti i valori della serie 7 e confronta
-ti (li il 
-\begin_inset Formula $\overline{t_{p,B}}=12$
-\end_inset
-
- e 
-\begin_inset Formula $\overline{t_{p,V}}=3$
-\end_inset
-
- con M=4; le sigma invece è 12 ps)
+Di chiaramente che in Tab9 ci sono i risultati delo tuo exp che il confronti
+ con l'iP implementato in serie-7->
 \end_layout
 
 \end_inset
 
 
-\change_inserted 1469408620 1668978616
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+devi dire che è dovuto ad un bin + lento per lo scaling minore
+\end_layout
+
+\end_inset
+
 In the X7S TDC version, each TDL was composed of a number 
 \begin_inset Formula $N_{B}$
 \end_inset
@@ -1145,13 +912,7 @@ In the X7S TDC version, each TDL was composed of a number
  was implemented.
  Therefore, the XUS TDC implemented in this work is characterized by a doubled
  hardware occupancy than the X7S version.
-
-\change_unchanged
- Table
-\change_inserted 1469408620 1668978891
-s
-\change_unchanged
- 
+ Tables 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:Achievable-performances-of"
@@ -1161,9 +922,7 @@ noprefix "false"
 
 \end_inset
 
- 
-\change_inserted 1469408620 1668978900
-and 
+ and 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:Reference-performances-of"
@@ -1173,17 +932,32 @@ noprefix "false"
 
 \end_inset
 
- 
-\change_unchanged
-summarize
-\change_deleted 1469408620 1668978902
-s
-\change_unchanged
- all the achieved performances and the used hardware resources
-\change_inserted 1469408620 1668979003
- in the XUS CARRY8-based TDC and X7S CARRY4-based TDC, respectively
-\change_unchanged
-.
+ summarize all the achieved performances and the used hardware resources
+ in the XUS CARRY8-based TDC and X7S CARRY4-based TDC, respectively.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+->
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Di che sub-interpolation per M>4 erano troppo area e power cost e l'effetto
+ della sub-Inter iniziava a divemntare infefficae 5.3.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1195,7 +969,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="10" columns="3">
+<lyxtabular version="3" rows="11" columns="3">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -1318,6 +1092,41 @@ TDL mean propagation delay (
 
 \begin_layout Plain Layout
 1.2 ps
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted -1129936465 1669119294
+TDL ultra-bin
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted -1129936465 1669119286
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted -1129936465 1669119286
+
 \end_layout
 
 \end_inset
@@ -1478,23 +1287,7 @@ LUT/FF/BRAM (for one ch.)
 \begin_inset Text
 
 \begin_layout Plain Layout
-Number of Chs
-\change_inserted 1469408620 1668979232
- (*)
-\change_deleted 1469408620 1668979222
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-metti un * e di che è in XKU
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
+Number of Chs (*)
 \end_layout
 
 \end_inset
@@ -1523,6 +1316,16 @@ up to 62
 \end_inset
 
 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+sarebbe bello inserire anche la potenza media del CH
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -1531,11 +1334,7 @@ up to 62
 \begin_layout Plain Layout
 Achievable performances of the XUS CARRY8-based TDC, with and without Sub-Interp
 olation.
-
-\change_inserted 1469408620 1669022182
  (*) in the xcku040-ffva1156-2-e.
-\change_unchanged
-
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:Achievable-performances-of"
@@ -1550,14 +1349,8 @@ name "tab:Achievable-performances-of"
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
-
-\change_inserted -1129936465 1668766419
 
 \end_layout
 
@@ -1570,7 +1363,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="9" columns="3">
+<lyxtabular version="3" rows="10" columns="3">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -1693,6 +1486,41 @@ TDL mean propagation delay (
 
 \begin_layout Plain Layout
 3 ps
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted -1129936465 1669119302
+TDL ultra-bin
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted -1129936465 1669119310
+70 ps
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted -1129936465 1669119314
+20 ps
 \end_layout
 
 \end_inset
@@ -1833,24 +1661,7 @@ LUT/FF/BRAM (for one ch.)
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669022103
 1185/1840/1.5
-\change_deleted 1469408620 1669022104
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-cercale nn le ricordo su 2 piedi ...
- questo lo usa jflorentino
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -1859,30 +1670,23 @@ cercale nn le ricordo su 2 piedi ...
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668979707
 3399/4615/2
-\change_deleted 1469408620 1668979662
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-cercale nn le ricordo su 2 piedi ...
- posso guardare su viv
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
 \end_layout
 
 \end_inset
 </cell>
 </row>
 </lyxtabular>
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+sarebbe bello inserire anche la potenza media del CH
+\end_layout
 
 \end_inset
 
@@ -1895,16 +1699,12 @@ cercale nn le ricordo su 2 piedi ...
 \begin_layout Plain Layout
 Reference performances of the X7S CARRY4-based TDC, with and without Sub-Interpo
 lation.
-\change_inserted 1469408620 1668978884
-
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:Reference-performances-of"
 
 \end_inset
 
-
-\change_unchanged
 
 \end_layout
 
@@ -1931,80 +1731,6 @@ name "subsec:Preliminary-studies-about"
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted 1469408620 1668983141
-Since, as we said earlier, the DSP48E2 block is used in Dual 24-bit mode,
- from now on we will refer to it by calling it 
-\begin_inset Quotes eld
-\end_inset
-
-FULL-DSP
-\begin_inset Quotes erd
-\end_inset
-
- if it exploits both its halves to generate two thermometric codes, while
- we will call it 
-\begin_inset Quotes eld
-\end_inset
-
-HALF-DSP
-\begin_inset Quotes erd
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-ripeti questi temini full ed half dsp dove parli del DSP se non lo hai fatto
- e fai esplicitamente rif al paragrafo (come nel cap 4)
-\end_layout
-
-\end_inset
-
- if it produces just one thermometric code, provided by just one of its
- halves.
- Obviously, from the hardware point of view, nothing changes; in both cases,
- it is just the same dedicated DSP block, placed by Xilinx on the FPGA fabric.
- Their difference is related to the collection of the generated thermometric
- codes only, since a “FULL-DSP” generates two thermometric codes at the
- output, both contributing to the Sub-Interpolation process in the Decoder
- module, while a “HALF-DSP” generates just one thermometric code, acting
- therefore as a not sub-interpolated case.
- The reason to use the DSP-chain rather than the CARRY-chain is the already-ment
-ioned compactness of the architecture and, most of all, the saving of external
- FFs on the FPGA fabric, since the ones integrated inside the DSPs are used
- to sample the TDL.
- This allows to implement a greater number of channels, which is a very
- useful feature in applications requiring the detection of a great number
- of physical events.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-di inioltre che le carry-chain tagliano la fpga per la loro lunghezza limitando
- polto ill place and route; il dsp invece ha hw dedicato nn rompendo le
- scatoler ...
- in virtù di questo sarebbe bello uno screan shot di una reg della FPGA
- dove mostri una catena in DSP ed una in carry NELL ULTIMO PAR AL CAP 4
- .
- NON QUI.
- FOTO FLOORPLAN.
-\end_layout
-
-\end_inset
-
- However, the drawback of the DSP-chain is the presence of huge 
-\begin_inset Quotes eld
-\end_inset
-
-ultra-bins
-\begin_inset Quotes erd
-\end_inset
-
-.
- 
-\change_inserted 1469408620 1668983176
 In order to validate the advantages and drawbacks described in Section 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2027,9 +1753,7 @@ noprefix "false"
 \end_inset
 
  for the adopted nomenclature).
- 
-\change_unchanged
-Figure 
+ Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Calibration-Table-of-3"
@@ -2047,28 +1771,11 @@ ultra-bins
 \begin_inset Quotes erd
 \end_inset
 
- have a propagation delay 
-\change_deleted 1469408620 1669042226
-of
-\change_inserted 1469408620 1669042227
-around
-\change_unchanged
- 260 ps, while in the FULL-DSP-chain they are around 200 ps, thanks to the
- Sub-Interpolation between the two halves.
+ have a propagation delay around 260 ps, while in the FULL-DSP-chain they
+ are around 200 ps, thanks to the Sub-Interpolation between the two halves.
+
+\change_deleted -1129936465 1669119355
  
-\change_deleted 1469408620 1668983216
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-riporta anche la statistica (istogramma dei bin non zero) delle CT per far
- balzare meglio all'occhio i benefici della sub-Int
-\end_layout
-
-\end_inset
-
-
 \change_unchanged
 
 \end_layout
@@ -2121,18 +1828,12 @@ name "fig:Calibration-Table-of-3"
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1469408620 1669042318
 We can also see in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2153,8 +1854,6 @@ status open
 
 \begin_layout Plain Layout
 \align center
-
-\change_inserted 1469408620 1668983438
 \begin_inset Graphics
 	filename images/**test_1: corr e combinazioni 1 e 1 (precisione)/**half dsp vs. full dsp/**0,5 DSP/Bin-Dispersion.png
 	width 50text%
@@ -2169,18 +1868,12 @@ status open
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668983288
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669042335
 Comparison between the dispersion of the bins' propagation delays in the
  HALF-DSP-chain case (on the left) and in the FULL-DSP-chain case (on the
  right).
@@ -2191,18 +1884,10 @@ name "fig:Comparison-between-the-3"
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -2232,25 +1917,9 @@ noprefix "false"
 
 \end_inset
 
- lead to a very bad single-shot precision of the time measurement
-\change_deleted 1469408620 1668983638
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-conceto del 5.1 sulla sqrt(2)
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-.
+ lead to a very bad single-shot precision of the time measurement.
  This problem can be solved only by placing CARRY-chains in parallel to
- the DSP-chains
-\change_inserted 1469408620 1669042506
- (see Paragraph 
+ the DSP-chains (see Paragraph 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:1-CARRY-chain-+"
@@ -2260,13 +1929,11 @@ noprefix "false"
 
 \end_inset
 
-)
-\change_unchanged
-.
+).
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -2289,18 +1956,9 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Comparison between the single-shot precision extracted 
-\change_deleted 1469408620 1669041671
-b
-\change_inserted 1469408620 1669041672
-from
-\change_deleted 1469408620 1669041674
-y
-\change_unchanged
- the Histograms representing the time measurement, in the case of a HALF-DSP-cha
-in (on the left
-\change_inserted 1469408620 1668983723
-, i.e., 
+Comparison between the single-shot precision extracted from the Histograms
+ representing the time measurement, in the case of a HALF-DSP-chain (on
+ the left, i.e., 
 \begin_inset Formula $\sigma_{r.m.s.}=94.5~ps$
 \end_inset
 
@@ -2308,11 +1966,7 @@ in (on the left
 \begin_inset Formula $\sigma_{CH}=66.8~ps$
 \end_inset
 
-
-\change_unchanged
-) and of a FULL-DSP-chain (on the right
-\change_inserted 1469408620 1668983828
-, i.e., 
+) and of a FULL-DSP-chain (on the right, i.e., 
 \begin_inset Formula $\sigma_{r.m.s.}=44~ps$
 \end_inset
 
@@ -2320,8 +1974,6 @@ in (on the left
 \begin_inset Formula $\sigma_{CH}=31.1~ps$
 \end_inset
 
-
-\change_unchanged
 ).
 \begin_inset CommandInset label
 LatexCommand label
@@ -2337,16 +1989,23 @@ name "fig:Comparison-between-the-1"
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Fai notare come il bin medio segue la reola della sub-int ma questo non
+ è vero per l'ultra bin ..
+ vedi par delle correlazioni per una miglio spiegazione 5.3
+\end_layout
+
+\end_inset
+
 Since both these cases exploit the same hardware resources (i.e., the same
  DSP48E2 blocks), and, since there is a benefit on the 
 \begin_inset Quotes eld
@@ -2358,21 +2017,7 @@ ultra-bin
 
  in the second case, there are no reasons not to always use the FULL-DSP-chain
  in practical contexts.
- 
-\change_deleted 1469408620 1668983978
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-riporta le occupazioni d'ared come la tab 7
-\end_layout
-
-\end_inset
-
-
-\change_inserted 1469408620 1668984132
-Table 
+ Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:Achievable-performances-of-1"
@@ -2391,10 +2036,8 @@ status open
 
 \begin_layout Plain Layout
 \align center
-
-\change_inserted 1469408620 1668984163
 \begin_inset Tabular
-<lyxtabular version="3" rows="9" columns="3">
+<lyxtabular version="3" rows="10" columns="3">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -2404,11 +2047,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668984192
 Feature
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -2417,11 +2056,7 @@ Feature
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668984200
 HALF-DSP-based TDC
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -2430,11 +2065,7 @@ HALF-DSP-based TDC
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668984207
 FULL-DSP-based TDC
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -2445,8 +2076,6 @@ FULL-DSP-based TDC
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668984229
 Clock TDC Freq.
 \end_layout
 
@@ -2456,11 +2085,7 @@ Clock TDC Freq.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668984237
 500 MHz
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -2480,8 +2105,6 @@ Clock TDC Freq.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668984229
 \begin_inset Formula $N_{B}/M/N_{V}$
 \end_inset
 
@@ -2494,11 +2117,7 @@ Clock TDC Freq.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668984293
 512/1/512
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -2507,11 +2126,7 @@ Clock TDC Freq.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668984309
 512/2/1024
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -2522,8 +2137,6 @@ Clock TDC Freq.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668984229
 TDL mean propagation delay (
 \begin_inset Formula $\overline{t_{p,V}}$
 \end_inset
@@ -2537,11 +2150,7 @@ TDL mean propagation delay (
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668984404
 14 ps
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -2550,11 +2159,7 @@ TDL mean propagation delay (
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668984475
 7 ps
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -2566,7 +2171,40 @@ TDL mean propagation delay (
 
 \begin_layout Plain Layout
 
-\change_inserted 1469408620 1668984229
+\change_inserted -1129936465 1669119421
+TDL ultra-bin
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted -1129936465 1669119414
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted -1129936465 1669119414
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 Full-Scale Range
 \end_layout
 
@@ -2576,11 +2214,7 @@ Full-Scale Range
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668984480
 some days
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -2600,8 +2234,6 @@ some days
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668986291
 Single-Shot Precision (
 \begin_inset Formula $\sigma_{r.m.s.}$
 \end_inset
@@ -2615,11 +2247,7 @@ Single-Shot Precision (
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668984554
 94.5 ps
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -2628,11 +2256,7 @@ Single-Shot Precision (
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668984564
 44 ps
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -2643,8 +2267,6 @@ Single-Shot Precision (
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668984229
 Max.
  Channel Rate
 \end_layout
@@ -2655,11 +2277,7 @@ Max.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668984570
 200 MHz
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -2679,8 +2297,6 @@ Max.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668984608
 Dead-Time
 \end_layout
 
@@ -2690,11 +2306,7 @@ Dead-Time
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668984608
 2 ns
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -2714,8 +2326,6 @@ Dead-Time
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668984608
 LUT/FF/BRAM (for one ch.)
 \end_layout
 
@@ -2725,8 +2335,6 @@ LUT/FF/BRAM (for one ch.)
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668984680
 2216/2565/1.5
 \end_layout
 
@@ -2747,18 +2355,22 @@ LUT/FF/BRAM (for one ch.)
 \end_inset
 
 
-\change_unchanged
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+sarebbe bello inserire anche la potenza media del CH
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668984056
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668984121
 Achievable performances of the HALF-DSP-based TDC and of the FULL-DSP-based
  TDC.
 \begin_inset CommandInset label
@@ -2768,56 +2380,27 @@ name "tab:Achievable-performances-of-1"
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
 
-\change_unchanged
-
-\end_layout
-
-\begin_layout Plain Layout
-
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
 
 \end_layout
 
 \begin_layout Subsection
-
-\change_deleted 1469408620 1668984732
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Fai un paragrafo nuovo, è un nuovo arg
-\end_layout
-
-\end_inset
-
-
-\change_inserted 1469408620 1669022226
 Preliminary studies about the introduction of the DSP-chains in parallel
  to the CARRY-chains
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
-This
-\change_deleted 1469408620 1668984772
- second
-\change_unchanged
- experiment consisted of acquiring the CT of the V-TDL and studying how
- much the Sub-Interpolation algorithm can be beneficial with the introduction
- of DSP-chains alongside the CARRY-chains.
+This experiment consisted of acquiring the CT of the V-TDL and studying
+ how much the Sub-Interpolation algorithm can be beneficial with the introductio
+n of DSP-chains alongside the CARRY-chains.
  In this preliminary study about the SuperWU effectiveness, a Sub-Interpolation
  of order 
 \begin_inset Formula $N=2$
@@ -2872,10 +2455,6 @@ name "fig:Different-combinations-of"
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -3088,15 +2667,9 @@ noprefix "false"
 
 \end_inset
 
- 
-\change_inserted 1469408620 1668984964
-(at the top) 
-\change_unchanged
-we can see that the CT of the resulting V-TDL is quite flat, meaning that
- the propagation delays along the bins are homogeneous and the SuperWU algorithm
- was effective.
-
-\change_inserted 1469408620 1669042943
+ (at the top) we can see that the CT of the resulting V-TDL is quite flat,
+ meaning that the propagation delays along the bins are homogeneous and
+ the SuperWU algorithm was effective.
  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -3108,26 +2681,6 @@ noprefix "false"
 \end_inset
 
  also shows the dispersion of the bins' propagation delays (at the bottom).
-\change_deleted 1469408620 1668986986
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Qui oltre la CT sub int riporterei la 
-\change_deleted 1469408620 1668985103
-statistica dei bin
-\change_unchanged
- metti esplicitamente che 49 si confronta con 43 top e poi di conseguenza
- le statistiche dei bin.
- (TABELLA).
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
@@ -3145,14 +2698,10 @@ status open
 \end_inset
 
 
-\change_inserted 1469408620 1668985059
-
 \end_layout
 
 \begin_layout Plain Layout
 \align center
-
-\change_inserted 1469408620 1668985076
 \begin_inset Graphics
 	filename images/**test_1: corr e combinazioni 1 e 1 (precisione)/**CT e prec/**2 carry/**2 CARRY + 0 DSP/Bin-Dispersion.png
 	width 60text%
@@ -3160,20 +2709,14 @@ status open
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Calibration Table of a V-TDL composed of two CARRY-chains
-\change_inserted 1469408620 1669042952
- (at the top) and its dispersion of the bins' propagation delays (at the
- bottom)
-\change_unchanged
-.
+Calibration Table of a V-TDL composed of two CARRY-chains (at the top) and
+ its dispersion of the bins' propagation delays (at the bottom).
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Calibration-Table-of"
@@ -3190,8 +2733,6 @@ name "fig:Calibration-Table-of"
 
 \end_inset
 
-
-\change_inserted 1469408620 1669038676
 Confronting Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -3261,10 +2802,8 @@ status open
 
 \begin_layout Plain Layout
 \align center
-
-\change_inserted 1469408620 1669029087
 \begin_inset Tabular
-<lyxtabular version="3" rows="3" columns="3">
+<lyxtabular version="3" rows="4" columns="3">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -3274,8 +2813,6 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669029087
 Implementation
 \end_layout
 
@@ -3285,8 +2822,6 @@ Implementation
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669029295
 \begin_inset Formula $\overline{t_{p,V}}$
 \end_inset
 
@@ -3299,8 +2834,6 @@ Implementation
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669029301
 ultra-bin
 \end_layout
 
@@ -3313,8 +2846,12 @@ ultra-bin
 
 \begin_layout Plain Layout
 
-\change_inserted 1469408620 1669032320
-2 CARRY-chains
+\change_deleted -1129936465 1669119684
+2
+\change_inserted -1129936465 1669119684
+4
+\change_unchanged
+ CARRY-chains
 \end_layout
 
 \end_inset
@@ -3324,8 +2861,12 @@ ultra-bin
 
 \begin_layout Plain Layout
 
-\change_inserted 1469408620 1669030682
-2.4 ps
+\change_deleted -1129936465 1669119694
+2.4
+\change_inserted -1129936465 1669119695
+1.2
+\change_unchanged
+ ps
 \end_layout
 
 \end_inset
@@ -3335,7 +2876,40 @@ ultra-bin
 
 \begin_layout Plain Layout
 
-\change_inserted 1469408620 1669030689
+\change_deleted -1129936465 1669119690
+11.6
+\change_inserted -1129936465 1669119690
+7
+\change_unchanged
+ ps
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2 CARRY-chains
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.4 ps
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 11.6 ps
 \end_layout
 
@@ -3347,8 +2921,6 @@ ultra-bin
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669030677
 1 CARRY-chain
 \end_layout
 
@@ -3358,8 +2930,6 @@ ultra-bin
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669030685
 4.8 ps
 \end_layout
 
@@ -3369,8 +2939,6 @@ ultra-bin
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669030695
 19 ps
 \end_layout
 
@@ -3382,16 +2950,22 @@ ultra-bin
 \end_inset
 
 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+aggiunto il 4 tdl dal primo paragrafo, magari mettilo nella didascalia
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668985899
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669038931
 Achievable mean bins' propagation delay and 
 \begin_inset Quotes eld
 \end_inset
@@ -3408,40 +2982,26 @@ name "tab:Achievable-performances-of-2"
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
 
-\change_unchanged
-
-\end_layout
-
-\begin_layout Plain Layout
-
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
 
 \end_layout
 
 \begin_layout Subsubsection
 1 CARRY-chain + 1 HALF-DSP-chain
-\change_inserted 1469408620 1669042478
-
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:1-CARRY-chain-+"
 
 \end_inset
 
-
-\change_unchanged
 
 \end_layout
 
@@ -3474,8 +3034,6 @@ status open
 
 \end_inset
 
-
-\change_inserted 1469408620 1668984987
 
 \end_layout
 
@@ -3526,11 +3084,7 @@ noprefix "false"
 
 \end_inset
 
-
-\change_inserted 1469408620 1669043148
- (at the top)
-\change_unchanged
-.
+ (at the top).
  Despite this, the Sub-Interpolation's effectiveness can be seen by the
  fact that the 
 \begin_inset Quotes eld
@@ -3541,8 +3095,6 @@ ultra-bin
 \end_inset
 
  is now just 17 ps, rather than the original 260 ps.
-
-\change_inserted 1469408620 1669043482
  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -3554,26 +3106,6 @@ noprefix "false"
 \end_inset
 
  also shows the dispersion of the bins' propagation delays (at the bottom).
-\change_deleted 1469408620 1669030704
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Qui oltre la CT sub int riporterei la 
-\change_deleted 1469408620 1669026790
-statistica dei bin
-\change_unchanged
- metti esplicitamente che 51 si confronta con 43 e 45 top e poi di conseguenza
- le statistiche dei bin.
- (TABELLA, 3 COLONNE STA VOLTA)
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
@@ -3591,22 +3123,16 @@ status open
 \end_inset
 
 
-\change_inserted 1469408620 1669026657
-
 \end_layout
 
 \begin_layout Plain Layout
 \align center
-
-\change_inserted 1469408620 1669026681
 \begin_inset Graphics
 	filename images/**test_1: corr e combinazioni 1 e 1 (precisione)/**CT e prec/**1 carry + 1 half dsp/Bin-Dispersion.png
 	width 60text%
 
 \end_inset
 
-
-\change_unchanged
 
 \end_layout
 
@@ -3615,12 +3141,8 @@ status open
 
 \begin_layout Plain Layout
 Calibration Table of a V-TDL composed of a CARRY-chain in parallel to a
- HALF-DSP-chain
-\change_inserted 1469408620 1669043557
- (at the top) and its dispersion of the bins' propagation delays (at the
- bottom)
-\change_unchanged
-.
+ HALF-DSP-chain (at the top) and its dispersion of the bins' propagation
+ delays (at the bottom).
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Calibration-Table-of-1"
@@ -3638,13 +3160,9 @@ name "fig:Calibration-Table-of-1"
 \end_inset
 
 
-\change_inserted 1469408620 1669029658
-
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1469408620 1669038702
 We can thus compare Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -3733,8 +3251,6 @@ status open
 
 \begin_layout Plain Layout
 \align center
-
-\change_inserted 1469408620 1669030260
 \begin_inset Tabular
 <lyxtabular version="3" rows="4" columns="3">
 <features tabularvalignment="middle">
@@ -3746,8 +3262,6 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669030279
 Implementation
 \end_layout
 
@@ -3757,8 +3271,6 @@ Implementation
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669030279
 \begin_inset Formula $\overline{t_{p,V}}$
 \end_inset
 
@@ -3771,8 +3283,6 @@ Implementation
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669030279
 ultra-bin
 \end_layout
 
@@ -3784,11 +3294,7 @@ ultra-bin
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669030302
 1 CARRY-chain + 1 HALF-DSP-chain
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -3797,11 +3303,7 @@ ultra-bin
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669030395
 3.6 ps
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -3810,11 +3312,7 @@ ultra-bin
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669030414
 17 ps
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -3825,11 +3323,7 @@ ultra-bin
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669030312
 1 CARRY-chain
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -3838,11 +3332,7 @@ ultra-bin
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669030474
 4.8 ps
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -3851,11 +3341,7 @@ ultra-bin
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669030492
 19 ps
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -3866,11 +3352,7 @@ ultra-bin
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669030318
 1 HALF-DSP-chain
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -3879,11 +3361,7 @@ ultra-bin
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669030570
 14 ps
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -3892,11 +3370,7 @@ ultra-bin
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669030585
 263 ps
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -3907,18 +3381,12 @@ ultra-bin
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669030171
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669038709
 Achievable mean bins' propagation delay and 
 \begin_inset Quotes eld
 \end_inset
@@ -3936,25 +3404,15 @@ name "tab:Achievable-mean-bin's"
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
 
-\change_unchanged
-
-\end_layout
-
-\begin_layout Plain Layout
-
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
 
 \end_layout
 
@@ -4022,7 +3480,17 @@ name "fig:Crosscorrelation-function-for-2"
 We can see that the maximum value is equal to 1, and other high peaks are
  also present.
  This means that two HALF-DSP-chains are usually very similar, and the SuperWU
- algorithm is not effective in this case.
+ algorithm is not effective in this case
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+sottolinea che il bin ultra nn migliora
+\end_layout
+
+\end_inset
+
+.
  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -4033,31 +3501,8 @@ noprefix "false"
 
 \end_inset
 
- shows the CT of the resulting V-TDL
-\change_inserted 1469408620 1669043804
- (at the top) 
-\change_deleted 1469408620 1669043808
-.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Qui oltre la CT sub int riporterei la 
-\change_deleted 1469408620 1669026797
-statistica dei bin
-\change_unchanged
- metti esplicitamente che 53 si confronta con 45 top e poi di conseguenza
- le statistiche dei bin.
- (TABELLA)
-\end_layout
-
-\end_inset
-
-
-\change_inserted 1469408620 1669043818
- and the dispersion of the bins' propagation delays (at the bottom).
-\change_unchanged
-
+ shows the CT of the resulting V-TDL (at the top) and the dispersion of
+ the bins' propagation delays (at the bottom).
 \end_layout
 
 \begin_layout Standard
@@ -4065,7 +3510,7 @@ statistica dei bin
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -4076,14 +3521,10 @@ status open
 \end_inset
 
 
-\change_inserted 1469408620 1669026802
-
 \end_layout
 
 \begin_layout Plain Layout
 \align center
-
-\change_inserted 1469408620 1669026822
 \begin_inset Graphics
 	filename images/**test_1: corr e combinazioni 1 e 1 (precisione)/**CT e prec/**1 full dsp/**0 CARRY + 1 DSP/Bin-Dispersion.png
 	width 60text%
@@ -4091,20 +3532,14 @@ status open
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Calibration Table of a V-TDL composed of two HALF-DSP-chain
-\change_inserted 1469408620 1669043693
- (at the top) and its dispersion of the bins' propagation delays (at the
- bottom)
-\change_unchanged
-.
+Calibration Table of a V-TDL composed of two HALF-DSP-chain (at the top)
+ and its dispersion of the bins' propagation delays (at the bottom).
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Calibration-Table-of-2"
@@ -4122,13 +3557,9 @@ name "fig:Calibration-Table-of-2"
 \end_inset
 
 
-\change_inserted 1469408620 1669030876
-
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1469408620 1669038734
 We can thus compare Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -4196,8 +3627,6 @@ status open
 
 \begin_layout Plain Layout
 \align center
-
-\change_inserted 1469408620 1669031124
 \begin_inset Tabular
 <lyxtabular version="3" rows="3" columns="3">
 <features tabularvalignment="middle">
@@ -4209,8 +3638,6 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669031149
 Implementation
 \end_layout
 
@@ -4220,8 +3647,6 @@ Implementation
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669031149
 \begin_inset Formula $\overline{t_{p,V}}$
 \end_inset
 
@@ -4234,8 +3659,6 @@ Implementation
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669031149
 ultra-bin
 \end_layout
 
@@ -4247,11 +3670,7 @@ ultra-bin
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669031162
 1 FULL-DSP-chain
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -4260,11 +3679,7 @@ ultra-bin
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669031235
 7 ps
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -4273,11 +3688,7 @@ ultra-bin
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669031263
 203 ps
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -4288,8 +3699,6 @@ ultra-bin
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669031184
 1 HALF-DSP-chain
 \end_layout
 
@@ -4299,8 +3708,6 @@ ultra-bin
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669031184
 14 ps
 \end_layout
 
@@ -4310,8 +3717,6 @@ ultra-bin
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669031184
 263 ps
 \end_layout
 
@@ -4323,18 +3728,12 @@ ultra-bin
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669031059
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669038745
 Achievable mean bins' propagation delay and 
 \begin_inset Quotes eld
 \end_inset
@@ -4351,38 +3750,22 @@ name "tab:Achievable-mean-bin's-1"
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
 
-\change_unchanged
-
-\end_layout
-
-\begin_layout Plain Layout
-
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
 
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1469408620 1669031287
-Despite the Sub-Interpolation not being very effective
-\change_deleted 1469408620 1669031291
-Anyway, as said before
-\change_unchanged
-, achieving a 60 ps-faster "ultra-bin", using the exact same hardware resources
- of a HALF-DSP-chain, leads to the obvious choice of always using the FULL-DSP-c
-hain.
+Despite the Sub-Interpolation not being very effective, achieving a 60 ps-faster
+ "ultra-bin", using the exact same hardware resources of a HALF-DSP-chain,
+ leads to the obvious choice of always using the FULL-DSP-chain.
 \end_layout
 
 \begin_layout Subsection
@@ -4600,8 +3983,6 @@ name "fig:Calibration-Table-of-4"
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1469408620 1669027255
 We can also see in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -4619,11 +4000,9 @@ noprefix "false"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669027303
 \begin_inset Graphics
 	filename images/** test_0: verifica sub-int sulle sole carry (NSS)/subint yes**/**4 CARRY + 0 DSP/Bin-Dispersion.png
 	width 50text%
@@ -4638,18 +4017,12 @@ status open
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669027169
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669027246
 Comparison between the dispersion of the bin's propagation delays in the
  first implementation (i.e., 4 CARRY-chains, on the left) and in the second
  implementation (i.e., 2 CARRY-chains + 1 FULL-DSP-chain, on the right).
@@ -4660,14 +4033,10 @@ name "fig:Comparison-between-the-4"
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
 
 \end_layout
 
@@ -4677,8 +4046,6 @@ name "fig:Comparison-between-the-4"
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1469408620 1669038765
 We can thus summarize in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -4705,8 +4072,6 @@ status open
 
 \begin_layout Plain Layout
 \align center
-
-\change_inserted 1469408620 1669032032
 \begin_inset Tabular
 <lyxtabular version="3" rows="7" columns="3">
 <features tabularvalignment="middle">
@@ -4718,8 +4083,6 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669032049
 Implementation
 \end_layout
 
@@ -4729,8 +4092,6 @@ Implementation
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669032049
 \begin_inset Formula $\overline{t_{p,V}}$
 \end_inset
 
@@ -4743,8 +4104,6 @@ Implementation
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669032049
 ultra-bin
 \end_layout
 
@@ -4756,11 +4115,7 @@ ultra-bin
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669032056
 4 CARRY-chains
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -4769,11 +4124,7 @@ ultra-bin
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669032125
 1.2 ps
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -4782,11 +4133,7 @@ ultra-bin
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669032195
 7.1 ps
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -4797,11 +4144,7 @@ ultra-bin
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669032066
 2 CARRY-chains + 1 FULL-DSP-chain
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -4810,11 +4153,7 @@ ultra-bin
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669032216
 1.7 ps
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -4823,11 +4162,7 @@ ultra-bin
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669032278
 11.3 ps
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -4838,8 +4173,6 @@ ultra-bin
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669032302
 2 CARRY-chains
 \end_layout
 
@@ -4849,8 +4182,6 @@ ultra-bin
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669032300
 2.4 ps
 \end_layout
 
@@ -4860,8 +4191,6 @@ ultra-bin
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669032300
 11.6 ps
 \end_layout
 
@@ -4873,8 +4202,6 @@ ultra-bin
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669032347
 1 FULL-DSP-chain
 \end_layout
 
@@ -4884,8 +4211,6 @@ ultra-bin
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669032347
 7 ps
 \end_layout
 
@@ -4895,8 +4220,6 @@ ultra-bin
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669032347
 203 ps
 \end_layout
 
@@ -4908,8 +4231,6 @@ ultra-bin
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669032336
 1 CARRY-chain
 \end_layout
 
@@ -4919,8 +4240,6 @@ ultra-bin
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669032336
 4.8 ps
 \end_layout
 
@@ -4930,8 +4249,6 @@ ultra-bin
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669032336
 19 ps
 \end_layout
 
@@ -4943,8 +4260,6 @@ ultra-bin
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669032370
 1 HALF-DSP-chain
 \end_layout
 
@@ -4954,8 +4269,6 @@ ultra-bin
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669032370
 14 ps
 \end_layout
 
@@ -4965,8 +4278,6 @@ ultra-bin
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669032370
 263 ps
 \end_layout
 
@@ -4978,18 +4289,12 @@ ultra-bin
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669031792
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669038771
 Achievable mean bins' propagation delay and 
 \begin_inset Quotes eld
 \end_inset
@@ -5008,29 +4313,21 @@ name "tab:Achievable-mean-bin's-2"
 \end_inset
 
 
-\change_unchanged
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
 \end_inset
 
 
-\change_unchanged
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
+\change_inserted 1469408620 1669038765
 
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1469408620 1669032521
 Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -5042,15 +4339,23 @@ noprefix "false"
 \end_inset
 
  shows the comparison of the acquired histograms for the two implementations
- tested in this experiment (i.e., 4 CARRY-chains a.k.a.
+ tested in this experiment (
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Usa sempre 4 CARRY e 2 CARRY-chains + 1 FULL-DSP
+\end_layout
+
+\end_inset
+
+i.e., 4 CARRY-chains a.k.a.
  first implementation, and 2 CARRY-chains + 1 FULL-DSP-chain a.k.a.
  second implementation).
-\change_unchanged
-
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -5074,9 +4379,7 @@ status open
 
 \begin_layout Plain Layout
 Histograms representing the time measurement in the case of a V-TDL composed
- of 4 CARRY-chains (on the left
-\change_inserted 1469408620 1669031440
-, i.e., 
+ of 4 CARRY-chains (on the left, i.e., 
 \begin_inset Formula $\sigma_{r.m.s.}=2.8~ps$
 \end_inset
 
@@ -5084,11 +4387,7 @@ Histograms representing the time measurement in the case of a V-TDL composed
 \begin_inset Formula $\sigma_{CH}=1.98~ps$
 \end_inset
 
-
-\change_unchanged
-) and of 2 CARRY-chains + 1 FULL-DSP-chain (on the right
-\change_inserted 1469408620 1669031505
-, i.e., 
+) and of 2 CARRY-chains + 1 FULL-DSP-chain (on the right, i.e., 
 \begin_inset Formula $\sigma_{r.m.s.}=3.8~ps$
 \end_inset
 
@@ -5096,8 +4395,6 @@ Histograms representing the time measurement in the case of a V-TDL composed
 \begin_inset Formula $\sigma_{CH}=2.7~ps$
 \end_inset
 
-
-\change_unchanged
 ).
 \begin_inset CommandInset label
 LatexCommand label
@@ -5119,9 +4416,7 @@ name "fig:Histograms-representing-the"
 \end_layout
 
 \begin_layout Standard
-We can see 
-\change_inserted 1469408620 1669032603
-from Figures 
+We can see from Figures 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Calibration-Table-of-4"
@@ -5141,25 +4436,7 @@ noprefix "false"
 
 \end_inset
 
- 
-\change_unchanged
-that 
-\change_deleted 1469408620 1669032621
-both the CTs in Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Calibration-Table-of-4"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- are characterized by quite fast bins; however, the one belonging to 
-\change_unchanged
-the first implementation has 
-\change_inserted 1469408620 1669032687
-a slightly better 
+ that the first implementation has a slightly better 
 \family roman
 \series medium
 \shape up
@@ -5198,12 +4475,7 @@ ultra-bin
 \end_inset
 
 .
- 
-\change_deleted 1469408620 1669032695
-overall faster bins and is flatter.
- 
-\change_unchanged
-As shown in Figure 
+ As shown in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Histograms-representing-the"
@@ -5213,67 +4485,12 @@ noprefix "false"
 
 \end_inset
 
-, this allows the 
-\change_inserted 1469408620 1669032718
-first implementation achieving
-\change_deleted 1469408620 1669032720
-achievement of
-\change_unchanged
- a better single-shot precision
-\change_deleted 1469408620 1669032725
- of the time measurement
-\change_unchanged
+, this allows the first implementation achieving a better single-shot precision
  rather than the second implementation.
  Anyhow, the second implementation has as strength points the lower power
- consumption
-\change_inserted 1469408620 1669032664
- (i.e., 0.3 W less)
-\change_deleted 1469408620 1668987129
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-0.3 W in meno
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
- and the more relaxed hardware utilization
-\change_inserted 1469408620 1669032664
- (i.e., 1000 FFs less)
-\change_deleted 1469408620 1668987141
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-sottolinea i 1000 FF in meno
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-, which makes it possible to have a greater number of TDC-channels
-\change_inserted 1469408620 1669032749
- (i.e., 12 channels more, in the xcku040-ffva1156-2-e)
-\change_deleted 1469408620 1668987234
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-10 in + nela board usata
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
- on the FPGA fabric.
+ consumption (i.e., 0.3 W less) and the more relaxed hardware utilization (i.e.,
+ 1000 FFs less), which makes it possible to have a greater number of TDC-channel
+s (i.e., 12 channels more, in the xcku040-ffva1156-2-e) on the FPGA fabric.
  Table 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -5297,7 +4514,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="11" columns="3">
+<lyxtabular version="3" rows="12" columns="3">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -5323,7 +4540,13 @@ Feature
 \begin_inset space ~
 \end_inset
 
+
+\change_deleted -1129936465 1669120175
 First implementation
+\change_inserted -1129936465 1669120175
+4 CARRY-chains
+\change_unchanged
+
 \begin_inset space ~
 \end_inset
 
@@ -5340,7 +4563,13 @@ First implementation
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\change_deleted -1129936465 1669120181
 Second implementation
+\change_inserted -1129936465 1669120181
+2 CARRY-chains + 1 FULL-DSP
+\change_unchanged
+
 \end_layout
 
 \end_inset
@@ -5500,15 +4729,11 @@ Dead-Time
 \begin_inset Text
 
 \begin_layout Plain Layout
-Single-Shot Precision
-\change_inserted 1469408620 1668987300
- (
+Single-Shot Precision (
 \begin_inset Formula $\sigma_{r.m.s}$
 \end_inset
 
 )
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5537,8 +4762,6 @@ Single-Shot Precision
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668987340
 TDL mean propagation delay (
 \begin_inset Formula $\overline{t_{p,V}}$
 \end_inset
@@ -5552,8 +4775,6 @@ TDL mean propagation delay (
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668987389
 1.2 ps
 \end_layout
 
@@ -5563,9 +4784,42 @@ TDL mean propagation delay (
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668987469
 1.7 ps
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted -1129936465 1669120219
+TDC ultra-bin
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted -1129936465 1669120213
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted -1129936465 1669120213
+
 \end_layout
 
 \end_inset
@@ -5605,11 +4859,7 @@ LUT/FF/BRAM (for one ch.)
 \begin_inset Text
 
 \begin_layout Plain Layout
-Number of Chs
-\change_inserted 1469408620 1669026302
- (*)
-\change_unchanged
-
+Number of Chs (*)
 \end_layout
 
 \end_inset
@@ -5667,19 +4917,15 @@ Power Consumption
 \end_inset
 
 
-\change_deleted 1469408620 1668987481
-
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-manca il bin medio
+aggiungi l'ultra
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
 
 \end_layout
 
@@ -5690,11 +4936,7 @@ manca il bin medio
 Performances and hardware usage of a V-TDL composed of 4 CARRY-chains in
  parallel (first implementation) and of 2 CARRY-chains + 1 FULL-DSP-chain
  in parallel (second implementation).
-
-\change_inserted 1469408620 1669026331
  (*) in the xcku040-ffva1156-2-e.
-\change_unchanged
-
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:Performances-and-hardware"
@@ -5721,17 +4963,12 @@ name "tab:Performances-and-hardware"
 \begin_layout Standard
 In conclusion, each 
 \change_inserted 1469408620 1669044541
-one of the two 
+one of 
 \change_unchanged
-implementation
-\change_inserted 1469408620 1669044543
-s
-\change_unchanged
- studied in this experiment showed its strengths: the one with a fully-CARRY-bas
-ed V-TDL has a single-shot precision in the order of 3 ps, thus being the
- most suitable choice for those applications requiring very high precision
- in the time measurement; conversely, the
-\change_inserted 1469408620 1668795652
+the two implementations studied in this experiment showed its strengths:
+ the one with a fully-CARRY-based V-TDL has a single-shot precision in the
+ order of 3 ps, thus being the most suitable choice for those applications
+ requiring very high precision in the time measurement; conversely, the
  
 \begin_inset Quotes eld
 \end_inset
@@ -5740,20 +4977,9 @@ hybrid
 \begin_inset Quotes erd
 \end_inset
 
-
-\change_unchanged
- one 
-\change_inserted 1469408620 1668795673
-(i.e., 2 CARRY-chains + 1 FULL-DSP-chain)
-\change_deleted 1469408620 1668795677
-with a mixed-CARRY-DSP-based V-TDL
-\change_unchanged
- saves a lot of FFs resources and power, and 
-\change_inserted 1469408620 1669044629
-it 
-\change_unchanged
-is more suitable for those applications requiring a higher number of channels
- to detect a higher number of physical events.
+ one (i.e., 2 CARRY-chains + 1 FULL-DSP-chain) saves a lot of FFs resources
+ and power, and it is more suitable for those applications requiring a higher
+ number of channels to detect a higher number of physical events.
 \end_layout
 
 \begin_layout Subsection
@@ -6520,13 +5746,7 @@ By calling
 \end_layout
 
 \begin_layout Itemize
-The TDC with 1 FULL-DSP-chain has 
-\change_deleted 1469408620 1668865692
-the worst
-\change_inserted 1469408620 1668865694
-a worse
-\change_unchanged
- non-linearity (i.e.
+The TDC with 1 FULL-DSP-chain has a worse non-linearity (i.e.
  
 \begin_inset Formula $DNL_{Abs}=23\ ps$
 \end_inset
@@ -6595,20 +5815,6 @@ The TDC using 4 CARRY-chains in parallel is characterized by the most linear
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted 1469408620 1668987769
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-aggiungi una tabella dove fai un riassulto dei risultati sui INL ed DNL
- solo sui 4 firmware
-\end_layout
-
-\end_inset
-
-
-\change_inserted 1469408620 1669027896
 Table 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -6668,8 +5874,6 @@ status open
 
 \begin_layout Plain Layout
 \align center
-
-\change_inserted 1469408620 1668988190
 \begin_inset Tabular
 <lyxtabular version="3" rows="5" columns="3">
 <features tabularvalignment="middle">
@@ -6681,11 +5885,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668988195
 Implementation
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6694,14 +5894,10 @@ Implementation
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668988232
 \begin_inset Formula $DNL_{Abs}$
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6710,14 +5906,10 @@ Implementation
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668988238
 \begin_inset Formula $INL_{Abs}$
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6728,11 +5920,7 @@ Implementation
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669029193
 1 CARRY-chain-based TDC
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6741,11 +5929,7 @@ Implementation
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668988254
 0.82 ps
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6754,11 +5938,7 @@ Implementation
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668988258
 8 ps
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6769,11 +5949,7 @@ Implementation
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669028236
 1 FULL-DSP-chain-based TDC
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6782,11 +5958,7 @@ Implementation
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668988270
 23 ps
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6795,11 +5967,7 @@ Implementation
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668988273
 65 ps
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6810,11 +5978,7 @@ Implementation
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669028251
 4 CARRY-chains-based TDC
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6823,11 +5987,7 @@ Implementation
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668988281
 0.22 ps
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6836,11 +5996,7 @@ Implementation
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668988285
 5.8 ps
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6851,11 +6007,7 @@ Implementation
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669028268
 2 CARRY-chains + 1 FULL-DSP-chain-based TDC
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6864,11 +6016,7 @@ Implementation
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668988289
 0.3 ps
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6877,11 +6025,7 @@ Implementation
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668988292
 12 ps
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -6892,18 +6036,12 @@ Implementation
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668987851
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669027884
 Absolute DNL and INL for the TDCs in Figures 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -6952,14 +6090,10 @@ name "tab:Absolute-DNL-and"
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
 
 \end_layout
 

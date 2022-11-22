@@ -685,14 +685,25 @@ literal "false"
 \begin_inset Formula $T_{FSR}=\sum t_{p,V}$
 \end_inset
 
-; therefore, the LSB of the V-TDL is 
+; therefore
+\change_deleted 1469408620 1669037619
+, the LSB of the V-TDL is 
 \begin_inset Formula $M$
 \end_inset
 
  times smaller than the one of a single real TDL.
- In general, the propagation delays of the real-bins belonging to the different
- TDLs get averaged each other, reducing the propagation delays of the virtual-bi
-ns.
+ In general,
+\change_unchanged
+ the propagation delays of the real-bins belonging to the different TDLs
+ get averaged each other, reducing the propagation delays of the virtual-bins
+\change_inserted 1469408620 1669037649
+ of a factor 
+\begin_inset Formula $M$
+\end_inset
+
+
+\change_unchanged
+.
 \end_layout
 
 \begin_layout Standard

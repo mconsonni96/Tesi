@@ -126,7 +126,7 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes true
+\tracking_changes false
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
@@ -1163,6 +1163,17 @@ Sarebbe bellissima la dist che hai fatto x nss sulla dispersione dei bin,
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Riferisciti ad un nostro lavoro per esempio https://www.sciencedirect.com/science/
+article/pii/S0168900218317479 e https://re.public.polimi.it/handle/11311/1103831
+ non al DigiLAB in gerenale->
+\end_layout
+
+\end_inset
+
 
 \change_inserted 1469408620 1668858259
 At Digital Electronics Laboratory (DigiLAB) at Politecnico di Milano, it
@@ -1176,9 +1187,33 @@ ultra-bin
 \end_inset
 
 ) equal to 70 ps, and a mean bin equal to 12 ps.
+\change_unchanged
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+<-
+\end_layout
+
+\end_inset
+
+
+\change_inserted 1469408620 1668858259
+
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Riferisciti a nostri lavori ad esempio https://ieeexplore.ieee.org/document/882465
+9 e https://ieeexplore.ieee.org/document/9059958->
+\end_layout
+
+\end_inset
+
 
 \change_inserted 1469408620 1669037471
 On the other hand, in a Xilinx Ultrascale FPGA, the achieved minimum bin
@@ -1193,6 +1228,16 @@ ultra-bin
 ) is equal to 19 ps, and the mean bin is equal to 4.8 ps.
  
 \change_unchanged
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+<-
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
