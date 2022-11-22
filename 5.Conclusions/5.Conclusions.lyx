@@ -221,9 +221,12 @@ numero
 
 \begin_layout Itemize
 a better single-shot precision has been achieved on the 4 CARRY-chains implement
-ation (i.e., 2.8 ps) than on the 2 CARRY-chains + 1 FULL-DSP-chains one (i.e.,
- 3.8 ps), making the former more suitable for those applications requiring
- very high precision;
+ation (i.e., 2.8 ps) than on the 2 CARRY-chains + 1 FULL-DSP-chain
+\change_deleted 1469408620 1669150540
+s
+\change_unchanged
+ one (i.e., 3.8 ps), making the former more suitable for those applications
+ requiring very high precision;
 \end_layout
 
 \begin_layout Itemize
@@ -249,8 +252,12 @@ numero
 \change_inserted 1469408620 1669130631
  
 \change_unchanged
-on the 2 CARRY-chains + 1 FULL-DSP-chains implementation than in the 4 CARRY-cha
-ins, allowing the former to have a greater number of channels
+on the 2 CARRY-chains + 1 FULL-DSP-chain
+\change_deleted 1469408620 1669150544
+s
+\change_unchanged
+ implementation than in the 4 CARRY-chains, allowing the former to have
+ a greater number of channels
 \change_inserted 1469408620 1669130547
  (i.e., 74)
 \change_deleted 1469408620 1669130548
@@ -274,8 +281,12 @@ numero
 \begin_layout Itemize
 both implementations have negligible non-linearity since the DNLs are equal
  to 0.22 ps and 0.3 ps for the 4 CARRY-chains and the 2 CARRY-chains + 1 FULL-DSP-
-chains implementation, respectively, and the INLs are equal to 5.8 ps and
- 12 ps, respectively.
+chain
+\change_deleted 1469408620 1669150550
+s
+\change_unchanged
+ implementation, respectively, and the INLs are equal to 5.8 ps and 12 ps,
+ respectively.
 \end_layout
 
 \end_body
