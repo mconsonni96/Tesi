@@ -281,7 +281,7 @@ status open
 \end_inset
 
  stato implementato e interamente testato su un Kintex-Ultrascale FPGA,
- contenuta in una KCU105 Evaluation Board.
+ contenuto in una KCU105 Evaluation Board.
  Con lo scopo di investigare i possibili trade-off tra consumo di potenza
  e precisione, e tra occupazione d' area e precisione, due diverse tipologie
  di TDL sono state testate.
@@ -476,7 +476,7 @@ status open
 \end_inset
 
  caratterizzata da un maggiore consumo di potenza (pari a 0.596 W) e di area
- (che porta ad avere un massimo numero concesso di canali pari a 62).
+ (che porta ad avere al massimo 62 canali).
 \end_layout
 
 \end_body
