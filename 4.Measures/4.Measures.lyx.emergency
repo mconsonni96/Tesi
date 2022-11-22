@@ -4649,7 +4649,7 @@ noprefix "false"
 , this allows the first implementation achieving a better single-shot precision
  rather than the second implementation.
  Anyhow, the second implementation has as strength points the lower power
- consumption (i.e., 0.1 W less) and the more relaxed hardware utilization (i.e.,
+ consumption (i.e., 0.3 W less) and the more relaxed hardware utilization (i.e.,
  1000 FFs less), which makes it possible to have a greater number of TDC-channel
 s (i.e., 12 channels more, in the xcku040-ffva1156-2-e) on the FPGA fabric.
  Table 
@@ -5079,7 +5079,11 @@ up to 74
 \begin_inset Text
 
 \begin_layout Plain Layout
-Power Consumption (for one ch.)
+Power Consumption
+\change_inserted 1469408620 1669129724
+ (for one ch.)
+\change_unchanged
+
 \end_layout
 
 \end_inset
@@ -5088,7 +5092,13 @@ Power Consumption (for one ch.)
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\change_inserted 1469408620 1669134812
 0.596 W
+\change_deleted 1469408620 1669134816
+2.468 W
+\change_unchanged
+
 \end_layout
 
 \end_inset
@@ -5097,7 +5107,13 @@ Power Consumption (for one ch.)
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\change_inserted 1469408620 1669134824
 0.49 W
+\change_deleted 1469408620 1669134826
+2.141 W
+\change_unchanged
+
 \end_layout
 
 \end_inset

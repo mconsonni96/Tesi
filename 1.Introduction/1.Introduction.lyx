@@ -131,136 +131,10 @@
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
-\author -1129936465 "Nicola Lusardi"
 \author 1469408620 "Mattia Consonni"
 \end_header
 
 \begin_body
-
-\begin_layout Standard
-
-\change_deleted 1469408620 1668862887
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-in gnerale vedo dei piccoli errorini; articoli sbagliati preposizioni sbagliate;
- miraccomando:
-\end_layout
-
-\begin_layout Plain Layout
-1) registrati a grammarly
-\end_layout
-
-\begin_layout Plain Layout
-2) usalo assieme a google traduttore
-\end_layout
-
-\begin_layout Plain Layout
-3) verifica che non ci siano messaggi rossi (errori)
-\end_layout
-
-\begin_layout Plain Layout
-4) vedrai che la frase è ok se compare un pallino verde in basso a destra
- (accettabile se il pallino è giallo)
-\end_layout
-
-\begin_layout Plain Layout
-Vedi NOTA 2 come esempio negativo da correggere
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 1469408620 1668862885
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Verifica bene in tutta la tesi che tutte le ref siano coerenti (vedi NOTA1
- come esempio negativo da correggere)
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 1469408620 1668862883
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Ingloba meglio lw figure nel corpo dello scritto, esse se sono continuamente
- riferite nella porzione di testo a cui fanno riferimento, vanno indicate
- per una migliore lettura del testo (vedi NOTA3 come esempio negativo da
- cprreggere)
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 1469408620 1668862882
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Non coppiare frasi da altri elaborati, devi rielaborare tutte le frasi da
- cui prendi spunto.
-\end_layout
-
-\begin_layout Plain Layout
-Chiedo la tesi a 30pag per evitare di avere copia ed incolla e poi mi trovo
- dei copia ed incolla!
-\end_layout
-
-\begin_layout Plain Layout
-VANNO ASSOLUTAMENTI EVITATI (vedi NOTA4 come esempio negativo da correggere)
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 1469408620 1668862880
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Usa bene l divisione in paragrafi:
-\end_layout
-
-\begin_layout Plain Layout
-1) non divider i paragrafi come elnchi puntati (in Introduction the li ho
- corretti tutti) miraccomando rivedi la tesi e corregi tutti questi errori
- simili
-\end_layout
-
-\begin_layout Plain Layout
-2) non saltare l'ordine dei paragrafi, per esempio in FPGA vs ASIC hai saltato
- un livello e sei passato dal 1.4 ad FPGA/ASIC/Comparison senza passare per
- 1.4.1/1.4.2/1.4.3
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
-\end_layout
 
 \begin_layout Section
 Introduction
@@ -316,7 +190,7 @@ literal "false"
 
 \begin_layout Standard
 
-\change_inserted 1469408620 1669112165
+\change_inserted 1469408620 1669132380
 In this thesis work, a fully-digital TIM, a.k.a.
  Time-to-Digital Converter (hereinafter simply called TDC), implemented
  in Field Programmable Gate Array (FPGA) will be presented.
@@ -327,8 +201,25 @@ In this thesis work, a fully-digital TIM, a.k.a.
  the 20-nm Xilinx Ultrascale technological node, allowing exploiting the
  benefits of the scaling and achieving high resolution, excellent measurement
  precision, and high sampling rates.
-\change_unchanged
+ Moreover, to investigate the trade-offs between precision and area/power,
+ two different implementations have been tested, the first one characterized
+ by high single-shot precision, and the second one characterized by hardware
+ and power saving (see Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Study-of-the"
+plural "false"
+caps "false"
+noprefix "false"
 
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 1469408620 1669132300
 \begin_inset Note Note
 status open
 
@@ -338,6 +229,8 @@ riprendi dall'abstract anche la questione delle 2 TDL e dei trade-offs
 
 \end_inset
 
+
+\change_unchanged
 
 \end_layout
 
@@ -1112,30 +1005,10 @@ name "fig:Measurement-Setup-employing"
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 1469408620 1669111593
-The TIM that will be presented in this work is 
-\change_deleted 1469408620 1669111600
-In this thesis work, 
-\change_unchanged
-a fully-digital TIMESTAMP-type Time-Interval-Meter, a.k.a.
- TIMESTAMP-type 
-\change_deleted 1469408620 1669111610
-Time-to-Digital Converter (hereinafter simply called 
-\change_unchanged
-TDC
-\change_deleted 1469408620 1669111611
-)
-\change_unchanged
-, implemented in 
-\change_inserted 1469408620 1669111642
-FPGA.
- 
-\change_deleted 1469408620 1669111635
-Field Programmable Gate Array (FPGA) will be presented.
- 
-\change_unchanged
-A TIMESTAMP-type TDC, just like a START/STOP-type TDC, converts the measured
+The TIM that will be presented in this work is a fully-digital TIMESTAMP-type
+ Time-Interval-Meter, a.k.a.
+ TIMESTAMP-type TDC, implemented in FPGA.
+ A TIMESTAMP-type TDC, just like a START/STOP-type TDC, converts the measured
  time interval into a digital output code.
 \end_layout
 
@@ -2321,16 +2194,12 @@ literal "false"
 
 \begin_layout Subsubsection
 Shift-Clock Fast-Counter TDC
-\change_inserted 1469408620 1669062785
-
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Shift-Clock-Fast-Counter-TDC"
 
 \end_inset
 
-
-\change_unchanged
 
 \end_layout
 
@@ -2786,16 +2655,12 @@ noprefix "false"
 
 \begin_layout Paragraph
 Vernier Delay-Line TDC, VDL-TDC
-\change_inserted 1469408620 1669064151
-
 \begin_inset CommandInset label
 LatexCommand label
 name "par:Vernier-Delay-Line-TDC,"
 
 \end_inset
 
-
-\change_unchanged
 
 \end_layout
 
@@ -3045,16 +2910,12 @@ noprefix "false"
 
 \begin_layout Paragraph
 Ring Delay-Line TDC, RDL-TDC
-\change_inserted 1469408620 1669064093
-
 \begin_inset CommandInset label
 LatexCommand label
 name "par:Ring-Delay-Line-TDC,"
 
 \end_inset
 
-
-\change_unchanged
 
 \end_layout
 
@@ -3306,25 +3167,17 @@ noprefix "false"
 
 \end_inset
 
-), and applications
-\change_inserted -1129936465 1669116654
- (i.e., describe in Section
-\change_unchanged
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-REF DINAMICA
-\end_layout
+), and applications (i.e., the ones described in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Applications"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
-
-\change_inserted -1129936465 1669116654
-)
-\change_unchanged
-.
+).
 \end_layout
 
 \begin_layout Standard
@@ -3336,7 +3189,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="11" columns="6">
+<lyxtabular version="3" rows="12" columns="6">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -3924,17 +3777,7 @@ N.A.
 \begin_inset Text
 
 \begin_layout Plain Layout
-1e+08
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-sicuro? 0.1 sec di dead-time?
-\end_layout
-
-\end_inset
-
-
+N.A.
 \end_layout
 
 \end_inset
@@ -3959,7 +3802,7 @@ N.A.
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3968,7 +3811,7 @@ Power [mW]
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3977,7 +3820,7 @@ Power [mW]
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3986,7 +3829,7 @@ Power [mW]
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3995,7 +3838,7 @@ Power [mW]
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -4004,11 +3847,80 @@ Power [mW]
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 43
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1669122093
+Num.
+ of Chs
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1669122345
+N.A.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1669122415
+N.A.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1669122474
+N.A.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1669122553
+48
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1669122662
+8
 \end_layout
 
 \end_inset
@@ -4039,8 +3951,9 @@ Power [mW]
 \begin_layout Plain Layout
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="11" columns="6">
+<lyxtabular version="3" rows="12" columns="7">
 <features tabularvalignment="middle">
+<column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -4123,6 +4036,22 @@ literal "false"
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Szplet_2013"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
@@ -4173,6 +4102,10 @@ Kintex-7
 
 \begin_layout Plain Layout
 Actel
+\change_inserted 1469408620 1669122040
+ 130-nm
+\change_deleted 1469408620 1669122040
+
 \begin_inset Note Note
 status open
 
@@ -4182,6 +4115,8 @@ status open
 
 \end_inset
 
+
+\change_unchanged
 
 \end_layout
 
@@ -4196,11 +4131,22 @@ Artix-7
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Spartan-6
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 Virtex-6
+\change_inserted 1469408620 1669134007
+
 \end_layout
 
 \end_inset
@@ -4252,11 +4198,22 @@ TDL
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TDL
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 TDL
+\change_inserted 1469408620 1669134007
+
 \end_layout
 
 \end_inset
@@ -4276,7 +4233,7 @@ Application
 \begin_inset Text
 
 \begin_layout Plain Layout
-Medical imaging
+TOF-PET
 \end_layout
 
 \end_inset
@@ -4303,7 +4260,16 @@ Nuclear science
 \begin_inset Text
 
 \begin_layout Plain Layout
-TOF experiments
+TOF exp.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TOF exp.
 \end_layout
 
 \end_inset
@@ -4313,6 +4279,8 @@ TOF experiments
 
 \begin_layout Plain Layout
 TOF-PET
+\change_inserted 1469408620 1669134007
+
 \end_layout
 
 \end_inset
@@ -4364,11 +4332,26 @@ LSB [ps]
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1669133667
+1.14
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 1.7
+\change_inserted 1469408620 1669134007
+
 \end_layout
 
 \end_inset
@@ -4420,11 +4403,26 @@ Precision [ps r.m.s.]
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1669133685
+6
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 4.2
+\change_inserted 1469408620 1669134007
+
 \end_layout
 
 \end_inset
@@ -4476,11 +4474,26 @@ DNL [LSB]
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1669133702
+N.A.
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 [-1:4]
+\change_inserted 1469408620 1669134007
+
 \end_layout
 
 \end_inset
@@ -4532,11 +4545,26 @@ INL [LSB]
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1669133720
+19.36
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 [-9.8:6.2]
+\change_inserted 1469408620 1669134007
+
 \end_layout
 
 \end_inset
@@ -4588,11 +4616,26 @@ N.A.
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1669133738
+1e+10
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 6.25
+\change_inserted 1469408620 1669134007
+
 \end_layout
 
 \end_inset
@@ -4644,11 +4687,97 @@ Dead-Time [ns]
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1669133753
+2000
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 N.A.
+\change_inserted 1469408620 1669134007
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Power [mW]
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+N.A.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+N.A.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+N.A.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+N.A.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1669133764
+750
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+N.A.
+\change_inserted 1469408620 1669134007
+
 \end_layout
 
 \end_inset
@@ -4659,7 +4788,10 @@ N.A.
 \begin_inset Text
 
 \begin_layout Plain Layout
-Power [mW]
+
+\change_inserted 1469408620 1669122099
+Num.
+ of Chs
 \end_layout
 
 \end_inset
@@ -4668,6 +4800,30 @@ Power [mW]
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\change_inserted 1469408620 1669122684
+256
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1669122727
+24
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1669122806
 N.A.
 \end_layout
 
@@ -4677,7 +4833,9 @@ N.A.
 \begin_inset Text
 
 \begin_layout Plain Layout
-N.A.
+
+\change_inserted 1469408620 1669122945
+32
 \end_layout
 
 \end_inset
@@ -4686,15 +4844,8 @@ N.A.
 \begin_inset Text
 
 \begin_layout Plain Layout
-N.A.
-\end_layout
 
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
+\change_inserted 1469408620 1669123022
 N.A.
 \end_layout
 
@@ -4704,6 +4855,8 @@ N.A.
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\change_inserted 1469408620 1669134197
 N.A.
 \end_layout
 
@@ -4715,6 +4868,8 @@ N.A.
 \end_inset
 
 
+\change_deleted 1469408620 1669133814
+
 \begin_inset Note Note
 status open
 
@@ -4724,12 +4879,18 @@ nessuna power trovato in FPGA? magari cita un nostro lavoro che è riportata
 \end_layout
 
 \begin_layout Plain Layout
+
+\change_deleted 1469408620 1669130012
 Indica anche i nm ...
  per esempio Actel che nodo tecnologico ha?
+\change_unchanged
+
 \end_layout
 
 \end_inset
 
+
+\change_unchanged
 
 \end_layout
 
@@ -4751,6 +4912,8 @@ name "tab:Comparison-of-different"
 \end_inset
 
 
+\change_deleted 1469408620 1669123031
+
 \begin_inset Note Note
 status open
 
@@ -4760,6 +4923,8 @@ A queste tabelle manca il num di canali
 
 \end_inset
 
+
+\change_unchanged
 
 \end_layout
 
@@ -4789,13 +4954,7 @@ noprefix "false"
 \end_inset
 
  in the order of some picoseconds).
- 
-\change_deleted -1129936465 1669117064
-In fact, a
-\change_inserted -1129936465 1669117064
-A
-\change_unchanged
-s explained in Section 
+ As explained in Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:FPGA-vs.-ASIC"
@@ -4805,34 +4964,11 @@ noprefix "false"
 
 \end_inset
 
-, 
-\change_deleted -1129936465 1669117069
-in the 
-\change_unchanged
-ASIC
-\change_inserted -1129936465 1669117075
-s
-\change_unchanged
+, ASICs make it possible to perfectly tailor the TDC and maximize the performanc
+e, at the expense of a higher time-to-market (i.e., years).
  
-\change_inserted -1129936465 1669117086
-make 
-\change_unchanged
-it 
-\change_deleted -1129936465 1669117093
-is 
-\change_unchanged
-possible to perfectly tailor the TDC and maximize 
-\change_deleted -1129936465 1669117100
-its
-\change_inserted -1129936465 1669117101
-the
-\change_unchanged
- performance
-\change_deleted -1129936465 1669117104
-s
-\change_unchanged
-, at the expense of a higher time-to-market (i.e., years).
- 
+\change_deleted 1469408620 1669123407
+
 \begin_inset Note Note
 status open
 
@@ -4842,9 +4978,12 @@ status open
 
 \end_inset
 
+
+\change_unchanged
 I
-\change_inserted 1469408620 1669066418
-t is also worth noting that the RDL-TDC is present only in the ASIC technology
+\change_inserted 1469408620 1669123408
+t is also worth noting that the RDL-TDC has the highest precision and almost
+ null power consumption; besides, it is present only in the ASIC technology
  due to the need of compensating PVT variations of the ring oscillator (see
  Paragraph 
 \begin_inset CommandInset ref
@@ -4856,8 +4995,8 @@ noprefix "false"
 
 \end_inset
 
-), which is not possible in an FPGA
-\change_unchanged
+), which is not possible in an FPGA.
+\change_deleted 1469408620 1669123453
 
 \begin_inset Note Note
 status open
@@ -4872,7 +5011,7 @@ status open
 \change_inserted 1469408620 1669066418
 .
  
-\change_unchanged
+\change_deleted 1469408620 1669123679
 
 \begin_inset Note Note
 status open
@@ -4885,7 +5024,7 @@ Qui sottolinea che però puoi mettere tabnti canali (avrai aggiunto il num
 \end_inset
 
 
-\change_inserted 1469408620 1669066418
+\change_inserted 1469408620 1669123675
 Referring to the FPGA solutions, the 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -4908,7 +5047,9 @@ noprefix "false"
 , showing a limited resolution (i.e., in the order of one hundred picoseconds);
  this is due to the already mentioned limited number of available clock
  lines on the Kintex-7 FPGA fabric (i.e., 12).
-\change_unchanged
+ However, its compact structure allows it to have a high number of channels
+ (i.e., 256).
+\change_deleted 1469408620 1669124041
 
 \begin_inset Note Note
 status open
@@ -4932,7 +5073,7 @@ Qui devi far notare che la Actel è una 130-nm e meno la tecnologia è scalata
 \end_inset
 
 
-\change_inserted 1469408620 1669066418
+\change_inserted 1469408620 1669124102
  Regarding instead the implementations based on a VDL, 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -4951,10 +5092,21 @@ noprefix "false"
 
 \end_inset
 
-, VDL-TDCs are generally not easy to find for FPGAs due to their mismatches
- between the START chain and the STOP one, which lead to low resolutions
- and unreliable measurements.
-\change_unchanged
+, VDL-TDCs are generally not easy to find for highly-scaled FPGAs (e.g., 28-nm)
+ due to their mismatches between the START chain and the STOP one, which
+ lead to low resolutions and unreliable measurements.
+ The 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "article1"
+literal "false"
+
+\end_inset
+
+ represents an exception due to the poorly-scaled technological node (i.e.,
+ 130-nm), which leads to lower mismatches between the chains, and thus makes
+ it possible to implement it in FPGA.
+\change_deleted 1469408620 1669124010
 
 \begin_inset Note Note
 status open
@@ -4965,6 +5117,8 @@ status open
 
 \end_inset
 
+
+\change_unchanged
  The TDL thus represents the best architectural solution for a TDC in FPGA.
  We can see from the implementations reported in the Table (i.e., 
 \begin_inset CommandInset citation
@@ -4982,7 +5136,13 @@ literal "false"
 
 \end_inset
 
-, and 
+,
+\change_deleted 1469408620 1669133938
+ and 
+\change_inserted 1469408620 1669133941
+ 
+\change_unchanged
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "7111361"
@@ -4990,27 +5150,38 @@ literal "false"
 
 \end_inset
 
+
+\change_inserted 1469408620 1669133933
+, and 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Szplet_2013"
+literal "false"
+
+\end_inset
+
+
+\change_unchanged
 ) that the achieved LSBs and single-shot precisions are quite good (i.e.,
  in the order of tens of picoseconds), alongside good linear behaviors (i.e.,
- DNL, INL < 10 LSBs)
-\change_inserted -1129936465 1669117898
-; FoMs that are comparable to ASIC solutions
-\change_unchanged
-.
- This is achieved thanks to
-\change_inserted -1129936465 1669117929
- sub-Intepolation
-\change_unchanged
+ DNL, INL < 20 LSBs); FoMs that are comparable to ASIC solutions.
+ This is achieved thanks to Sub-Intepolation and the bin-by-bin calibration
+ procedure to overcome PVT variations, which will be described in detail
+ in Sections
+\change_inserted 1469408620 1669124182
  
-\change_inserted -1129936465 1669117933
-and 
-\change_unchanged
-the bin-by-bin calibration procedure to overcome PVT variations, which will
- be described in detail in Section
-\change_inserted -1129936465 1669117943
-s 
-\change_unchanged
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Sub-Interpolation"
+plural "false"
+caps "false"
+noprefix "false"
 
+\end_inset
+
+
+\change_deleted 1469408620 1669124187
+ 
 \begin_inset Note Note
 status open
 
@@ -5021,10 +5192,8 @@ REF DINAMICA DALLA SUB-INT
 \end_inset
 
 
-\change_inserted -1129936465 1669117955
- and
 \change_unchanged
- 
+ and 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Calibration"
@@ -5064,15 +5233,9 @@ literal "false"
 
 \end_inset
 
- implementation shows instead a better FSR (i.e., 
-\change_deleted -1129936465 1669118027
-5.24e+03
-\change_inserted -1129936465 1669118029
-5240
-\change_unchanged
- ns), which has been achieved using a technique that composes the time measureme
-nt of a Fine part (i.e., the one calculated by the TDL as shown in Paragraph
- 
+ implementation shows instead a better FSR (i.e., 5240 ns), which has been
+ achieved using a technique that composes the time measurement of a Fine
+ part (i.e., the one calculated by the TDL as shown in Paragraph 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "par:Tapped-Delay-Line-TDC,"

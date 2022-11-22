@@ -232,7 +232,6 @@
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
-\author -1129936465 "Nicola Lusardi"
 \author 1469408620 "Mattia Consonni"
 \end_header
 
@@ -530,14 +529,8 @@ The increasing demand for very precise time measurements in scientific research
  the FPGA approach has been chosen for this thesis work, and a fully-digital
  TIM, a.k.a.
  Time-to-Digital Converter (TDC), has been implemented.
- The presented 
-\change_deleted -1129936465 1669115916
-system
-\change_inserted -1129936465 1669115916
-TIM
-\change_unchanged
- is a multi-channel Tapped Delay-Line (TDL) based TDC IP-Core for Xilinx
- Ultrascale/Ultrascale+ (XUS/XUS+) FPGAs.
+ The presented TIM is a multi-channel Tapped Delay-Line (TDL) based TDC
+ IP-Core for Xilinx Ultrascale/Ultrascale+ (XUS/XUS+) FPGAs.
  The IP-Core approach allows high-portability since the TDC can be promptly
  tested on different systems with a simple drag-and-drop operation.
  To exploit the benefits of the scaling, the 20-nm XUS technology has been
@@ -547,28 +540,51 @@ TIM
  along with a maximum measurement rate of 200 Msps per channel, thus satisfying
  the high count-rate capability requirement of state-of-the-art detectors.
  From the design point of view, the TDC has been implemented and fully tested
- on a Kintex Ultrascale FPGA, hosted in the KCU105 Evaluation Board
-\change_inserted -1129936465 1669116028
-.
-\change_deleted -1129936465 1669116027
-,
-\change_unchanged
- 
-\change_deleted -1129936465 1669116229
-where
-\change_inserted -1129936465 1669116264
-To better investigate the power/precision and area/precision trade-offs',
-\change_unchanged
+ on a Kintex Ultrascale FPGA, hosted in the KCU105 Evaluation Board.
+ To better investigate the power/precision and area/precision trade-offs,
  two different TDL solutions have been tested.
  The first solution is more performant in terms of single-shot precision
  at the expense of higher area occupancy, and it is based on the CARRY primitive
 s (i.e., CARRY8) available in the fabric of the Xilinx FPGA.
  The second solution is instead less performant but more power/hardware-efficien
 t, and it relies on Digital Signal Processor (DSP) primitives (i.e., DSP48E2).
- Finally, a hybrid architecture exploiting both CARRY and DSP resources
- has been tested, leading to results that show the best features of both
- TDL types (i.e., a single-shot precision of 3.8 ps and a low hardware occupancy
- that allows a maximum number of channels equal to 74).
+ 
+\change_deleted 1469408620 1669135349
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\color black
+fai una frase dove metti i numeri del DSP vs CARRY (precision, area => num
+ ch indicativi nella tua FPGA, power)
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+Finally, a hybrid architecture exploiting both CARRY and DSP resources has
+ been tested, leading to results that show the best features of both TDL
+ types (i.e., a single-shot precision of 3.8 ps
+\change_inserted 1469408620 1669135270
+, a power consumption of 0.49 W
+\change_deleted 1469408620 1669135277
+ and a low hardware occupancy that allows
+\change_inserted 1469408620 1669135278
+, and
+\change_unchanged
+ a maximum number of channels equal to 74).
+
+\change_inserted 1469408620 1669135401
+ This architecture has been compared with the one exploiting just CARRY
+ chains, which is the more performant in terms of precision (i.e., 2.8 ps),
+ but it is characterized by a higher power consumption (i.e., 0.596 W) and
+ a lower maximum number of channels (i.e., 62).
+\change_unchanged
+
 \end_layout
 
 \end_inset

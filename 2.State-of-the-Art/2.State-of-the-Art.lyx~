@@ -685,24 +685,12 @@ literal "false"
 \begin_inset Formula $T_{FSR}=\sum t_{p,V}$
 \end_inset
 
-; therefore
-\change_deleted 1469408620 1669037619
-, the LSB of the V-TDL is 
+; therefore the propagation delays of the real-bins belonging to the different
+ TDLs get averaged each other, reducing the propagation delays of the virtual-bi
+ns of a factor 
 \begin_inset Formula $M$
 \end_inset
 
- times smaller than the one of a single real TDL.
- In general,
-\change_unchanged
- the propagation delays of the real-bins belonging to the different TDLs
- get averaged each other, reducing the propagation delays of the virtual-bins
-\change_inserted 1469408620 1669037649
- of a factor 
-\begin_inset Formula $M$
-\end_inset
-
-
-\change_unchanged
 .
 \end_layout
 
@@ -788,8 +776,6 @@ name "fig:Super-Wave-Union"
 
 \begin_layout Subsection
 Calibration
-\change_inserted 1469408620 1668613493
-
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Calibration"
@@ -797,90 +783,14 @@ name "subsec:Calibration"
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted 1469408620 1668607155
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-NOTA ***
-\end_layout
-
-\begin_layout Plain Layout
-qui i nomi dei tempi di propagazione si scostano molto da quelli del par
- 2.2.
-\end_layout
-
-\begin_layout Plain Layout
-Quarda le note *** tra parentesi servono per dare un nome genercio.
- Potresti chiamare n il bin generico della TDL o V-TDL generica composta
- da N tap con tempo di propgazione tp (reale o virtuale che sia) ...
- nel testo ti ho messo PEDICE BIN per differenziare i 1000 n e N che hai
- usato per non far confusione con 2.2 nelle note *** il consiglio spassionato
- di ***
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 1469408620 1668611048
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-NOTA XXX
-\end_layout
-
-\begin_layout Plain Layout
-qui devi fare un minimo di preambolo dicendo che l'FPGA non è fatto per
- offrire dei 
-\begin_inset Formula $t_{p}$
-\end_inset
-
- costanti di conseguenza le TDL realizzate in FPGA avranno un 
-\begin_inset Formula $t_{p}$
-\end_inset
-
-molto disperso.
- Vediamo questa dispersione come, in analogia con gli ASIC, per una comparzione
- 1-a-1 chiamaremo questa dispersione process variation: ovvero io mi asoetto
- una TDL tutta a 
-\begin_inset Formula $t_{p}$
-\end_inset
-
-poiché quello è il ritardo di propagazione della mia tecnologia e mi trovo
- una dispersione.
- Quindi non avevndo a disposizione nessun modo per modificare questo
-\end_layout
-
-\begin_layout Plain Layout
-...
- ovvimente spiega che con n, N e tp indiche bin n.esmio di una TDL o V-TDL
- (non importa) composta da N bin di rit di prop tp
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
 Since in FPGAs there is no possibility to tailor a 
 \begin_inset Formula $N$
 \end_inset
 
--taps-long buffer-chain
-\change_inserted 1469408620 1668771598
- (where 
+-taps-long buffer-chain (where 
 \begin_inset Formula $N$
 \end_inset
 
@@ -892,21 +802,7 @@ Since in FPGAs there is no possibility to tailor a
 \begin_inset Formula $N_{V}$
 \end_inset
 
- if Sub-Interpolation is performed) 
-\change_deleted 1469408620 1668771600
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-qi che questo N rapresenta Nb o Nv a seconda se sub-int o no
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
- with constant propagation delays 
+ if Sub-Interpolation is performed) with constant propagation delays 
 \begin_inset Formula $t_{p}(n)$
 \end_inset
 
@@ -914,9 +810,7 @@ qi che questo N rapresenta Nb o Nv a seconda se sub-int o no
 \begin_inset Formula $n\in[1;N]$
 \end_inset
 
-)
-\change_inserted 1469408620 1668771675
- (where 
+) (where 
 \begin_inset Formula $t_{p}$
 \end_inset
 
@@ -928,54 +822,8 @@ qi che questo N rapresenta Nb o Nv a seconda se sub-int o no
 \begin_inset Formula $t_{p,V}$
 \end_inset
 
- if Sub-Interpolation is performed)
-\change_deleted 1469408620 1668771686
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-qi che questo tp rapresenta tpb o tpv a seconda se sub-int o no
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-, but 
-\change_inserted 1469408620 1668772388
-its internal structural blocks
-\change_deleted 1469408620 1668772396
-a chain of 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-non hai ancora detto cosa è una CBL, stai generale e di per la struttura
- della FPGA->
-\end_layout
-
-\end_inset
-
-Configurable Logic Blocks (CLBs)
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-<-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
- 
-\change_deleted 1469408620 1668772438
-is
-\change_inserted 1469408620 1668772506
-get
-\change_unchanged
- adapted as a buffer chain, the bins will all have dispersed 
+ if Sub-Interpolation is performed), but its internal structural blocks
+ get adapted as a buffer chain, the bins will all have dispersed 
 \begin_inset Formula $t_{p}(n)$
 \end_inset
 
@@ -1164,6 +1012,19 @@ Sarebbe bellissima la dist che hai fatto x nss sulla dispersione dei bin,
 
 \begin_layout Standard
 
+\change_deleted 1469408620 1669124833
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Riferisciti ad un nostro lavoro per esempio https://www.sciencedirect.com/science/
+article/pii/S0168900218317479 e https://re.public.polimi.it/handle/11311/1103831
+ non al DigiLAB in gerenale->
+\end_layout
+
+\end_inset
+
+
 \change_inserted 1469408620 1668858259
 At Digital Electronics Laboratory (DigiLAB) at Politecnico di Milano, it
  has been experimentally found on a Xilinx 7-Series FPGA, for a non-sub-interpol
@@ -1175,10 +1036,55 @@ ultra-bin
 \begin_inset Quotes erd
 \end_inset
 
-) equal to 70 ps, and a mean bin equal to 12 ps.
+) equal to 70 ps, and a mean bin equal to 12 ps
+\change_unchanged
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Sub"
+literal "false"
+
+\end_inset
+
+
+\change_inserted 1469408620 1669124827
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "8824302"
+literal "false"
+
+\end_inset
+
+.
+
+\change_deleted 1469408620 1669124830
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+<-
+\end_layout
+
+\end_inset
+
+
+\change_inserted 1469408620 1668858259
+
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Riferisciti a nostri lavori ad esempio https://ieeexplore.ieee.org/document/882465
+9 e https://ieeexplore.ieee.org/document/9059958->
+\end_layout
+
+\end_inset
+
 
 \change_inserted 1469408620 1669037471
 On the other hand, in a Xilinx Ultrascale FPGA, the achieved minimum bin
@@ -1193,6 +1099,16 @@ ultra-bin
 ) is equal to 19 ps, and the mean bin is equal to 4.8 ps.
  
 \change_unchanged
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+<-
+\end_layout
+
+\end_inset
+
 
 \end_layout
 

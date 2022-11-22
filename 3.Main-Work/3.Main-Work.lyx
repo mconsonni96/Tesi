@@ -126,7 +126,7 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes false
+\tracking_changes true
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
@@ -2924,7 +2924,15 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-V-TDL IP-Core
+V-TDL IP-Core, 
+\change_inserted 1469408620 1669125072
+highlighting the new generic 
+\shape italic
+XUS_VS_X7S
+\change_deleted 1469408620 1669125075
+
+\shape default
+
 \begin_inset Note Note
 status open
 
@@ -2934,6 +2942,8 @@ evidenzia nella didascalia il parametro XUS vs X7S
 
 \end_inset
 
+
+\change_unchanged
 .
 \begin_inset CommandInset label
 LatexCommand label
@@ -5058,40 +5068,22 @@ NUMBER_OF_TDL
 \shape default
 .
  The resulting V-TDL is composed of 
-\change_deleted -1129936465 1669118638
-(
-\change_unchanged
-
 \shape italic
 NUMBER_OF_CARRY_CHAINS
 \shape default
  +
 \shape italic
  NUMBER_OF_DSP_CHAINS
-\change_deleted -1129936465 1669118642
-
 \shape default
-)
-\change_unchanged
  TDLs in parallel, where each one is 
-\change_deleted -1129936465 1669118647
-(
-\change_unchanged
-
 \shape italic
 NUM_TAP_PRE_TDL
 \shape default
  +
 \shape italic
  NUM_TAP_TDL
-\change_deleted -1129936465 1669118651
-
 \shape default
-)-
-\change_inserted -1129936465 1669118651
- 
-\change_unchanged
-tap long.
+ tap long.
  This adds even more versatility to the IP-Core since it allows having a
  V-TDL either made of CARRY-based TDLs only (if 
 \shape italic
@@ -5254,6 +5246,27 @@ status open
 
 \begin_layout Plain Layout
 V-TDL IP-Core, exploiting both CARRY-chains and DSP-chains
+\change_inserted 1469408620 1669125278
+ thanks to the new generics 
+\shape italic
+NUMBER_OF_CARRY_CHAINS
+\shape default
+ and 
+\shape italic
+NUMBER_OF_DSP_CHAINS
+\shape default
+ in substitution of 
+\shape italic
+NUMBER_OF_TDL
+\shape default
+.
+ The generic 
+\shape italic
+XUS_VS_X7S
+\shape default
+ is also still present.
+\change_deleted 1469408620 1669125283
+
 \begin_inset Note Note
 status open
 
@@ -5265,6 +5278,8 @@ sottolinea che oltr al generic XUS vs X7S di prima ora hai sostituito NUM_OF_TDL
 \end_inset
 
 .
+\change_unchanged
+
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Virtual-Tapped-Delay-Line"
@@ -5288,16 +5303,12 @@ name "fig:Virtual-Tapped-Delay-Line"
 
 \begin_layout Subsection
 Advantages and drawbacks of the DSP-based TDL
-\change_inserted 1469408620 1668982877
-
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Advantages-and-drawbacks"
 
 \end_inset
 
-
-\change_unchanged
 
 \end_layout
 
@@ -5318,6 +5329,11 @@ noprefix "false"
  shows the concept just explained, showing the higher compactness of a DSP-chain
  (on the right) than a CARRY-chain (on the left) on a Kintex-Ultrascale
  FPGA fabric.
+
+\change_inserted 1469408620 1669125456
+ 
+\change_deleted 1469408620 1669125454
+
 \begin_inset Note Note
 status open
 
@@ -5329,8 +5345,9 @@ fai notare che il routing a del DSP sarà molto più facilitato ind esign
 \end_inset
 
 
-\change_inserted 1469408620 1668793305
-
+\change_inserted 1469408620 1669125430
+It is worth noting that the DSP-chain routing will be facilitated in large
+ designs since it has a lot of room before crossing all the FPGA fabric.
 \end_layout
 
 \begin_layout Standard
@@ -5423,6 +5440,8 @@ Furthermore, the DSP-based architecture allows a relaxation in the hardware
  utilization, since the sampling of the TDL is made with the P-register
  integrated with the DSP itself, thus not requiring the use of external
  FFs as in the CARRY-based approach
+\change_deleted 1469408620 1669125761
+
 \begin_inset Note Note
 status open
 
@@ -5434,8 +5453,17 @@ dai una metrica ovvero i TDL fatta a DSP ha giù i suoi FF mentre se fatta
 
 \end_inset
 
+
+\change_unchanged
 .
- However, the DSP-chains suffer from a relevant problem, since the cascade
+ 
+\change_inserted 1469408620 1669125876
+For example, if a 512-taps long CARRY-based TDL is implemented, it will
+ need 512 as many FFs; on the other hand, the DSP-based counterpart will
+ save those 512 FFs since it uses the ones integrated into the DSP blocks.
+ 
+\change_unchanged
+However, the DSP-chains suffer from a relevant problem, since the cascade
  path from one DSP slice to another introduces a huge propagation delay
  and therefore the presence of a very high “ultra-bin” in the chain.
  The recurring presence of “ultra-bins” along the DSP-chain is the main
