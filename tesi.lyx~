@@ -227,11 +227,12 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes false
+\tracking_changes true
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\author 1469408620 "Mattia Consonni"
 \end_header
 
 \begin_body
@@ -515,20 +516,61 @@ status open
 Abstract: 
 \series default
 \color black
-The increasing demand for very precise time measurement in scientific research
- applications, ranging from the biomedical field to the industrial one,
- has led to the need for high-resolution Time Interval Meters (TIMs).
- Several solutions for TIMs are already present in the literature, implemented
- both in Application Specific Integrated Circuits (ASICs) and Field Programmable
- Gate Arrays (FPGAs).
+The increasing demand for very precise time measurement
+\change_inserted 1469408620 1669108820
+s
+\change_unchanged
+ in scientific research applications, ranging from the biomedical field
+ to the industrial one, has led to the need for 
+\change_inserted 1469408620 1669108750
+instruments, called Time Interval Meters (TIMs), characterized by features
+ such as a resolution and single-shot precision in the picoseconds (ps)
+ order, and a sampling rate in the order of hundreds of megahertz (MHz)
+ to correctly process the detected physical events.
+\change_deleted 1469408620 1669108755
+high-resolution Time Interval Meters (TIMs).
+
+\change_unchanged
+ Several 
+\change_deleted 1469408620 1669110383
+solutions for TIMs
+\change_inserted 1469408620 1669108765
+TIM solutions
+\change_unchanged
+ are already present in the literature, implemented both in Application
+ Specific Integrated Circuits (ASICs) and Field Programmable Gate Arrays
+ (FPGAs).
  To cope with features such as fast-prototyping and low time-to-market,
- the FPGA approach has been chosen for this work, and a fully-digital TIM,
- a.k.a.
- Time-to-Digital Converter (TDC) has been implemented.
- In this thesis work, we present the implementation of a tunable, high-performan
-ce, and multi-channel Tapped Delay-Line (TDL) based TDC IP-Core for Xilinx
- Ultrascale/Ultrascale+ FPGAs.
- The concept of tunability refers to the user-friendly graphical user interface
+ the FPGA approach has been chosen for this 
+\change_inserted 1469408620 1669108845
+thesis 
+\change_unchanged
+work, and a fully-digital TIM, a.k.a.
+ Time-to-Digital Converter (TDC)
+\change_inserted 1469408620 1669109864
+,
+\change_unchanged
+ has been implemented.
+ 
+\change_inserted 1469408620 1669108939
+The presented system is a 
+\change_deleted 1469408620 1669108883
+In this thesis work, we present the implementation of a tunable, high-performanc
+e, and 
+\change_unchanged
+multi-channel Tapped Delay-Line (TDL) based TDC IP-Core for Xilinx Ultrascale/Ul
+trascale+
+\change_inserted 1469408620 1669108918
+ (XUS/XUS+)
+\change_unchanged
+ FPGAs.
+ 
+\change_inserted 1469408620 1669109988
+The IP-Core approach allows high-portability since the TDC can be promptly
+ tested on different systems with a simple drag-and-drop operation.
+ 
+\change_deleted 1469408620 1669110117
+The concept of tunability refers to the user-friendly graphical user interface
  (GUI) of the IP-Core, which allows to easily set the resolution (LSB),
  the Full-Scale Range (FSR), and the number of channels of the device.
  In particular, we can tune the LSB up to hundreds of femtoseconds and the
@@ -536,7 +578,17 @@ ce, and multi-channel Tapped Delay-Line (TDL) based TDC IP-Core for Xilinx
  Moreover, the TDC presents a maximum measurement rate of 200 Msps per channel,
  satisfying the high count-rate capability requirement of state-of-the-art
  detectors.
- It also achieves a single-shot precision of up to 2.8 ps, with very good
+ 
+\change_inserted 1469408620 1669110725
+To exploit the benefits of the scaling, the 20-nm XUS technology has been
+ investigated in this work, allowing achieving high measurement rates, low
+ Dead-Time, high-resolution, and excellent single-shot precision.
+ In particular, a single-shot precision in the order of 3 ps has been achieved,
+ along with a maximum measurement rate of 200 Msps per channel, thus satisfying
+ the high count-rate capability requirement of state-of-the-art detectors.
+ 
+\change_deleted 1469408620 1669110117
+It also achieves a single-shot precision of up to 2.8 ps, with very good
  linearity (i.e., negligible DNL and INL < 13 ps).
  To achieve such a high-resolution over a wide FSR, the measurement is performed
  according to the Nutt-Interpolation technique, in which the timestamp of
@@ -554,12 +606,44 @@ virtual
 
  taps, whose propagation delays are faster than the real ones of the single
  TDL.
- From the design point of view, the TDC has been implemented and fully tested
+  
+\change_unchanged
+From the design point of view, the TDC has been implemented and fully tested
  on a Kintex Ultrascale FPGA, hosted in the KCU105 Evaluation Board, where
- the TDLs have been obtained by cascading CARRY8 primitives or Digital Signal
- Processor (DSP) primitives (i.e., DSP48E2) available into the fabric of the
- Xilinx device.
- A trade-off between a pure CARRY-based V-TDL and a 
+ 
+\change_inserted 1469408620 1669110055
+two different 
+\change_deleted 1469408620 1669110117
+the 
+\change_unchanged
+TDL
+\change_deleted 1469408620 1669110117
+s
+\change_inserted 1469408620 1669111115
+ solutions have been tested.
+ The first solution is more performant in terms of single-shot precision
+ at the expense of higher area occupancy, and it is based on the CARRY primitive
+s (i.e., CARRY8) available in the fabric of the Xilinx FPGA.
+ The second solution is instead less performant but more power/hardware-efficien
+t, and it relies on 
+\change_deleted 1469408620 1669110117
+ have been obtained by cascading CARRY8 primitives or 
+\change_unchanged
+Digital Signal Processor (DSP) primitives (i.e., DSP48E2)
+\change_deleted 1469408620 1669110968
+ available into the fabric of the Xilinx device
+\change_unchanged
+.
+
+\change_deleted 1469408620 1669110117
+ 
+\change_inserted 1469408620 1669111105
+ Finally, a hybrid architecture exploiting both CARRY and DSP resources
+ has been tested, leading to results that shows the best features of both
+ TDL types (i.e., a single-shot precision of 3.8 ps and a low hardware occupancy
+ that allows a maximum number of channels equal to 74).
+\change_deleted 1469408620 1669110117
+A trade-off between a pure CARRY-based V-TDL and a 
 \begin_inset Quotes eld
 \end_inset
 
@@ -576,6 +660,8 @@ hybrid
  more compact and power/hardware-saving (i.e., maximum number of channels
  = 74), making it more suitable for those applications requiring the detection
  of a high number of physical events.
+\change_unchanged
+
 \end_layout
 
 \end_inset
@@ -785,12 +871,16 @@ filename "*Acknowledgements/*Acknowledgements.lyx"
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 1469408620 1668873312
 \begin_inset CommandInset include
 LatexCommand input
 filename "*Guide/guide_to_lyx_for_polimi_thesis.lyx"
 
 \end_inset
 
+
+\change_unchanged
 
 \end_layout
 

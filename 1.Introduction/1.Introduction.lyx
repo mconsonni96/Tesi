@@ -309,6 +309,25 @@ literal "false"
  precision in the picoseconds order and a sampling rate of hundreds of megahertz
  (MHz), to correctly process and measure the physical events detected on
  the sensor front-end of the acquisition chain.
+\change_inserted 1469408620 1669112008
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 1469408620 1669112165
+In this thesis work, a fully-digital TIM, a.k.a.
+ Time-to-Digital Converter (hereinafter simply called TDC), implemented
+ in Field Programmable Gate Array (FPGA) will be presented.
+ This device is in charge of converting the time measurement into a digital
+ output code.
+ To satisfy the aforementioned requirements, the TDC has been implemented
+ and fully-tested in a highly-scaled technology, i.e.
+ the 20-nm Xilinx Ultrascale technological node, allowing exploiting the
+ benefits of the scaling and achieving high resolution, excellent measurement
+ precision, and high sampling rates.
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -1082,11 +1101,30 @@ name "fig:Measurement-Setup-employing"
 \end_layout
 
 \begin_layout Standard
-In this thesis work, a fully-digital TIMESTAMP-type Time-Interval-Meter,
- a.k.a.
- TIMESTAMP-type Time-to-Digital Converter (hereinafter simply called TDC),
- implemented in Field Programmable Gate Array (FPGA) will be presented.
- A TIMESTAMP-type TDC, just like a START/STOP-type TDC, converts the measured
+
+\change_inserted 1469408620 1669111593
+The TIM that will be presented in this work is 
+\change_deleted 1469408620 1669111600
+In this thesis work, 
+\change_unchanged
+a fully-digital TIMESTAMP-type Time-Interval-Meter, a.k.a.
+ TIMESTAMP-type 
+\change_deleted 1469408620 1669111610
+Time-to-Digital Converter (hereinafter simply called 
+\change_unchanged
+TDC
+\change_deleted 1469408620 1669111611
+)
+\change_unchanged
+, implemented in 
+\change_inserted 1469408620 1669111642
+FPGA.
+ 
+\change_deleted 1469408620 1669111635
+Field Programmable Gate Array (FPGA) will be presented.
+ 
+\change_unchanged
+A TIMESTAMP-type TDC, just like a START/STOP-type TDC, converts the measured
  time interval into a digital output code.
 \end_layout
 
