@@ -228,18 +228,8 @@ ation (i.e., 2.8 ps) than on the 2 CARRY-chains + 1 FULL-DSP-chains one (i.e.,
 
 \begin_layout Itemize
 lower power consumption 
-\change_inserted 1469408620 1669130639
-(i.e., 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-) 
+\change_inserted 1469408620 1669134959
+(i.e., 0.1 W) 
 \change_unchanged
 and hardware occupancy have been achieved 
 \change_inserted 1469408620 1669130628
