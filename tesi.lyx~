@@ -578,11 +578,11 @@ Finally, a hybrid architecture exploiting both CARRY and DSP resources has
 \change_unchanged
  a maximum number of channels equal to 74).
 
-\change_inserted 1469408620 1669135401
+\change_inserted 1469408620 1669135549
  This architecture has been compared with the one exploiting just CARRY
  chains, which is the more performant in terms of precision (i.e., 2.8 ps),
  but it is characterized by a higher power consumption (i.e., 0.596 W) and
- a lower maximum number of channels (i.e., 62).
+ area occupancy (i.e., maximum number of channels equal to 62).
 \change_unchanged
 
 \end_layout

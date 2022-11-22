@@ -3434,14 +3434,7 @@ Jitter meas.
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset space \space{}
-\end_inset
-
 Laser Range F.
-\begin_inset space \space{}
-\end_inset
-
-
 \end_layout
 
 \end_inset
@@ -3459,7 +3452,22 @@ Spectroscopy
 \begin_inset Text
 
 \begin_layout Plain Layout
-Particle tracking
+
+\change_inserted 1469408620 1669144037
+\begin_inset space ~
+\end_inset
+
+
+\change_unchanged
+Spectroscopy
+\change_inserted 1469408620 1669144032
+
+\begin_inset space ~
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \end_inset
@@ -4233,7 +4241,7 @@ Application
 \begin_inset Text
 
 \begin_layout Plain Layout
-Medical imaging
+TOF-PET
 \end_layout
 
 \end_inset
@@ -4260,7 +4268,7 @@ Nuclear science
 \begin_inset Text
 
 \begin_layout Plain Layout
-TOF experiments
+TOF exp.
 \end_layout
 
 \end_inset
@@ -4269,7 +4277,7 @@ TOF experiments
 \begin_inset Text
 
 \begin_layout Plain Layout
-TOF experiments
+TOF exp.
 \end_layout
 
 \end_inset
