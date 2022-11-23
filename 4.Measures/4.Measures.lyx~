@@ -3125,7 +3125,13 @@ ultra-bin
 \change_inserted 1469408620 1669127629
  4 CARRY-chains-based V-TDL
 \change_unchanged
- (see Paragraph 
+ (see 
+\change_deleted 1469408620 1669213839
+Paragraph
+\change_inserted 1469408620 1669213841
+Section
+\change_unchanged
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Verification-of-the"
@@ -3623,7 +3629,13 @@ ultra-bin
 \end_inset
 
  value of a 1 CARRY-chain + 1 HALF-DSP-chain based V-TDL, a 1 CARRY-chain
- based TDL (see Paragraph 
+ based TDL (see 
+\change_deleted 1469408620 1669213864
+Paragraph
+\change_inserted 1469408620 1669213865
+Section
+\change_unchanged
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Verification-of-the"
@@ -3633,7 +3645,13 @@ noprefix "false"
 
 \end_inset
 
-), and a 1 HALF-DSP-chain based TDL (see Paragraph 
+), and a 1 HALF-DSP-chain based TDL (see 
+\change_deleted 1469408620 1669213892
+Paragraph
+\change_inserted 1469408620 1669213893
+Section
+\change_unchanged
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Preliminary-studies-about"
@@ -3968,11 +3986,7 @@ ultra-bin
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -1129936465 1669195359
 44 ps r.m.s
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -4010,11 +4024,7 @@ ultra-bin
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -1129936465 1669195365
 94.5 ps r.m.s
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -4040,8 +4050,13 @@ ultra-bin
 \end_inset
 
  value of a 1 FULL-DSP-chain based V-TDL and a 1 HALF-DSP-chain based TDL
-\change_inserted -1129936465 1669195293
- (see Paragraph 
+ (see 
+\change_deleted 1469408620 1669213907
+Paragraph
+\change_inserted 1469408620 1669213908
+Section
+\change_unchanged
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Preliminary-studies-about"
@@ -4051,9 +4066,7 @@ noprefix "false"
 
 \end_inset
 
-)
-\change_unchanged
-.
+).
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:Achievable-mean-bin's-1"
@@ -4401,8 +4414,6 @@ ultra-bin
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -1129936465 1669195626
 2.8 ps r.m.s.
 \end_layout
 
@@ -4555,8 +4566,6 @@ numero
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -1129936465 1669195635
 44 ps r.m.s.
 \end_layout
 
@@ -4595,8 +4604,6 @@ numero
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -1129936465 1669195640
 5.13 ps r.m.s.
 \end_layout
 
@@ -4636,8 +4643,12 @@ numero
 
 \begin_layout Plain Layout
 
-\change_inserted -1129936465 1669195645
-44 ps r.m.s.
+\change_deleted 1469408620 1669202017
+44
+\change_inserted 1469408620 1669202019
+94.5
+\change_unchanged
+ ps r.m.s.
 \end_layout
 
 \end_inset
@@ -4662,9 +4673,7 @@ ultra-bin
 \begin_inset Quotes erd
 \end_inset
 
- value of a 4 CARRY-chain based V-TDL
-\change_inserted -1129936465 1669195393
- (see Paragraph 
+ value of a 4 CARRY-chain based V-TDL (see Paragraph 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Verification-of-the"
@@ -4674,12 +4683,8 @@ noprefix "false"
 
 \end_inset
 
-)
-\change_unchanged
-, a 2 CARRY-chains + 1 FULL-DSP-chain based V-TDL, a 2 CARRY-chains based
- V-TDL
-\change_inserted -1129936465 1669195527
- (see Paragraph 
+), a 2 CARRY-chains + 1 FULL-DSP-chain based V-TDL, a 2 CARRY-chains based
+ V-TDL (see Paragraph 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:2-CARRY-chains"
@@ -4689,11 +4694,7 @@ noprefix "false"
 
 \end_inset
 
-)
-\change_unchanged
-, a 1 FULL-DSP-chain based V-TDL
-\change_inserted -1129936465 1669195468
- (see Paragraph 
+), a 1 FULL-DSP-chain based V-TDL (see Paragraph 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Preliminary-studies-about"
@@ -4703,11 +4704,7 @@ noprefix "false"
 
 \end_inset
 
-)
-\change_unchanged
-, a 1 CARRY-chain based TDL
-\change_inserted -1129936465 1669195468
- (see Paragraph 
+), a 1 CARRY-chain based TDL (see Paragraph 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Verification-of-the"
@@ -4717,11 +4714,7 @@ noprefix "false"
 
 \end_inset
 
-)
-\change_unchanged
-, and a 1 HALF-DSP-chain based TDL
-\change_inserted -1129936465 1669195468
- (see Paragraph 
+), and a 1 HALF-DSP-chain based TDL (see Paragraph 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Preliminary-studies-about"
@@ -4731,9 +4724,7 @@ noprefix "false"
 
 \end_inset
 
-)
-\change_unchanged
-.
+).
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:Achievable-mean-bin's-2"

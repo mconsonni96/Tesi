@@ -3125,7 +3125,13 @@ ultra-bin
 \change_inserted 1469408620 1669127629
  4 CARRY-chains-based V-TDL
 \change_unchanged
- (see Paragraph 
+ (see 
+\change_deleted 1469408620 1669213839
+Paragraph
+\change_inserted 1469408620 1669213841
+Section
+\change_unchanged
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Verification-of-the"
@@ -3623,7 +3629,13 @@ ultra-bin
 \end_inset
 
  value of a 1 CARRY-chain + 1 HALF-DSP-chain based V-TDL, a 1 CARRY-chain
- based TDL (see Paragraph 
+ based TDL (see 
+\change_deleted 1469408620 1669213864
+Paragraph
+\change_inserted 1469408620 1669213865
+Section
+\change_unchanged
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Verification-of-the"
@@ -3633,7 +3645,13 @@ noprefix "false"
 
 \end_inset
 
-), and a 1 HALF-DSP-chain based TDL (see Paragraph 
+), and a 1 HALF-DSP-chain based TDL (see 
+\change_deleted 1469408620 1669213892
+Paragraph
+\change_inserted 1469408620 1669213893
+Section
+\change_unchanged
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Preliminary-studies-about"
@@ -4032,7 +4050,13 @@ ultra-bin
 \end_inset
 
  value of a 1 FULL-DSP-chain based V-TDL and a 1 HALF-DSP-chain based TDL
- (see Paragraph 
+ (see 
+\change_deleted 1469408620 1669213907
+Paragraph
+\change_inserted 1469408620 1669213908
+Section
+\change_unchanged
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Preliminary-studies-about"
@@ -4649,7 +4673,13 @@ ultra-bin
 \begin_inset Quotes erd
 \end_inset
 
- value of a 4 CARRY-chain based V-TDL (see Paragraph 
+ value of a 4 CARRY-chain based V-TDL (see 
+\change_deleted 1469408620 1669213926
+Paragraph
+\change_inserted 1469408620 1669213926
+Section
+\change_unchanged
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Verification-of-the"
@@ -4670,7 +4700,13 @@ noprefix "false"
 
 \end_inset
 
-), a 1 FULL-DSP-chain based V-TDL (see Paragraph 
+), a 1 FULL-DSP-chain based V-TDL (see 
+\change_deleted 1469408620 1669213991
+Paragraph
+\change_inserted 1469408620 1669213992
+Section
+\change_unchanged
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Preliminary-studies-about"
@@ -4680,7 +4716,13 @@ noprefix "false"
 
 \end_inset
 
-), a 1 CARRY-chain based TDL (see Paragraph 
+), a 1 CARRY-chain based TDL (see 
+\change_deleted 1469408620 1669213997
+Paragraph 
+\change_inserted 1469408620 1669214002
+Section 
+\change_unchanged
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Verification-of-the"
@@ -4690,7 +4732,13 @@ noprefix "false"
 
 \end_inset
 
-), and a 1 HALF-DSP-chain based TDL (see Paragraph 
+), and a 1 HALF-DSP-chain based TDL (see 
+\change_deleted 1469408620 1669214009
+Paragraph
+\change_inserted 1469408620 1669214010
+Section
+\change_unchanged
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Preliminary-studies-about"
