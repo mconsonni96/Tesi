@@ -228,7 +228,7 @@
 \papersides 1
 \paperpagestyle default
 \tracking_changes true
-\output_changes false
+\output_changes true
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
@@ -548,27 +548,9 @@ The increasing demand for very precise time measurements in scientific research
 s (i.e., CARRY8) available in the fabric of the Xilinx FPGA.
  The second solution is instead less performant but more power/hardware-efficien
 t, and it relies on Digital Signal Processor (DSP) primitives (i.e., DSP48E2).
- 
-\change_deleted 1469408620 1669135349
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\size footnotesize
-\color black
-fai una frase dove metti i numeri del DSP vs CARRY (precision, area => num
- ch indicativi nella tua FPGA, power)
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-Finally, a hybrid architecture exploiting both CARRY and DSP resources has
- been tested, leading to results that show the best features of both TDL
- types (i.e., a single-shot precision of 3.8 ps
+ Finally, a hybrid architecture exploiting both CARRY and DSP resources
+ has been tested, leading to results that show the best features of both
+ TDL types (i.e., a single-shot precision of 3.8 ps
 \change_inserted 1469408620 1669135270
 , a power consumption of 0.49 W
 \change_deleted 1469408620 1669135277
