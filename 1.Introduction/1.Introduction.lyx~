@@ -218,23 +218,6 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted 1469408620 1669132300
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-riprendi dall'abstract anche la questione delle 2 TDL e dei trade-offs
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
-\end_layout
-
-\begin_layout Standard
 The concept of 
 \begin_inset Quotes eld
 \end_inset
@@ -4946,7 +4929,31 @@ noprefix "false"
 \end_inset
 
  that all the ASIC solutions are characterized by low power consumption
- (i.e., in the order of some mW), low non-linearities (i.e., DNL, INL 
+ (i.e., in the order of some 
+\begin_inset Formula $\mu W$
+\end_inset
+
+
+\change_inserted 1469408620 1669201616
+,
+\change_unchanged
+ 
+\change_deleted 1469408620 1669201598
+with respect to
+\change_inserted 1469408620 1669201601
+differently from the
+\change_unchanged
+ FPGA
+\change_inserted 1469408620 1669201608
+, which
+\change_deleted 1469408620 1669201609
+ that
+\change_unchanged
+ achieves some 
+\begin_inset Formula $mW$
+\end_inset
+
+), low non-linearities (i.e., DNL, INL 
 \begin_inset Formula $\leq$
 \end_inset
 

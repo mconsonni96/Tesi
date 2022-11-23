@@ -131,7 +131,6 @@
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
-\author -1129936465 "Nicola Lusardi"
 \author 1469408620 "Mattia Consonni"
 \end_header
 
@@ -992,8 +991,16 @@ name "fig:Measurement-Setup-employing"
 The TIM that will be presented in this work is a fully-digital TIMESTAMP-type
  Time-Interval-Meter, a.k.a.
  TIMESTAMP-type TDC, implemented in FPGA.
- A TIMESTAMP-type TDC, just like a START/STOP-type TDC, converts the measured
- time interval into a digital output code.
+ A TIMESTAMP-type TDC, just like a 
+\change_inserted 1469408620 1669210080
+
+\begin_inset Newline newline
+\end_inset
+
+
+\change_unchanged
+START/STOP-type TDC, converts the measured time interval into a digital
+ output code.
 \end_layout
 
 \begin_layout Subsection
@@ -4931,19 +4938,29 @@ noprefix "false"
 
  that all the ASIC solutions are characterized by low power consumption
  (i.e., in the order of some 
-\change_deleted -1129936465 1669194320
-mW
-\change_inserted -1129936465 1669194364
-
 \begin_inset Formula $\mu W$
 \end_inset
 
- with respect to FPGA that achieve some 
+
+\change_inserted 1469408620 1669201616
+,
+\change_unchanged
+ 
+\change_deleted 1469408620 1669201598
+with respect to
+\change_inserted 1469408620 1669201601
+differently from the
+\change_unchanged
+ FPGA
+\change_inserted 1469408620 1669201608
+, which
+\change_deleted 1469408620 1669201609
+ that
+\change_unchanged
+ achieves some 
 \begin_inset Formula $mW$
 \end_inset
 
-
-\change_unchanged
 ), low non-linearities (i.e., DNL, INL 
 \begin_inset Formula $\leq$
 \end_inset

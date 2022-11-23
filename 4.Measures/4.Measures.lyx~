@@ -886,29 +886,19 @@ ultra-bin
 \begin_inset Quotes erd
 \end_inset
 
- also improves 
-\change_deleted -1129936465 1669194557
-almost
-\change_inserted -1129936465 1669194558
-more or less
-\change_unchanged
- by a factor of 
+ also improves more or less by a factor of 
 \begin_inset Formula $M=4$
 \end_inset
 
-
-\change_inserted -1129936465 1669194574
  (i.e., 
 \begin_inset Formula $t_{p,B}^{MAX}/M=19\,ps/4=4.75\,ps$
 \end_inset
 
- very similar to 
+, very similar to 
 \begin_inset Formula $t_{p,V}^{MAX}=7\,ps$
 \end_inset
 
-)
-\change_unchanged
-.
+).
 \change_inserted 1469408620 1669129792
 
 \end_layout
@@ -1192,11 +1182,7 @@ Single-Shot Precision (
 \begin_inset Text
 
 \begin_layout Plain Layout
-5.13 ps
-\change_inserted -1129936465 1669195209
- r.m.s.
-\change_unchanged
-
+5.13 ps r.m.s.
 \end_layout
 
 \end_inset
@@ -1205,11 +1191,7 @@ Single-Shot Precision (
 \begin_inset Text
 
 \begin_layout Plain Layout
-2.8 ps
-\change_inserted -1129936465 1669195210
- r.m.s.
-\change_unchanged
-
+2.8 ps r.m.s.
 \end_layout
 
 \end_inset
@@ -1607,11 +1589,7 @@ Single-Shot Precision (
 \begin_inset Text
 
 \begin_layout Plain Layout
-15 ps
-\change_inserted -1129936465 1669195213
- r.m.s.
-\change_unchanged
-
+15 ps r.m.s.
 \end_layout
 
 \end_inset
@@ -1620,11 +1598,7 @@ Single-Shot Precision (
 \begin_inset Text
 
 \begin_layout Plain Layout
-12 ps
-\change_inserted -1129936465 1669195213
- r.m.s.
-\change_unchanged
-
+12 ps r.m.s.
 \end_layout
 
 \end_inset
@@ -2079,23 +2053,19 @@ The mean propagation delay of the virtual bins (
 \begin_inset Formula $M=2$
 \end_inset
 
- thanks to the Sub-Interpolation, in the FULL-DSP-chain
-\change_inserted -1129936465 1669194784
- (i.e., 
-\begin_inset Formula $\overline{t_{p,B}}/M=14\,ps/2=7\,ps$
+ thanks to the Sub-Interpolation, in the FULL-DSP-chain (i.e., 
+\begin_inset Formula $\overline{t_{p,V}}=\overline{t_{p,B}}/M=14\,ps/2=7\,ps$
 \end_inset
 
+
+\change_deleted 1469408620 1669201902
  like the 
 \begin_inset Formula $\overline{t_{p,V}}=7\,ps$
 \end_inset
 
-)
+
 \change_unchanged
-;
-\change_inserted 1469408620 1669129310
- 
-\change_unchanged
-however, this is not true for the 
+); however, this is not true for the 
 \begin_inset Quotes eld
 \end_inset
 
@@ -2103,19 +2073,26 @@ ultra-bins
 \begin_inset Quotes erd
 \end_inset
 
-
-\change_inserted -1129936465 1669194840
  (i.e., 
 \begin_inset Formula $t_{p,B}^{MAX}/M=263\,ps/2=131.5\,ps$
 \end_inset
 
- that is different with respect to 
+
+\change_inserted 1469408620 1669201913
+,
+\change_unchanged
+ 
+\change_inserted 1469408620 1669201914
+which
+\change_deleted 1469408620 1669201915
+that
+\change_unchanged
+ is different with respect to 
 \begin_inset Formula $t_{p,V}^{MAX}=203\,ps$
 \end_inset
 
-)
-\change_unchanged
- as the Sub-Interpolation is not very effective on them (see Paragraph 
+) as the Sub-Interpolation is not very effective on them (see Paragraph
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:1-FULL-DSP-chain"
@@ -2361,11 +2338,7 @@ Single-Shot Precision (
 \begin_inset Text
 
 \begin_layout Plain Layout
-94.5 ps
-\change_inserted -1129936465 1669195221
- r.m.s.
-\change_unchanged
-
+94.5 ps r.m.s.
 \end_layout
 
 \end_inset
@@ -2374,11 +2347,7 @@ Single-Shot Precision (
 \begin_inset Text
 
 \begin_layout Plain Layout
-44 ps
-\change_inserted -1129936465 1669195222
- r.m.s.
-\change_unchanged
-
+44 ps r.m.s.
 \end_layout
 
 \end_inset
@@ -2737,16 +2706,12 @@ noprefix "false"
 
 \begin_layout Subsubsection
 2 CARRY-chains
-\change_inserted -1129936465 1669195514
-
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:2-CARRY-chains"
 
 \end_inset
 
-
-\change_unchanged
 
 \end_layout
 
@@ -3039,8 +3004,6 @@ ultra-bin
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -1129936465 1669195010
 2.8 ps r.ms.
 \end_layout
 
@@ -3079,6 +3042,11 @@ ultra-bin
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\change_inserted 1469408620 1669197352
+3.9 ps r.m.s.
+\change_deleted 1469408620 1669197352
+
 \begin_inset Note Note
 status open
 
@@ -3128,8 +3096,6 @@ NUEMRO
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -1129936465 1669195018
 5.13 ps r.ms.
 \end_layout
 
@@ -3158,7 +3124,7 @@ ultra-bin
  value of a
 \change_inserted 1469408620 1669127629
  4 CARRY-chains-based V-TDL
-\change_inserted -1129936465 1669195125
+\change_unchanged
  (see Paragraph 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -3169,9 +3135,9 @@ noprefix "false"
 
 \end_inset
 
-)
+),
 \change_inserted 1469408620 1669127629
-, a
+ a
 \change_unchanged
  2 CARRY-chains-based V-TDL and a single CARRY-chain-based TDL.
 \begin_inset CommandInset label
@@ -3536,7 +3502,10 @@ ultra-bin
 
 \begin_layout Plain Layout
 
-\change_inserted -1129936465 1669195164
+\change_inserted 1469408620 1669197449
+4.87 ps r.m.s.
+\change_deleted 1469408620 1669197449
+
 \begin_inset Note Note
 status open
 
@@ -3550,6 +3519,8 @@ numero
 
 \end_inset
 
+
+\change_inserted -1129936465 1669195164
 
 \end_layout
 
@@ -3588,8 +3559,6 @@ numero
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -1129936465 1669195161
 5.13 ps r.ms.
 \end_layout
 
@@ -3628,8 +3597,6 @@ numero
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -1129936465 1669195196
 94.5 ps r.m.s.
 \end_layout
 
@@ -3656,9 +3623,7 @@ ultra-bin
 \end_inset
 
  value of a 1 CARRY-chain + 1 HALF-DSP-chain based V-TDL, a 1 CARRY-chain
- based TDL 
-\change_inserted -1129936465 1669195137
-(see Paragraph 
+ based TDL (see Paragraph 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Verification-of-the"
@@ -3668,11 +3633,7 @@ noprefix "false"
 
 \end_inset
 
-)
-\change_unchanged
-, and a 1 HALF-DSP-chain based TDL
-\change_inserted -1129936465 1669195141
- (see Paragraph 
+), and a 1 HALF-DSP-chain based TDL (see Paragraph 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Preliminary-studies-about"
@@ -3682,9 +3643,7 @@ noprefix "false"
 
 \end_inset
 
-)
-\change_unchanged
-.
+).
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:Achievable-mean-bin's"
@@ -4483,7 +4442,10 @@ ultra-bin
 
 \begin_layout Plain Layout
 
-\change_inserted -1129936465 1669195656
+\change_inserted 1469408620 1669197396
+3.8 ps r.m.s.
+\change_deleted 1469408620 1669197397
+
 \begin_inset Note Note
 status open
 
@@ -4495,6 +4457,8 @@ numero
 
 \end_inset
 
+
+\change_inserted -1129936465 1669195656
 
 \end_layout
 
@@ -4534,7 +4498,10 @@ numero
 
 \begin_layout Plain Layout
 
-\change_inserted -1129936465 1669195650
+\change_inserted 1469408620 1669197377
+3.9 ps r.m.s.
+\change_deleted 1469408620 1669197378
+
 \begin_inset Note Note
 status open
 
@@ -4548,6 +4515,8 @@ numero
 
 \end_inset
 
+
+\change_inserted -1129936465 1669195650
 
 \end_layout
 
@@ -4798,31 +4767,8 @@ noprefix "false"
 \end_inset
 
  shows the comparison of the acquired histograms for the two implementations
- tested in this experiment (
-\change_deleted 1469408620 1669127764
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Usa sempre 4 CARRY e 2 CARRY-chains + 1 FULL-DSP
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-i.e., 4 CARRY-chains
-\change_deleted 1469408620 1669127772
- a.k.a.
- first implementation,
-\change_unchanged
- and 2 CARRY-chains + 1 FULL-DSP-chain
-\change_deleted 1469408620 1669127779
- a.k.a.
- second implementation
-\change_unchanged
-).
+ tested in this experiment (i.e., 4 CARRY-chains and 2 CARRY-chains + 1 FULL-DSP-c
+hain).
 \begin_inset Float figure
 wide false
 sideways false
@@ -5004,8 +4950,6 @@ Feature
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669130313
 \begin_inset space ~
 \end_inset
 
@@ -5021,8 +4965,6 @@ Feature
 \begin_inset space ~
 \end_inset
 
-
-\change_unchanged
 
 \begin_inset space ~
 \end_inset
@@ -5040,8 +4982,6 @@ Feature
 \end_inset
 
 
-\change_inserted 1469408620 1669130313
-
 \begin_inset space ~
 \end_inset
 
@@ -5057,8 +4997,6 @@ Feature
 \begin_inset space ~
 \end_inset
 
-
-\change_unchanged
 
 \end_layout
 
@@ -5068,11 +5006,7 @@ Feature
 \begin_inset Text
 
 \begin_layout Plain Layout
-2 CARRY-chains + 1 FULL-DSP
-\change_inserted 1469408620 1669150640
--chain
-\change_unchanged
-
+2 CARRY-chains + 1 FULL-DSP-chain
 \end_layout
 
 \end_inset
@@ -5307,11 +5241,7 @@ TDC ultra-bin
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669127830
 7 ps
-\change_inserted -1129936465 1669120213
-
 \end_layout
 
 \end_inset
@@ -5320,11 +5250,7 @@ TDC ultra-bin
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1669127848
 11.3 ps
-\change_inserted -1129936465 1669120213
-
 \end_layout
 
 \end_inset
@@ -5421,20 +5347,6 @@ Power Consumption (for one ch.)
 
 \end_inset
 
-
-\change_deleted 1469408620 1669127803
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-aggiungi l'ultra
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
 
 \end_layout
 
