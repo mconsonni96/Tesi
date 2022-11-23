@@ -5457,10 +5457,10 @@ dai una metrica ovvero i TDL fatta a DSP ha giù i suoi FF mentre se fatta
 \change_unchanged
 .
  
-\change_inserted 1469408620 1669125856
+\change_inserted 1469408620 1669125876
 For example, if a 512-taps long CARRY-based TDL is implemented, it will
  need 512 as many FFs; on the other hand, the DSP-based counterpart will
- save those 512 FFs since it uses the ones integrated in the DSP blocks.
+ save those 512 FFs since it uses the ones integrated into the DSP blocks.
  
 \change_unchanged
 However, the DSP-chains suffer from a relevant problem, since the cascade

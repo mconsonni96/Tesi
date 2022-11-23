@@ -1075,6 +1075,8 @@ status open
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 1469408620 1669125001
 \begin_inset Note Note
 status open
 
@@ -1086,7 +1088,7 @@ Riferisciti a nostri lavori ad esempio https://ieeexplore.ieee.org/document/8824
 \end_inset
 
 
-\change_inserted 1469408620 1669037471
+\change_inserted 1469408620 1669124995
 On the other hand, in a Xilinx Ultrascale FPGA, the achieved minimum bin
  is equal to 1 ps, the maximum bin (i.e., the 
 \begin_inset Quotes eld
@@ -1096,9 +1098,24 @@ ultra-bin
 \begin_inset Quotes erd
 \end_inset
 
-) is equal to 19 ps, and the mean bin is equal to 4.8 ps.
- 
-\change_unchanged
+) is equal to 19 ps, and the mean bin is equal to 4.8 ps 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "9059958"
+literal "false"
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "8824659"
+literal "false"
+
+\end_inset
+
+.
+\change_deleted 1469408620 1669124998
 
 \begin_inset Note Note
 status open
@@ -1109,6 +1126,8 @@ status open
 
 \end_inset
 
+
+\change_unchanged
 
 \end_layout
 

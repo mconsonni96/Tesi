@@ -131,6 +131,7 @@
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\author -1129936465 "Nicola Lusardi"
 \author 1469408620 "Mattia Consonni"
 \end_header
 
@@ -215,23 +216,6 @@ noprefix "false"
 \end_inset
 
 ).
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 1469408620 1669132300
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-riprendi dall'abstract anche la questione delle 2 TDL e dei trade-offs
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
@@ -4946,7 +4930,21 @@ noprefix "false"
 \end_inset
 
  that all the ASIC solutions are characterized by low power consumption
- (i.e., in the order of some mW), low non-linearities (i.e., DNL, INL 
+ (i.e., in the order of some 
+\change_deleted -1129936465 1669194320
+mW
+\change_inserted -1129936465 1669194364
+
+\begin_inset Formula $\mu W$
+\end_inset
+
+ with respect to FPGA that achieve some 
+\begin_inset Formula $mW$
+\end_inset
+
+
+\change_unchanged
+), low non-linearities (i.e., DNL, INL 
 \begin_inset Formula $\leq$
 \end_inset
 

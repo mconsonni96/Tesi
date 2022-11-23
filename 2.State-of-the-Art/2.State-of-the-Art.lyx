@@ -987,45 +987,9 @@ Due to the crossing of different clock regions, some bins can be particularly
  These bins, characterized by the maximum value of the CT, will be referred
  to as “ultra-bins” and are responsible for worsening the single-shot precision
  of the TDC.
-\change_deleted 1469408620 1668857990
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-riporta un po di dati dei bin delle tecnologi xilinx che consideri; ovvero
- ultra bin (1TDL sola) in X7S (BIN MIN 1 PS, MEDIO = 12, MAX=70) ed US e
- valore del bin minimo (no zero) e medio (no zero) delle TDL
-\end_layout
-
-\begin_layout Plain Layout
-Sarebbe bellissima la dist che hai fatto x nss sulla dispersione dei bin,
- una per 7XS ed una per US+.
-\end_layout
-
-\end_inset
-
-
-\change_inserted 1469408620 1668857454
-
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted 1469408620 1669124833
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Riferisciti ad un nostro lavoro per esempio https://www.sciencedirect.com/science/
-article/pii/S0168900218317479 e https://re.public.polimi.it/handle/11311/1103831
- non al DigiLAB in gerenale->
-\end_layout
-
-\end_inset
-
-
-\change_inserted 1469408620 1668858259
 At Digital Electronics Laboratory (DigiLAB) at Politecnico di Milano, it
  has been experimentally found on a Xilinx 7-Series FPGA, for a non-sub-interpol
 ated TDL, a minimum bin equal to 1 ps, a maximum bin (i.e., the 
@@ -1036,9 +1000,7 @@ ultra-bin
 \begin_inset Quotes erd
 \end_inset
 
-) equal to 70 ps, and a mean bin equal to 12 ps
-\change_unchanged
- 
+) equal to 70 ps, and a mean bin equal to 12 ps 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Sub"
@@ -1046,8 +1008,6 @@ literal "false"
 
 \end_inset
 
-
-\change_inserted 1469408620 1669124827
 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -1057,38 +1017,9 @@ literal "false"
 \end_inset
 
 .
-
-\change_deleted 1469408620 1669124830
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-<-
-\end_layout
-
-\end_inset
-
-
-\change_inserted 1469408620 1668858259
-
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted 1469408620 1669125001
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Riferisciti a nostri lavori ad esempio https://ieeexplore.ieee.org/document/882465
-9 e https://ieeexplore.ieee.org/document/9059958->
-\end_layout
-
-\end_inset
-
-
-\change_inserted 1469408620 1669124995
 On the other hand, in a Xilinx Ultrascale FPGA, the achieved minimum bin
  is equal to 1 ps, the maximum bin (i.e., the 
 \begin_inset Quotes eld
@@ -1115,20 +1046,6 @@ literal "false"
 \end_inset
 
 .
-\change_deleted 1469408620 1669124998
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-<-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard

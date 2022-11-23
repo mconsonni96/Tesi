@@ -4588,33 +4588,13 @@ Finally, it is worth saying that the DSP48E2 has three different working
  modes.
  Indeed, thanks to the Single-Instruction-Multiple-Data (SIMD) mode, the
  48-bit ALU (i.e.
- the first, default, working mode) also supports dual 24-bit (i.e., 
-\change_deleted 1469408620 1668783804
-the second working mode
-\change_inserted 1469408620 1668783822
-the 48-bit ALU gets split into two 24-bit ALUs working in parallel
-\change_unchanged
-) or quad 12-bit (i.e., 
-\change_deleted 1469408620 1668783865
-the third working mode
-\change_inserted 1469408620 1668783881
-the 48-bit ALU gets split into four 12-bit ALUs working in parallel
-\change_unchanged
-) arithmetic operations.
+ the first, default, working mode) also supports dual 24-bit (i.e., the 48-bit
+ ALU gets split into two 24-bit ALUs working in parallel) or quad 12-bit
+ (i.e., the 48-bit ALU gets split into four 12-bit ALUs working in parallel)
+ arithmetic operations.
+
+\change_deleted -1129936465 1669194435
  
-\change_deleted 1469408620 1668783387
-Based on the experimental results that will be shown in Section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Study-of-the"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-, the dual 24-bit SIMD mode has been used in this thesis work, thus having
- a single 48-bit ALU that works as two, independent, 24-bit ALUs in parallel.
 \change_unchanged
 
 \end_layout
@@ -4965,23 +4945,6 @@ name "fig:Propagation-mechanism-along"
 \end_layout
 
 \begin_layout Subsection
-
-\change_deleted 1469408620 1668786666
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -1129936465 1668762658
-Nuova sez di integrazioine
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_inserted 1469408620 1668982731
 IP-Core Integration of both DSP-based and CARRY-based TDLs
 \begin_inset CommandInset label
 LatexCommand label
@@ -4990,33 +4953,9 @@ name "subsec:IP-Core-Integration-of-1"
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted 1469408620 1668788000
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Fai un Sez nuova di integrazione con la V-TDL fatta in CARRY4/8 in modo
-\end_layout
-
-\begin_layout Plain Layout
-Quindi inserisci giusto 2 riche dicendo che l'opzione DSP è stata integrata
- nell'IP presentato in 3.2
-\end_layout
-
-\begin_layout Plain Layout
-Avreai quindi aggiunot deiu nuovi generic, sotto riportati in conrsibo
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
 The DSP-based solution for the V-TDL has been integrated into the IP-Core
  described in Paragraph 
 \begin_inset CommandInset ref
@@ -5245,9 +5184,8 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-V-TDL IP-Core, exploiting both CARRY-chains and DSP-chains
-\change_inserted 1469408620 1669125278
- thanks to the new generics 
+V-TDL IP-Core, exploiting both CARRY-chains and DSP-chains thanks to the
+ new generics 
 \shape italic
 NUMBER_OF_CARRY_CHAINS
 \shape default
@@ -5265,21 +5203,6 @@ NUMBER_OF_TDL
 XUS_VS_X7S
 \shape default
  is also still present.
-\change_deleted 1469408620 1669125283
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-sottolinea che oltr al generic XUS vs X7S di prima ora hai sostituito NUM_OF_TDL
- con NUM of CARRY e NUM of DSP
-\end_layout
-
-\end_inset
-
-.
-\change_unchanged
-
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Virtual-Tapped-Delay-Line"
@@ -5329,25 +5252,10 @@ noprefix "false"
  shows the concept just explained, showing the higher compactness of a DSP-chain
  (on the right) than a CARRY-chain (on the left) on a Kintex-Ultrascale
  FPGA fabric.
-
-\change_inserted 1469408620 1669125456
- 
-\change_deleted 1469408620 1669125454
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-fai notare che il routing a del DSP sarà molto più facilitato ind esign
- grossi perché puoi tranquillamente attraversare l'FPGA 
-\end_layout
-
-\end_inset
-
-
-\change_inserted 1469408620 1669125430
-It is worth noting that the DSP-chain routing will be facilitated in large
+ It is worth noting that the DSP-chain routing will be facilitated in large
  designs since it has a lot of room before crossing all the FPGA fabric.
+\change_inserted 1469408620 1669125430
+
 \end_layout
 
 \begin_layout Standard
@@ -5367,8 +5275,6 @@ status open
 \end_inset
 
 
-\change_inserted 1469408620 1668792900
-
 \begin_inset space \space{}
 \end_inset
 
@@ -5388,8 +5294,6 @@ status open
 \begin_inset space \space{}
 \end_inset
 
-
-\change_unchanged
 
 \begin_inset Graphics
 	filename images/FLOORPLAN_DSP.png
@@ -5401,13 +5305,9 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668791988
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-\change_inserted 1469408620 1668793430
 Length comparison between a CARRY-chain (on the left, in white) and a DSP-chain
  (on the right, in white) in a Kintex-Ultrascale FPGA.
 \begin_inset CommandInset label
@@ -5417,14 +5317,10 @@ name "fig:Length-comparison-between"
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
 
 \end_layout
 
@@ -5439,31 +5335,11 @@ name "fig:Length-comparison-between"
 Furthermore, the DSP-based architecture allows a relaxation in the hardware
  utilization, since the sampling of the TDL is made with the P-register
  integrated with the DSP itself, thus not requiring the use of external
- FFs as in the CARRY-based approach
-\change_deleted 1469408620 1669125761
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-dai una metrica ovvero i TDL fatta a DSP ha giù i suoi FF mentre se fatta
- a carry ne devi usare circa 512 nel fabric ...
- quindi DSP = risparmio 512 Ffs
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-.
- 
-\change_inserted 1469408620 1669125876
-For example, if a 512-taps long CARRY-based TDL is implemented, it will
+ FFs as in the CARRY-based approach.
+ For example, if a 512-taps long CARRY-based TDL is implemented, it will
  need 512 as many FFs; on the other hand, the DSP-based counterpart will
  save those 512 FFs since it uses the ones integrated into the DSP blocks.
- 
-\change_unchanged
-However, the DSP-chains suffer from a relevant problem, since the cascade
+ However, the DSP-chains suffer from a relevant problem, since the cascade
  path from one DSP slice to another introduces a huge propagation delay
  and therefore the presence of a very high “ultra-bin” in the chain.
  The recurring presence of “ultra-bins” along the DSP-chain is the main
