@@ -1,0 +1,793 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+
+
+%------------------------------------------------------------------------------
+%	REQUIRED PACKAGES AND  CONFIGURATIONS
+%------------------------------------------------------------------------------
+% PACKAGES FOR TITLES
+\usepackage{titlesec}
+\usepackage{color}
+% PACKAGES FOR LANGUAGE AND FONT
+%\usepackage[utf8]{inputenc}
+%\usepackage[english]{babel}
+
+% PACKAGES FOR IMAGES
+\usepackage{graphicx}
+\graphicspath{{Images/}}
+\usepackage{eso-pic} % For the background picture on the title page
+\usepackage{subfig} % Numbered and caption subfigures using \subfloat
+\usepackage{caption} % Coloured captions
+\usepackage{transparent}
+
+% STANDARD MATH PACKAGES
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{bm}
+\usepackage[overload]{empheq}  % For braced-style systems of equations
+
+% PACKAGES FOR TABLES
+\usepackage{tabularx}
+\usepackage{longtable} % tables that can span several pages
+\usepackage{colortbl}
+
+% PACKAGES FOR ALGORITHMS (PSEUDO-CODE)
+\usepackage{algorithm}
+\usepackage{algorithmic}
+%\usepackage{algpseudocode}
+
+% PACKAGES FOR REFERENCES & BIBLIOGRAPHY
+%\usepackage[colorlinks=true,linkcolor=black,anchorcolor=black,citecolor=black,filecolor=black,menucolor=black,runcolor=black,urlcolor=black]{hyperref} % Adds clickable links at references
+\usepackage{cleveref}
+\usepackage[square, numbers, sort&compress]{natbib} % Square brackets, citing references with numbers, citations sorted by appearance in the text and compressed
+%\bibliographystyle{plain} % You may use a different style adapted to your field
+
+% PACKAGES FOR THE APPENDIX
+\usepackage{appendix}
+
+% PACKAGES FOR ITEMIZE & ENUMERATES 
+\usepackage{enumitem}
+
+% OTHER PACKAGES
+\usepackage{amsthm,thmtools,xcolor} % Coloured "Theorem"
+\usepackage{comment} % Comment part of code
+\usepackage{fancyhdr} % Fancy headers and footers
+\usepackage{lipsum} % Insert dummy text
+\usepackage{tcolorbox} % Create coloured boxes (e.g. the one for the key-words)
+
+% Configuration package
+\usepackage[bottom=2.0cm,top=2.0cm,left=2.0cm,right=2.0cm]{geometry}
+\raggedbottom 
+
+% Create color blue (-> manuale grafica coordinata:  https://www.polimi.it/fileadmin/user_upload/il_Politecnico/grafica-coordinata/2015_05_11_46xy_manuale_grafica_coordinata.pdf)
+\definecolor{blue}{cmyk}{0.4,0.1,0,0.4}
+\definecolor{shadecolor}{cmyk}{0.4,0.1,0,0.4}
+\usepackage{xcolor}
+\colorlet{shadecolor}{blue!60}
+\colorlet{cyan}{blue!40}
+% Custom theorem environments
+\declaretheoremstyle[
+  headfont=\color{blue}\normalfont\bfseries,
+  bodyfont=\color{black}\normalfont\itshape,
+]{colored}
+
+\captionsetup[figure]{labelfont={color=blue}} % Set colour of the captions
+\captionsetup[table]{labelfont={color=blue}} % Set colour of the captions
+\captionsetup[algorithm]{labelfont={color=blue}} % Set colour of the captions
+
+\theoremstyle{colored}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}{Proposition}[section]
+
+% Enhances the features of the standard "table" and "tabular" environments.
+\newcommand\T{\rule{0pt}{2.6ex}}
+\newcommand\B{\rule[-1.2ex]{0pt}{0pt}}
+
+% Algorithm description
+\newcounter{algsubstate}
+\renewcommand{\thealgsubstate}{\alph{algsubstate}}
+\newenvironment{algsubstates}{
+    \setcounter{algsubstate}{0}%
+    \renewcommand{\STATE}{%
+    \stepcounter{algsubstate}%
+    \Statex {\small\thealgsubstate:}\space}
+    }{}
+    
+% Custom theorem environment
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+% Custom itemize environment
+\setlist[itemize,1]{label=$\bullet$}
+\setlist[itemize,2]{label=$\circ$}
+\setlist[itemize,3]{label=$-$}
+\setlist{nosep}
+
+% Create command for background pic
+\newcommand\BackgroundPic{% Adding background picture
+	\put(237,365){
+	    \parbox[b][\paperheight]{\paperwidth}{%
+	    \vfill
+		\centering
+		\transparent{0.4}
+		\includegraphics[width=0.44\paperwidth]{raggiera_polimi}%
+		\vfill}
+		}
+}
+
+% Set indentation
+\setlength\parindent{0pt}
+
+% Custom title commands
+\titleformat{\section}
+{\color{blue}\normalfont\Large\bfseries}
+{\color{blue}\thesection.}{1em}{}
+\titlespacing*{\section}
+{0pt}{3.3ex}{3.3ex}
+
+\titleformat{\subsection}
+{\color{blue}\normalfont\large\bfseries}
+{\color{blue}\thesubsection.}{1em}{}
+\titlespacing*{\subsection}
+{0pt}{3.3ex}{3.3ex}
+
+
+\titleformat{\subsubsection}
+{\color{blue}\normalfont\large\bfseries}
+{\color{blue}\thesubsubsection.}{1em}{}
+\titlespacing*{\subsubsection}
+{0pt}{3.3ex}{3.3ex}
+
+
+% Custom headers and footers
+\pagestyle{fancy}
+\fancyhf{}
+      
+\fancyfoot{}
+\fancyfoot[C]{\thepage} % page
+\renewcommand{\headrulewidth}{0mm} % headrule width
+\renewcommand{\footrulewidth}{0mm} % footrule width
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding utf8
+\fontencoding global
+\font_roman "palatino" "Latin Modern Roman Caps"
+\font_sans "cmss" "default"
+\font_typewriter "cmtt" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 11
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks false
+\pdf_backref page
+\pdf_pdfusetitle true
+\papersize a4paper
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes true
+\output_changes true
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\author 1469408620 "Mattia Consonni"
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+AddToShipoutPicture*{
+\backslash
+BackgroundPic}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+DO NOT TOUCH! this inset generates the background image
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space \hspace{}
+\length -0.6cm
+\end_inset
+
+
+\begin_inset Graphics
+	filename Images/logo_polimi_ing_indinf.pdf
+	width 60text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace -1mm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Title
+High-Performance Time-to-Digital Converter IP-Core for Xilinx Ultrascale/Ultrasc
+ale+ FPGAs
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 0.5cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\shape smallcaps
+\size small
+\color blue
+Tesi di Laurea Magistrale in 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\shape smallcaps
+\size small
+\color blue
+Electronics Engineering - Ingegneria Elettronica
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 0.3cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\size large
+Mattia Consonni, 10531216
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 11pt
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0ex"
+width "100col%"
+height "0.4pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "c"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \enskip{}
+\end_inset
+
+
+\begin_inset Box Frameless
+position "c"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "24text%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "90text%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+Advisor:
+\end_layout
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Prof.
+ Nicola Lusardi
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+Co-Advisors:
+\end_layout
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Dr.
+ Fabio Garzetti
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+Academic Year:
+\end_layout
+
+\begin_layout Plain Layout
+
+\size scriptsize
+2021-2022 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \enskip{}
+\end_inset
+
+
+\begin_inset space \enskip{}
+\end_inset
+
+
+\begin_inset Box Frameless
+position "c"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "74col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+\color blue
+Abstract: 
+\series default
+\color black
+The increasing demand for very precise time measurements in scientific research
+ applications, ranging from the biomedical field to the industrial one,
+ has led to the need for instruments, called Time Interval Meters (TIMs),
+ characterized by features such as a resolution and single-shot precision
+ in the picoseconds (ps) order, and a sampling rate in the order of hundreds
+ of megahertz (MHz) to correctly process the detected physical events.
+ Several TIM solutions are already present in the literature, implemented
+ both in Application Specific Integrated Circuits (ASICs) and Field Programmable
+ Gate Arrays (FPGAs).
+ To cope with features such as fast-prototyping and low time-to-market,
+ the FPGA approach has been chosen for this thesis work, and a fully-digital
+ TIM, a.k.a.
+ Time-to-Digital Converter (TDC), has been implemented.
+ The presented TIM is a multi-channel Tapped Delay-Line (TDL) based TDC
+ IP-Core for Xilinx Ultrascale/Ultrascale+ (XUS/XUS+) FPGAs.
+ The IP-Core approach allows high-portability since the TDC can be promptly
+ tested on different systems with a simple drag-and-drop operation.
+ To exploit the benefits of the scaling, the 20-nm XUS technology has been
+ investigated in this work, allowing achieving high measurement rates, low
+ Dead-Time, high-resolution, and excellent single-shot precision.
+ In particular, a single-shot precision in the order of 3 ps has been achieved,
+ along with a maximum measurement rate of 200 Msps per channel, thus satisfying
+ the high count-rate capability requirement of state-of-the-art detectors.
+ From the design point of view, the TDC has been implemented and fully tested
+ on a Kintex Ultrascale FPGA, hosted in the KCU105 Evaluation Board.
+ To better investigate the power/precision and area/precision trade-offs,
+ two different TDL solutions have been tested.
+ The first solution is more performant in terms of single-shot precision
+ at the expense of higher area occupancy, and it is based on the CARRY primitive
+s (i.e., CARRY8) available in the fabric of the Xilinx FPGA.
+ The second solution is instead less performant but more power/hardware-efficien
+t, and it relies on Digital Signal Processor (DSP) primitives (i.e., DSP48E2).
+ Finally, a hybrid architecture exploiting both CARRY and DSP resources
+ has been tested, leading to results that show the best features of both
+ TDL types (i.e., a single-shot precision of 3.8 ps
+\change_inserted 1469408620 1669135270
+, a power consumption of 0.49 W
+\change_deleted 1469408620 1669135277
+ and a low hardware occupancy that allows
+\change_inserted 1469408620 1669135278
+, and
+\change_unchanged
+ a maximum number of channels equal to 74).
+
+\change_inserted 1469408620 1669142990
+ This architecture has been compared with the one exploiting just CARRY
+ chains, which is the most performant in terms of precision (i.e., 2.8 ps),
+ but it is characterized by a higher power consumption (i.e., 0.596 W) and
+ area occupancy (i.e., maximum number of channels equal to 62).
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 15pt
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Shaded
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\color white
+\begin_inset space \enskip{}
+\end_inset
+
+
+\series bold
+Key-words:
+\series default
+ Time-to-Digital Converter (TDC), Tapped Delay-Line (TDL), Digital Signal
+ Processor (DSP), Field-Programmable-Gate-Array (FPGA)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 12pt
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "1.Introduction/1.Introduction.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "2.State-of-the-Art/2.State-of-the-Art.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "3.Main-Work/3.Main-Work.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "4.Measures/4.Measures.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "5.Conclusions/5.Conclusions.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+btprint "btPrintCited"
+bibfiles "bibtex"
+options "plain"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "A.AppendixA/Appendix A.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "*Abstract ita/*Abstract ita.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Shaded
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\color white
+\begin_inset space \enskip{}
+\end_inset
+
+
+\series bold
+Parole chiave:
+\series default
+ Convertitore Tempo-Digitale (TDC), Tapped Delay-Line (TDL), Digital Signal
+ Processor (DSP), Field-Programmable-Gate-Array (FPGA)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "*Acknowledgements/*Acknowledgements.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 1469408620 1668873312
+\begin_inset CommandInset include
+LatexCommand input
+filename "*Guide/guide_to_lyx_for_polimi_thesis.lyx"
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\end_body
+\end_document

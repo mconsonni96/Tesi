@@ -1,0 +1,1118 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+
+%------------------------------------------------------------------------------
+%	REQUIRED PACKAGES AND  CONFIGURATIONS
+%------------------------------------------------------------------------------
+% PACKAGES FOR TITLES
+\usepackage{titlesec}
+\usepackage{color}
+% PACKAGES FOR LANGUAGE AND FONT
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc} % Font encoding
+
+% PACKAGES FOR IMAGES
+\usepackage{graphicx}
+\graphicspath{{Images/}}
+\usepackage{eso-pic} % For the background picture on the title page
+\usepackage{subfig} % Numbered and caption subfigures using \subfloat
+\usepackage{caption} % Coloured captions
+\usepackage{transparent}
+
+% STANDARD MATH PACKAGES
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{bm}
+\usepackage[overload]{empheq}  % For braced-style systems of equations
+
+% PACKAGES FOR TABLES
+\usepackage{tabularx}
+\usepackage{longtable} % tables that can span several pages
+\usepackage{colortbl}
+
+% PACKAGES FOR ALGORITHMS (PSEUDO-CODE)
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+% PACKAGES FOR REFERENCES & BIBLIOGRAPHY
+\usepackage[colorlinks=true,linkcolor=black,anchorcolor=black,citecolor=black,filecolor=black,menucolor=black,runcolor=black,urlcolor=black]{hyperref} % Adds clickable links at references
+\usepackage{cleveref}
+\usepackage[square, numbers, sort&compress]{natbib} % Square brackets, citing references with numbers, citations sorted by appearance in the text and compressed
+\bibliographystyle{plain} % You may use a different style adapted to your field
+
+% PACKAGES FOR THE APPENDIX
+\usepackage{appendix}
+
+% PACKAGES FOR ITEMIZE & ENUMERATES 
+\usepackage{enumitem}
+
+% OTHER PACKAGES
+\usepackage{amsthm,thmtools,xcolor} % Coloured "Theorem"
+\usepackage{comment} % Comment part of code
+\usepackage{fancyhdr} % Fancy headers and footers
+\usepackage{lipsum} % Insert dummy text
+\usepackage{tcolorbox} % Create coloured boxes (e.g. the one for the key-words)
+
+\input{../Configuration_files/config}
+\makeatletter
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding default
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes true
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\author -1129936465 "Nicola Lusardi"
+\author 1469408620 "Mattia Consonni"
+\end_header
+
+\begin_body
+
+\begin_layout Section
+TDL-TDC Design rules 
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Techniques-(?)"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As shown in Paragraph 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "par:Tapped-Delay-Line-TDC,"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, the TDL-TDC suffers from three main problems:
+\end_layout
+
+\begin_layout Enumerate
+a trade-off between LSB and FSR
+\begin_inset CommandInset label
+LatexCommand label
+name "enu:a-trade-off-between"
+
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Enumerate
+a minimum resolution (
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $t_{P}$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+) due to the propagation delay of the technological node
+\begin_inset CommandInset label
+LatexCommand label
+name "enu:if-the-TDC"
+
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Enumerate
+moreover, PVTs have to be compensated in order not to let the dispersion
+ of the 
+\begin_inset Formula $t_{P}$
+\end_inset
+
+ 
+\change_deleted -1129936465 1668762972
+ 
+\change_unchanged
+ruin the linearity.
+ Thus, in the case of FPGA implementation, the calibration of the TDL is
+ mandatory
+\begin_inset CommandInset label
+LatexCommand label
+name "enu:PVT-variations-cause"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+In this Chapter, we will describe the proposed solutions to solve each problem:
+\end_layout
+
+\begin_layout Enumerate
+Nutt-Interpolation, to solve 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "enu:a-trade-off-between"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Enumerate
+Sub-Interpolation, to solve 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "enu:if-the-TDC"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Enumerate
+Calibration, to solve 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "enu:PVT-variations-cause"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Nutt-Interpolation
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Nutt-Interpolation"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As mentioned before, the TDL-TDC architecture suffers from a trade-off between
+ resolution (LSB) and Full-Scale Range (FSR).
+ In order to solve this issue, a technique called Nutt-Interpolation is
+ exploited 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Nutt1968DigitalTI"
+literal "false"
+
+\end_inset
+
+.
+ This technique composes the time measurement of a Coarse part (
+\begin_inset Formula $T_{COARSE}$
+\end_inset
+
+) and a Fine one (
+\begin_inset Formula $T_{FINE}$
+\end_inset
+
+), the former being characterized by high FSR and low resolution, and the
+ latter having low FSR and high resolution.
+ If we would to implement a TIMESTAMP-type Nutt-Interpolated system, the
+ time measurement (a.k.a., timestamp 
+\begin_inset Formula $T_{MEAS}$
+\end_inset
+
+) will be the difference between these two parts:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+T_{MEAS}=T_{COARSE}-T_{FINE}\label{eq:nutt-composition}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Nutt-Interpolation-technique."
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ (left side), the fine measurement (
+\begin_inset Formula $T_{FINE}$
+\end_inset
+
+) is performed by a 
+\change_inserted 1469408620 1668872637
+
+\begin_inset Newline newline
+\end_inset
+
+
+\change_unchanged
+TDL-TDC (START/STOP-type) and the coarse one (
+\begin_inset Formula $T_{COARSE}$
+\end_inset
+
+) by a simple counter (TIMESTAMP-type).
+ In order to synchronize 
+\begin_inset Formula $T_{FINE}$
+\end_inset
+
+ to 
+\begin_inset Formula $T_{COARSE}$
+\end_inset
+
+, the physical event is connected to the START of the TDL-TDC, while the
+ STOPs of the TDL-TDC and the counter are connected to the sampled version
+ of the physical event.
+ The latter is obtained by sampling the external event using the same clock
+ of the counter (with period 
+\begin_inset Formula $T_{CLK}$
+\end_inset
+
+).
+ In this way, 
+\begin_inset Formula $T_{FINE}$
+\end_inset
+
+ is equal to the time distance from the physical event to the following
+ clock edge; instead, 
+\begin_inset Formula $T_{COARSE}$
+\end_inset
+
+ is equal to the number of clock cycles (
+\begin_inset Formula $N_{COARSE}$
+\end_inset
+
+) elapsed from the power-on of the system to the sampling of the physical
+ event.
+\end_layout
+
+\begin_layout Standard
+Finally, from Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:nutt-composition"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, we obtain:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+T_{MEAS}=N_{COARSE}\cdot T_{CLK}-T_{FINE}\label{eq:nutt_timestamp}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Nutt-Interpolation-technique."
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ (right side) graphically explains Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:nutt_timestamp"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/nutt.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Nutt-Interpolation technique.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Nutt-Interpolation-technique."
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Thanks to the counting of the elapsed clock cycles, the FSR is greatly improved;
+ in fact, considering a Coarse Counter with a BIT_COARSE bit-length, the
+ FSR of the TDC is equal to:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+FSR=2^{BIT\_COARSE}\cdot T_{CLK}\label{eq:nutt_FSR}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The LSB is instead fixed by the TDL and is equal to:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+LSB=t_{p}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+thus solving the FSR vs.
+ LSB trade-off.
+ Moreover, we have to consider that the FSR of the TDL (i.e, 
+\begin_inset Formula $N_{B}\cdot t_{p}$
+\end_inset
+
+) has to cover the range of 
+\begin_inset Formula $T_{CLK}$
+\end_inset
+
+; as a consequence of that, the TDL must have a number of buffers 
+\begin_inset Formula $N_{B}\geq T_{CLK}/t_{p}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Sub-Interpolation
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Sub-Interpolation"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The Sub-Interpolation is a technique used to reduce the quantization error
+ (i.e., improving the resolution) of the TDL-TDC.
+ In this sense, it exploits redundancy in the measurement process to lower
+ the LSB as much as the desired delay beyond the minimum one offered by
+ the technological node 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Sub"
+literal "false"
+
+\end_inset
+
+.
+ The proposed Sub-Interpolated TDL-TDC exploits spatial redundancy, i.e.,
+ the Super Wave Union (SuperWU), characterized by the use of more physical
+ TDLs placed in parallel.
+ If we have 
+\begin_inset Formula $M$
+\end_inset
+
+ TDLs in parallel, each one with a real number of buffers (taps) 
+\begin_inset Formula $N_{B}$
+\end_inset
+
+, we obtain the so-called Virtual Tapped Delay-Line (V-TDL), composed of
+ 
+\begin_inset Formula $N_{V}=N_{B}\cdot M$
+\end_inset
+
+ 
+\begin_inset Quotes eld
+\end_inset
+
+virtual
+\begin_inset Quotes erd
+\end_inset
+
+ taps with a 
+\begin_inset Formula $M$
+\end_inset
+
+-time faster propagation delay.
+\end_layout
+
+\begin_layout Standard
+In practice, let's consider 
+\begin_inset Formula $m\in[1;M]$
+\end_inset
+
+ replicas of the measurement of the same time interval, performed using
+ 
+\begin_inset Formula $M$
+\end_inset
+
+ TDLs in parallel with 
+\begin_inset Formula $n_{B}\in[1;N_{B}]$
+\end_inset
+
+ real bins each, characterized by a real 
+\begin_inset Quotes eld
+\end_inset
+
+bin-by-bin
+\begin_inset Quotes erd
+\end_inset
+
+ propagation delay 
+\begin_inset Formula $t_{p,B}[n_{B}]$
+\end_inset
+
+ and FSR 
+\begin_inset Formula $T_{FSR}=\sum t_{p,B}$
+\end_inset
+
+.
+ In this situation, the sub–interpolation process generates a V-TDL composed
+ of 
+\begin_inset Formula $n_{V}\in[1;N_{V}]$
+\end_inset
+
+ “virtual bins” with a virtual 
+\begin_inset Quotes eld
+\end_inset
+
+bin-by-bin
+\begin_inset Quotes erd
+\end_inset
+
+ propagation delay 
+\begin_inset Formula $t_{p,V}[n_{V}]$
+\end_inset
+
+, where:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{cases}
+t_{p,V}[n_{V}]=\frac{1}{M}\sum_{m=1}^{m=M}t_{p,B}[n_{B}[m]]\\
+n_{V}=\sum_{m=1}^{m=M}n_{B}[m]
+\end{cases}\label{eq:subint-1}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Referring to Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:subint-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and to 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Sub"
+literal "false"
+
+\end_inset
+
+, we can demonstrate that 
+\begin_inset Formula $N_{V}=N_{B}\cdot M$
+\end_inset
+
+ and that 
+\begin_inset Formula $T_{FSR}=\sum t_{p,V}$
+\end_inset
+
+; therefore the propagation delays of the real-bins belonging to the different
+ TDLs get averaged each other, reducing the propagation delays of the virtual-bi
+ns of a factor 
+\begin_inset Formula $M$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+To obtain an effective reduction of the propagation delays on the virtual-bins,
+ the replicas of the TDLs should be as uncorrelated as possible.
+ For this reason, the START signal is increasingly delayed on each one of
+ the 
+\begin_inset Formula $M$
+\end_inset
+
+ TDLs to have a minimum probability that it falls on similar real-bins.
+ The parallel architecture resulting from the SuperWU algorithm is very
+ suitable for FPGA's spatial-computing structures; moreover, the delay introduce
+d on the START signal comes for free, since the routing process creates
+ different paths the signal has to cross moving towards each TDL (the so-called
+ 
+\begin_inset Quotes eld
+\end_inset
+
+skew
+\begin_inset Quotes erd
+\end_inset
+
+ time).
+ We can see a Super Wave Union implementation of order 
+\begin_inset Formula $M=3$
+\end_inset
+
+ in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Super-Wave-Union"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/swu.png
+	width 60text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Super Wave Union implementation.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Super-Wave-Union"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Calibration
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Calibration"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Since in FPGAs there is no possibility to tailor a 
+\begin_inset Formula $N$
+\end_inset
+
+-taps-long buffer-chain (where 
+\begin_inset Formula $N$
+\end_inset
+
+ refers to 
+\begin_inset Formula $N_{B}$
+\end_inset
+
+ if Sub-Interpolation is not performed or to 
+\begin_inset Formula $N_{V}$
+\end_inset
+
+ if Sub-Interpolation is performed) with constant propagation delays 
+\begin_inset Formula $t_{p}(n)$
+\end_inset
+
+ (
+\begin_inset Formula $n\in[1;N]$
+\end_inset
+
+) (where 
+\begin_inset Formula $t_{p}$
+\end_inset
+
+ represents 
+\begin_inset Formula $t_{p,B}$
+\end_inset
+
+ if Sub-Interpolation is not performed or 
+\begin_inset Formula $t_{p,V}$
+\end_inset
+
+ if Sub-Interpolation is performed), but its internal structural blocks
+ get adapted as a buffer chain, the bins will all have dispersed 
+\begin_inset Formula $t_{p}(n)$
+\end_inset
+
+ values.
+ In analogy with the ASICs, where a deviation of the bins' delays 
+\begin_inset Formula $t_{p}(n)$
+\end_inset
+
+ from their ideal constant value is present, we will refer to the aforementioned
+ dispersion as process (P) variation.
+ Due to the P variations affecting each buffer, a periodic bin-by-bin calibratio
+n process is required, otherwise, the system would suffer from very high
+ non-linearities 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "8885152"
+literal "false"
+
+\end_inset
+
+.
+ This process consists of the creation of a Calibration Table (CT) listing
+ all the propagation delays 
+\begin_inset Formula $t_{p}(n)$
+\end_inset
+
+ of each bin 
+\begin_inset Formula $n$
+\end_inset
+
+ (or 
+\begin_inset Quotes eld
+\end_inset
+
+virtual
+\begin_inset Quotes erd
+\end_inset
+
+ bin, if sub-interpolation is performed) composing the TDL (or V-TDL).
+ Without calibration, the propagation delays would have unacceptably dispersed
+ values, and a wrong time measurement would be performed by considering
+ 
+\begin_inset Formula $t_{p}$
+\end_inset
+
+ constant and equal to the LSB.
+ Moreover, due to the impossibility of implementing inside the FPGA analog
+ hardware architectures for the voltage and temperature (VT) fluctuations,
+ it is also necessary that the calibration process has a periodic refresh
+ during the entire use of the TDC to update the correct propagation delay
+ of each bin and compensate the VTs.
+\end_layout
+
+\begin_layout Standard
+The CT is built by performing a Code Density Test (CDT) on the TDL (or V-TDL),
+ which is 
+\begin_inset Formula $T_{CLK}$
+\end_inset
+
+-wide if the Nutt-Interpolation is implemented and composed of a total of
+ 
+\begin_inset Formula $N$
+\end_inset
+
+ real (or virtual) bins.
+ The CDT consists of sending a set of random signals (
+\begin_inset Formula $N_{C}$
+\end_inset
+
+ in total), characterized by a uniform distribution, to the TDL (or V-TDL)
+ and counting how many samples 
+\begin_inset Formula $N_{X}(n)$
+\end_inset
+
+ fall into each real (or virtual) bin.
+ Finally, the 
+\begin_inset Formula $t_{p}(n)$
+\end_inset
+
+ of each bin is obtained thanks to a normalization to 
+\begin_inset Formula $T_{CLK}$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{equation}
+t_{p}(n)=\frac{N_{X}(n)}{N_{C}}\cdot T_{CLK}\ ,\ n\in[1;N]\label{eq:CT}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:CDT-performed-by"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ graphically explains the procedure just described.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/CDT_CT.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+CDT and resulting CT, in the example case with 
+\begin_inset Formula $N=4$
+\end_inset
+
+ and 
+\begin_inset Formula $T_{CLK}=2000\ ps$
+\end_inset
+
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:CDT-performed-by"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Due to the crossing of different clock regions, some bins can be particularly
+ slow.
+ These bins, characterized by the maximum value of the CT, will be referred
+ to as “ultra-bins” and are responsible for worsening the single-shot precision
+ of the TDC.
+\end_layout
+
+\begin_layout Standard
+At Digital Electronics Laboratory (DigiLAB) at Politecnico di Milano, it
+ has been experimentally found on a Xilinx 7-Series FPGA, for a non-sub-interpol
+ated TDL, a minimum bin equal to 1 ps, a maximum bin (i.e., the 
+\begin_inset Quotes eld
+\end_inset
+
+ultra-bin
+\begin_inset Quotes erd
+\end_inset
+
+) equal to 70 ps, and a mean bin equal to 12 ps 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Sub"
+literal "false"
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "8824302"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+On the other hand, in a Xilinx Ultrascale FPGA, the achieved minimum bin
+ is equal to 1 ps, the maximum bin (i.e., the 
+\begin_inset Quotes eld
+\end_inset
+
+ultra-bin
+\begin_inset Quotes erd
+\end_inset
+
+) is equal to 19 ps, and the mean bin is equal to 4.8 ps 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "9059958"
+literal "false"
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "8824659"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Once the CT is built, the Characteristic Curve (CC) of the device can be
+ derived.
+ The CC is nothing but the integration of the CT, thus representing, for
+ each bin, the corresponding time measurement in picoseconds.
+ In this way, by addressing the CC, the value in ps can be retrieved without
+ performing the CT integration for each measurement.
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Graphical-representation-of"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ reports a CT and the derived CC.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/CC.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Graphical representation of the Calibration Table (CT) and the derived Character
+istic Curve (CC).
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Graphical-representation-of"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

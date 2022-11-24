@@ -1,0 +1,5484 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+
+%------------------------------------------------------------------------------
+%	REQUIRED PACKAGES AND  CONFIGURATIONS
+%------------------------------------------------------------------------------
+% PACKAGES FOR TITLES
+\usepackage{titlesec}
+\usepackage{color}
+% PACKAGES FOR LANGUAGE AND FONT
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc} % Font encoding
+
+% PACKAGES FOR IMAGES
+\usepackage{graphicx}
+\graphicspath{{Images/}}
+\usepackage{eso-pic} % For the background picture on the title page
+\usepackage{subfig} % Numbered and caption subfigures using \subfloat
+\usepackage{caption} % Coloured captions
+\usepackage{transparent}
+
+% STANDARD MATH PACKAGES
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{bm}
+\usepackage[overload]{empheq}  % For braced-style systems of equations
+
+% PACKAGES FOR TABLES
+\usepackage{tabularx}
+\usepackage{longtable} % tables that can span several pages
+\usepackage{colortbl}
+
+% PACKAGES FOR ALGORITHMS (PSEUDO-CODE)
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+% PACKAGES FOR REFERENCES & BIBLIOGRAPHY
+\usepackage[colorlinks=true,linkcolor=black,anchorcolor=black,citecolor=black,filecolor=black,menucolor=black,runcolor=black,urlcolor=black]{hyperref} % Adds clickable links at references
+\usepackage{cleveref}
+\usepackage[square, numbers, sort&compress]{natbib} % Square brackets, citing references with numbers, citations sorted by appearance in the text and compressed
+\bibliographystyle{plain} % You may use a different style adapted to your field
+
+% PACKAGES FOR THE APPENDIX
+\usepackage{appendix}
+
+% PACKAGES FOR ITEMIZE & ENUMERATES 
+\usepackage{enumitem}
+
+% OTHER PACKAGES
+\usepackage{amsthm,thmtools,xcolor} % Coloured "Theorem"
+\usepackage{comment} % Comment part of code
+\usepackage{fancyhdr} % Fancy headers and footers
+\usepackage{lipsum} % Insert dummy text
+\usepackage{tcolorbox} % Create coloured boxes (e.g. the one for the key-words)
+
+\input{../Configuration_files/config}
+\makeatletter
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding default
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes true
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\author -1129936465 "Nicola Lusardi"
+\author 1469408620 "Mattia Consonni"
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Main Work
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Main-Work"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The main goal of this thesis work has been to push even more the TDC performance
+s, obtaining a drag-and-drop, tunable IP-Core, compatible with 20-nm Xilinx
+ Ultrascale (XUS) and 16-nm Xilinx Ultrascale+ (XUS+) FPGAs.
+ This TDC has been designed starting from an already existing implementation
+ in the 28-nm Xilinx 7-Series (X7S) technological node 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "9452098"
+literal "false"
+
+\end_inset
+
+.
+ The migration to XUS/XUS+, which is characterized by an improved scaling
+ than X7S, has allowed increasing the frequency of the clock involved in
+ the time measurements by an amount equal to one hundred MHz, resulting
+ in a TDC with lower Dead-Time (see Paragraph 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Dead-Time"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+ The scaling is also beneficial for the resolution since the propagation
+ delays of the bins are lower than their X7S counterparts (see Equation
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:TDL resolution"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+); moreover, for the same reason, the 
+\begin_inset Quotes eld
+\end_inset
+
+ultra-bins
+\begin_inset Quotes erd
+\end_inset
+
+ phenomenon, described in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Calibration"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, is slightly improved, resulting in an overall improvement of the single-shot
+ precision of the TDC.
+ Firstly, let's briefly describe the blocks composing the main core of the
+ TDC; then, each one of them will be described in detail, highlighting the
+ improvements done in this thesis work.
+\end_layout
+
+\begin_layout Subsection
+Main blocks of the TDC
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Main-blocks-of"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "9452098"
+literal "false"
+
+\end_inset
+
+ version of the TDC, implemented at the Digital Electronics Laboratory (DigiLAB)
+ at Politecnico di Milano, has been implemented on the 28-nm X7S technological
+ node, mainly in Artix-7 FPGAs, and it is a TDL-based TDC (TDL-TDC) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "9525418"
+literal "false"
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "9855502"
+literal "false"
+
+\end_inset
+
+.
+ Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Performances-of-the"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ summarizes the achieved performances of the 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "9452098"
+literal "false"
+
+\end_inset
+
+ implementation.
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="9" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Feature
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Artix-7 implementation
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Resolution
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+36.6 fs
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Precision
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8.0 ps r.m.s.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Full-Scale Range
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10.3 s
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+DNL
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.25 ps
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+INL
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.5 ps
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Number of Chs
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+16
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Channel Rate
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+150 MHz
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Dead-Time
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5 ns
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Performances of the Xilinx 7-Series TDC, implemented in an Artix-7 FPGA.
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Performances-of-the"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ It is a TIMESTAMP-type TDC, thus being composed of as many channels as
+ the number of physical events to detect; besides, to break the trade-off
+ between FSR and LSB, it exploits Nutt-Interpolation (see Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Nutt-Interpolation"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+), thus composing each timestamp of a Fine part (i.e., the one calculated
+ by the TDL) and of a Coarse one (i.e., the one calculated by a Coarse Counter).
+ The system also exploits the SuperWU Sub-Interpolation to lower the LSB
+ beyond the minimum propagation delay, given by the X7S technological node
+ (see Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Sub-Interpolation"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+), and the bin-by-bin Calibration algorithm to compensate for PVT variations
+ (see Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Calibration"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+ The processing chain inside each channel starts with the V-TDL, which provides
+ a thermometric code in output, as shown in Paragraph 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "par:Tapped-Delay-Line-TDC,"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ .
+ The thermometric code is then converted into a binary one by a Decoder,
+ which is a very cumbersome module having a 
+\begin_inset Formula $N$
+\end_inset
+
+-wide input, where 
+\begin_inset Formula $N$
+\end_inset
+
+ is the number of bins (or 
+\begin_inset Quotes eld
+\end_inset
+
+virtual
+\begin_inset Quotes erd
+\end_inset
+
+ bins) of the TDL (or V-TDL), and a [
+\begin_inset Formula $\log_{2}(N)+1$
+\end_inset
+
+]-wide output (see Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Decoder"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+); for this reason, this module limits the maximum frequency of the system.
+\end_layout
+
+\begin_layout Standard
+Once the binary code of the Fine measurement is obtained, Nutt-Interpolation
+ is implemented by a module called Coarse Extension Core (CEC).
+ This block attaches the Fine part to a Coarse part, the latter provided
+ by a Coarse Counter sub-module that can be internal to the CEC or external.
+ Furthermore, the CEC performs a Clock-Domain Crossing (CDC), meaning that
+ the system goes from a faster clock to a slower one, allowing the data
+ processing on all the following blocks to respect the timing constraints
+ of the system.
+ The following block in the processing chain is the Calibrator, which exploits
+ storage mechanisms to store the CT and the CC.
+ For this reason, this module can not work at the same frequency as the
+ V-TDL, showing that the CDC performed by the CEC is mandatory.
+ The CDC is done using a FIFO, which is written with the same clock controlling
+ the V-TDL (i.e., TDC-clock) and read with a slower clock (i.e., SYS-clock).
+ Until the FIFO is not full, it allows lowering the Dead-Time of the TDC,
+ as explained in Paragraph 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Dead-Time"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Finally, a module called Overflow Counter further extends the FSR of the
+ TDC by counting the overflows of the Coarse Counter present in the CEC.
+
+\change_deleted -1129936465 1668763852
+ 
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Schematic-of-the"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows the block diagram of a generic channel of the TDC, composed of all
+ the aforementioned modules.
+ Since this thesis work consisted in modifying the internal blocks, the
+ macroscopic structure of the channel has been maintained.
+ We can see from Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Schematic-of-the"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ that the implemented TDC relies on a 
+\begin_inset Quotes eld
+\end_inset
+
+FIFO+Pipeline
+\begin_inset Quotes erd
+\end_inset
+
+ structure since all the modules work in Pipeline and the CEC contains a
+ FIFO that allows buffering at TDC-clock.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../2.State-of-the-Art/images/oldtdc.png
+	width 70text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Schematic of the structure of a generic channel of the TDC.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Schematic-of-the"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+The communication between all the blocks is done using the AXI4-Stream protocol
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "AXI4-Stream"
+literal "false"
+
+\end_inset
+
+.
+ This protocol consists of a flux of data from the output of a module, called
+ “master”, to the input of the following one, called “slave”.
+ The main signals of the AXI4-Stream protocol are:
+\end_layout
+
+\begin_layout Itemize
+TDATA, which is effectively the data to be sent;
+\end_layout
+
+\begin_layout Itemize
+TVALID, which is a flag produced by the master, telling the slave that the
+ incoming data is valid;
+\end_layout
+
+\begin_layout Itemize
+TREADY, which is a flag produced by the slave, which tells the master that
+ the module is ready to accept the data.
+\end_layout
+
+\begin_layout Standard
+The AXI4-Stream protocol relies on the concept of Handshake between TVALID
+ and TREADY.
+ A Handshake transaction is reported in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:AXI4Stream-protocol."
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, and takes place only when both TVALID and TREADY are equal to '1'.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/axi4stream.png
+	width 75text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+AXI4-Stream protocol.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:AXI4Stream-protocol."
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+All the blocks in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Schematic-of-the"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ are IP-Cores (see Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Thesis-Goal"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) connected to each other in the AXI4-Stream protocol, which are organized
+ inside a Hierarchical IP-Core.
+ The latter is nothing but a set of IP-Cores 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "HIER"
+literal "false"
+
+\end_inset
+
+, and, with a simple drag-and-drop operation, an entire channel of the TDC
+ can be promptly tested on different FPGAs.
+ Since we are usually interested in the relative time distance between physical
+ events, the TDC will be characterized by more than one channel, each one
+ providing the respective timestamp with respect to a common absolute time
+ reference (i.e., the power-on instant of the device).
+\end_layout
+
+\begin_layout Subsection
+Virtual Tapped Delay-Line (V-TDL)
+\end_layout
+
+\begin_layout Standard
+The core of this thesis work relies on the migration of the V-TDL from the
+ X7S to the XUS/XUS+ technology.
+ The TDL has been obtained by cascading the carry chains of the adders 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "7448918"
+literal "false"
+
+\end_inset
+
+, which are the more abundant and fast resources on the FPGA for this kind
+ of implementation.
+\end_layout
+
+\begin_layout Subsubsection
+X7S Version
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:X7S-Version"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In the X7S version of the V-TDL, the elementary block used to create the
+ chain structure is the CARRY4 primitive 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "XlinxUG474"
+literal "false"
+
+\end_inset
+
+.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:CARRY4-primitive-truth"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows its internal structure, while Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:CARRY4-primitive-Port"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ reports its Port descriptions.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/CARRY4_primitive.png
+	width 40text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+CARRY4 primitive structure.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:CARRY4-primitive-truth"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Port
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Direction
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Width
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Function
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+O
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Output
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Carry chain XOR general data out
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CO
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Output
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Carry-out of each stage of the carry chain
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+DI
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Input
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Carry-MUX data input
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+S
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Input
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Carry-MUX select line
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CYINIT
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Input
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Carry-in initialization input
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CI
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Input
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Carry cascade input
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+CARRY4 primitive Port descriptions.
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:CARRY4-primitive-Port"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As we can see, the CARRY4 primitive has two 4-bit outputs, the first being
+ the CO port (i.e., the set of the output carry-signals), the second being
+ the O port (i.e., the set of the XOR-outputs, representing the result of
+ the sum).
+ The four stages composing the CARRY4 primitive are nothing but four buffers
+ (or taps) composing the TDL, cascaded thanks to the carry-out (CO) connections.
+ Therefore, according to the number of taps required to compose the entire
+ TDL, a certain number of CARRY4 primitives will be cascaded by connecting
+ the carry-output of the fourth stage (i.e., CO(3)) of the previous primitive
+ to the carry-input port (CI) of the following primitive.
+ The asynchronous input event to be measured (i.e., the START signal) is connected
+ to the carry-input port (CYINIT) of the first primitive.
+ The multiplexer's selection signal (S) of each stage is set to propagate
+ the signal on CI along all the stages.
+ In this way, as soon as the asynchronous input switches from '0' to '1',
+ propagation of 
+\begin_inset Quotes eld
+\end_inset
+
+ones
+\begin_inset Quotes erd
+\end_inset
+
+ takes place along the carry-chain, thus causing a '0'
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+'1' transition on each CO output (or a '1'
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+'0' transition on each O output, which is nothing but the inverted and delayed
+ CO output) with slightly different propagation delays.
+ Each output (CO or O) of the chain is then connected to the D-input of
+ a flip-flop (FF), used to sample the logic value of that specific tap,
+ when the STOP signal occurs.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:CARRY4-primitive-used"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows the used resources of the CARRY4 primitive.
+ It is worth saying that the CO and the O outputs can not be sampled at
+ the same time.
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/carry4_internal.png
+	width 60text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Resources employed in the CARRY4 primitive to correctly propagate the START
+ signal.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:CARRY4-primitive-used"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Let's now give an order of magnitude for the TDL length, based on the descriptio
+n given in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Nutt-Interpolation"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ In an implementation exploiting the Nutt-Interpolation, the number 
+\begin_inset Formula $N$
+\end_inset
+
+ of bins (or 
+\begin_inset Quotes eld
+\end_inset
+
+virtual
+\begin_inset Quotes erd
+\end_inset
+
+ bins) is such that 
+\begin_inset Formula $N\geq\frac{T_{CLK}}{t_{p}}$
+\end_inset
+
+.
+ In the X7S technology, the available clock can run at most at 628 MHz in
+ the Artix-7 FPGAs 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "X7S_DC-AC"
+literal "false"
+
+\end_inset
+
+ and 741 MHz in Kintex-7 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kintex_DC-AC"
+literal "false"
+
+\end_inset
+
+ and Virtex-7 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Virtex_DC-AC"
+literal "false"
+
+\end_inset
+
+.
+ However, due to the big dimension of the Decoder, the minimum clock period
+ is limited to be 
+\begin_inset Formula $>2.4\,ns$
+\end_inset
+
+ in order to satisfy the timing constraints of the system.
+ The typical minimum value for 
+\begin_inset Formula $t_{p}$
+\end_inset
+
+ is instead equal to 16 ps in X7S FPGAs 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "9452098"
+literal "false"
+
+\end_inset
+
+, leading to a minimum value for 
+\begin_inset Formula $N$
+\end_inset
+
+ equal to 150.
+ Obviously, a faster clock would lead to a shorter TDL, allowing achieving
+ a more compact architecture with a smaller Decoder and a smaller Calibrator.
+\end_layout
+
+\begin_layout Standard
+The STOP signal of the TDL is a user-chosen rising-edge of the clock signal
+ with period 
+\begin_inset Formula $>2.4\,ns$
+\end_inset
+
+; when the STOP signal occurs, a snapshot of the TDL state (i.e., the number
+ of buffers hit by the propagation of 
+\begin_inset Quotes eld
+\end_inset
+
+ones
+\begin_inset Quotes erd
+\end_inset
+
+ up to that moment) is taken and, therefore, a thermometric code is generated
+ at the output of the chain of FFs.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:CARRY4-based-Tapped-Delay-Line"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ graphically shows the propagation mechanism of the TDL.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/carry-tdl.png
+	width 83text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+CARRY4-based TDL propagation mechanism.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:CARRY4-based-Tapped-Delay-Line"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+In the following description, the words written in italic capital letters
+ refer to the Hardware Description Language (HDL) generics used in the code,
+ which are settable by the IP-Core's Graphical User Interface (GUI).
+ This allows having a highly-tunable TDL.
+ As explained in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Sub-Interpolation"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, the SuperWU Sub-Interpolation is performed, obtaining a V-TDL composed
+ of 
+\shape italic
+NUMBER_OF_TDL
+\shape default
+ TDLs in parallel, where each of them is 
+\shape italic
+NUM_TAP_TDL
+\shape default
+-taps long.
+ This results in a V-TDL composed of 
+\shape italic
+NUMBER_OF_TDL
+\begin_inset Formula $\cdot$
+\end_inset
+
+NUM_TAP_TDL
+\shape default
+ 
+\begin_inset Quotes eld
+\end_inset
+
+virtual
+\begin_inset Quotes erd
+\end_inset
+
+ taps.
+ 
+\shape italic
+BIT_SMP_TDL
+\shape default
+ FFs will be placed at the output of each TDL.
+ Since 
+\shape italic
+BIT_SMP_TDL
+\shape default
+
+\begin_inset Formula $\leq$
+\end_inset
+
+
+\shape italic
+NUM_TAP_TDL
+\shape default
+ holds, it is possible either to sample the output of each buffer, by placing
+ a number of FFs equal to the number of taps, or to sample just a decimated
+ number of taps, by placing fewer FFs than buffers.
+ In the latter case, hardware resources are saved, but a thermometric code
+ composed of a lower number of bits is generated; hence, the resolution
+ (LSB) is worsened.
+ This decimation process has been provided to allow the implementation of
+ a TDL-TDC characterized by lower area occupancy at the expense of a lower
+ resolution.
+ Obviously, this feature has to be used without Sub-Interpolation.
+ The sampling of the V-TDL is also managed by the generics 
+\shape italic
+TYPE_TDL_i
+\shape default
+ and 
+\shape italic
+OFFSET_TAP_TDL_i
+\shape default
+, where 
+\shape italic
+i
+\shape default
+ is a value between 0 and 
+\shape italic
+NUMBER_OF_TDL-1
+\shape default
+ indicating which physical TDL we are referring to.
+ With 
+\shape italic
+TYPE_TDL_i
+\shape default
+ it is possible to choose which taps, CO or O, of the CARRY4 primitive we
+ want to sample, for the 
+\shape italic
+i
+\shape default
+-th TDL.
+ Then, if we are in the decimated case (i.e.,
+\shape italic
+ BIT_SMP_TDL
+\begin_inset Formula $<$
+\end_inset
+
+NUM_TAP_TDL
+\shape default
+), with the generic 
+\shape italic
+OFFSET_TAP_TDL_i
+\shape default
+ it is possible to set an initial offset in the sampling of the chains,
+ which means that the first FF of the 
+\shape italic
+i
+\shape default
+-th TDL is placed after 
+\shape italic
+OFFSET_TAP_TDL_i
+\shape default
+ taps rather than on the first one.
+ The concept of decimation and offset is exemplified in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Concept-of-decimated"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, where we have a certain 
+\shape italic
+NUM_TAP_TDL
+\shape default
+ with 
+\shape italic
+BIT_SMP_TDL
+\shape default
+ = 
+\shape italic
+NUM_TAP_TDL/2
+\shape default
+, and the two different cases with 
+\shape italic
+OFFSET_TAP_TDL
+\shape default
+ = 0 (at the top) and 
+\shape italic
+OFFSET_TAP_TDL
+\shape default
+ = 1 (at the bottom).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/offset.png
+	width 50text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Concept of decimated sampling and offset.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Concept-of-decimated"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In Paragraph 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "par:Tapped-Delay-Line-TDC,"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, we have said that the STOP signal, which saves the output of the TDL in
+ the FFs, is the rising clock-edge following the arrival of the START event.
+ That was a general case, whereas the proposed architecture, based on the
+ AXI4-Stream protocol, relies on a 
+\begin_inset Quotes eld
+\end_inset
+
+VALID
+\begin_inset Quotes erd
+\end_inset
+
+ mechanism that, if it is '1', signals to the next module that the thermometric
+ code present on TDATA is the Fine measurement.
+ The TVALID is generated by the 
+\begin_inset Formula $0\rightarrow1$
+\end_inset
+
+ transition of one tap of the TDL, which is selectable by the user.
+ Thanks to this mechanism, it is possible to compensate skews introduced
+ by the automatic place&route process.
+ As we saw in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Nutt-Interpolation"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, in an implementation exploiting Nutt-Interpolation, the measured Fine
+ interval can have 
+\begin_inset Formula $T_{CLK}$
+\end_inset
+
+ as the maximum value; therefore, the Fine measurement will be entirely
+ contained in the TDL, avoiding the saturation of the latter (i.e., all the
+ bins are hit by the START signal).
+ As a consequence, since the TDL is implemented to be longer than 
+\begin_inset Formula $T_{CLK}$
+\end_inset
+
+, choosing the 
+\begin_inset Quotes eld
+\end_inset
+
+VALID
+\begin_inset Quotes erd
+\end_inset
+
+ position on different taps is equivalent to sampling different 
+\begin_inset Formula $T_{CLK}$
+\end_inset
+
+-wide parts of the TDL.
+ If the user decides to select the TVALID assertion on one of the first
+ taps, a 
+\begin_inset Formula $T_{CLK}$
+\end_inset
+
+-wide portion at the beginning of the TDL will be sampled to retrieve the
+ Fine measurement; therefore, the output TDATA (i.e., the thermometric code)
+ will be composed of just a few 
+\begin_inset Quotes eld
+\end_inset
+
+ones
+\begin_inset Quotes erd
+\end_inset
+
+ since the asynchronous input signal still has not propagated that much
+ along the chain.
+ On the other hand, if the user selects the TVALID assertion on the last
+ few taps, a 
+\begin_inset Formula $T_{CLK}$
+\end_inset
+
+-wide portion at the very end of the buffer-chain will be sampled, and the
+ thermometric code will be composed mostly of 
+\begin_inset Quotes eld
+\end_inset
+
+ones
+\begin_inset Quotes erd
+\end_inset
+
+ since the input signal has traveled as far as these last taps.
+ The same reasoning applies to all the other intermediate positions.
+ To further improve the TVALID selection, a PRE-TDL has been introduced
+ before each TDL.
+ The PRE-TDL is composed of 
+\shape italic
+NUM_TAP_PRE_TDL
+\shape default
+ taps, of which just 
+\shape italic
+BIT_SMP_PRE_TDL
+\shape default
+ taps are sampled.
+ The PRE-TDL is not used for measuring the incoming signal, but just to
+ anticipate the acquisition of the TVALID before the acquisition of the
+ asynchronous input signal.
+ Indeed, if we choose the TVALID assertion on PRE-TDL's tap, the thermometric
+ code, given by the actual TDL only, would have very few 
+\begin_inset Quotes eld
+\end_inset
+
+ones
+\begin_inset Quotes erd
+\end_inset
+
+ since the input signal would have traveled just on the PRE-TDL and on the
+ very first TDL's taps.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Valid-mechanism-of"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows the concepts just explained, highlighting the different sampled portions
+ of TDL chosen by the 
+\begin_inset Quotes eld
+\end_inset
+
+VALID
+\begin_inset Quotes erd
+\end_inset
+
+ mechanism.
+ This mechanism allows the TVALID signal to have a high logical value for
+ just one clock period, whose rising-edge is nothing but the STOP signal.
+ The great usefulness given by the “VALID” mechanism is being able to sample
+ a convenient portion of the TDL, which is free from “ultra-bins” and therefore
+ capable of providing highly-precise measurements.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/valid.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Valid mechanism of the TDL and role of the PRE-TDL.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Valid-mechanism-of"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+The TVALID selection is performed in two different modes, based on the generic
+ 
+\shape italic
+DEBUG_MODE
+\shape default
+.
+ If 
+\shape italic
+DEBUG_MODE = 
+\shape default
+FALSE, the 
+\begin_inset Quotes eld
+\end_inset
+
+VALID
+\begin_inset Quotes erd
+\end_inset
+
+ position is statically chosen by the generic 
+\change_inserted 1469408620 1668872759
+
+\shape italic
+
+\begin_inset Newline newline
+\end_inset
+
+
+\change_unchanged
+VALID_POSITION_TAP_INIT, 
+\shape default
+which is a value between 0 and 
+\shape italic
+BIT_SMP_PRE_TDL
+\shape default
++
+\shape italic
+BIT_SMP_TDL
+\shape default
+-1.
+ Conversely, if 
+\shape italic
+DEBUG_MODE
+\shape default
+ = TRUE, the 
+\begin_inset Quotes eld
+\end_inset
+
+VALID
+\begin_inset Quotes erd
+\end_inset
+
+ position is chosen at run-time, by Port.
+ In this case, we can select just a few of the 
+\shape italic
+BIT_SMP_PRE_TDL
+\shape default
++
+\shape italic
+BIT_SMP_TDL
+\shape default
+ sampled taps from which we could extract the TVALID, and it is done thanks
+ to the generics 
+\shape italic
+MIN_VALID_TAP_POS
+\shape default
+, 
+\shape italic
+MAX_VALID_TAP_POS
+\shape default
+, and 
+\shape italic
+STEP_VALID_TAP_POS
+\shape default
+.
+ With these generics, we choose just some FFs along the chain from which
+ we can select the TVALID, thus performing a decimation and avoiding using
+ large multiplexers that may reduce the timing performance.
+ Among these few FFs, the final position is selected with the Port 
+\begin_inset Quotes eld
+\end_inset
+
+ValidPositionTap
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Valid-selection-in"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows, with an example, the explained working principle in 
+\shape italic
+DEBUG_MODE
+\shape default
+ = TRUE and with 
+\shape italic
+MIN_VALID_TAP_POS
+\shape default
+ = 0, 
+\change_inserted 1469408620 1668872870
+
+\shape italic
+
+\begin_inset Newline newline
+\end_inset
+
+
+\change_unchanged
+MAX_VALID_TAP_POS
+\shape default
+ = 4,
+\shape italic
+ STEP_VALID_TAP_POS
+\shape default
+ = 2.
+ Since, if we use the SuperWU 
+\change_inserted 1469408620 1668872958
+
+\begin_inset Newline newline
+\end_inset
+
+
+\change_unchanged
+Sub-Interpolation algorithm, there are more TDLs in parallel, we must select
+ one single TDL among them in which the aforementioned "VALID" selection
+ process is performed.
+ This is done statically by the generic 
+\shape italic
+VALID_NUMBER_OF_TDL_INIT
+\shape default
+ if 
+\shape italic
+DEBUG_MODE
+\shape default
+ = FALSE, or by the Port 
+\begin_inset Quotes eld
+\end_inset
+
+ValidNumberOfTDL
+\begin_inset Quotes erd
+\end_inset
+
+ if 
+\shape italic
+DEBUG_MODE
+\shape default
+ = TRUE.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/valid_sel.png
+	width 40text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Valid selection in 
+\shape italic
+DEBUG_MODE
+\shape default
+ = TRUE.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Valid-selection-in"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Finally, there is the possibility of just simulating the TDL rather than
+ implementing it, thanks to the generic 
+\shape italic
+SIM_VS_IMP
+\shape default
+.
+ If
+\shape italic
+ SIM_VS_IMP = 
+\shape default
+
+\begin_inset Quotes eld
+\end_inset
+
+SIM
+\begin_inset Quotes erd
+\end_inset
+
+, the TDL is not physically implemented with the CARRY4 primitive, but a
+ fictitious buffer-chain is created just for a test-bench scope.
+ The simulated delays of the fictitious buffers are imported from two .txt
+ files, 
+\shape italic
+FILE_PATH_NAME_O_DELAY
+\shape default
+ and 
+\shape italic
+FILE_PATH_NAME_CO_DELAY,
+\shape default
+ containing their estimated delays.
+\end_layout
+
+\begin_layout Subsubsection
+XUS/XUS+ Version
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:XUS/XUS+-Version"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this thesis work, the portability of the V-TDL has been improved, making
+ it compatible also with 20-nm Xilinx Ultrascale (XUS) and 16-nm Ultrascale+
+ (XUS+) technological nodes.
+ Let's describe this new version of the V-TDL, which has been entirely implement
+ed in this work.
+\end_layout
+
+\begin_layout Paragraph
+Major differences between X7S and XUS/XUS+
+\end_layout
+
+\begin_layout Standard
+Other than the lower power consumption, which is a direct benefit of the
+ improved scaling, the other main differences are structure-related, thus
+ involving Configural Logic Blocks (CLBs) and slices 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "XlinxUG474"
+literal "false"
+
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "XILINX_ULTRASCALE"
+literal "false"
+
+\end_inset
+
+.
+ The CLBs are resources capable of implementing general-purpose combinatorial
+ and sequential circuits in FPGA, while the slices are the internal parts
+ of the CLBs.
+ Slices and CLBs are arranged in columns throughout the device, and they
+ can easily connect to each other, thus creating large functions.
+ Both X7S and XUS/XUS+ CLBs provide:
+\end_layout
+
+\begin_layout Itemize
+Real 6-input look-up table (LUT) technology;
+\end_layout
+
+\begin_layout Itemize
+Dual 5-input LUT (LUT5) option;
+\end_layout
+
+\begin_layout Itemize
+Distributed Memory and Shift Register Logic capability;
+\end_layout
+
+\begin_layout Itemize
+Wide multiplexers (MUXes) for efficient utilization;
+\end_layout
+
+\begin_layout Itemize
+Dedicated high-speed carry logic for arithmetic functions.
+\end_layout
+
+\begin_layout Standard
+The XUS/XUS+ CLB also has dedicated storage elements that can be configured
+ as FFs or latches with flexible control signals.
+\end_layout
+
+\begin_layout Standard
+The main structural difference between X7S and XUS/XUS+ is internal to the
+ CLB, thus residing on the Slices.
+ Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:CLB-differences-between"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows the main differences inside a single CLB.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Differences in a single CLB between Xilinx 7-Series and Xilinx Ultrascale
+ technology nodes.
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:CLB-differences-between"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Features
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+X7S
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+XUS
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Number of slices
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Number of 6-input LUTs in a single slice
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Number of FFs in a single slice
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+16
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As we can see, in the XUS/XUS+ technology two independent slices are now
+ combined in a single, bigger slice, in order to have better efficiency
+ in the routing process on the FPGA's fabric.
+ In particular, the carry logic is extended from 4 bits to 8 bits, achieving
+ better routing and faster arithmetic functions.
+ One single 8-bit carry-chain is present in a CLB.
+ This is why the XUS/XUS+ technology is compatible with the CARRY8 primitive
+ to perform arithmetic functions rather than the CARRY4 of the previous
+ generation.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:CARRY8-primitive-structure."
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows the internal structure of the CARRY8 primitive, while Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:CARRY8-primitive-Port"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ reports its Port descriptions.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/carry_8.png
+	width 60text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+CARRY8 primitive structure.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:CARRY8-primitive-structure."
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Port
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Direction
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Width
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Function
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CI
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Input
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Carry input for 8-bit carry or lower portion of 4-bit carry.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CI_TOP
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Input
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Upper carry input when CARRY_TYPE=DUAL_CY4.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CO<7:0>
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Output
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Carry-out of each stage of the carry chain.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+DI<7:0>
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Input
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Carry-MUX data input.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+O<7:0>
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Output
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Carry chain XOR general data out.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+S<7:0>
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Input
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Carry-MUX select line.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+CARRY8 primitive Port descriptions.
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:CARRY8-primitive-Port"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As we can see from Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:CARRY8-primitive-structure."
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, the CARRY8 primitive can be configured either as a single 8-bit carry-chain
+ or as two independent 4-bit carry-chains; the first option has been chosen
+ in this thesis work.
+ In the XUS/XUS+ technology, the CO and the O outputs can be sampled at
+ the same time.
+\end_layout
+
+\begin_layout Paragraph
+XUS-TDL structure
+\end_layout
+
+\begin_layout Standard
+In analogy with the X7S version of the TDL, a single CARRY8 block implements
+ eight buffers (or taps) of the TDL and, as before, more primitives are
+ cascaded by connecting the last carry-out (CO(7)) of the previous primitive
+ with the carry-in (CI) of the following one.
+ As before, by choosing the value of the generic 
+\shape italic
+TYPE_TDL
+\shape default
+ from the IP-Core's GUI, either the CO outputs or the O outputs of the TDL
+ can be sampled by the FFs.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:CARRY8-based-Tapped-Delay-Line"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows the propagation mechanism of the TDL.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/carrychain.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+CARRY8-based TDL propagation mechanism.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:CARRY8-based-Tapped-Delay-Line"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The sampling process is managed in the same way as before, with the possibility
+ of decimating the FFs along the chain and putting an initial offset in
+ their positioning.
+ The same “VALID” mechanism for choosing the clock period in which the snapshot
+ of the TDL will be done has also been maintained.
+ Thanks to the benefits of the scaling, the Decoder has been pushed in its
+ operating frequency, thus allowing the TDC-clock to run up to 500 MHz.
+\end_layout
+
+\begin_layout Subsubsection
+IP-Core Integration of both V-TDL versions
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:IP-Core-Integration-of"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The X7S V-TDL described in Paragraph 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:X7S-Version"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ has been integrated into the same IP-Core of the XUS/XUS V-TDL described
+ in Paragraph 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:XUS/XUS+-Version"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, increasing the portability of the system on different FPGA technologies.
+ In particular, a new generic, 
+\shape italic
+XUS_VS_X7S, 
+\shape default
+has been added to the IP-Core GUI
+\shape italic
+.
+ 
+\shape default
+Thanks to this generic, the user can choose, in the instantiation stage,
+ the technological node of the V-TDL.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:V-TDL-IP-Core."
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows the V-TDL IP-Core.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename images/V-TDL_first_IP.png
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+V-TDL IP-Core, 
+\change_inserted 1469408620 1669125072
+highlighting the new generic 
+\shape italic
+XUS_VS_X7S
+\change_deleted 1469408620 1669125075
+
+\shape default
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+evidenzia nella didascalia il parametro XUS vs X7S
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:V-TDL-IP-Core."
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Decoder
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Decoder"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Since this module has not been modified in this thesis work, its only version
+ will be described in the following.
+\end_layout
+
+\begin_layout Standard
+The Decoder has the task of converting the 
+\shape italic
+BIT_UNDECO
+\shape default
+-wide thermometric code (coming from the V-TDL; i.e., 
+\shape italic
+NUMBER_OF_TDL
+\shape default
+
+\begin_inset Formula $\cdot$
+\end_inset
+
+
+\shape italic
+BIT_SMP_TDL
+\shape default
+) into a 
+\shape italic
+BIT_SUBINT
+\shape default
+-wide binary code 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "4529581"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The conversion is done in a Pipeline structure using a Thermo-to-Binary
+ (T2B) engine.
+ Let's briefly describe the working principle of the T2B engine.
+ Firstly, it detects the position of the rising-edge or falling-edge of
+ the input signal by summing the '0's or the '1's of the thermometric data,
+ respectively.
+ Then, thanks to a pipelined tree structure, it transforms the thermometric
+ code into a binary one, by summing all the '1's in the case of rising-edge
+ sensitivity to the input signal, or all the '0's in the case of falling-edge
+ sensitivity.
+ The following relation holds:
+\begin_inset Formula 
+\begin{equation}
+BIT\_SUBINT=\left\lfloor \log_{2}(BIT\_UNDECO)\right\rfloor +1\label{eq:decoder_eq}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Thermometric-to-Binary"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows the mechanism just explained, in the simple case of a 4-bit-wide
+ thermometric code coming from the TDL, thus resulting in a 3-bit-wide output
+ binary code.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Thermometric code
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Binary code
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+000
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0001
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+001
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0011
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+010
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0111
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+011
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1111
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+100
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+ 
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Thermometric code
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Binary code
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1111
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+000
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1110
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+001
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1100
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+010
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+011
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+100
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Thermometric to Binary conversion in the case of rising-edge sensitivity
+ to the input signal (on the left) and with falling-edge sensitivity (on
+ the right).
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Thermometric-to-Binary"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The Decoder also has the task of performing Sub-Interpolation by summing
+ all the binary codes provided by each one of the 
+\begin_inset Quotes eld
+\end_inset
+
+real
+\begin_inset Quotes erd
+\end_inset
+
+ TDLs, using a pipelined Tree Adder (TA).
+ It is possible to dynamically choose the number of TDLs involved in the
+ sub-interpolation employing the so-called Sub-Interpolation Matrix.
+ Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Selection-of-the"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows a case where three TDLs are placed in parallel, thus giving eight
+ possible combinations.
+ Obviously, by sub-interpolating all three TDLs, the best resolution is
+ achieved, according to the SuperWU algorithm.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="9" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+SubInterpolationMatrix
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+V-TDL
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+001
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TDL #1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+010
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TDL #2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+100
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TDL #3
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+011
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TDL #1 + TDL #2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+101
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TDL #1 + TDL #3
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+110
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TDL #2 + TDL #3
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+111
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TDL #1 + TDL #2 + TDL #3
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Selection of the TDLs to involve in the Sub-Interpolation using the Sub-Interpol
+ation Matrix.
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Selection-of-the"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Coarse Extension Core
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Coarse-Extension-Core"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In the Coarse Extension Core (CEC) module, Nutt-Interpolation is carried
+ out to break the trade-off between LSB and FSR 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Nutt1968DigitalTI"
+literal "false"
+
+\end_inset
+
+.
+ A 
+\shape italic
+BIT_COARSE_CEC
+\shape default
+-wide Coarse-Counter is in charge of counting the number of clock periods
+ elapsed from the power-on instant of the system up to the generation of
+ the Fine measure, accomplished by the V-TDL.
+ Overflow-detection is also implemented and will be used by one of the following
+ modules (i.e., the Overflow Counter) to extend even more the FSR (see Section
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Overflow-Counter"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+ The aforementioned overflow detection is performed by a sub-module called
+ TreeComparator, working in a Pipeline structure in order to minimize timing
+ issues, which compares the value of the Coarse-Counter with a reference
+ value equal to:
+\begin_inset Formula 
+\begin{equation}
+OVERFLOW\_REF=2^{BIT\_COARSE\_CEC}-1-NUM\_STAGES\label{eq:OVERFLOW_REF}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this way, as soon as the Coarse-Counter reaches its maximum value (i.e.,
+ 
+\begin_inset Formula $2^{BIT\_COARSE\_CEC}-1$
+\end_inset
+
+), an overflow condition is reported on the next clock cycle.
+ The subtraction of 
+\begin_inset Formula $NUM\_STAGES$
+\end_inset
+
+ is required to take into account the delay introduced by the pipeline stages
+ of the TreeComparator.
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Coarse-Extension-Core"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows the structure of the data provided by the CEC, which is composed
+ of three fields.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/CEC.png
+	width 75text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Coarse Extension Core data structure.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Coarse-Extension-Core"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The FINE_PART field contains the binary code provided by the Decoder; the
+ COARSE_COUNTER field contains the number of the elapsed clock cycles; the
+ FID field contains the information about the occurrence of an overflow
+ in the Coarse-Counter.
+ FID = '1' indicates that no overflows happened, and the COARSE_COUNTER
+ and the FINE_PART fields contain the valid measurement; on the other hand,
+ FID = '0' signals an overflow occurrence, and the other two fields will
+ contain their older values, signaling that the measurement is not valid.
+\end_layout
+
+\begin_layout Standard
+The CEC also performs Clock Domain Crossing (CDC), meaning that the system
+ goes from a faster clock to a slower one.
+ Indeed, it contains a FIFO that prevents losing consecutive measurements,
+ and correctly manages the case in which a valid measure and an overflow
+ occur concurrently.
+ As said in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Main-blocks-of"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, the FIFO is written and read under two different clock domains; the writing
+ process is done under the TDC-clock domain (i.e., the same clock feeding
+ the V-TDL and the Decoder), while the reading process is done under the
+ SYS-clock domain, which has a lower frequency that is constrained by the
+ Calibrator.
+\end_layout
+
+\begin_layout Standard
+This CEC implementation guarantees a maximum channel-rate equal to:
+\begin_inset Formula 
+\begin{equation}
+MaximumChRate=f_{SYSclock}-\frac{f_{TDCclock}}{2^{BIT\_COARSE\_CEC}}\label{eq:CEC_rate}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $\frac{f_{TDCclock}}{2^{BIT\_COARSE\_CEC}}$
+\end_inset
+
+ is the rate of the managed overflows.
+\end_layout
+
+\begin_layout Subsection
+Calibrator
+\end_layout
+
+\begin_layout Standard
+This module has the same structure as in the old TDC and is in charge of
+ keeping track of the PVT variations affecting each bin of the V-TDL 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "8885152"
+literal "false"
+
+\end_inset
+
+.
+ As explained in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Calibration"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, it performs calibration by creating a Calibration Table (CT) and a Characteris
+tic Curve (CC), where the CC represents the 
+\begin_inset Quotes eld
+\end_inset
+
+bin-to-picoseconds
+\begin_inset Quotes erd
+\end_inset
+
+ conversion.
+ The 
+\begin_inset Quotes eld
+\end_inset
+
+Fine
+\begin_inset Quotes erd
+\end_inset
+
+ field (uncalibrated) of the CEC is used to address the CC in the Calibrator,
+ thus obtaining the value in picoseconds.
+ Therefore, a 
+\begin_inset Quotes eld
+\end_inset
+
+Fine
+\begin_inset Quotes erd
+\end_inset
+
+ calibrated field is provided at the output.
+ Let's briefly describe the generics of this module.
+ 
+\shape italic
+BIT_CALIBRATION
+\shape default
+ sets the number of samples used to build the CT (
+\begin_inset Formula $N_{C}=2^{BIT\_CALIBRATION}$
+\end_inset
+
+).
+ 
+\shape italic
+BIT_RESOLUTION
+\shape default
+ is instead the length of the calibrated Fine measurement, in picoseconds,
+ that is exposed at the output of the module.
+ The calibration on the Fine data is performed only if FID='1', which means
+ that a valid measure is coming from the CEC; otherwise, if FID='0', it
+ means that an overflow is coming from the CEC, and the data is passed unaltered
+ through the Calibrator.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Calibrator-working-principle."
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows the overall data-flow and working principle of the Calibrator.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/calibrator.png
+	width 90text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Calibrator working principle.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Calibrator-working-principle."
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Overflow Counter
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Overflow-Counter"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+X7S Version
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Old-Version"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The Overflow Counter (OC) is strongly related to the CEC.
+ Indeed, while the CEC just signals the presence of an overflow in the Coarse-Co
+unter (by putting FID='0'), the OC counts the number of overflows coming
+ from the CEC, allowing to extend the FSR of the TDC up to some days.
+ The working principle of the OC relies on the value of the FID field of
+ the input data (i.e., s00_timestamp_tdata).
+ FID='1' signals a valid timestamp, which passes unaltered through the module;
+ therefore, the output data (i.e., m00_beltbus_tdata) is equal to the s00_timestam
+p_tdata.
+ On the other hand, FID='0' signals that an overflow is coming from the
+ CEC, and a signal 
+\shape italic
+Overflow_cnt
+\shape default
+ is incremented by one and sent in output, along with FID='0'.
+ Obviously, 
+\shape italic
+Overflow_cnt 
+\shape default
+has a bit-length equal to
+\shape italic
+ BIT_COARSE_CEC + BIT_RESOLUTION.
+ 
+\shape default
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Timing-Diagram-of"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ graphically shows with a timing diagram the data structure and the working
+ principle of this module.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/std_OC_data.png
+	width 90text%
+
+\end_inset
+
+
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/standard_OC.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Data structure (at the top) and Timing Diagram (at the bottom) of the Overflow
+ Counter.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Timing-Diagram-of"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+XUS/XUS+ Version
+\end_layout
+
+\begin_layout Standard
+A new solution for the OC has been implemented in this thesis work to improve
+ the timing performance (i.e., the Worst Negative Slack, WNS) of the TDC.
+ Referring to Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Coarse-Extension-Core"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ (Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Coarse-Extension-Core"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+), by shortening the data passing through the FIFO, a TDC with better timing
+ performances can be achieved, thus leading to a smaller Decoder, a higher
+ measure-rate, and a lower Dead-Time.
+ Since 
+\shape italic
+BIT_UNCALIBRATED
+\shape default
+, also equal to 
+\shape italic
+BIT_SUBINT
+\shape default
+, is fixed by the Sub-Interpolation and the desired LSB, it is convenient
+ to lower 
+\shape italic
+BIT_COARSE_CEC
+\shape default
+.
+ In fact, 
+\shape italic
+BIT_COARSE_CEC
+\shape default
+ is now used with a lower value than the one (i.e., 
+\begin_inset Formula $BIT\_COARSE\_CEC_{old}$
+\end_inset
+
+) giving the desired FSR (i.e., 
+\begin_inset Formula $2^{BIT\_COARSE\_CEC_{old}}\cdot T_{CLK}$
+\end_inset
+
+).
+ However, a problem arises since, by having 
+\shape italic
+BIT_COARSE_CEC
+\shape default
+ with a lower value, the overflow occurrences happen no more every FSR but
+ are way more frequent.
+ This lowers the Maximum Channel Rate, as shown by Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:CEC_rate"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ (Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Coarse-Extension-Core"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+ The new version of the OC, developed in this thesis work, aims to solve
+ this issue, by introducing an output Coarse field with a different bit-length
+ to the input Coarse field.
+ The generic for selecting the coarse bit-length of the input data is the
+ same as the previous modules (i.e., 
+\shape italic
+BIT_COARSE_CEC
+\shape default
+); the generic for the bit-length of the output data is instead 
+\shape italic
+BIT_COARSE.
+ 
+\shape default
+The following relation holds:
+\begin_inset Formula 
+\begin{equation}
+BIT\_COARSE\_CEC\leq BIT\_COARSE\label{eq:OC_generics}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Since the 
+\begin_inset Formula $BIT\_COARSE\_CEC=BIT\_COARSE$
+\end_inset
+
+ case behaves exactly as in the older version of the OC, described in Paragraph
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Old-Version"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, and since we just said that it would cause problems to the channel's managemen
+t of the data, we will now describe just the 
+\begin_inset Formula $BIT\_COARSE\_CEC<BIT\_COARSE$
+\end_inset
+
+ case.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Overflow-Counter-IP-Core."
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows the IP-Core package and the generics of the OC.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/OC_IP.png
+	width 85text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Overflow Counter IP-Core.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Overflow-Counter-IP-Core."
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To correctly manage the counting of the overflows, an 
+\shape italic
+AuxiliaryCounter
+\shape default
+ signal, which is 
+\change_inserted 1469408620 1668873081
+
+\begin_inset Newline newline
+\end_inset
+
+
+\change_unchanged
+(BIT_COARSE_DIFFERENCE = 
+\shape italic
+BIT_COARSE - BIT_COARSE_CEC
+\shape default
+)-wide, is in charge of counting the overflows in input (i.e., the data with
+ FID='0' coming from the CEC) and it is appended to the Coarse part of the
+ input data.
+ In this way, the output data will be [(FID = '1') | 
+\shape italic
+AuxiliaryCounter
+\shape default
+ | CoarseIn | Fine] if we have a valid measure as an input (i.e.
+ FID = '1'); otherwise, if 
+\shape italic
+AuxiliaryCounter 
+\shape default
+has reached its maximum value (i.e.
+ 2**BIT_COARSE_DIFFERENCE-1) and we have a new overflow in input (i.e., FID
+ = '0'), 
+\shape italic
+AuxiliaryCounter
+\shape default
+ resets to 0, and the signal 
+\shape italic
+Overflow_cnt
+\shape default
+ is increased by one.
+ In this case, the output data will be [(FID = '0') | 
+\shape italic
+Overflow_cnt
+\shape default
+].
+ Obviously, 
+\shape italic
+Overflow_cnt 
+\shape default
+has a bit-length equal to
+\shape italic
+ BIT_COARSE + BIT_RESOLUTION.
+
+\shape default
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Data-structure-(at"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows the data structure and the working principle of the improved OC,
+ in a simplified example using 
+\shape italic
+BIT_COARSE_CEC
+\shape default
+ = 2 and 
+\shape italic
+BIT_COARSE
+\shape default
+ = 4.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/new_OC_data.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/improved_OC.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Data structure (at the top) and Timing Diagram (at the bottom) of the improved
+ Overflow Counter.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Data-structure-(at"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+It is clear that, since the update of 
+\shape italic
+Overflow_cnt
+\shape default
+ only happens when 
+\shape italic
+AuxiliaryCounter
+\shape default
+ overflows, there are fewer FID='0' output transactions than the input ones.
+ The lower channel-rate problem is thus solved, together with the initial
+ timing errors the CEC suffered from.
+\end_layout
+
+\begin_layout Section
+Exploration of a new TDL solution
+\end_layout
+
+\begin_layout Standard
+A new solution for implementing the V-TDL has been explored in this thesis
+ work.
+ This solution exploits Digital Signal Processor (DSP) blocks to create
+ the TDL structure rather than the usual carry primitives 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "KWIATKOWSKI2021109267"
+literal "false"
+
+\end_inset
+
+.
+\change_inserted 1469408620 1668716515
+
+\end_layout
+
+\begin_layout Subsection
+Xilinx Digital Signal Processor (DSP)
+\end_layout
+
+\begin_layout Standard
+FPGAs are suitable for Digital Signal Processing applications since they
+ can implement custom, fully-parallel algorithms.
+ The basic operation performed by DSPs is the MAC (Multiply and Accumulate),
+ which consists of the product between two numbers, and its addition in
+ the accumulator.
+ In hardware, it is implemented as a multiplier followed by an adder and
+ a register; however, in FPGA, such implementation employs a lot of resources
+ and has a low processing speed.
+ For this reason, Xilinx decided to place dedicated DSP blocks on the FPGA
+ fabric.
+\end_layout
+
+\begin_layout Standard
+The X7S technology uses the DSP48E1 slice as DSP primitive 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "XILINX_7_SERIES"
+literal "false"
+
+\end_inset
+
+, while the XUS/XUS+ uses the DSP48E2 slice 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "XUS_DSP"
+literal "false"
+
+\end_inset
+
+.
+ Since there are minor differences between the two aforementioned blocks,
+ not relevant for the TDL implementation, we will refer just to the DSP48E2
+ block to describe both.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:DSP48E2-structure."
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows the internal structure of the DSP48E2 slice, consisting of a 27-bit
+ pre-adder, a 27 x 18 multiplier, and a flexible 48-bit Arithmetic Logic
+ Unit (ALU) that serves as a post-adder/subtractor, accumulator, or logic
+ unit.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/DSP48E2.png
+	width 90text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+DSP48E2 structure.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:DSP48E2-structure."
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\change_inserted 1469408620 1668690859
+
+\end_layout
+
+\begin_layout Standard
+We can see from Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:DSP48E2-structure."
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ that there are four direct inputs (i.e., A, B, C, D) and a 48-bit-wide direct
+ output (i.e., P), which is the result of the operation performed by the ALU.
+ An input carry (i.e., CARRYIN) and an output one (i.e., CARRYOUT) are also
+ present, along with an output port for pattern detection (i.e., PATTERNDETECT/PAT
+TERNBDETECT) and the output of a XOR gate (i.e., XOR OUT).
+ Furthermore, five input (i.e., ACIN, BCIN, PCIN, CARRYCASCIN, MULTSIGNIN)
+ and output ports (i.e., ACOUT, BCOUT, PCOUT, CARRYCASCOUT, MULTSIGNOUT) are
+ present, with the function of cascading more DSP slices.
+ All the remaining inputs are control signals:
+\end_layout
+
+\begin_layout Itemize
+ALUMODE: it controls the operation performed by the ALU, which can be either
+ a sum, a subtraction, or a logic operation;
+\end_layout
+
+\begin_layout Itemize
+CARRYINSEL: it decides whether the direct carry-in or the cascaded one is
+ fed to the ALU;
+\end_layout
+
+\begin_layout Itemize
+OPMODE: it contains fields for W, X, Y, and Z multiplexer selects.
+ Therefore, this signal decides which input signals are used as the factors
+ for the ALU operation;
+\end_layout
+
+\begin_layout Itemize
+INMODE: it controls the functionality of the pre-adder.
+\end_layout
+
+\begin_layout Standard
+These control signals require a specific bit-mask to perform all the different
+ functionalities, as can be seen in the DSP48E2 User Guide 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "XUS_DSP"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Finally, it is worth saying that the DSP48E2 has three different working
+ modes.
+ Indeed, thanks to the Single-Instruction-Multiple-Data (SIMD) mode, the
+ 48-bit ALU (i.e.
+ the first, default, working mode) also supports dual 24-bit (i.e., 
+\change_deleted 1469408620 1668783804
+the second working mode
+\change_inserted 1469408620 1668783822
+the 48-bit ALU gets split into two 24-bit ALUs working in parallel
+\change_unchanged
+) or quad 12-bit (i.e., 
+\change_deleted 1469408620 1668783865
+the third working mode
+\change_inserted 1469408620 1668783881
+the 48-bit ALU gets split into four 12-bit ALUs working in parallel
+\change_unchanged
+) arithmetic operations.
+ 
+\change_deleted 1469408620 1668783387
+Based on the experimental results that will be shown in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Study-of-the"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, the dual 24-bit SIMD mode has been used in this thesis work, thus having
+ a single 48-bit ALU that works as two, independent, 24-bit ALUs in parallel.
+\change_unchanged
+
+\end_layout
+
+\begin_layout Subsection
+DSP-based TDL
+\end_layout
+
+\begin_layout Standard
+The propagation mechanism of the START along the DSP's output bits (i.e.,
+ the taps of the TDL) relies on the subtraction operation performed by the
+ ALU.
+ Let's see more in detail the ports and the control signals involved.
+ The dual A and B registers, along with the pre-adder and the multiplier,
+ are not involved in this implementation; therefore, they are bypassed by
+ all the signals.
+ Besides, the D input signal and the INMODE control are not used.
+ The ALUMODE signal is set to make the ALU perform the following operation:
+\begin_inset Formula 
+\begin{equation}
+P=Z-(W+X+Y+CIN)\label{eq:alu}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where CIN is set by CARRYINSEL to be the direct CARRYIN signal, which is
+ put equal to zero.
+ Z, W, X, and Y are the input signals, multiplexed by OPMODE.
+ The selection is such that:
+\end_layout
+
+\begin_layout Itemize
+Z transmits the C input signal to the ALU;
+\end_layout
+
+\begin_layout Itemize
+W transmits a constant vector of zeroes to the ALU;
+\end_layout
+
+\begin_layout Itemize
+X transmits the concatenated A and B input signals (i.e., A:B) to the ALU;
+\end_layout
+
+\begin_layout Itemize
+Y transmits a constant vector of zeroes to the ALU.
+\end_layout
+
+\begin_layout Standard
+The A:B vector is the one containing the asynchronous input signal (START)
+ the TDC has to measure, while a constant vector of zeroes is assigned to
+ the C port.
+\end_layout
+
+\begin_layout Standard
+In this thesis work, the dual 24-bit SIMD mode has been used; therefore,
+ a single DSP-chain is equivalent to two TDLs in parallel receiving the
+ same START signal.
+ This mode has been chosen to perform Sub-Interpolation inside a single
+ DSP-chain; in fact, two propagation mechanisms and two thermometric codes
+ are generated by a single chain, leading to a beneficial bin-splitting,
+ as will be shown in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Preliminary-studies-about"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ If the default 48-bit mode would have been chosen, another entire DSP-chain
+ would have been placed in parallel to implement Sub-Interpolation, leading
+ to a higher area occupancy.
+\end_layout
+
+\begin_layout Standard
+Since dual 24-bit SIMD mode is used, it is like having a single DSP slice
+ containing two independent 24-bit ALUs working in parallel, where each
+ one of them has 24-bit wide P, C, A:B signals, and 24-bit wide vectors
+ of zeroes.
+\end_layout
+
+\begin_layout Standard
+To create a long DSP-based TDL, more DSP slices have to be cascaded, and
+ this is done by connecting the ACOUT and BCOUT ports of the previous slice
+ to the ACIN and BCIN of the following one.
+ Therefore, the START signal is connected to the direct A and B input ports
+ of the first DSP block.
+ Then, on the following ones, it propagates along the cascade passing through
+ the ACIN and ACOUT inputs; here, the direct A and B inputs are not used
+ anymore.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:AsyncInput-connection-to"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows the data assignment on the A:B vector.
+ It is shown that, since A is 30-bit-wide and B is 18-bit-wide, the START
+ signal must be assigned both to the 
+\begin_inset Formula $0$
+\end_inset
+
+-th bit of B and to the 
+\begin_inset Formula $6$
+\end_inset
+
+-th bit of A, thus having our signal of interest on the least-significant
+ bit of each 24-bit half of the A:B vector (i.e.; 
+\begin_inset Formula $30-6=24$
+\end_inset
+
+ for A and 
+\begin_inset Formula $18+6=24$
+\end_inset
+
+ for B).
+ In this way, in both the two 24-bit ALUs, the decimal value of the factor
+ coming from the X multiplexer is equal to 0 when START = '0', and it increases
+ to 1 as soon as START makes a '0'
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+'1' transition.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename images/asyncinput.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+START signal connection to A and B ports of the DSP slice.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:AsyncInput-connection-to"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Finally, at the P output, the internal register of the DSP48E2 block is
+ used to sample the TDL; therefore, external FFs are not required, as it
+ was in the CARRY-based TDL.
+ We can see in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Internal-operation-of"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ all the internal resources and the signals involved in the DSP setup.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/internal_dsp.png
+	width 90text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Internal operation of the DSP48E2 block.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Internal-operation-of"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+By taking Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:alu"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and substituting the values assigned to all the signals in the instantiation
+ stage of the DSP48E2, we obtain the following equation:
+\begin_inset Formula 
+\begin{equation}
+P=0-(0+START+0+0)\label{eq:mid-formula}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+which leads to the following subtraction:
+\begin_inset Formula 
+\begin{equation}
+P=0-START\label{eq:sub-formula}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Therefore, until START stays at '0', P is a 24-bit wide vector of zeroes;
+ then, as soon as START transits from '0' to '1', an underflow takes place,
+ causing propagation of 
+\begin_inset Quotes eld
+\end_inset
+
+ones
+\begin_inset Quotes erd
+\end_inset
+
+ from the least-significant bit to the most-significant bit of P.
+ This behavior is the same as in the CARRY-based TDL, where the bits of
+ the P output are the taps of the TDL and the underflow-carry propagates
+ with a certain propagation delay 
+\begin_inset Formula $t_{p}$
+\end_inset
+
+ on each one of them.
+\end_layout
+
+\begin_layout Standard
+The DSP-based TDL relies on the same “VALID” mechanism of the CARRY-based
+ counterpart, and the selected clock period for the TVALID assertion is
+ the STOP signal taking a snapshot of the TDL's state.
+ Since a single DSP48E2 is used in dual 24-bit mode, two thermometric codes
+ are generated in parallel, instead of one.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Propagation-mechanism-along"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows the propagation mechanism of the DSP-chain.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/dsp-propagation.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Propagation mechanism along the DSP-based TDL.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Propagation-mechanism-along"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+
+\change_deleted 1469408620 1668786666
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1129936465 1668762658
+Nuova sez di integrazioine
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_inserted 1469408620 1668982731
+IP-Core Integration of both DSP-based and CARRY-based TDLs
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:IP-Core-Integration-of-1"
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 1469408620 1668788000
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Fai un Sez nuova di integrazione con la V-TDL fatta in CARRY4/8 in modo
+\end_layout
+
+\begin_layout Plain Layout
+Quindi inserisci giusto 2 riche dicendo che l'opzione DSP è stata integrata
+ nell'IP presentato in 3.2
+\end_layout
+
+\begin_layout Plain Layout
+Avreai quindi aggiunot deiu nuovi generic, sotto riportati in conrsibo
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+The DSP-based solution for the V-TDL has been integrated into the IP-Core
+ described in Paragraph 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:IP-Core-Integration-of"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+In fact, as we will see in Chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Measurements"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, when the experimental results will be shown, the combination of the CARRY-base
+d TDL and the DSP-based TDL creates a “hybrid” V-TDL which, thanks to the
+ SuperWU Sub-Interpolation algorithm, exploits the best features of both
+ the two architectures.
+ This 
+\begin_inset Quotes eld
+\end_inset
+
+hybrid
+\begin_inset Quotes erd
+\end_inset
+
+ implementation is managed by two new generics,
+\shape italic
+ NUMBER_OF_CARRY_CHAINS
+\shape default
+ and 
+\shape italic
+NUMBER_OF_DSP_CHAINS
+\shape default
+, introduced in substitution of 
+\shape italic
+NUMBER_OF_TDL
+\shape default
+.
+ The resulting V-TDL is composed of 
+\shape italic
+NUMBER_OF_CARRY_CHAINS
+\shape default
+ +
+\shape italic
+ NUMBER_OF_DSP_CHAINS
+\shape default
+ TDLs in parallel, where each one is 
+\shape italic
+NUM_TAP_PRE_TDL
+\shape default
+ +
+\shape italic
+ NUM_TAP_TDL
+\shape default
+ tap long.
+ This adds even more versatility to the IP-Core since it allows having a
+ V-TDL either made of CARRY-based TDLs only (if 
+\shape italic
+NUMBER_OF_DSP_CHAINS
+\shape default
+=0), DSP-based TDLs only (if 
+\shape italic
+NUMBER_OF_CARRY_CHAINS
+\shape default
+=0), or a combination of them (if 
+\shape italic
+NUMBER_OF_CARRY_CHAINS
+\shape default
+
+\begin_inset Formula $\neq$
+\end_inset
+
+0, 
+\shape italic
+NUMBER_OF_DSP_CHAINS
+\shape default
+
+\begin_inset Formula $\neq$
+\end_inset
+
+0).
+\end_layout
+
+\begin_layout Standard
+It is worth saying that the generic 
+\shape italic
+NUMBER_OF_DSP_CHAINS 
+\shape default
+decides how many 
+\begin_inset Quotes eld
+\end_inset
+
+active
+\begin_inset Quotes erd
+\end_inset
+
+ ALUs perform the subtraction operation in parallel.
+ For example, in both cases where 
+\shape italic
+
+\begin_inset Newline newline
+\end_inset
+
+NUMBER_OF_DSP_CHAINS
+\shape default
+ = 1 or 
+\shape italic
+NUMBER_OF_DSP_CHAINS
+\shape default
+ = 2, the hardware TDL is composed of a single DSP-chain; however, since
+ every DSP48E2 is used in dual 24-bit SIMD mode, the difference is the following
+ one: in the second case, both the 24-bit ALUs perform the operation, and
+ two thermometric codes are generated in output (we will refer to it as
+ 
+\begin_inset Quotes eld
+\end_inset
+
+FULL-DSP-chain
+\begin_inset Quotes erd
+\end_inset
+
+); instead, in the first case, both ALUs still perform the operation, but
+ one single thermometric code is provided, while the other is discarded
+ (we will refer to it as 
+\begin_inset Quotes eld
+\end_inset
+
+HALF-DSP-chain
+\begin_inset Quotes erd
+\end_inset
+
+).
+ Since, in both cases, the same amount of hardware resources is exploited
+ and since, thanks to the Sub-Interpolation, having two thermometric codes
+ is more beneficial than having just a single code, choosing an even value
+ for 
+\shape italic
+NUMBER_OF_DSP_CHAINS
+\shape default
+ is always more convenient.
+\end_layout
+
+\begin_layout Standard
+Moreover, the generic 
+\shape italic
+XUS_VS_X7S 
+\shape default
+allows
+\shape italic
+ 
+\shape default
+choosing the technological node of the DSP block, as for the CARRY primitive.
+ If 
+\shape italic
+XUS_VS_X7S = 
+\shape default
+
+\begin_inset Quotes eld
+\end_inset
+
+X7S
+\begin_inset Quotes erd
+\end_inset
+
+, only DSP48E1 primitives are instantiated, and the TDC is made compatible
+ with X7S FPGAs; on the other hand, if 
+\shape italic
+XUS_VS_X7S = 
+\shape default
+
+\begin_inset Quotes eld
+\end_inset
+
+XUS
+\begin_inset Quotes erd
+\end_inset
+
+, only DSP48E2 primitives are implemented, and the TDC is made compatible
+ with XUS/XUS+ FPGAs.
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Virtual-Tapped-Delay-Line"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows the V-TDL IP-Core.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/V-TDL_IP.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+V-TDL IP-Core, exploiting both CARRY-chains and DSP-chains
+\change_inserted 1469408620 1669125278
+ thanks to the new generics 
+\shape italic
+NUMBER_OF_CARRY_CHAINS
+\shape default
+ and 
+\shape italic
+NUMBER_OF_DSP_CHAINS
+\shape default
+ in substitution of 
+\shape italic
+NUMBER_OF_TDL
+\shape default
+.
+ The generic 
+\shape italic
+XUS_VS_X7S
+\shape default
+ is also still present.
+\change_deleted 1469408620 1669125283
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+sottolinea che oltr al generic XUS vs X7S di prima ora hai sostituito NUM_OF_TDL
+ con NUM of CARRY e NUM of DSP
+\end_layout
+
+\end_inset
+
+.
+\change_unchanged
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Virtual-Tapped-Delay-Line"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\change_inserted 1469408620 1668690859
+
+\end_layout
+
+\begin_layout Subsection
+Advantages and drawbacks of the DSP-based TDL
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Advantages-and-drawbacks"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The main advantage of this architecture is that a more compact structure
+ is obtained, since long CARRY chains, hindering the routing across different
+ regions of the FPGA, are avoided.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Length-comparison-between"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows the concept just explained, showing the higher compactness of a DSP-chain
+ (on the right) than a CARRY-chain (on the left) on a Kintex-Ultrascale
+ FPGA fabric.
+
+\change_inserted 1469408620 1669125456
+ 
+\change_deleted 1469408620 1669125454
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+fai notare che il routing a del DSP sarà molto più facilitato ind esign
+ grossi perché puoi tranquillamente attraversare l'FPGA 
+\end_layout
+
+\end_inset
+
+
+\change_inserted 1469408620 1669125430
+It is worth noting that the DSP-chain routing will be facilitated in large
+ designs since it has a lot of room before crossing all the FPGA fabric.
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 1469408620 1668791988
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/FLOORPLAN_carry.png
+	width 46text%
+
+\end_inset
+
+
+\change_inserted 1469408620 1668792900
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\change_unchanged
+
+\begin_inset Graphics
+	filename images/FLOORPLAN_DSP.png
+	width 45.4text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1668791988
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1668793430
+Length comparison between a CARRY-chain (on the left, in white) and a DSP-chain
+ (on the right, in white) in a Kintex-Ultrascale FPGA.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Length-comparison-between"
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+Furthermore, the DSP-based architecture allows a relaxation in the hardware
+ utilization, since the sampling of the TDL is made with the P-register
+ integrated with the DSP itself, thus not requiring the use of external
+ FFs as in the CARRY-based approach
+\change_deleted 1469408620 1669125761
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+dai una metrica ovvero i TDL fatta a DSP ha giù i suoi FF mentre se fatta
+ a carry ne devi usare circa 512 nel fabric ...
+ quindi DSP = risparmio 512 Ffs
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+.
+ 
+\change_inserted 1469408620 1669125876
+For example, if a 512-taps long CARRY-based TDL is implemented, it will
+ need 512 as many FFs; on the other hand, the DSP-based counterpart will
+ save those 512 FFs since it uses the ones integrated into the DSP blocks.
+ 
+\change_unchanged
+However, the DSP-chains suffer from a relevant problem, since the cascade
+ path from one DSP slice to another introduces a huge propagation delay
+ and therefore the presence of a very high “ultra-bin” in the chain.
+ The recurring presence of “ultra-bins” along the DSP-chain is the main
+ drawback of this architecture since, as explained in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Calibration"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, it worsens the single-shot precision of the TDC.
+\end_layout
+
+\end_body
+\end_document

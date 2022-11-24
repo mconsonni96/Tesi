@@ -1,0 +1,5597 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+
+%------------------------------------------------------------------------------
+%	REQUIRED PACKAGES AND  CONFIGURATIONS
+%------------------------------------------------------------------------------
+% PACKAGES FOR TITLES
+\usepackage{titlesec}
+\usepackage{color}
+% PACKAGES FOR LANGUAGE AND FONT
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc} % Font encoding
+
+% PACKAGES FOR IMAGES
+\usepackage{graphicx}
+\graphicspath{{Images/}}
+\usepackage{eso-pic} % For the background picture on the title page
+\usepackage{subfig} % Numbered and caption subfigures using \subfloat
+\usepackage{caption} % Coloured captions
+\usepackage{transparent}
+
+% STANDARD MATH PACKAGES
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{bm}
+\usepackage[overload]{empheq}  % For braced-style systems of equations
+
+% PACKAGES FOR TABLES
+\usepackage{tabularx}
+\usepackage{longtable} % tables that can span several pages
+\usepackage{colortbl}
+
+% PACKAGES FOR ALGORITHMS (PSEUDO-CODE)
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+% PACKAGES FOR REFERENCES & BIBLIOGRAPHY
+\usepackage[colorlinks=true,linkcolor=black,anchorcolor=black,citecolor=black,filecolor=black,menucolor=black,runcolor=black,urlcolor=black]{hyperref} % Adds clickable links at references
+\usepackage{cleveref}
+\usepackage[square, numbers, sort&compress]{natbib} % Square brackets, citing references with numbers, citations sorted by appearance in the text and compressed
+%\bibliographystyle{plain} % You may use a different style adapted to your field
+
+% PACKAGES FOR THE APPENDIX
+\usepackage{appendix}
+
+% PACKAGES FOR ITEMIZE & ENUMERATES 
+\usepackage{enumitem}
+
+% OTHER PACKAGES
+\usepackage{amsthm,thmtools,xcolor} % Coloured "Theorem"
+\usepackage{comment} % Comment part of code
+\usepackage{fancyhdr} % Fancy headers and footers
+\usepackage{lipsum} % Insert dummy text
+\usepackage{tcolorbox} % Create coloured boxes (e.g. the one for the key-words)
+
+\input{../Configuration_files/config}
+\makeatletter
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding default
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\author -1129936465 "Nicola Lusardi"
+\author 268488506 "nicol"
+\author 1469408620 "Mattia Consonni"
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+in gnerale vedo dei piccoli errorini; articoli sbagliati preposizioni sbagliate;
+ miraccomando:
+\end_layout
+
+\begin_layout Plain Layout
+1) registrati a grammarly
+\end_layout
+
+\begin_layout Plain Layout
+2) usalo assieme a google traduttore
+\end_layout
+
+\begin_layout Plain Layout
+3) verifica che non ci siano messaggi rossi (errori)
+\end_layout
+
+\begin_layout Plain Layout
+4) vedrai che la frase è ok se compare un pallino verde in basso a destra
+ (accettabile se il pallino è giallo)
+\end_layout
+
+\begin_layout Plain Layout
+Vedi NOTA 2 come esempio negativo da correggere
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Verifica bene in tutta la tesi che tutte le ref siano coerenti (vedi NOTA1
+ come esempio negativo da correggere)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Ingloba meglio lw figure nel corpo dello scritto, esse se sono continuamente
+ riferite nella porzione di testo a cui fanno riferimento, vanno indicate
+ per una migliore lettura del testo (vedi NOTA3 come esempio negativo da
+ cprreggere)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Non coppiare frasi da altri elaborati, devi rielaborare tutte le frasi da
+ cui prendi spunto.
+\end_layout
+
+\begin_layout Plain Layout
+Chiedo la tesi a 30pag per evitare di avere copia ed incolla e poi mi trovo
+ dei copia ed incolla!
+\end_layout
+
+\begin_layout Plain Layout
+VANNO ASSOLUTAMENTI EVITATI (vedi NOTA4 come esempio negativo da correggere)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Usa bene l divisione in paragrafi:
+\end_layout
+
+\begin_layout Plain Layout
+1) non divider i paragrafi come elnchi puntati (in Introduction the li ho
+ corretti tutti) miraccomando rivedi la tesi e corregi tutti questi errori
+ simili
+\end_layout
+
+\begin_layout Plain Layout
+2) non saltare l'ordine dei paragrafi, per esempio in FPGA vs ASIC hai saltato
+ un livello e sei passato dal 1.4 ad FPGA/ASIC/Comparison senza passare per
+ 1.4.1/1.4.2/1.4.3
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+metti delle ref sensate a questa frase ->
+\end_layout
+
+\end_inset
+
+Concerning the scientific research field, recent years have been characterized
+ by continuous growth in the study of temporal evolution in chemical-physical
+ phenomena; this has led to the need of employing high-performance instruments
+ called Time Interval Meters (TIMs), with the task of measuring very small
+ time intervals, with increasing precision and resolution.
+ Nowadays, the events under study in these applications are characterized
+ by a very high repetition rate and by a temporal resolution in the order
+ of the picoseconds.
+ Therefore, the TIM has to have features such as a resolution and measurement
+ precision in the picoseconds order and a sampling rate of hundreds of megahertz
+ (MHz), to correctly process and measure the physical events detected on
+ the sensor front-end of the acquisition chain.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+metti una bella figura in rifereimento a questo capoverso ->
+\end_layout
+
+\end_inset
+
+The concept of 
+\begin_inset Quotes eld
+\end_inset
+
+Time Measurement
+\begin_inset Quotes erd
+\end_inset
+
+ is defined as the time elapsed between an absolute time reference, taken
+ as 
+\begin_inset Quotes eld
+\end_inset
+
+zero
+\begin_inset Quotes erd
+\end_inset
+
+ on the time axis, and the occurrence of a certain event of interest.
+ In this case, our measurement is a Timestamp; however, we are usually more
+ interested to carry out a 
+\change_inserted -1129936465 1668063889
+t
+\change_deleted -1129936465 1668063888
+T
+\change_unchanged
+ime 
+\change_inserted -1129936465 1668063893
+m
+\change_deleted -1129936465 1668063892
+M
+\change_unchanged
+easurement as the relative 
+\begin_inset Quotes eld
+\end_inset
+
+
+\change_inserted -1129936465 1668063899
+T
+\change_deleted -1129936465 1668063899
+t
+\change_unchanged
+ime 
+\change_deleted -1129936465 1668063902
+d
+\change_inserted -1129936465 1668063902
+D
+\change_unchanged
+istance
+\begin_inset Quotes erd
+\end_inset
+
+ between two events, the first one being the 
+\begin_inset Quotes eld
+\end_inset
+
+START
+\begin_inset Quotes erd
+\end_inset
+
+ signal, and the second being the 
+\begin_inset Quotes eld
+\end_inset
+
+STOP
+\begin_inset Quotes erd
+\end_inset
+
+ signal.
+ Anyhow, 
+\change_deleted 1469408620 1666881007
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+No forme verbali abbreviate->
+\end_layout
+
+\end_inset
+
+
+\change_deleted -1129936465 1668064073
+it is
+\change_deleted 1469408620 1666881015
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+<-
+\end_layout
+
+\end_inset
+
+
+\change_deleted -1129936465 1668064073
+ clear that 
+\change_unchanged
+a 
+\change_inserted -1129936465 1668063925
+
+\begin_inset Quotes eld
+\end_inset
+
+
+\change_unchanged
+Timestamp
+\change_inserted -1129936465 1668063926
+
+\begin_inset Quotes erd
+\end_inset
+
+
+\change_unchanged
+ is nothing but a particular case of time distance between a chosen absolute
+ time reference, and the event under study.
+ 
+\change_deleted -1129936465 1668064061
+Conversely
+\change_inserted -1129936465 1668064061
+On the other hand
+\change_unchanged
+, the time distance between two events is 
+\change_deleted -1129936465 1668064102
+nothing but 
+\change_unchanged
+the time difference between their timestamps, each one calculated referencing
+ to a common absolute 
+\begin_inset Quotes eld
+\end_inset
+
+zero
+\begin_inset Quotes erd
+\end_inset
+
+ time origin.
+\end_layout
+
+\begin_layout Subsection
+Applications
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Ho visto che hai provato a seguire la mia nota che diceva di inglore il
+ discorso, ma l'intero capoverso è struttturato male.
+\end_layout
+
+\begin_layout Plain Layout
+Nella prima frase parli principalemnte dell'ambito sceintifico; poi, nell'elenco
+ sotto tiri fuori anche quello industriale con il LiDAR.
+ Inoltre la seconda frase è completamente slegata alla prima dal punto di
+ vista della costruzione del periodo.
+ Cerca di migliorare il capoverso
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Prima Frase, la sostituirei con questa che è più generica
+\end_layout
+
+\begin_layout Plain Layout
+TIMs are applied in many different industrial and academic fields, from
+ the R&D to the final product, from the most exotic experimental setups
+ to standard testbenches.
+ 
+\end_layout
+
+\end_inset
+
+The applications requiring these kinds of instruments and performances include
+ very different fields of scientific research, from biomedical to nuclear.
+ Since countless applications belong to these areas, we will describe the
+ most relevant ones, used every day.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Seconda Frase, da legare meglio alla prima
+\end_layout
+
+\end_inset
+
+
+\change_inserted 1469408620 1666890705
+For example, the Time-of-Flight Positron Emission Tomography (TOF-PET) is
+ the most relevant application in the biomedical field that requires a Time
+ Interval Meter (TIM); on the other hand, Laser Rangefinder techniques for
+ 3D imaging applications represent the main example of time-resolved application
+s in the industrial and automotive fields.
+ Another kind of important application is the so-called Time Correlated
+ Single Photon Counting (TCSPC), which is used in every-day time-resolved
+ spectroscopy experiments.
+ Let's now describe these three main applications in detail.
+
+\change_deleted -1129936465 1668064635
+ 
+\change_unchanged
+
+\end_layout
+
+\begin_layout Subsubsection
+Time-of-Flight Positron Emission Tomography
+\end_layout
+
+\begin_layout Standard
+Time-of-Flight Positron Emission Tomography (TOF-PET) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "PET"
+literal "false"
+
+\end_inset
+
+ is a 3D technique used for medical imaging to detect the presence of tumors
+ in the human body.
+ A substance called 
+\change_inserted -1129936465 1668065999
+
+\begin_inset Quotes eld
+\end_inset
+
+
+\change_unchanged
+radiotracer
+\change_inserted -1129936465 1668066001
+
+\begin_inset Quotes erd
+\end_inset
+
+
+\change_unchanged
+, 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+manca sempre il soggeto radiotracer è il complemento oggetto!!!
+\end_layout
+
+\end_inset
+
+
+\change_inserted -1129936465 1668065805
+which is 
+\change_unchanged
+characterized by the capability to release a great number of positrons,
+ 
+\change_deleted -1129936465 1668065852
+is bound
+\change_inserted -1129936465 1668065856
+binds
+\change_unchanged
+ to
+\change_inserted -1129936465 1668065883
+ cankerous
+\change_unchanged
+ 
+\change_deleted -1129936465 1668065862
+a 
+\change_unchanged
+molecule
+\change_deleted -1129936465 1668065895
+ that has the peculiarity to travel toward the region where the tumor is
+ located
+\change_unchanged
+.
+ Once there, the positrons are emitted by the radioactive decay of the radiotrac
+er and collide with electrons 
+\change_inserted -1129936465 1668064986
+that are presents in the tissues
+\change_unchanged
+.
+ When there is a collision between a positron and an electron, characterized
+ by the same electrical charge but with opposite sign, the so-called annihilatio
+n process occurs; this results in two 511 keV gamma photons traveling on
+ the same line but in opposite directions.
+ Referring to Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:PET-TOF-working-principle."
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, these two gamma photons arrive with a certain delay (
+\begin_inset Formula $t_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $t_{2}$
+\end_inset
+
+) to the ring of detectors surrounding the patient, and thanks to the TIM
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Occhio ai soggetti mancanti, to the TIM è complemento di termine!!!
+\end_layout
+
+\end_inset
+
+
+\change_inserted -1129936465 1668065555
+it 
+\change_unchanged
+is possible to measure the delay between the START event (e.g., the photon
+ detection on detector 1) and the STOP event (e.g., the photon detection on
+ detector 2); in this way, the time distance 
+\begin_inset Formula $\Delta t=t_{2}-t_{1}$
+\end_inset
+
+ can be used to derive the spatial position.
+ Therefore, it is possible to retrieve the position of the tumor.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+metti una figura della detectiond el tumore stile NSS
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/pet.png
+	width 30text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+TOF-PET working principle.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:PET-TOF-working-principle."
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Laser Rangefinding
+\end_layout
+
+\begin_layout Standard
+Laser Rangefinding 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "4907333"
+literal "false"
+
+\end_inset
+
+, also known as laser telemeter, is a technique using a laser beam to determine
+ the distance to an object.
+ As we can see in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Laser-Rangefinder-working"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, the measured quantity is the time distance between the instant at which
+ the laser pulse is sent toward the object and the instant at which it is
+ detected by the photodiode (located in the same position as the sender)
+ after being reflected by the target.
+ Once the time information 
+\begin_inset Formula $\varDelta T$
+\end_inset
+
+ is obtained, and by knowing the speed of the light 
+\begin_inset Formula $v$
+\end_inset
+
+ , it is possible to retrieve the distance 
+\begin_inset Formula $L$
+\end_inset
+
+ at which the object is located with respect to the user, as shown by the
+ following equation:
+\begin_inset Formula 
+\begin{equation}
+2\cdot L=v\cdot\varDelta T\label{eq:laser1}
+\end{equation}
+
+\end_inset
+
+and, therefore:
+\begin_inset Formula 
+\begin{equation}
+L=\frac{v\cdot\varDelta T}{2}\label{eq:laser2}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The process just described can be repeated an 
+\begin_inset Formula $N\cdot M$
+\end_inset
+
+ number of times by arranging detectors (pixels) on an 
+\begin_inset Formula $N\cdot M$
+\end_inset
+
+ matrix, 
+\change_deleted -1129936465 1668066260
+and
+\change_inserted -1129936465 1668066260
+so
+\change_unchanged
+ a 3D image can be obtained.
+ The first two dimensions (2D) are nothing but the two axes of the matrix
+ itself, while the third dimension is the one given by the time measurements.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Di che questo sistima si chiama in generale imaging 3D, metti una bella
+ figura esempio quella della presentazione di NSS.
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/laser.png
+	width 50text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Laser Rangefinder working principle.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Laser-Rangefinder-working"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Time-Resolved Spectroscopy
+\end_layout
+
+\begin_layout Standard
+Time-Resolved Spectroscopy 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Questa ref è un articoletto di un front-end per time-resolved spect.
+ Non va bene come cit, te lo ho già detto vaire note fa che le cit devono
+ essere un minimo coerenti! Cerca tra questi libri di ampia panoramica
+\begin_inset Newline newline
+\end_inset
+
+https://scholar.google.it/scholar?q=time-resolved+spectroscopy+book&hl=it&as_sdt=0
+&as_vis=1&oi=scholart
+\end_layout
+
+\end_inset
+
+
+\change_deleted -1129936465 1668066410
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "6674612"
+literal "false"
+
+\end_inset
+
+
+\change_unchanged
+ is the study of dynamic processes, on times scales between seconds and
+ femtoseconds, in chemical compounds or other types of materials.
+ It exploits spectroscopic techniques that can be applied to any process
+ leading to changes in the properties of the material under study.
+ Usually, fluorescence processes are studied
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+metti una bella ref generica per dare idea al lettore che cosa sia un processo
+ di fluorescenza
+\end_layout
+
+\end_inset
+
+.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+La frase sull'introduzione dei TIM buttata giù così non va bene; cioè è
+ aggiunta ma non legata al testo.
+\end_layout
+
+\begin_layout Plain Layout
+Per legarti a questa frase devi dire che solitamente questi exp si conducono
+ con una sorgente eccitatnte (e.g.
+ LASER, luce di sicnrotrono o altro) pilotata da direttamente dall'utente
+ che va a stimoare il campione.
+ La distanza temporale tra la sorgente di stimolo e l'emissione del campione
+ fornisce le informazioni spettroscopiche richieste ->
+\end_layout
+
+\end_inset
+
+
+\change_inserted 1469408620 1666895021
+To measure the time interval elapsing from the instant in which the stimulus
+ is given to the material by an external source, and the instant in which
+ the material emits photons by fluorescence, a TIM has to be employed.
+ 
+\change_unchanged
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+<-
+\end_layout
+
+\end_inset
+
+In scientific research, there are a lot of time-resolved spectroscopy techniques
+, the main ones being: Laser-Induced Breakdown Spectroscopy (LIBS) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "5225527"
+literal "false"
+
+\end_inset
+
+, Time-resolved infrared spectroscopy (TRIR) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "8429057"
+literal "false"
+
+\end_inset
+
+, Time-Correlated Single Photon Counting (TCSPC) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "6292166"
+literal "false"
+
+\end_inset
+
+.
+ The TCSPC method is 
+\change_inserted -1129936465 1668066855
+one of 
+\change_unchanged
+the most common
+\change_deleted -1129936465 1668066861
+ one
+\change_unchanged
+, and it consists of the excitation of the material under analysis thanks
+ to the illumination by a pulsed laser.
+ This causes the fluorescence process in the material, which is a repetitive
+ emission of single photons with a statistic of some hundreds of picoseconds
+ to some tens of nanoseconds.
+ To get the decay shape of the fluorescence signal, repetitive measurements
+ of the time intervals between the excitation pulse and the single photons
+ emitted have to be carried out 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "6292166"
+literal "false"
+
+\end_inset
+
+.
+ Therefore, a TIM with a resolution in the order of picoseconds is needed.
+ 
+\change_deleted 1469408620 1666899798
+ 
+\change_unchanged
+As shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Time-Resolved-Spectroscopy-worki"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, the START signal of the TIM is the excitation laser pulse, while the STOP
+ signals are the photons emitted by fluorescence.In this way, the photon
+ arrivals per time can be collected in a histogram that represents the so
+ called Probability Density Function (PDF) of the time decay profile (
+\begin_inset Formula $T_{DECAY}$
+\end_inset
+
+) of the material under analysis.
+ 
+\change_deleted -1129936465 1668066981
+ 
+\change_unchanged
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/spectroscopy.png
+	width 80text%
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+in questa figura manca il TIM che misura rosso - blu!
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+TCSPC working principle.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Time-Resolved-Spectroscopy-worki"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Typical measurement setup
+\end_layout
+
+\begin_layout Standard
+In all the aforementioned applications, the typical measurement setup consists
+ of a TIM measuring the time interval 
+\begin_inset Formula $\varDelta t$
+\end_inset
+
+ between the two physical events.
+ As said in 
+\change_deleted -1129936465 1668067174
+the first paragraph
+\change_inserted -1129936465 1668067243
+Chapter
+\change_unchanged
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+metti la ref dinamica al paragrafo, questa cosa lo hai detto in 1 Introduction
+ che è una Capitolo; 1.1 è una Sezione e 1.3.1 è un Paragrafo, e 1.3.1.1 è sun
+ Sub_Paragrafh (sotto paragrafo)
+\end_layout
+
+\end_inset
+
+, the measurement of the time interval can be represented either as the
+ direct time difference 
+\begin_inset Formula $\varDelta t$
+\end_inset
+
+ between the START and the STOP events or as the difference of their timestamps,
+ each one calculated with respect to a common absolute reference (i.e., 
+\begin_inset Formula $\varDelta t=t_{2}-t_{1},$
+\end_inset
+
+ where 
+\begin_inset Formula $t_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $t_{2}$
+\end_inset
+
+ are the timestamps of the START and the STOP signal, respectively).
+\end_layout
+
+\begin_layout Standard
+In the first case, each channel of the TIM is composed of two inputs (one
+ for the START 
+\change_deleted -1129936465 1668067350
+signal 
+\change_unchanged
+and one for the STOP
+\change_deleted -1129936465 1668067353
+ signal
+\change_unchanged
+), and it is referred to as a START/STOP-type TIM
+\change_inserted -1129936465 1668067671
+ (Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Measurement-Setup-employing"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ at the top).
+\change_deleted -1129936465 1668067377
+;
+\change_unchanged
+ 
+\change_deleted -1129936465 1668067379
+o
+\change_inserted -1129936465 1668067663
+O
+\change_unchanged
+n the other hand, in the second case, each channel of the TIM has just one
+ single input, with the scope of detecting the incoming physical event and
+ measuring 
+\change_inserted -1129936465 1668067663
+its timestamp 
+\change_deleted -1129936465 1668067599
+its
+\change_inserted -1129936465 1668067663
+as the
+\change_unchanged
+ time distance with respect to
+\change_inserted -1129936465 1668067663
+ an absolute time event chosen as reference
+\change_unchanged
+ 
+\change_inserted -1129936465 1668067663
+(e.g., 
+\change_unchanged
+the power-on instant of the system
+\change_inserted -1129936465 1668067663
+)
+\change_unchanged
+ 
+\change_deleted -1129936465 1668067558
+(i.e.
+ its timestamp)
+\change_unchanged
+.
+ The latter is referred to as a TIMESTAMP-type TIM
+\change_inserted -1129936465 1668067713
+ (Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Measurement-Setup-employing"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ at the bottom)
+\change_unchanged
+.
+ 
+\change_inserted -1129936465 1668067663
+
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted -1129936465 1668067719
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Measurement-Setup-employing"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows a START/STOP-type TIM (at the top) and a TIMESTAMP-type TIM (at the
+ bottom).
+\change_unchanged
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+***
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Qui devi spiegare il perché è richiesto il time discriminator, il motivo
+ principale è poter adattare i livelli logici dell'uscita dei detector a
+ quelli richiesti dal circuito del TIM->
+\end_layout
+
+\end_inset
+
+In both cases, we have our two physical events hitting two detectors, by
+ which they are converted into electrical signals; then, these two electrical
+ signals are processed by Time Discriminators to get the right pulse shape,
+ compatible with the TIM.
+ In the end, the TIM measures the time difference 
+\begin_inset Formula $\varDelta T$
+\end_inset
+
+, giving a digital code in output.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+<-
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Spostami qui *** e modifcami ->
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Rivedi un attimo la frase perché ci sono un paio di concetti che hai ripetutto
+ 1000 volte (inizio di questa Section e del Cap1 che continuui a ripetere)
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+In questa frase devi anche mettere che se hai un sistema ad N canali per
+ il TIMESTAMP Type aumentrà semplicemente il numro dei Ch (fino a Ch.
+ N) ed ovviamente il numero delle uscite.
+ Per lo start/Stop pyte la cosa è leggermente più variegata.
+ Ovvero si avranno N coppie di START/STOP afferenti ad N START/STOP TIM
+ ma poi, per compattezza, visto che tutti gli exp sono del tipo trigger
+ -> eventi, tutti gli START (metti generalmente perché in alcune arch viene
+ fatto sugli STOP) vengono connessi ad un unico segnale in modo da avere
+ 1 solo connettore di START ed N di STOP
+\end_layout
+
+\end_inset
+
+The only difference between the two types of TIM is that the first one has
+ a single channel and there is a direct calculation of 
+\begin_inset Formula $\varDelta t$
+\end_inset
+
+, while the second one has two channels, and 
+\begin_inset Formula $\varDelta t$
+\end_inset
+
+ is calculated by making the difference between the timestamps provided
+ by each channel.
+ Therefore, it's clear that by making the difference between two channels
+ of a TIMESTAMP-type TIM, a START/STOP-type TIM is obtained.
+ On the other hand, using a START/STOP-type TIM having the START event as
+ the power-on instant of the system is equivalent to having one channel
+ of a TIMESTAMP-type TIM.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+<-
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/tim.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Measurement Setup employing a START/STOP-type TIM (at the top) and a TIMESTAMP-t
+ype TIM (at the bottom).
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Measurement-Setup-employing"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+OCCHIO che l'uscita del TIMESTAMP Type sono i 2 timestamp con 
+\begin_inset Formula $\Delta t$
+\end_inset
+
+, tu puoi calcolarti il 
+\begin_inset Formula $\Delta t$
+\end_inset
+
+ se fai la diff tra t2 e t1; però il tuo output è t1 e t2
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 1469408620 1666949332
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+A questo punto abbiamo parlato di:
+\end_layout
+
+\begin_layout Plain Layout
+- TIM nati per fare differenze temporali, ovvero hanno in output il 
+\begin_inset Formula $\Delta t$
+\end_inset
+
+, chiamaeremo questi TIM di tipo START/STOP.
+ Ovvero ogni canale del TIM è costituito da un ingresso di START ed uno
+ di STOP
+\end_layout
+
+\begin_layout Plain Layout
+- TIM nati per produrre timestamp, ovvero hanno in output 
+\begin_inset Formula $t_{i}$
+\end_inset
+
+ ovvero la distanza temporale tra l'evento i-esimo e lo zero del TIM (che
+ solitamente corrisponde all'accensione dello strumento).
+ QUindi un canale di tali TIM è costituito da da un solo input.
+\end_layout
+
+\begin_layout Plain Layout
+Dopo devi sottolineare le relazioni tra le 2 architetture; un TIM START/STOP
+ se ha lo START all'accensione corrisponde ad uno timestamp; mentre se uniamo
+ 2 canali stimestamp e facciamo la differenza tra fli STAOP ed usiamo uno
+ START comune otteniamo un sistema START/STOP
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+In this thesis work, a fully-digital 
+\change_inserted -1129936465 1668068318
+TIMESTAMP-type 
+\change_unchanged
+Time-Interval-Meter, a.k.a.
+ 
+\change_inserted -1129936465 1668068325
+TIMESTAMP-type 
+\change_unchanged
+Time-to-Digital Converter (
+\change_inserted -1129936465 1668068385
+hereinafter simply called 
+\change_unchanged
+TDC), implemented in Field Programmable Gate Array (FPGA) will be presented.
+\end_layout
+
+\begin_layout Subsection
+Figures Of Merit (FOMs)
+\end_layout
+
+\begin_layout Standard
+In this 
+\change_inserted -1129936465 1668068409
+Section
+\change_deleted -1129936465 1668068407
+Paragraph
+\change_unchanged
+, the main Figures Of Merit (FOMs) characterizing the TDC's performance
+ will be presented 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "TDC"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+Resolution
+\end_layout
+
+\begin_layout Standard
+Resolution is defined as the minimum time interval that can be measured
+ by the TIM.
+ In the case of TDC, the time duration of the Least Significant Bit (LSB)
+ of the digital output code is commonly used as resolution.
+\change_deleted 1469408620 1667381055
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+questa frase non ha per nulla senso;
+\end_layout
+
+\begin_layout Plain Layout
+1) dici che high-resoltion è 100 fs, ma senza mettere nessuna reference
+ non puoi farlo, ogni volta che parli di una cosa devi mettere delle ref
+ per validarla.
+\end_layout
+
+\begin_layout Plain Layout
+2) Dici che si aumenta con la sub-Interpolation ma anche qui: i) non abbiamo
+ nessuna ref per capire cosa vuoi dire (io lo so ma il lettore no); ii)
+ non rimandi nel testo nei punti in cui parli della sub-interpolation ->
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+ High
+\change_deleted 1469408620 1667381048
+ 
+\change_inserted 1469408620 1667381048
+-
+\change_unchanged
+performance TDCs 
+\change_deleted 1469408620 1667381013
+have
+\change_inserted 1469408620 1667381015
+can reach
+\change_deleted 1469408620 1667381018
+ a
+\change_unchanged
+ resolution
+\change_inserted 1469408620 1667381023
+s
+\change_unchanged
+ 
+\change_inserted 1469408620 1667381026
+in the order 
+\change_unchanged
+of hundreds of femtoseconds
+\change_inserted 1469408620 1667381044
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "9452098"
+literal "false"
+
+\end_inset
+
+
+\change_unchanged
+.
+ 
+\change_inserted 1469408620 1667383155
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:LSB-and-FSR."
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ graphically shows the concept of LSB.
+ 
+\change_unchanged
+This FOM can be improved using sub-interpolation techniques
+\change_inserted 1469408620 1667466778
+, as we will see in Section 2.
+
+\change_deleted 1469408620 1667380530
+ we will see later.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+<-
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\begin_layout Subsubsection
+Full-Scale Range
+\end_layout
+
+\begin_layout Standard
+Full-Scale Range (FSR) is the maximum time interval that can be measured
+ by the TIM.
+\change_deleted 1469408620 1667383110
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+come detto per LSB la frase buttata così qui non ha molto senso;
+\end_layout
+
+\begin_layout Plain Layout
+1) perché ci dovrebbe essere questo trade-off (io lo capisco ma il lettore
+ no), devi rimandare ad un peper ed a un punto del testo in cui viene spiegata
+ questa cosa
+\end_layout
+
+\begin_layout Plain Layout
+2) la Nutt-INterpolation, io so cosa è ma anche qui servono le reference
+ e il rimando a un punto del testo in cui la vai ad introdurre
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+ 
+\change_deleted 1469408620 1667381396
+A typical drawback of the TDC is the
+\change_inserted 1469408620 1667383146
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:LSB-and-FSR."
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows the typical
+\change_unchanged
+ trade-off existing between FSR and LSB (resolution)
+\change_inserted 1469408620 1667383342
+; in fact, with the same number 
+\begin_inset Formula $n$
+\end_inset
+
+ of quantization levels, a greater FSR results in a greater LSB, since:
+ 
+\begin_inset Formula $LSB=\frac{FSR}{n}$
+\end_inset
+
+.
+\change_deleted 1469408620 1667382610
+.
+
+\change_unchanged
+ This
+\change_inserted 1469408620 1667382653
+ trade-off
+\change_unchanged
+ can be solved thanks to a technique called Nutt-Interpolation
+\change_inserted 1469408620 1667381325
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Nutt1968DigitalTI"
+literal "false"
+
+\end_inset
+
+
+\change_unchanged
+, as we will see 
+\change_deleted 1469408620 1667381329
+later
+\change_inserted 1469408620 1667466786
+in Section 2
+\change_unchanged
+.
+\change_deleted 1469408620 1667383115
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+<-
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 1469408620 1667383116
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+prepara una figura del semplice quantizzatore in cui evidenzi cosa è l'LSB
+ ed il FSR e riferisci la figura ai paragrafi di LSB e FSR rispettivamente
+\end_layout
+
+\end_inset
+
+
+\change_inserted 1469408620 1667383122
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+
+\change_inserted 1469408620 1667383174
+\begin_inset Graphics
+	filename images/lsb.png
+	width 50text%
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667383122
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667383136
+LSB and FSR.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:LSB-and-FSR."
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\begin_layout Subsubsection
+Precision
+\end_layout
+
+\begin_layout Standard
+Single-Shot Precision, or simply precision, is the capability of the TDC
+ to give the same output digital code given the same time interval in input.
+ 
+\change_deleted 1469408620 1667387425
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+anche qui frase buttata giù male come nelle FoMs sopra, io capisco ma un
+ revisore non è detto.
+\end_layout
+
+\begin_layout Plain Layout
+1) devi dire che l'informazione di precisione, seguendo la sua definizione,
+ si estrapola dalla statistica di un pull di misure svolte sullo stesso
+ intervallo temorale
+\end_layout
+
+\begin_layout Plain Layout
+2) ne onsegue che la dispersione della statistica (il cui indice è la std
+ deviation) sarà legata alla precisione dello strumento; ovvero uno strumento
+ meno precisione avrà una statistica più dispersa di uno più preciso, quindi
+ una std maggiore.
+\end_layout
+
+\begin_layout Plain Layout
+3) Per quanto riguarda la gaussiana, devi precisa che per via del teorema
+ del limite centrale, in assenza di 
+\begin_inset Quotes eld
+\end_inset
+
+bias esterni
+\begin_inset Quotes erd
+\end_inset
+
+ la distribuzione sarà gaussiana
+\end_layout
+
+\begin_layout Plain Layout
+5) Nel caso in cui abbiamo una statistica di precisione non gaussiana (prendi
+ come esempio le misure di time-over-threshold da scintillaotri) si prende
+ come indice la FWHM della statistcia in uscita (se vuoi magigori info ti
+ spiego a voce quando ritorno) 
+\end_layout
+
+\begin_layout Plain Layout
+NB: aiutati con figure per spiegare questo concetto
+\end_layout
+
+\end_inset
+
+Since a gaussian curve is obatained from a set of repeated measurements,
+ its standard deviation is typically used as index of precision.
+\change_inserted 1469408620 1667387390
+Based on this definition, the information about precision is obtained by
+ studying the statistics of a repeated set of measurements of the same time
+ interval.
+ For the Central Limit Theorem, without external disturbances, the statistical
+ distribution will be a Gaussian curve, whose standard deviation 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ will be the index of the precision.
+ Therefore, a TIM with a low precision will result in a wide gaussian curve,
+ which is equivalent to a high standard deviation and a wide statistic dispersio
+n.
+ Conversely, an instrument characterized by high precision will result in
+ a narrower gaussian, and thus in a lower 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ value.
+ There are some cases (e.g., Time-over-Threshold measurements from scintillators-c
+ollected light pulses 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "8532950"
+literal "false"
+
+\end_inset
+
+) where the statistic distribution is not gaussian; in these cases, the
+ FWHM is taken as the index of precision.
+
+\change_unchanged
+ 
+\change_inserted 1469408620 1667387530
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Single-Shot-Precision."
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ graphically shows the explained concepts.
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+
+\change_inserted 1469408620 1667385452
+\begin_inset Graphics
+	filename images/precision.png
+	width 50text%
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667385411
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667385426
+Single-Shot Precision.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Single-Shot-Precision."
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\change_deleted 1469408620 1667387427
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+<-
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\begin_layout Subsubsection
+Linearity
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 1469408620 1667397822
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Ti ho aggiustato le frasi ma manca:
+\end_layout
+
+\begin_layout Plain Layout
+1) come le misuro? IL code density test oppure un reference nel testo in
+ cui ne parlo meglio
+\end_layout
+
+\begin_layout Plain Layout
+2) formala per definire la DNL/INL oppure un reference nel testo in cui
+ ne parlo meglio
+\end_layout
+
+\begin_layout Plain Layout
+3) figura in cui rapresenti la DNL/INL
+\end_layout
+
+\begin_layout Plain Layout
+->
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+The TDC suffers from non-linearity errors.
+ The non-linearity is represented by meas of Differential Non-Linearity
+ (DNL) and Integral Non-Linearity (INL).
+ The DNL represents the dispersion in time between consecutive digital codes
+ with respect to the nominal one (i.e., the LSB).
+ The INL is the integral of the DNL and represents the difference in time
+ between the real time interval and the measured one.
+
+\change_inserted 1469408620 1667397085
+ They are commonly represented as a percentage of the LSB, and their calculation
+ procedure will be shown in detail in Paragraph 4.5.1.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:DNL-and-INL."
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ graphically shows the DNL and the INL.
+
+\change_deleted 1469408620 1667397049
+ They are commonly measured as percentage of LSB.
+\change_inserted 1469408620 1667397066
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+
+\change_inserted 1469408620 1667398393
+\begin_inset Graphics
+	filename images/dnlinl.png
+	width 50text%
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667397066
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667397078
+DNL and INL.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:DNL-and-INL."
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\change_deleted 1469408620 1667398561
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+<-
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\begin_layout Subsubsection
+Conversion Time
+\end_layout
+
+\begin_layout Standard
+The Conversion Time is the time required by the TDC to produce a valid output
+ measure, given an input time interval.
+\change_deleted 1469408620 1667388926
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+devi mettere che in riferimento d un TDC è praticamente la lunghezza della
+ pipeline di traduzione dell'informazione fisica di tempo nel codice digitale
+ d'uscita.
+\end_layout
+
+\begin_layout Plain Layout
+Nel caso di assenza di pipeline allora è il tempo di propagazione necessario
+ ad attraversare la logica di generazione del codice
+\end_layout
+
+\end_inset
+
+
+\change_inserted 1469408620 1667473216
+In the case of the TDC, the Conversion Time is equivalent to the length
+ of the pipeline used for translating the physical time information into
+ the output digital code.
+ If a pipeline structure is not implemented, it is equal to the propagation
+ delay needed to cross the logic blocks used for generating the digital
+ code.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Conversion-Time,-Maximum"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows the concept of Conversion Time.
+\change_unchanged
+
+\end_layout
+
+\begin_layout Subsubsection
+Maximum Rate
+\end_layout
+
+\begin_layout Standard
+The Maximum Rate represents the maximum number of measures per second that
+ one single channel (Maximum Channel Rate), or the global TDC system (Maximum
+ Measurement Rate), can support.
+ In a pipeline-based TDC, the Maximum Channel Rate corresponds to its throughput
+; instead, if pipeline structures are not present, the Maximum Channel Rate
+ corresponds to the inverse of the Conversion Time.
+ Concerning the Maximum Measurement Rate of multi-channel TDC systems, the
+ bottleneck is usually given by the communication link between the TDC and
+ the device, such as Personal Computers (PCs) or work stations, used to
+ store and/or process the information.
+
+\change_inserted 1469408620 1667473253
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Conversion-Time,-Maximum"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows the concept of Maximum Rate.
+\change_unchanged
+
+\end_layout
+
+\begin_layout Subsubsection
+Dead-Time
+\end_layout
+
+\begin_layout Standard
+As Dead-Time we intend the minimum time interval between two consecutive
+ events on the same channel that can be measured.
+ It is representative of the multi-hit capability of the TDC.
+ If data storage mechanisms, like First-In First-Out (FIFO) structure, are
+ not present in the TDC architecture, the Dead-Time corresponds to the inverse
+ of the Maximum Channel Rate.
+ Otherwise, until free space is present in the storage mechanism (e.g., FIFO
+ not full), a lower Dead-Time is allowed.
+
+\change_inserted 1469408620 1667474381
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Conversion-Time,-Maximum"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows the concept of Dead-Time in three different cases.
+ The first two cases represent the loss of a valid measurement when the
+ inverse of the rate of the incoming events is lower than the minimum Dead-Time.
+ In the last case, instead, a FIFO is written and read with two different
+ clock signals, making the Maximum Rate and the Dead-Time independent, and
+ allowing the latter to be much lower.
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 1469408620 1667473598
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Prepara una figura in cui metti in evidenza dead-time, convertion time e
+ measurment rate in modo da farc apire che sono cose svincolate e dipendono
+ in un sstema digitale da le FIFO e le pipeline messe nel sistema di elaborazion
+e numerica.
+\end_layout
+
+\begin_layout Plain Layout
+Ovvero le note che ho messo sopra
+\end_layout
+
+\end_inset
+
+
+\change_inserted 1469408620 1667471640
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 1469408620 1667471656
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+
+\change_inserted 1469408620 1667471851
+\begin_inset Graphics
+	filename images/deadtime.png
+	width 100text%
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667471656
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667473173
+Conversion Time, Maximum Rate, Dead-Time in the three cases: without a Pipeline
+ structure (on the left); with a Pipeline structure (at the center); with
+ a FIFO storage mechanism alongside the Pipeline (on the right).
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Conversion-Time,-Maximum"
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\begin_layout Subsubsection
+Voltage and Temperature Sensitivities
+\end_layout
+
+\begin_layout Standard
+Voltage and Temperature Sensitivities describe how much the resolution,
+ precision, and linearity of the TDC change, with respect to power supply
+ and temperature fluctuations.
+\end_layout
+
+\begin_layout Standard
+Usually, compensation techniques are required in order to reach high robustness
+ against these variations 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "8885152"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+FPGA vs.
+ ASIC 
+\change_deleted 1469408620 1667040878
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+tutto da rivedere, segui le mie note
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 1469408620 1667040883
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Secondo me devi rivedere un attimo il paragrafo mettendo le argomentaizoni
+ tutte allo stesso livello per essere una atitmo più sintetico (questo argomento
+ è sicuramente chiaro a tutti poiché è genera purpose e non aprla dei TDC
+ in generale)
+\end_layout
+
+\begin_layout Plain Layout
+Basta richiamare al tettore gli aspoetti principali
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+TDCs, like every digital circuit, can be implemented both in an Application
+ Specific Integrated Circuit (ASIC) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "123198"
+literal "false"
+
+\end_inset
+
+ or using a Programmable Logic Device such as Field Programmable Gate Array
+ (FPGA) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "9452098"
+literal "false"
+
+\end_inset
+
+.
+\change_deleted 1469408620 1667041553
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+qui riprendi il 1.4.2 partendo dalla descrizione ASIC
+\end_layout
+
+\end_inset
+
+
+\change_inserted 1469408620 1667041825
+ An Application Specific Integrated Circuit (ASIC) is a chip designed to
+ perform one specific functionality, suited for high-volume production.
+ All the resources are placed on a single silicon chip, and the functionality
+ is fixed by the manufacturing process.
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 1469408620 1667042003
+The main advantages of an ASIC are the very high performance and the lower
+ power consumption with respect to FPGAs, since the entire design is tailored
+ to perform that specific functionality.
+ Moreover, it can host analog and mixed-signal components other than digital
+ ones.
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 1469408620 1667042197
+The main drawback is represented by the impossibility of changing the ASIC's
+ functionality; it thus lacks flexibility, due to the fixed nature of the
+ design.
+ Furthermore, it is characterized by a high time-to-market, in the order
+ of months, due to the very long manufacturing process, and by high Non-Recurrin
+g Engineering (NRE) costs for the fabrication, representing a higher entry
+ barrier with respect to FPGAs.
+\change_deleted 1469408620 1667042233
+
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 1469408620 1667042236
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+poi dopo aver sottolineato gli alti NRE degli ASIC e la scarsa flessibilità
+ dici che nel mondo del fast-prototyping e della ricerca è preferibile un
+ approccio diverso, più snello anche se meno performante e ti attacchi con
+ le FPGA 1.4.1 senza star a perdere tempo su come è fatta una FPGA
+\end_layout
+
+\end_inset
+
+
+\change_inserted 1469408620 1667043535
+For these reasons, another approach, less performant but leaner, is preferred
+ in scientific research and for fast-prototyping.
+ This approach consists of using an FPGA, which is a fully-digital electronic
+ device that can be configured and re-configured by a designer, after the
+ manufacturing process.
+ The main advantage of an FPGA is the high flexibility given to the user,
+ thanks to the reconfigurable nature of the device.
+ This allows fast prototyping and low time-to-market, since it is sufficient
+ to modify the Hardware Description Language (HDL) to immediately change
+ the hardware configuration of the device.
+ Moreover, since there is no need to buy lithographic photomasks, it has
+ low Non-Recurring Engineering (NRE) costs and, therefore, a low entry barrier.
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 1469408620 1667043771
+On the other hand, the main drawbacks are the lower operating frequency
+ and higher power consumption as compared to ASICs, since FPGAs are not
+ optimized for the specific functionality implemented.
+ Besides, it is not possible to have analog or mixed-signal designs, since
+ FPGAs are fully-digital devices.
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 1469408620 1667043881
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+infine riprendi comparison e richiami la tab di comparazione
+\end_layout
+
+\end_inset
+
+
+\change_inserted 1469408620 1667044091
+Since the applications described in Paragraph 1.1 require features such as
+ low time-to-market, fast-prototyping, low non-recurring engineering (NRE)
+ costs, and high reconfigurability, the FPGA approach is the most suitable
+ choice.
+\change_unchanged
+
+\end_layout
+
+\begin_layout Subsubsection
+
+\change_deleted 1469408620 1667042763
+FPGA
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 1469408620 1667042765
+A Field Programmable Gate Array (FPGA) is a fully-digital electronic device
+ that can be configured and re-configured by a designer, after the manufacturing
+ process.
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 1469408620 1667042935
+FPGAs contain a lot of pre-defined combinational and sequential logic elements
+ that can be programmed and connected to produce the desired functionality.
+ All these elements are contained in logic blocks called Configurable Logic
+ Blocks (CLBs), which are the main logic resources for implementing sequential
+ as well as combinatorial circuits, and the connections between them are
+ carried out thanks to a programmable switch matrix.
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 1469408620 1667042935
+The CLBs are generally arranged in a regular array inside the FPGA, and
+ each one of them connects to the switch matrix, which runs vertically and
+ horizontally between the CLB rows and columns.
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 1469408620 1667042935
+Furthermore, FPGAs have dedicated modules to create and manage clocks such
+ as Mixed-Mode Clock Manager (MMCM) and a Phase-Locked Loop (PLL) modules.
+ In the end, buffers are available to correctly transfer the signals from
+ the outside of the chip to the inside (and viceversa) or through different
+ clock regions.
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 1469408620 1667043115
+The main advantages of an FPGA are: high felixibility given to the user,
+ thanks to the reconfigurable nature of the device; fast prototyping and
+ low time-to-market, since it is sufficient to modify the Hardware Description
+ Language (HDL) to immediately change the hardware configuration of the
+ device; low Non-Recurring Engineering (NRE) costs, since there is no need
+ to buy litographic photomasks, thus having a low entry barrier.
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 1469408620 1667043115
+The main drawbacks are instead: the lower operating frequency and higher
+ power consumption with respect to ASICs, since FPGAs are not optimized
+ for the specific functionality implemented; the impossibility to have analog
+ or mixed-signal designs, since FPGAs are fully-digital devices.
+\end_layout
+
+\begin_layout Subsubsection
+
+\change_deleted 1469408620 1667041040
+ASIC
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 1469408620 1667041081
+An Application Specific Integrated Circuit (ASIC) is a chip designed to
+ perform a specific functionality, suited for an high-volume production.
+ All the resources are placed on a single silicon chip, and the functionality
+ is fixed by the manufacturing process.
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 1469408620 1667041081
+The main advantages of an ASIC are: very high performance and lower power
+ consumption with respect to FPGAs, since the entire design is tailored
+ to perform the specific functionality; the possibility to have also analog
+ and mixed-signal designs other than digital ones.
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 1469408620 1667043826
+The main drawbacks are: the impossibility to change the ASIC's functionality
+ and thus the lack of flexibility, given by the fixed nature of the design;
+ the high time-to-market, in the order of months, employed in the manufacturing
+ process; the high NRE costs for the fabrication, representing an higher
+ entry barrier with respect to FPGAs.
+\end_layout
+
+\begin_layout Subsubsection
+
+\change_deleted 1469408620 1667043829
+Comparison
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 1469408620 1667044032
+Despite the ASIC being much more power efficient and performant, the FPGA
+ approach is the most suitable choice in the scientific research world,
+ being characterized by high reconfigurability, fast prototyping, low non-recurr
+ing engineering (NRE) costs, and low time-to-market.
+
+\change_unchanged
+ 
+\change_deleted 1469408620 1667043893
+Indeed, these features are acquiring more and more importance, due to the
+ requirements of the applications described before.
+
+\change_unchanged
+ Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Comparison-between-FPGA"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ summarizes the strengths belonging to each one of the two approaches.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Feature
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+FPGA
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+ASIC
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Performance
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\checkmark$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Power Efficiency
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\checkmark$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Flexibility
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\checkmark$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Time-to-market
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\checkmark$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+NRE costs
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\checkmark$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Analog elements
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\checkmark$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Comparison between FPGA and ASIC.
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Comparison-between-FPGA"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Architectures
+\change_deleted 1469408620 1666960282
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+questo non è lo state of the art, ma sono l'elenco delle principali architetttur
+e disponibili
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+In research and industrial worlds, different types of Time-Interval-Meters
+ (TIMs) are employed.
+ As generic electronic circuits, also TIMs can be fully analog, fully digital
+ (a.k.a.
+ TDCs), or mixed-signal.
+ In the following paragraphs, the main types of TIMs will be described,
+ mainly focusing on TDCs.
+\end_layout
+
+\begin_layout Subsubsection
+Time-to-Amplitude Converter
+\end_layout
+
+\begin_layout Standard
+Considering the mixed-signal approach, the Time-to-Amplitude Converter (TAC)
+ is historically one of the main device used in research (above all in TCSPC
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "2Nicola"
+literal "false"
+
+\end_inset
+
+), and it converts a time interval 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\varDelta t$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ into a voltage level 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "8743999"
+literal "false"
+
+\end_inset
+
+.
+ More precisely, its working principle consists in building a voltage ramp
+ that starts synchronously with the START event, and stops when the STOP
+ event occurs.
+ In this way, a voltage level proportional to the measured time interval
+ is obtained.
+ Then, an ADC converts the measured voltage level into a digital code.
+ We can see the structure of a conventional TAC in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Conventional-structure-of"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, where the capacitor 
+\shape italic
+C
+\shape default
+ is charged by a constant current 
+\shape italic
+I
+\shape default
+ as long as START = 1 and STOP = 0; then, as soon as STOP = 1, START transits
+ to 0, and the capacitor gets isolated from the current generator, thus
+ holding the charge.
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/mconsonni/Desktop/tesi_mconsonni/2.State-of-the-Art/images/TAC.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Structure and operation of a conventional Time-to-Amplitude Converter (TAC).
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Conventional-structure-of"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\change_deleted 1469408620 1666960578
+ 
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+The value of the voltage across the capacitor has the following expression:
+\begin_inset Formula 
+\begin{equation}
+V_{C}=\varDelta t\cdot\frac{I}{C}\label{eq:cap}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and it is converted, by the 
+\shape italic
+n
+\shape default
+-bit ADC, into a digital output code representing the time distance 
+\begin_inset Formula $\varDelta t$
+\end_inset
+
+.
+ The resolution of the TAC is equal to:
+\begin_inset Formula 
+\begin{equation}
+\varDelta t_{LSB}=\frac{V_{FSR}}{2^{n}}\cdot\frac{C}{I}\label{eq:TAC_res}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $V_{FSR}$
+\end_inset
+
+ is the full voltage span of the ADC, given by its supply voltage.
+ It can be seen from Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:TAC_res"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ that this architecture suffers from a trade-off between resolution and
+ Full-Scale Range (FSR).
+ 
+\change_deleted 1469408620 1666976133
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+parli di tutte queste non idealità, sarebbe meglio avere anche delle ref
+ su di esse ->
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+This trade-off, along with the non-idealities of the current generator and
+ 
+\change_deleted 1469408620 1666976187
+of the other
+\change_inserted 1469408620 1666976190
+the mismatches
+\change_unchanged
+ 
+\change_inserted 1469408620 1666976193
+of the other 
+\change_unchanged
+components
+\change_inserted 1469408620 1666976250
+ due to process and temperature variations 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "2Nicola"
+literal "false"
+
+\end_inset
+
+
+\change_unchanged
+, represents a significant drawback and, for this reason, a fully-digital
+ approach is usually preferred.
+ 
+\change_deleted 1469408620 1666976135
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+<-
+\end_layout
+
+\end_inset
+
+
+\change_inserted 1469408620 1666976296
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 1469408620 1666977902
+The great advantage of this architecture is the relatively small area occupied.
+ On the other hand, a significant drawback is represented by the need to
+ continuously charge and discharge the capacitor 
+\begin_inset Formula $C$
+\end_inset
+
+, thus making this architecture quite slow, and not suitable for the multi-hit
+ capability required by the applications.
+ The power consumption depends by the wanted precision; in fact, to lower
+ the noise and achieve a better precision, the input current has to be increased
+, thus increasing also the power consumption.
+ If instead a greater value of noise can be tolerated, the input current
+ can be lowered, thus saving power 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "9333600"
+literal "false"
+
+\end_inset
+
+.
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 1469408620 1666976282
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Prosegui elencando altre pregi/difetti.
+\end_layout
+
+\begin_layout Plain Layout
+- are occupata relativamente poca
+\end_layout
+
+\begin_layout Plain Layout
+- velocità è lenta (devo caricae/scaricae) non è idoeno al multi hit
+\end_layout
+
+\begin_layout Plain Layout
+- pwr dipende dal livello di precisione che voglio avere, se sono disposto
+ a tollerare del rumore basta ridurre la corrente a piacimento (metti una
+ ref dove spieghi che + corrente = - rumore)
+\end_layout
+
+\end_inset
+
+
+\change_inserted 1469408620 1666976286
+
+\end_layout
+
+\begin_layout Subsubsection
+Shift-Clock Fast-Counter TDC
+\end_layout
+
+\begin_layout Standard
+The Shift-Clock Fast-Counter (SCFC) is a TDC architecture (fully digital
+ TIM) derived from a simple counter.
+ In fact, it is possible to use a simple counter, driven by a clock signal
+ with period 
+\begin_inset Formula $T_{CLK}$
+\end_inset
+
+, as a TDC that produces two timestamps associated respectively to the value
+ of the counter at the START signal occurrence (
+\begin_inset Formula $T_{START}$
+\end_inset
+
+) and at the STOP condition (
+\begin_inset Formula $T_{STOP}$
+\end_inset
+
+) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "9875493"
+literal "false"
+
+\end_inset
+
+.
+ Then, their difference provides the elapsed time between the two events,
+ equal to:
+\begin_inset Formula 
+\begin{equation}
+\varDelta t=T_{CLK}\cdot(T_{STOP}-T_{START})\label{eq:scfc-timediff}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+However, this single-counter implementation is useless for modern applications
+ that require high-resolution TDCs, since the achievable resolution 
+\begin_inset Formula $\varDelta t_{LSB}$
+\end_inset
+
+, in this case, is just equal to 
+\begin_inset Formula $T_{CLK}$
+\end_inset
+
+.
+ In order to increase the resolution of a factor 
+\begin_inset Formula $N$
+\end_inset
+
+, 
+\begin_inset Formula $N$
+\end_inset
+
+ counters are used, each one driven by the same clock signal used before
+ but shifted in phase by 
+\begin_inset Formula $\varDelta\phi=\frac{2\pi}{N}$
+\end_inset
+
+ thanks to a Phase-Locked Loop (PLL).
+ This allows having more clock edges acting as intermediate levels in the
+ counting process,
+\change_inserted 1469408620 1666978750
+ allowing to achieve:
+\change_unchanged
+
+\begin_inset Formula 
+\begin{equation}
+\varDelta t_{LSB}=\frac{T_{CLK}}{N}\label{eq:scfc-lsb}
+\end{equation}
+
+\end_inset
+
+ The FSR is instead equal to the case of the single counter:
+\begin_inset Formula 
+\begin{equation}
+\varDelta t_{FSR}=2^{n}\cdot T_{CLK}\label{eq:scfc-fsr}
+\end{equation}
+
+\end_inset
+
+
+\change_inserted 1469408620 1666978871
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 1469408620 1666978970
+where 
+\begin_inset Formula $n$
+\end_inset
+
+ is the number of bits composing the counter.
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 1469408620 1666979001
+The architecture just described is represented in 
+\change_unchanged
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Shift-Clock-Fast-Counter-TDC"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\change_inserted 1469408620 1666979011
+ represents the architecture just described
+\change_unchanged
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/scfc.png
+	width 60text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+SCFC-TDC architecture employing 
+\begin_inset Formula $N$
+\end_inset
+
+ n-bit counters.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Shift-Clock-Fast-Counter-TDC"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As shown by Equations 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:scfc-lsb"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:scfc-fsr"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, the main advantage of this architecture is the absence of the trade-off
+ between resolution and FSR.
+ Moreover, the extremely slender architecture minimizes the DNL and INL,
+ which are limited only to clock fluctuations.
+ 
+\change_deleted 1469408620 1666979870
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+riferisciti ai lavori di giovanni ticozzi ed il digilab, cercali su IEEE
+ xploer->
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+In the case of FPGA implementation, the main drawback is a moderate resolution,
+ limited to the maximum achievable clock frequency and the available clock
+ lines that the FPGA has.
+ Considering 28-nm Xilinx 7-Series FPGAs as a case study, just ten clock
+ lines are available, limiting the resolution to some hundreds of ps.
+ Moreover, an increase in terms of resolution is paid with a linear increase
+ in area occupancy and greater power consumption
+\change_inserted 1469408620 1666979958
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "9507865"
+literal "false"
+
+\end_inset
+
+
+\change_unchanged
+.
+\change_deleted 1469408620 1666979867
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+<-
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\begin_layout Subsubsection
+Delay-Line TDC
+\end_layout
+
+\begin_layout Standard
+To overcome the resolution limit given by the SCFC-TDC, Delay-Line TDCs
+ (DL-TDCs) are typically preferred.
+ A Delay-Line is nothing but a chain of buffers, also called 
+\begin_inset Quotes eld
+\end_inset
+
+taps
+\begin_inset Quotes erd
+\end_inset
+
+ or 
+\begin_inset Quotes eld
+\end_inset
+
+bins
+\begin_inset Quotes erd
+\end_inset
+
+, along which the input START and STOP events propagate.
+ The overall method to calculate the time interval between the two signals
+ is to take a snapshot of the Delay-Line as soon as a sampling event occurs,
+ thus obtaining the time interval information.
+ Two main types of Delay-Line TDCs are available: the Tapped Delay-Line
+ TDC (TDL-TDC) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "9452098"
+literal "false"
+
+\end_inset
+
+ and the Vernier Delay-Line TDC (VDL-TDC) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "8932420"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Paragraph
+Tapped Delay-Line TDC
+\end_layout
+
+\begin_layout Standard
+As reported in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Tapped-Delay-Line-structure."
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, a Tapped Delay-Line (TDL) TDC consists of a sequence of buffers connected
+ in series, where the output of each bin is sampled by a flip-flop (e.g.,
+ edge-triggered positive D flip-flop is the most common one).
+ In this way, the time elapsed from the rising-edge of the START event to
+ the STOP one can be obtained by simply counting the number of bins crossed
+ by the former, when the latter occurs 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Nicola55"
+literal "false"
+
+\end_inset
+
+.
+ More precisely, the rising-edge of the START is propagated bin-by-bin (each
+ one having its own propagation delay 
+\begin_inset Formula $\varDelta t_{p}$
+\end_inset
+
+) over the TDL, asserting in sequence the inputs of the flip-flops from
+ '0' to '1'; so, when the rising-edge of the STOP occurs (i.e., the following
+ rising-edge of the clock signal used to sample the TDL), the status of
+ the TDL is memorized by the flip-flops, thus generating a thermometric
+ code that represents the number of bins crossed by the rising-edge of the
+ START.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../2.State-of-the-Art/images/tdl.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+TDL structure and propagation mechanism.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Tapped-Delay-Line-structure."
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 1469408620 1667033507
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Qui manca tutto:
+\end_layout
+
+\begin_layout Plain Layout
+- tarde off FSR e risoluzione a pari area
+\end_layout
+
+\begin_layout Plain Layout
+- area crese enormemente con il FSR
+\end_layout
+
+\begin_layout Plain Layout
+- alata DNL ed INL che dipendono dalle dispersioni dei tempi di proèagzione
+ che sono figlie della PVT e che in FPGA non possono essere compensate in
+ alcun modo ma solo calibrate (uso di aura) mentre in ASIC sono posssibili
+ sistemi di compensazione.
+\end_layout
+
+\begin_layout Plain Layout
+- necessità di un convertitore tra termoemtico -> binario per estarrre il
+ valore ...
+ ovvero area
+\end_layout
+
+\begin_layout Plain Layout
+- ricordati di integrare bene nel discoros le formule sotto
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+The resolution (LSB) of this architecture depends on the number of buffers
+ (
+\begin_inset Formula $N_{B})$
+\end_inset
+
+ and the clock period (
+\begin_inset Formula $T_{CLK})$
+\end_inset
+
+, as shown in the following equation:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+LSB=\frac{T_{CLK}}{N_{B}}\label{eq:TDL resolution}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The FSR is instead given by
+\change_deleted 1469408620 1667034017
+ 
+\begin_inset Formula $T_{CLK}$
+\end_inset
+
+ itself.
+\change_inserted 1469408620 1667466768
+:
+\begin_inset Formula 
+\begin{equation}
+FSR=T_{CLK}\label{eq:TDL-fullscale}
+\end{equation}
+
+\end_inset
+
+ Therefore, as shown by Equations 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:TDL resolution"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:TDL-fullscale"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, at the same area condition (i.e., the same number of taps 
+\begin_inset Formula $N_{B}$
+\end_inset
+
+), a trade-off between FSR and LSB arises.
+ However, this trade-off can be solved using interpolatory techniques like
+ Nutt-Interpolation (as we will see in Section 2).
+ 
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 1469408620 1667039051
+The main drawback of this architecture is the area consumption, due to different
+ contributions.
+ Firstly, to improve the FSR (after having increased 
+\begin_inset Formula $T_{CLK}$
+\end_inset
+
+ already), the number of buffers 
+\begin_inset Formula $N_{B}$
+\end_inset
+
+ in the chain must be increased; therefore, the area consumption grows significa
+ntly with the FSR.
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 1469408620 1667034959
+A further increase in the area is given by the need for a thermometric-to-binary
+ converter, with the scope of extracting a binary value from the thermometric
+ code.
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 1469408620 1667035644
+The last significant area contribution is given by the need for a calibration
+ procedure of the TDL.
+ In fact, the TDL-TDC suffers from very high DNL and INL due to process,
+ voltage, and temperature (PVT) variations that lead to a dispersion of
+ the propagation delays on the TDL.
+ This dispersion can be easily compensated in an ASIC, but this is not possible
+ on an FPGA; therefore, a calibration procedure is needed, and this leads
+ to further area consumption.
+ 
+\change_deleted 1469408620 1667033509
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+<-
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\begin_layout Paragraph
+Vernier Delay-Line TDC, VDL-TDC
+\end_layout
+
+\begin_layout Standard
+The Vernier Delay-Line (VDL) TDC 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "8932420"
+literal "false"
+
+\end_inset
+
+ relies on two chains with the same number 
+\begin_inset Formula $N$
+\end_inset
+
+ of buffers and, while the output of the first chain's taps are connected
+ to the D-input of the flip-flops, the outputs of the second chain are connected
+ to their clock inputs.
+ The START signal propagates on the first chain with a propagation delay
+ 
+\begin_inset Formula $t_{p1}$
+\end_inset
+
+ on each bin, and the STOP signal travels on the second chain with a propagation
+ delay 
+\begin_inset Formula $t_{p2}$
+\end_inset
+
+ on each bin, which is lower than 
+\begin_inset Formula $t_{p1}$
+\end_inset
+
+.
+ Hence, as soon as the STOP signal, traveling on the faster chain, reaches
+ the START one, the flip-flop corresponding to bin 
+\begin_inset Formula $N_{x}$
+\end_inset
+
+ changes its state, and provides the information of the time interval 
+\begin_inset Formula $\Delta t$
+\end_inset
+
+ between START and STOP.
+ A representation of the VDL structure and working mode can be seen in Figure
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Vernier-Delay-Line-(VDL)"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/vdl.png
+	width 90text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Vernier Delay-Line (VDL) structure and propagation mechanism.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Vernier-Delay-Line-(VDL)"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Precisely, the time instant at which both the START and STOP signals reach
+ the same bin 
+\begin_inset Formula $N_{x}$
+\end_inset
+
+ is equal to:
+\begin_inset Formula 
+\begin{equation}
+T_{x}^{(start)}=N_{x}\cdot t_{p1}\label{eq:start-instant}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+T_{x}^{(stop)}=\varDelta t+N_{x}\cdot t_{p2}\label{eq:stop-instant}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+By equating relations 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:start-instant"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:stop-instant"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, the time interval 
+\begin_inset Formula $\varDelta t$
+\end_inset
+
+ is obtained:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\varDelta t=N_{x}\cdot(t_{p1}-t_{p2})\ \ ,~t_{p1}>t_{p2}\label{eq:vdl-timeinterval}
+\end{equation}
+
+\end_inset
+
+
+\change_inserted 1469408620 1667038259
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 1469408620 1667038369
+The minimum measurable time distance represents the resolution of the VDL,
+ and it is equal to:
+\begin_inset Formula 
+\begin{equation}
+LSB=t_{p1}-t_{p2}\label{eq:vdl_lsb}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 1469408620 1667038445
+The FSR is instead equal to:
+\begin_inset Formula 
+\begin{equation}
+FSR=N\cdot(t_{p1}-t_{p2})\label{eq:vdl_fsr}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 1469408620 1667039329
+Equations 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:vdl_lsb"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:vdl_fsr"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ show a direct trade-off between FSR and LSB, at the same area conditions
+ (i.e., the number of buffers 
+\begin_inset Formula $N$
+\end_inset
+
+).
+ To improve the FSR, the number of bins 
+\begin_inset Formula $N$
+\end_inset
+
+ has to be increased, thus paying with an enormous growth in the occupied
+ area.
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 1469408620 1667040207
+Like the TDL-TDC, also this architecture needs a thermometric-to-binary
+ converter, and a calibration process to compensate for process, voltage,
+ and temperature (PVT) variations, thus requiring specific modules and increasin
+g the area occupation.
+ 
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 1469408620 1667038623
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Qui manca tutto:
+\end_layout
+
+\begin_layout Plain Layout
+- tarde off FSR e risoluzione a pari area
+\end_layout
+
+\begin_layout Plain Layout
+- area crese enormemente con il FSR
+\end_layout
+
+\begin_layout Plain Layout
+- alata DNL ed INL che dipendono dalle dispersioni dei tempi di proèagzione
+ che sono figlie della PVT e che in FPGA non possono essere compensate in
+ alcun modo ma solo calibrate (uso di aura) mentre in ASIC sono posssibili
+ sistemi di compensazione.
+\end_layout
+
+\begin_layout Plain Layout
+- necessità di un convertitore tra termoemtico -> binario per estarrre il
+ valore ...
+ ovvero area
+\end_layout
+
+\begin_layout Plain Layout
+- ricordati di integrare bene nel discoros le formule sotto
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+As 
+\change_deleted 1469408620 1667039848
+can be seen from the obtained result
+\change_inserted 1469408620 1667831546
+shown in Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:vdl-timeinterval"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\change_unchanged
+, the time difference between the START and STOP events is dependent on
+ 
+\begin_inset Formula $t_{p1}$
+\end_inset
+
+ and 
+\begin_inset Formula $t_{p2}$
+\end_inset
+
+, and every fluctuation of their values will directly impact the instrument's
+ resolution.
+ Therefore, this architecture is not so reliable, and the TDL-TDC is the
+ most suitable choice for an FPGA.
+\change_inserted 268488506 1666733195
+
+\end_layout
+
+\begin_layout Subsection
+State-of-the-Art
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+manca lo stato dell'arte con paragoni tra le varie architetture FoM ed implement
+azioni FPGA vs ASIC = IMPORTANTISSIMO
+\change_inserted 268488506 1666733214
+
+\end_layout
+
+\begin_layout Plain Layout
+Il paragrafo dve essere una descrizione di lavori importatnti in ambito
+ TDC che siano diversi da quelli del nostro laboratorio dove si indica.
+\end_layout
+
+\begin_layout Plain Layout
+- applicazione in cui hanno operato
+\end_layout
+
+\begin_layout Plain Layout
+- tecnologia FPGA vs ASIC ed eventualmente quanti nm
+\end_layout
+
+\begin_layout Plain Layout
+- quanto valfono le vaie FoM (quelle he non sono riportate nel paper mettile
+ come NA
+\end_layout
+
+\begin_layout Plain Layout
+- quale architettura di TDC è stata utilizzata; TDL, SCFC, TAC ...
+\end_layout
+
+\begin_layout Plain Layout
+Questo serve per definire e validare le tue scelte in termini di 
+\end_layout
+
+\begin_layout Plain Layout
+- tecnologia
+\end_layout
+
+\begin_layout Plain Layout
+- architettura
+\end_layout
+
+\begin_layout Plain Layout
+- tuning delle FoM
+\end_layout
+
+\begin_layout Plain Layout
+Questo paragrafo farà da ponte al successivo in modo da chiarire e dare
+ risposta alle tue scelte architetturali
+\end_layout
+
+\end_inset
+
+
+\change_inserted 1469408620 1667827814
+In this Paragraph, we present some context about how the TDC can be implemented,
+ showing the pros and cons of each implementation.
+ Different architectures found in the literature will be presented, for
+ both ASICs and FPGAs.
+\end_layout
+
+\begin_layout Subsubsection
+
+\change_inserted 1469408620 1667811994
+TDC in ASIC
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 1469408620 1667829238
+One example of delay-line-based TDC (DL-TDC) implemented in ASIC relies
+ on a closed-loop delay-line structure, acting as a controlled clock generator
+ (ring-oscillator) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "8303944"
+literal "false"
+
+\end_inset
+
+.
+ This system has been implemented in 0.18 μm CMOS technology for time-of-flight
+ space applications.
+ The aforementioned clock generator uses 
+\begin_inset Formula $N_{D}$
+\end_inset
+
+ delay units with the START and the STOP signals acting as a control unit;
+ then, 
+\begin_inset Formula $N_{D}$
+\end_inset
+
+ latches are used to sample the state of the delay-line during the transitions
+ of the generated clock signal.
+ Let's see in detail the operation of the TDC.
+ Firstly, when START and STOP both have a 'low' logical level, the generated
+ clock signal keeps a 'high' value; then, as soon as START switches to '1',
+ the clock generator acts as a ring oscillator, providing a clock signal
+ with a certain period 
+\begin_inset Formula $T_{CLK}$
+\end_inset
+
+.
+ A clock-counter starts counting the number 
+\begin_inset Formula $N_{C}$
+\end_inset
+
+ of elapsed clock-cycles since the START transition, thus obtaining the
+ 
+\begin_inset Quotes eld
+\end_inset
+
+coarse
+\begin_inset Quotes erd
+\end_inset
+
+ information about the measurement; at the same time, a battery of latches
+ samples and encodes the delay-line during the transitions of the clock
+ signal, thus providing the 
+\begin_inset Quotes eld
+\end_inset
+
+fine
+\begin_inset Quotes erd
+\end_inset
+
+ information (i.e., 
+\begin_inset Formula $N_{F}$
+\end_inset
+
+) about the timestamp.
+ Once also the STOP signal transits to '1', the clock signal holds a 'high'
+ logical value, and the sampled data is provided as output.
+ The final time measurement will be equal to:
+\begin_inset Formula 
+\begin{equation}
+T_{M}=N_{C}\cdot T_{CLK}+N_{F}\cdot T_{LSB}\label{eq:meas_asic}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 1469408620 1667819418
+where:
+\begin_inset Formula 
+\begin{equation}
+T_{LSB}=\frac{T_{CLK}}{2\cdot N_{D}}\label{eq:res_asic}
+\end{equation}
+
+\end_inset
+
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:TDL-TDC-implemented-in"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows the structure and the working principle of this architecture.
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 1469408620 1667820345
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+
+\change_inserted 1469408620 1667818306
+\begin_inset Graphics
+	filename images/asic.png
+	width 100text%
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667818239
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667818276
+TDL-TDC implemented in ASIC.
+ Structure and time diagram.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:TDL-TDC-implemented-in"
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 1469408620 1667903448
+Other types of ASIC architectures can achieve even better resolution, which
+ is independent of the delays of the buffers but relies on a pulse-shrinking
+ mechanism 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "8463513"
+literal "false"
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "6716036"
+literal "false"
+
+\end_inset
+
+.
+ The pulse-shrinking mechanism consists of a delay-line loop that reduces
+ the START pulse duration at each loop cycle until it vanishes completely;
+ the number of the circulations in the loop is counted by an output counter,
+ and the digital code corresponding to the timestamp is generated.
+ This mechanism allows the TDC's resolution to be equal to the shrinking
+ factor of the loop cycle instead of the buffers' delay, subject to PVT
+ variations.
+ By only compensating the pulse-shrinking unit rather than all the delay
+ cells, 40 ps/LSB resolution and 0.6 LSB DNL can be achieved 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "6716036"
+literal "false"
+
+\end_inset
+
+.
+ The possibility to compensate and perfectly tailor the system for its specific
+ functionality is the main strength of the ASIC, whereas, on FPGA, bin-by-bin
+ calibration techniques are required to overcome the dispersion of the buffer's
+ delays.
+\end_layout
+
+\begin_layout Subsubsection
+
+\change_inserted 1469408620 1667827126
+TDC in FPGA
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 1469408620 1667830681
+TDC implementations in FPGAs are more suitable than the ones in ASIC, since
+ fast-prototyping and low time-to-market are fundamental requirements in
+ the scientific research world.
+ An example of TDC implemented in a Xilinx Kintex-7 FPGA, for laser rangefinder
+ and time-of-flight (TOF) experiments, is the one employing the SCFC architectur
+e described in Paragraph 1.5.2 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "7520401"
+literal "false"
+
+\end_inset
+
+.
+ The system is very area-efficient, guaranteeing up to 256 channels; however,
+ its main drawback is the limited achievable resolution, equal to 89.3 ps,
+ due to the limited number of clock lines on the FPGA fabric.
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 1469408620 1667835859
+To achieve better resolution, delay-line TDCs (DL-TDCs) are usually preferred.
+ An example of DL-TDC exploiting a TDL architecture, implemented on a Xilinx
+ Kintex-7 FPGA for TOF-PET applications, is presented in the following 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "6661408"
+literal "false"
+
+\end_inset
+
+.
+ This system consists of 24 channels, clocked at 200 MHz, and achieves a
+ resolution (LSB) equal to 22.7 ps.
+ Due to PVT variations, a calibration procedure on each TDL's tap has been
+ required, thus consuming more hardware resources but achieving better linearity
+ (i.e., DNL < 3 LSB and INL < 4 LSB).
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 1469408620 1667836039
+In 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "article1"
+literal "false"
+
+\end_inset
+
+, instead, a Vernier Delay-Line-based TDC (VDL-TDC) has been implemented.
+ It relies on a bin-by-bin calibration algorithm to correct the temperature
+ drifts and to compensate for the variations of the delays on the two chains,
+ as said in Paragraph 1.5.3.
+ The resolution achieved with this implementation is equal to 42 ps.
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 1469408620 1667836069
+Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Comparison-of-different"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ summarizes the performances of all the TDC architectures described in this
+ paragraph.
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 1469408620 1667833446
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+
+\change_inserted 1469408620 1667833555
+\begin_inset Tabular
+<lyxtabular version="3" rows="10" columns="9">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667835011
+Ref.
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667833576
+Technology
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667833634
+LSB
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667833642
+Precision
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667833650
+DNL
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667833654
+INL
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667833661
+FSR
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667833666
+Dead-Time
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667833672
+Power
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667834848
+Unit
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667835150
+-
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667834854
+ps
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667834861
+ps r.m.s.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667834873
+LSB
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667834879
+LSB
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667834887
+ns
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667834892
+ns
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667834899
+mW
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667833754
+
+\series bold
+ASIC TDCs
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667833769
+\begin_inset CommandInset citation
+LatexCommand cite
+key "8303944"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667833804
+180 nm
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667833810
+201
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667833848
+N.A.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667833895
+[-0.18:0.05
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667833901
+N.A.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667833932
+6.8e+06
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667833941
+N.A.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667833953
+0.3155
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667833970
+\begin_inset CommandInset citation
+LatexCommand cite
+key "8463513"
+literal "false"
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667833999
+180 nm
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667834003
+2
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667834013
+1.44
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667834023
+[-1:1]
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667834032
+[-1:1.3]
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667834039
+130
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667834044
+303
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667834048
+18
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667834113
+\begin_inset CommandInset citation
+LatexCommand cite
+key "6716036"
+literal "false"
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667834136
+350 nm
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667834138
+40
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667834142
+2.2
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667834154
+N.A.
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667834167
+[-0.6:0.6]
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667834172
+22
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667834184
+1e+08
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667834190
+0.0016
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667834202
+
+\series bold
+FPGA TDCs
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667834227
+\begin_inset CommandInset citation
+LatexCommand cite
+key "7520401"
+literal "false"
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667834293
+Kintex-7
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667834308
+89.3
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667834316
+56.2
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667834332
+[0.44:0.87]
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667834343
+[0.44:0.82]
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667834358
+N.A.
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667834367
+4.3
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667834372
+N.A.
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667834389
+\begin_inset CommandInset citation
+LatexCommand cite
+key "6661408"
+literal "false"
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667834414
+Kintex-7
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667834423
+22.7
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667834432
+85.7
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667834441
+<3
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667834443
+<4
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667834461
+5.24e+03
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667834474
+30
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667834487
+N.A.
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667834497
+\begin_inset CommandInset citation
+LatexCommand cite
+key "article1"
+literal "false"
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667834544
+Actel
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667834551
+42
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667834569
+16.4
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667834578
+[-1:0.9]
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667834586
+[-1:3.5]
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667834599
+6.553e+05
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667834602
+100
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667834605
+N.A.
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667833446
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\change_inserted 1469408620 1667917535
+Comparison of different TDC solutions.
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Comparison-of-different"
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Thesis Goal
+\end_layout
+
+\begin_layout Standard
+The main goal of this thesis work has been to implement a Tapped Delay-Line
+ Time-to-Digital Converter (TDL-TDC) characterized by a better time resolution,
+ a better precision, and a better accuracy with respect to the state-of-the-art
+ version of this device.
+ The system has been implemented at the Digital Electronics Laboratory (DigiLAB)
+ at Politecnico di Milano, fully on FPGA as a tunable, plug-and-play, Intellectu
+al Property Core (IP-Core) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "9452098"
+literal "false"
+
+\end_inset
+
+.
+ The IP-Core is a package containing the firmware and the parameters of
+ all the blocks composing the TDC, and it is characterized by an high portabilit
+y.
+ The high portability is due to the fact that it can be used as a simple
+ drag-and-drop unique block, thus allowing to test it very easily and promptly
+ on different FPGA devices.
+ This IP-Core approach has been preferred due to another great advantage,
+ which is the high tunability given to the architecture.
+ Indeed, all the TDC's parameters such as FSR, resolution, and number of
+ channels, can be set by the user in the instantiation stage, by simply
+ choosing their value on the IP-Core's Graphical User Interface (GUI).
+ 
+\end_layout
+
+\end_body
+\end_document

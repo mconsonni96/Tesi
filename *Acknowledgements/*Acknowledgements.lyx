@@ -1,0 +1,274 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+
+
+%------------------------------------------------------------------------------
+%	REQUIRED PACKAGES AND  CONFIGURATIONS
+%------------------------------------------------------------------------------
+% PACKAGES FOR TITLES
+\usepackage{titlesec}
+\usepackage{color}
+% PACKAGES FOR LANGUAGE AND FONT
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc} % Font encoding
+
+% PACKAGES FOR IMAGES
+\usepackage{graphicx}
+\graphicspath{{Images/}}
+\usepackage{eso-pic} % For the background picture on the title page
+\usepackage{subfig} % Numbered and caption subfigures using \subfloat
+\usepackage{caption} % Coloured captions
+\usepackage{transparent}
+
+% STANDARD MATH PACKAGES
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{bm}
+\usepackage[overload]{empheq}  % For braced-style systems of equations
+
+% PACKAGES FOR TABLES
+\usepackage{tabularx}
+\usepackage{longtable} % tables that can span several pages
+\usepackage{colortbl}
+
+% PACKAGES FOR ALGORITHMS (PSEUDO-CODE)
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+% PACKAGES FOR REFERENCES & BIBLIOGRAPHY
+\usepackage[colorlinks=true,linkcolor=black,anchorcolor=black,citecolor=black,filecolor=black,menucolor=black,runcolor=black,urlcolor=black]{hyperref} % Adds clickable links at references
+\usepackage{cleveref}
+\usepackage[square, numbers, sort&compress]{natbib} % Square brackets, citing references with numbers, citations sorted by appearance in the text and compressed
+\bibliographystyle{plain} % You may use a different style adapted to your field
+
+% PACKAGES FOR THE APPENDIX
+\usepackage{appendix}
+
+% PACKAGES FOR ITEMIZE & ENUMERATES 
+\usepackage{enumitem}
+
+% OTHER PACKAGES
+\usepackage{amsthm,thmtools,xcolor} % Coloured "Theorem"
+\usepackage{comment} % Comment part of code
+\usepackage{fancyhdr} % Fancy headers and footers
+\usepackage{lipsum} % Insert dummy text
+\usepackage{tcolorbox} % Create coloured boxes (e.g. the one for the key-words)
+
+% Configuration package
+\usepackage[bottom=2.0cm,top=2.0cm,left=2.0cm,right=2.0cm]{geometry}
+\raggedbottom 
+
+% Create color blue (-> manuale grafica coordinata:  https://www.polimi.it/fileadmin/user_upload/il_Politecnico/grafica-coordinata/2015_05_11_46xy_manuale_grafica_coordinata.pdf)
+\definecolor{blue}{cmyk}{0.4,0.1,0,0.4}
+%\definecolor{shadecolor}{cmyk}{0.4,0.1,0,0.4}
+\usepackage{xcolor}
+\colorlet{shadecolor}{blue!60}
+% Custom theorem environments
+\declaretheoremstyle[
+  headfont=\color{blue}\normalfont\bfseries,
+  bodyfont=\color{black}\normalfont\itshape,
+]{colored}
+
+\captionsetup[figure]{labelfont={color=blue}} % Set colour of the captions
+\captionsetup[table]{labelfont={color=blue}} % Set colour of the captions
+\captionsetup[algorithm]{labelfont={color=blue}} % Set colour of the captions
+
+\theoremstyle{colored}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}{Proposition}[section]
+
+% Enhances the features of the standard "table" and "tabular" environments.
+\newcommand\T{\rule{0pt}{2.6ex}}
+\newcommand\B{\rule[-1.2ex]{0pt}{0pt}}
+
+% Algorithm description
+\newcounter{algsubstate}
+\renewcommand{\thealgsubstate}{\alph{algsubstate}}
+\newenvironment{algsubstates}{
+    \setcounter{algsubstate}{0}%
+    \renewcommand{\STATE}{%
+    \stepcounter{algsubstate}%
+    \Statex {\small\thealgsubstate:}\space}
+    }{}
+    
+% Custom theorem environment
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+% Custom itemize environment
+\setlist[itemize,1]{label=$\bullet$}
+\setlist[itemize,2]{label=$\circ$}
+\setlist[itemize,3]{label=$-$}
+\setlist{nosep}
+
+% Create command for background pic
+\newcommand\BackgroundPic{% Adding background picture
+	\put(237,365){
+	    \parbox[b][\paperheight]{\paperwidth}{%
+	    \vfill
+		\centering
+		\transparent{0.4}
+		\includegraphics[width=0.44\paperwidth]{raggiera_polimi}%
+		\vfill}
+		}
+}
+
+% Set indentation
+\setlength\parindent{0pt}
+
+% Custom title commands
+\titleformat{\section}
+{\color{blue}\normalfont\Large\bfseries}
+{\color{blue}\thesection.}{1em}{}
+\titlespacing*{\section}
+{0pt}{3.3ex}{3.3ex}
+
+\titleformat{\subsection}
+{\color{blue}\normalfont\large\bfseries}
+{\color{blue}\thesubsection.}{1em}{}
+\titlespacing*{\subsection}
+{0pt}{3.3ex}{3.3ex}
+
+% Custom headers and footers
+\pagestyle{fancy}
+\fancyhf{}
+      
+\fancyfoot{}
+\fancyfoot[C]{\thepage} % page
+\renewcommand{\headrulewidth}{0mm} % headrule width
+\renewcommand{\footrulewidth}{0mm} % footrule width
+
+%%
+\makeatletter
+%%
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding default
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section*
+Acknowledgements
+\end_layout
+
+\begin_layout Standard
+Firstly, I would like to thank my thesis supervisor, Prof.
+ Nicola Lusardi, for believing in me so much during all the time I spent
+ at the DigiLAB and for teaching me so many things regarding the digital
+ electronics world.
+ I also want to thank Prof.
+ Angelo Geraci, for giving me the possibility to carry out this thesis work
+ in his laboratory, along with Dr.
+ Fabio Garzetti, Enrico Ronconi, and Andrea Costa, for their fundamental
+ help during all this time.
+ A big thanks also go to my DigiLAB 2 mates Andr
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+'e
+\end_layout
+
+\end_inset
+
+, Gabriele, and Luca for creating a fantastic working atmosphere and making
+ the days lighter.
+\end_layout
+
+\begin_layout Standard
+A special thanks go to my family, for making me the person I am nowadays,
+ and without whom this University career would not have been possible.
+\end_layout
+
+\begin_layout Standard
+I owe also a special thanks to my girlfriend Eleonora for being part of
+ my life and making it better, and for believing in me every single day.
+ 
+\end_layout
+
+\begin_layout Standard
+Last but not least, I want to thank all my friends Andre, Fra, Jack, Lisa,
+ Lori, Mark, Marti, Nati, Tessy, and Tona for their presence throughout
+ the years and for all the good times spent together.
+\end_layout
+
+\end_body
+\end_document

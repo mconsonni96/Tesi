@@ -1,0 +1,293 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+
+%------------------------------------------------------------------------------
+%	REQUIRED PACKAGES AND  CONFIGURATIONS
+%------------------------------------------------------------------------------
+% PACKAGES FOR TITLES
+\usepackage{titlesec}
+\usepackage{color}
+% PACKAGES FOR LANGUAGE AND FONT
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc} % Font encoding
+
+% PACKAGES FOR IMAGES
+\usepackage{graphicx}
+\graphicspath{{Images/}}
+\usepackage{eso-pic} % For the background picture on the title page
+\usepackage{subfig} % Numbered and caption subfigures using \subfloat
+\usepackage{caption} % Coloured captions
+\usepackage{transparent}
+
+% STANDARD MATH PACKAGES
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{bm}
+\usepackage[overload]{empheq}  % For braced-style systems of equations
+
+% PACKAGES FOR TABLES
+\usepackage{tabularx}
+\usepackage{longtable} % tables that can span several pages
+\usepackage{colortbl}
+
+% PACKAGES FOR ALGORITHMS (PSEUDO-CODE)
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+% PACKAGES FOR REFERENCES & BIBLIOGRAPHY
+\usepackage[colorlinks=true,linkcolor=black,anchorcolor=black,citecolor=black,filecolor=black,menucolor=black,runcolor=black,urlcolor=black]{hyperref} % Adds clickable links at references
+\usepackage{cleveref}
+\usepackage[square, numbers, sort&compress]{natbib} % Square brackets, citing references with numbers, citations sorted by appearance in the text and compressed
+\bibliographystyle{plain} % You may use a different style adapted to your field
+
+% PACKAGES FOR THE APPENDIX
+\usepackage{appendix}
+
+% PACKAGES FOR ITEMIZE & ENUMERATES 
+\usepackage{enumitem}
+
+% OTHER PACKAGES
+\usepackage{amsthm,thmtools,xcolor} % Coloured "Theorem"
+\usepackage{comment} % Comment part of code
+\usepackage{fancyhdr} % Fancy headers and footers
+\usepackage{lipsum} % Insert dummy text
+\usepackage{tcolorbox} % Create coloured boxes (e.g. the one for the key-words)
+
+\input{../Configuration_files/config}
+\makeatletter
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding default
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes true
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\author 1469408620 "Mattia Consonni"
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Conclusions
+\end_layout
+
+\begin_layout Standard
+To cope with the increasing demand for performant Time Interval Meters (TIMs)
+ in time-resolved experiments, more and more performances such as resolution,
+ single-shot precision, and multi-hit detection are required for these kinds
+ of instruments.
+ In this thesis work, a high-resolution Time-to-Digital Converter (TDC)
+ Intellectual Property Core (IP-Core) for Field Programmable Gate Arrays
+ (FPGAs) has been implemented.
+ Thanks to the user-friendly IP-Core's Graphical User Interface (GUI), high
+ portability and tunability are guaranteed.
+ The GUI allows the user to set the TDC's parameters as FSR, resolution
+ (LSB), and the number of channels in the instantiation stage; besides,
+ portability on different FPGA systems is allowed thanks to a simple drag-and-dr
+op action on the IP-Core.
+ The system is also compatible with different FPGA technology nodes, thus
+ further increasing its portability, and exploiting more scaled and performant
+ technologies.
+ By simply choosing an option from the GUI, the user can implement the TDC
+ either on 28-nm Xilinx 7-Series technology (X7S) or on 20/16-nm Xilinx
+ Ultrascale/Ultrascale+ (XUS/XUS+) technologies, the latter pushing even
+ more the TDC's performances thanks to the scaling.
+ Two different TDCs have been implemented, both using the Super Wave Union
+ (SuperWU) Sub-Interpolation algorithm with four Tapped Delay-Lines (TDLs)
+ to improve the LSB and the single-shot precision of the TDC.
+ 
+\change_inserted 1469408620 1669132117
+These two implementations aimed to study the possible trade-offs existing
+ between performance and area/power consumption.
+ Eventually, the choice for the first implementation fell on a TDC based
+ on a 4 CARRY-chains V-TDL, which maximizes the single-shot precision; on
+ the other hand, a 2 CARRY-chains + 1 FULL-DSP-chain TDC has been chosen
+ as the second implementation, and it is characterized by an area/power
+ relaxation.
+ 
+\change_deleted 1469408620 1669131864
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+di che hai fatto varie pensate sui trade off performance/are a performace/power
+ ed hai deciso cponvergere su 2 implementazioni tipo 4 CARRY-chains =hi
+ performance e 2 CARRY-chains + 1 FULL-DSP-chains per rilassare area e power
+\end_layout
+
+\end_inset
+
+The first implementation consists of a V-TDL made of 4 CARRY-chains in parallel,
+ the second of a V-TDL resulting from 2 CARRY-chains + 1 FULL-DSP-chains
+ in parallel.
+ 
+\change_unchanged
+Both implementations have been tested on Xilinx's KCU105 Evaluation Board,
+ hosting a Kintex-UltraScale™ FPGA (xcku040-ffva1156-2-e).
+ The following experimental results have been obtained:
+\end_layout
+
+\begin_layout Itemize
+a higher clock frequency, equal to 500 MHz, has been reached in both implementat
+ions thanks to the improved scaling of the XUS technology, allowing it to
+ lower the Dead-Time 
+\change_inserted 1469408620 1669130506
+(i.e., 2 ns)
+\change_deleted 1469408620 1669130507
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+numero
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+ and improve the multi-hit capability of the TDC;
+\end_layout
+
+\begin_layout Itemize
+a better single-shot precision has been achieved on the 4 CARRY-chains implement
+ation (i.e., 2.8 ps) than on the 2 CARRY-chains + 1 FULL-DSP-chain
+\change_deleted 1469408620 1669150540
+s
+\change_unchanged
+ one (i.e., 3.8 ps), making the former more suitable for those applications
+ requiring very high precision;
+\end_layout
+
+\begin_layout Itemize
+lower power consumption 
+\change_inserted 1469408620 1669144509
+(i.e., 0.1 W less) 
+\change_unchanged
+and hardware occupancy have been achieved 
+\change_inserted 1469408620 1669130628
+(i.e., 1000 FFs less)
+\change_deleted 1469408620 1669130630
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+numero
+\end_layout
+
+\end_inset
+
+
+\change_inserted 1469408620 1669130631
+ 
+\change_unchanged
+on the 2 CARRY-chains + 1 FULL-DSP-chain
+\change_deleted 1469408620 1669150544
+s
+\change_unchanged
+ implementation than in the 4 CARRY-chains, allowing the former to have
+ a greater number of channels
+\change_inserted 1469408620 1669130547
+ (i.e., 74)
+\change_deleted 1469408620 1669130548
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+numero
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+.
+ It is thus more suitable for those applications requiring a higher number
+ of physical events to be detected;
+\end_layout
+
+\begin_layout Itemize
+both implementations have negligible non-linearity since the DNLs are equal
+ to 0.22 ps and 0.3 ps for the 4 CARRY-chains and the 2 CARRY-chains + 1 FULL-DSP-
+chain
+\change_deleted 1469408620 1669150550
+s
+\change_unchanged
+ implementation, respectively, and the INLs are equal to 5.8 ps and 12 ps,
+ respectively.
+\end_layout
+
+\end_body
+\end_document
